@@ -26,9 +26,10 @@ def novelsIndex(request):
 def bookInfo(request,bid):
     context = {
         'title': '次元圣经',
-        'novelTypes_html':[],
-        'novelTypes':[],
+        'book':{},
     }
+    book = info.objects.select_related().all().order_by("novel_id").exclude(isdelete=1).filter(novel_id = bid)
+    context['book'] = list(book.values())[0]
     return render(request, 'ZA_Novel/ZA_BookInfo.html', context)
 
 def category(request):
