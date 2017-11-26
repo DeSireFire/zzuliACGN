@@ -1,0 +1,46 @@
+{%extends 'df_goods/base.html'%}
+
+{%block detail%}
+
+		<div class="r_wrap fr clearfix">
+			<div class="sort_bar">
+				<a href="/find/?sort=1&keyword={{keyword}}" {%if sort == "1"%}class="active"{%endif%}>默认</a>
+				<a href="/find/?sort=2&keyword={{keyword}}" {%if sort == "2"%}class="active"{%endif%}>价格</a>
+				<a href="/find/?sort=3&keyword={{keyword}}" {%if sort == "3"%}class="active"{%endif%}>人气</a>
+			</div>
+
+			<ul class="goods_type_list clearfix">
+				{%for g in page%}
+				<li>
+					<a href="/{{g.id}}/"><img src="/static/media/{{g.gpic}}"></a>
+					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'8'}}...</a></h4>
+					<div class="operate">
+						<span class="prize">￥{{g.gprice}}</span>
+						<span class="unit">{{g.gunit}}</span>
+						<a href="/cart/add{{g.id}}_1/" class="add_goods" title="加入购物车"></a>
+					</div>
+				</li>
+				{%endfor%}
+
+			</ul>
+
+			<div class="pagenation">
+				{%if page.has_previous%}
+				    <a href="/find/?sort={{sort}}&keyword={{keyword}}&pindex={{page.previous_page_number}}"><上一页</a>
+				{%endif%}
+
+				{%for pindex in paginator.page_range%}
+                    {%if pindex == page.number%}
+                        <a href="" class="active" onclick="return false;">{{pindex}}</a>
+                    {%else%}
+                        <a href="/find/?sort={{sort}}&keyword={{keyword}}&pindex={{pindex}}">{{pindex}}</a>
+                    {%endif%}
+				{%endfor%}
+
+				{%if page.has_next%}
+				    <a href="/find/?sort={{sort}}&keyword={{keyword}}&pindex={{page.next_page_number}}">下一页></a>
+				{%endif%}
+			</div>
+		</div>
+
+{%endblock detail%}
