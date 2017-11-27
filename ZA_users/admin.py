@@ -56,6 +56,8 @@ class UserinfoAdmin(admin.ModelAdmin):
         # 用户头像
         'ZA_User_Action',
         # 用户状态：0：正常 1:删除 2:黑名单 3：冻结
+        'ZA_User_RegTime',
+        # 用户注册时间
     ]
 # # 在admin页面里面注册model中的类和admin.py中对应的类
 admin.site.register(ZA_UserInfo,UserinfoAdmin)
