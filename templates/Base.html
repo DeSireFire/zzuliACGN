@@ -1,33 +1,179 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>{{title}} 郑州轻工业大学 动漫协会！</title>
-	<link rel="stylesheet" type="text/css" href="/static/css/Base_Footer.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
-    <link rel="shortcut icon" href="/static/images/Base_imge/favicon.ico" type="image/x-icon" />
-	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
-    {%block head%}{%endblock head%}
-</head>
-<body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="cmsmasters website template" />
+		<meta name="keywords" content="html, css, template" />
+		<link rel="shortcut icon" href="/static/images/Base_imge/Index_images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/css/Base_BodyHeader.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/static/css/styles/prettyPhoto.css" type="text/css" media="screen" />
+		<link id="gFontName" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cuprum:regular,italic,bold,bolditalic" type="text/css" />
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/styles/ie.css" type="text/css" />
+		<![endif]-->
+		<title>萌站-黑夜主权-飘渺阁</title>
+	<!-- Shared on MafiaShare.net  --><!-- Shared on MafiaShare.net  --></head>
+	<body class="standard simple">
+		<script type="text/javascript"> if (window.jQuery == undefined) document.write( unescape('%3Cscript src="/static/js/jquery-1.6.4.min.js" type="text/javascript"%3E%3C/script%3E') ); </script>
+		<script src="/static/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+		<script src="/static/js/script.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				if (jQuery.browser.msie && jQuery.browser.version < 9){
+					var $windowWidth = jQuery(window).width()+17;
+					var $windowHeight = jQuery(window).height()+17;
+				} else {
+					var $windowWidth = window.innerWidth;
+					var $windowHeight = window.innerHeight;
+				}
 
-{%block body%}{%endblock body%}
-    <!--底部开始-->
-<div class="footer">
-    <div class="fBox" style="color: #FFFAFA;">
-        <div class="footer_nav" style="color: #FFFAFA;">
-            -<a href="http://xiaobao.zzuli.edu.cn/media/user/2017-04-15/show2.html" title="轻院校报" target="_blank">轻院校报</a>-
-            <a href="http://www.zzuli.edu.cn/s/12/t/958/f8/2a/info129066.htm" title="轻院学报" target="_self">轻院学报</a>-
-            <a href="http://www.zzuli.edu.cn/s/12/t/958/p/1/c/6163/d/20082/list.htm" title="校园风光" target="_blank">校园风光</a>-
-            <a href="http://zyzx.zzuli.edu.cn" title="资源平台" target="_blank">资源平台</a>-
-            <a href="http://lib.zzuli.edu.cn/" title="图书馆" target="_blank">图书馆</a>-
-        </div>
-          本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</br>若本站收集的节目无意侵犯了贵司版权，请给
-        <a href="mailto:1025212779@qq.com">1025212779@qq.com</a>邮箱地址来信，我们将在第一时间删除相应资源</br>Copyright &#169; 2017-2018
-        <a href="https://zzuilACG.net">zzuilACG.net</a>.All Rights Reserved .
-    </div>
-</div>
-        <!--底部结束-->
-</body>
+				jQuery('body').append('<div id="preloaderMotion" />');
+				jQuery('a.header_arrow').addClass('hidden');
+
+				var $slider = '#sliderMotion';
+				var $preloader = '#preloaderMotion';
+				var $images = jQuery($slider+' li img');
+				var $max = $images.length;
+
+				$images.each(function(){
+					var img = new Image();
+
+					img.src = jQuery(this).attr('src');
+
+					var intervalId = setInterval(function(){
+						if (img.complete){
+							clearInterval(intervalId);
+
+							$max--;
+
+							jQuery($preloader).append('<img id="nMotion'+$max+'" src="'+img.src+'" width="60" height="35" alt="" />');
+							jQuery($preloader).find('img#nMotion'+$max).animate({opacity:1}, 500);
+
+							if ($max == 0){
+								LoadImageStart(jQuery($slider));
+								jQuery($preloader).fadeOut(500, function(){
+									jQuery(this).css({display:'none'});
+									showHideContent();
+								});
+							}
+						}
+					}, 50);
+				});
+
+				function LoadImageStart(slider){
+					slider.cmsmsMotionSlider({
+						sliderWidth:$windowWidth,
+						sliderHeight:$windowHeight,
+						pauseOnHover:false,
+						showPause:false
+					});
+
+					jQuery('a[rel="prettyPhoto[bgSlider]"]').prettyPhoto({animationSpeed:'normal', deeplinking:false, social_tools:false});
+				}
+
+				jQuery(window).resize(function(){
+					if (jQuery.browser.msie && jQuery.browser.version < 9){
+						var $windowWidth = jQuery(window).width()+17;
+						var $windowHeight = jQuery(window).height();
+					} else {
+						var $windowWidth = window.innerWidth;
+						var $windowHeight = window.innerHeight;
+					}
+
+					jQuery('.cmsmsMotionSliderContainer, .cmsmsMotionSlides, .cmsmsMotionSlides canvas, .cmsmsMotionSlides img, .cmsmsMotionSlides iframe').css({width:$windowWidth+'px', height:$windowHeight+'px'});
+					jQuery('.cmsmsMotionControl').css({height:$windowHeight+'px'});
+					jQuery('.cmsmsMotionNavigation').css({height:parseInt($windowHeight - 195)+'px'});
+				});
+			});
+		</script>
+
+<!-- _________________________ Start Slider __________________________ -->
+		<ul id="sliderMotion">
+			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img1.jpg" data-start="top left" data-finish="bottom right" data-zoom="out" data-animation="10">
+				<img src="/static/images/Base_imge/Index_images/slider/img1.jpg" alt="Banner Image 1" />
+                <div class="cmsmsSlideCaption" data-top="50">
+					<h2>这是萌站呢</h2>
+                    {%block content%}{%endblock content%}
+					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
+				</div>
+			</li>
+			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img2.jpg" data-start="bottom center" data-finish="center center" data-zoom="in" data-animation="15">
+				<a class="video autostop hd" href="http://www.youtube.com/watch?v=-PAjEHhz2mw"><img src="/static/images/Base_imge/Index_images/slider/img2.jpg" alt="Banner Image 2" /></a>
+                <div class="cmsmsSlideCaption" data-top="50">
+					<h2>这是萌站呢</h2>
+					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
+				</div>
+            </li>
+			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img3.jpg" data-start="bottom right" data-finish="bottom left" data-zoom="out">
+				<img src="/static/images/Base_imge/Index_images/slider/img3.jpg" alt="Banner Image 3" />
+                <div class="cmsmsSlideCaption" data-top="50">
+					<h2>这是萌站呢</h2>
+					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
+				</div>
+
+			</li>
+			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img4.jpg" data-start="center center" data-finish="center center" data-zoom="in">
+				<a class="video autostop hd" href="http://vimeo.com/19625497"><img src="/static/images/Base_imge/Index_images/slider/img4.jpg" alt="Banner Image 4" /></a>
+                <div class="cmsmsSlideCaption" data-top="50">
+					<h2>这是萌站呢</h2>
+					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
+				</div>
+            </li>
+			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img5.jpg" data-start="center left" data-finish="top right" data-zoom="out" data-animation="15">
+				<img src="/static/images/Base_imge/Index_images/slider/img5.jpg" alt="Banner Image 5" />
+                <div class="cmsmsSlideCaption" data-top="50">
+					<h2>这是萌站呢</h2>
+					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
+				</div>
+			</li>
+		</ul>
+<!-- _________________________ Finish Slider __________________________ -->
+
+
+<!-- _________________________ Start Page ___________________________ -->
+		<div id="page" class="hideContent">
+
+<!-- _________________________ Start Header _________________________ -->
+			<div class="header_wrap">
+				<div id="header">
+					<div class="header_inner">
+						<a class="logo" title="Pacifico" href="index.html">
+							<img alt="Pacifico" src="/static/images/Base_imge/Index_images/logo.png" />
+
+                            <audio controls autoplay="autoplay"><source src="/static/media/Base_Music/Haloweak%20-%20夏之随想(remix).mp3" type="audio/mpeg" /></audio>
+
+						</a>
+
+<!-- _________________________ Start Navigation _____________________ -->
+						<div class="navigation_wrap">
+							<ul id="navigation">
+                            <br>
+                            <br>
+								<li><a href="about.html">关于<span>about</span></a></li>
+								<li><a href="http://1-yi.cn">进入萌站<span>GO moe</span></a>
+
+								</li>
+								<li><a href="http://img.xiu.moe">萌图床<span>pic moe</span></a>
+
+								</li>
+								<li><a href="http://blog.yoomeili.cn">博客<span>blog</span></a>
+
+								</li>
+								<li><a href="http://wpa.qq.com/msgrd?v=3&uin=1427460400&site=qq&menu=yes">联系笨站长<span>love me</span></a></li>
+							</ul>
+                        </div>
+<!-- _________________________ Finish Navigation ____________________ -->
+
+					</div>
+					<div class="header_arrow_wrap">
+						<a href="#" class="header_arrow"><span>&nbsp;</span></a>
+					</div>
+				</div>
+			</div>
+<!-- _________________________ Finish Header ________________________ -->
+
+		</div>
+<!-- _________________________ Finish Page __________________________ -->
+
+	</body>
 </html>
