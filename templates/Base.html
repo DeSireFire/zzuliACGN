@@ -11,12 +11,13 @@
 		<!--[if lt IE 9]>
 			<link rel="stylesheet" href="css/styles/ie.css" type="text/css" />
 		<![endif]-->
-		<title>萌站-黑夜主权-飘渺阁</title>
+		<title>郑州轻工大学 动漫协会！</title>
+        {%block head%}{%endblock head%}
 	<!-- Shared on MafiaShare.net  --><!-- Shared on MafiaShare.net  --></head>
 	<body class="standard simple">
-		<script type="text/javascript"> if (window.jQuery == undefined) document.write( unescape('%3Cscript src="/static/js/jquery-1.6.4.min.js" type="text/javascript"%3E%3C/script%3E') ); </script>
-		<script src="/static/js/jquery.prettyPhoto.js" type="text/javascript"></script>
-		<script src="/static/js/script.js" type="text/javascript"></script>
+		<script type="text/javascript"> if (window.jQuery == undefined) document.write( unescape('%3Cscript src="/static/Java_Script/jquery-2.1.0.min.js" type="text/javascript"%3E%3C/script%3E') ); </script>
+		<script src="/static/Java_Script/jquery.prettyPhoto.js" type="text/javascript"></script>
+		<script src="/static/Java_Script/script.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			jQuery(document).ready(function(){
 				if (jQuery.browser.msie && jQuery.browser.version < 9){
@@ -26,51 +27,36 @@
 					var $windowWidth = window.innerWidth;
 					var $windowHeight = window.innerHeight;
 				}
-
-				jQuery('body').append('<div id="preloaderMotion" />');
-				jQuery('a.header_arrow').addClass('hidden');
-
-				var $slider = '#sliderMotion';
-				var $preloader = '#preloaderMotion';
-				var $images = jQuery($slider+' li img');
-				var $max = $images.length;
-
-				$images.each(function(){
-					var img = new Image();
-
-					img.src = jQuery(this).attr('src');
-
-					var intervalId = setInterval(function(){
-						if (img.complete){
-							clearInterval(intervalId);
-
-							$max--;
-
-							jQuery($preloader).append('<img id="nMotion'+$max+'" src="'+img.src+'" width="60" height="35" alt="" />');
-							jQuery($preloader).find('img#nMotion'+$max).animate({opacity:1}, 500);
-
-							if ($max == 0){
-								LoadImageStart(jQuery($slider));
-								jQuery($preloader).fadeOut(500, function(){
-									jQuery(this).css({display:'none'});
-									showHideContent();
-								});
-							}
+				
+				var $image = jQuery('.bgImage img');
+				var img = new Image();
+				
+				img.src = jQuery($image).attr('src');
+				
+				var intervalId = setInterval(function(){
+					if (img.complete){
+						var $imgWidth = img.width;
+						var $imgHeight = img.height;
+						var $widthFactor = parseFloat($imgWidth/$windowWidth);
+						var $heightFactor = parseFloat($imgHeight/$windowHeight);
+						
+						if ($widthFactor < $heightFactor){
+							jQuery($image).css({width:$windowWidth+'px', height:parseInt($imgHeight/$widthFactor)+'px', top:'-'+parseInt((parseInt($imgHeight/$widthFactor)-$windowHeight)/2)+'px', left:0});
+						} else {
+							jQuery($image).css({width:parseInt($imgWidth/$heightFactor)+'px', height:$windowHeight+'px', top:0, left:'-'+parseInt((parseInt($imgWidth/$heightFactor)-$windowWidth)/2)+'px'});
 						}
-					}, 50);
-				});
-
-				function LoadImageStart(slider){
-					slider.cmsmsMotionSlider({
-						sliderWidth:$windowWidth,
-						sliderHeight:$windowHeight,
-						pauseOnHover:false,
-						showPause:false
+						
+						clearInterval(intervalId);
+						LoadImageStart();
+					}
+				}, 50);
+				
+				function LoadImageStart(){
+					$image.parent().fadeIn(500, function(){
+						jQuery(this).css({display:'block'});
 					});
-
-					jQuery('a[rel="prettyPhoto[bgSlider]"]').prettyPhoto({animationSpeed:'normal', deeplinking:false, social_tools:false});
 				}
-
+				
 				jQuery(window).resize(function(){
 					if (jQuery.browser.msie && jQuery.browser.version < 9){
 						var $windowWidth = jQuery(window).width()+17;
@@ -79,101 +65,54 @@
 						var $windowWidth = window.innerWidth;
 						var $windowHeight = window.innerHeight;
 					}
-
-					jQuery('.cmsmsMotionSliderContainer, .cmsmsMotionSlides, .cmsmsMotionSlides canvas, .cmsmsMotionSlides img, .cmsmsMotionSlides iframe').css({width:$windowWidth+'px', height:$windowHeight+'px'});
-					jQuery('.cmsmsMotionControl').css({height:$windowHeight+'px'});
-					jQuery('.cmsmsMotionNavigation').css({height:parseInt($windowHeight - 195)+'px'});
+					
+					var $imgWidth = img.width;
+					var $imgHeight = img.height;
+					var $widthFactor = parseFloat($imgWidth/$windowWidth);
+					var $heightFactor = parseFloat($imgHeight/$windowHeight);
+					
+					if ($widthFactor < $heightFactor){
+						jQuery($image).css({width:$windowWidth+'px', height:parseInt($imgHeight/$widthFactor)+'px', top:'-'+parseInt((parseInt($imgHeight/$widthFactor)-$windowHeight)/2)+'px', left:0});
+					} else {
+						jQuery($image).css({width:parseInt($imgWidth/$heightFactor)+'px', height:$windowHeight+'px', top:0, left:'-'+parseInt((parseInt($imgWidth/$heightFactor)-$windowWidth)/2)+'px'});
+					}
 				});
 			});
 		</script>
-
-<!-- _________________________ Start Slider __________________________ -->
-		<ul id="sliderMotion">
-			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img1.jpg" data-start="top left" data-finish="bottom right" data-zoom="out" data-animation="10">
-				<img src="/static/images/Base_imge/Index_images/slider/img1.jpg" alt="Banner Image 1" />
-                <div class="cmsmsSlideCaption" data-top="50">
-					<h2>这是萌站呢</h2>
-                    {%block content%}{%endblock content%}
-					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
-				</div>
-			</li>
-			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img2.jpg" data-start="bottom center" data-finish="center center" data-zoom="in" data-animation="15">
-				<a class="video autostop hd" href="http://www.youtube.com/watch?v=-PAjEHhz2mw"><img src="/static/images/Base_imge/Index_images/slider/img2.jpg" alt="Banner Image 2" /></a>
-                <div class="cmsmsSlideCaption" data-top="50">
-					<h2>这是萌站呢</h2>
-					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
-				</div>
-            </li>
-			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img3.jpg" data-start="bottom right" data-finish="bottom left" data-zoom="out">
-				<img src="/static/images/Base_imge/Index_images/slider/img3.jpg" alt="Banner Image 3" />
-                <div class="cmsmsSlideCaption" data-top="50">
-					<h2>这是萌站呢</h2>
-					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
-				</div>
-
-			</li>
-			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img4.jpg" data-start="center center" data-finish="center center" data-zoom="in">
-				<a class="video autostop hd" href="http://vimeo.com/19625497"><img src="/static/images/Base_imge/Index_images/slider/img4.jpg" alt="Banner Image 4" /></a>
-                <div class="cmsmsSlideCaption" data-top="50">
-					<h2>这是萌站呢</h2>
-					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
-				</div>
-            </li>
-			<li data-thumb="/static/images/Base_imge/Index_images/slider/thumbs/img5.jpg" data-start="center left" data-finish="top right" data-zoom="out" data-animation="15">
-				<img src="/static/images/Base_imge/Index_images/slider/img5.jpg" alt="Banner Image 5" />
-                <div class="cmsmsSlideCaption" data-top="50">
-					<h2>这是萌站呢</h2>
-					<a href="http://1-yi.cn" class="button btn_1">点击进入萌站</a>
-				</div>
-			</li>
-		</ul>
-<!-- _________________________ Finish Slider __________________________ -->
+		
+<!-- _________________________ Start Background Image __________________________ -->
+        {%block bgImage%}{%endblock bgImage%}
+<!-- _________________________ Finish Background Image __________________________ -->
 
 
 <!-- _________________________ Start Page ___________________________ -->
-		<div id="page" class="hideContent">
-
-<!-- _________________________ Start Header _________________________ -->
-			<div class="header_wrap">
-				<div id="header">
-					<div class="header_inner">
-						<a class="logo" title="Pacifico" href="index.html">
-							<img alt="Pacifico" src="/static/images/Base_imge/Index_images/logo.png" />
-
-                            <audio controls autoplay="autoplay"><source src="/static/media/Base_Music/Haloweak%20-%20夏之随想(remix).mp3" type="audio/mpeg" /></audio>
-
-						</a>
-
-<!-- _________________________ Start Navigation _____________________ -->
-						<div class="navigation_wrap">
-							<ul id="navigation">
-                            <br>
-                            <br>
-								<li><a href="about.html">关于<span>about</span></a></li>
-								<li><a href="http://1-yi.cn">进入萌站<span>GO moe</span></a>
-
-								</li>
-								<li><a href="http://img.xiu.moe">萌图床<span>pic moe</span></a>
-
-								</li>
-								<li><a href="http://blog.yoomeili.cn">博客<span>blog</span></a>
-
-								</li>
-								<li><a href="http://wpa.qq.com/msgrd?v=3&uin=1427460400&site=qq&menu=yes">联系笨站长<span>love me</span></a></li>
-							</ul>
-                        </div>
-<!-- _________________________ Finish Navigation ____________________ -->
-
-					</div>
-					<div class="header_arrow_wrap">
-						<a href="#" class="header_arrow"><span>&nbsp;</span></a>
-					</div>
-				</div>
-			</div>
+		<div id="page">
+            {%block Header%}{%endblock Header%}
 <!-- _________________________ Finish Header ________________________ -->
 
+
+<!-- _________________________ Start Middle _________________________ -->
+			<div id="middle">
+
+            {%block Middle%}{%endblock Middle%}
+<!-- _________________________ Finish Middle _________________________ -->
+
+<!-- _________________________ Start Footer _________________________ -->
+				<div id="footer">
+                    <p>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</p>
+                    <p>若本站收集的节目无意侵犯了贵司版权，请给<a href="mailto:1025212779@qq.com">1025212779@qq.com</a>邮箱地址来信，我们将在第一时间删除相应资源</p>
+                    <p>Copyright &#169; 2017-2018<a href="https://zzuilACG.net">zzuilACG.net</a>.All Rights Reserved .</p>
+				</div>
+<!-- _________________________ Finish Footer ________________________ -->
+
+			</div>
+<!-- _________________________ Finish Middle ________________________ -->
+
+			<div class="cl"></div>
 		</div>
 <!-- _________________________ Finish Page __________________________ -->
-
+<!-- _________________________ Start End_Script  ________________________ -->
+        {%block End_Script%}{%endblock End_Script%}
+<!-- _________________________ Finish End_Script __________________________ -->
 	</body>
 </html>

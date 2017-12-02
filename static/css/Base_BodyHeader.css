@@ -1,7 +1,7 @@
 /*
-Template Name: Pacifico
-Template URI: http://pacifico-html.cmsmasters.net/
-Description: The Pacifico HTML Template.
+Template Name: NataliaTsunako
+Template URI: http://NataliaTsunako-html.cmsmasters.net/
+Description: The NataliaTsunako HTML Template.
 Version: 1.1
 Author: MafiaShare.net
 Author URI: http://www.mafiashare.net
@@ -773,7 +773,7 @@ h2.home {
 /* ---------------------------------- Content ----------------------------------------------*/
 
 #middle {
-	width:740px;
+	width:1200px;
 	position:relative;
 	top:0;
 	left:262px;
@@ -1502,6 +1502,7 @@ li.twitter {background:url(/static/images/Base_imge/Index_images/socicons/twitte
 /* ---------------------------------- Footer -----------------------------------------------*/
 
 #footer {
+	text-align: center;
 	padding:10px 30px;
 	background:rgba(0, 0, 0, 0.7);
 	-pie-background:rgba(0, 0, 0, 0.7);
