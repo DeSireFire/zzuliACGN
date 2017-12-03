@@ -1457,6 +1457,7 @@ jQuery(document).ready(function() {
 })(jQuery);
 
 (function(d) {
+	// $.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
     var i = d.tools.tooltip;
     d.extend(i.conf, {
         direction: "up",
@@ -1464,7 +1465,7 @@ jQuery(document).ready(function() {
         slideOffset: 10,
         slideInSpeed: 200,
         slideOutSpeed: 200,
-        slideFade: !d.browser.msie
+        slideFade: !d.support.leadingWhitespace
     });
     var e = {
         up: ["-", "top"],
@@ -1774,21 +1775,21 @@ jQuery(document).ready(function() {
         });
     }
 
-    jQuery('.standard .header_arrow').live('click',
+    jQuery(document).on('click','.standard .header_arrow',
     function() {
         showHideContent();
 
         return false;
     });
 
-    jQuery('.vertical .header_arrow').live('click',
+    jQuery(document).on('click','.vertical .header_arrow',
     function() {
         showHideContent();
 
         return false;
     });
 
-    jQuery('.horizon .header_arrow').live('click',
+    jQuery(document).on('click','.horizon .header_arrow',
     function() {
         showHideContent();
 
