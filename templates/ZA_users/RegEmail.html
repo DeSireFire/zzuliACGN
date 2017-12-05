@@ -16,27 +16,37 @@
             <div class="form-div">
                 <form id="reg-form" action="" method="post">
                     {% csrf_token %}
-                    <table >
+                    <table>
                         <tr>
                             <td>用户名</td>
-                            <td><input name="uid" type="text" id="uid" easyform="length:4-16;char-normal;real-time;" message="用户名必须为4—16位的英文字母或数字" easytip="disappear:lost-focus;theme:blue;" ajax-message="用户名已存在!">
+                            <td><input name="uid" type="text" id="uid"
+                                       data-easyform="length:4 16;char-normal;real-time;ajax:ajax_message(1);"
+                                       data-message="用户名必须为4—16位的英文字母或数字！"
+                                       data-easytip="position:top;class:easy-red;" data-message-ajax="用户名已存在!">
                             </td>
                         </tr>
                         <tr>
                             <td>密码</td>
-                            <td><input name="psw1" type="password" id="psw1" easyform="length:6-16;" message="密码必须为6—16位" easytip="disappear:lost-focus;theme:blue;"></td>
+                            <td><input name="psw1" type="password" id="psw1" data-easyform="length:6 16;"
+                                       data-message="密码必须为6—16位哦，朋友！"
+                                       data-easytip="class:easy-blue;"></td>
                         </tr>
                         <tr>
                             <td>确认密码</td>
-                            <td><input name="psw2" type="password" id="psw2" easyform="length:6-16;equal:#psw1;" message="两次密码输入要一致" easytip="disappear:lost-focus;theme:blue;"></td>
+                            <td><input name="psw2" type="password" id="psw2" data-easyform="length:6 16;equal:#psw1;"
+                                       data-message="两次密码输入要一致，检查一下！" data-easytip="class:easy-blue;"></td>
                         </tr>
                         <tr>
                             <td>email</td>
-                            <td><input name="email" type="text" id="email" easyform="email;real-time;" message="Email格式要正确" easytip="disappear:lost-focus;theme:blue;" ajax-message="这个Email地址已经被注册过，请换一个吧!"></td>
+                            <td><input name="email" type="text" id="email" data-easyform="email;real-time;ajax:ajax_message(2);"
+                                       data-message="Email的格式看起来不太对！"
+                                       data-easytip="class:easy-blue;" data-message-ajax="该电子邮箱已注册!"></td>
                         </tr>
                         <tr>
                             <td>昵称</td>
-                            <td><input name="nickname" type="text" id="nickname" easyform="length:2-16" message="昵称必须为2—16位" easytip="disappear:lost-focus;theme:blue;"></td>
+                            <td><input name="nickname" type="text" id="nickname" data-easyform="length:2 16;"
+                                       data-message="昵称长度过于短小！"
+                                       data-easytip="class:easy-blue;position:bottom;"></td>
                         </tr>
                     </table>
 
@@ -61,6 +71,21 @@
         $(document).ready(function(){
             $('#reg-form').easyform();
         });
+        function ajax_message(num)
+        {
+            switch (num){
+                case 1:
+                    $("#uid").trigger("easyform-ajax",true);
+                    break;
+                case 2:
+                    $("#email").trigger("easyform-ajax",true);
+                    break;
+{#                default:#}
+{#                    $("#uid").trigger("easyform-ajax",false);#}
+{#                    $("#email").trigger("easyform-ajax",false);#}
+            }
+
+        }
     </script>
 {#    <script type="text/javascript" src="/static/Java_Script/User_JS/jquery-2.1.0.min.js"></script>#}
     <script type="text/javascript" src="/static/Java_Script/User_JS/easyform.js"></script>
