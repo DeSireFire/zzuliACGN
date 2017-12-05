@@ -37,7 +37,7 @@ class ZA_UserInfo(models.Model):
     #联系电话
     ZA_User_Name = models.CharField(max_length=20,unique=True)
     #用户名
-    ZA_User_Password = models.CharField(max_length=60,default='')
+    ZA_User_Password = models.CharField(max_length=65,default='')
     #密码，二次确认
     ZA_User_motto = models.CharField(max_length=60,default='')
     #个性签名
