@@ -1,33 +1,173 @@
 {%extends 'Base_Body.html' %}
-{%block head%}{%endblock head%}
-
-{%block Header_context%}{%endblock Header_context%}
-{%block Middle%}
-
-    <div id="home">
-        <h2 class="home">用 户 注 册</h2>
-    </div>
-    <div class="middle_content">
-        <div class="entry">
-            <p><img src="/static/images/Base_imge/Index_images/img_8.jpg" alt="" /></p>
-            <h3>用户注册</h3>
-            <p>萌站成立于 2016 年六一儿童节，目标是<建设国内最大的二次元资源站>，并在为此努力的路上。我们分享来自全球的动漫资源，无门槛下载资源给你最佳的体验。<P>萌站站长：黑夜主权   QQ：1427460400</p>
-            <a href="http://1-yi.cn" class="button btn_1">进入萌站</a>
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=1427460400&site=qq&menu=yes" class="button btn_1">联系我</a>
-            <audio autoplay="autoplay"><source src="/mengzhan.mp3" type="audio/mpeg" /></audio>
-
-            <div class="cl"></div>
-            <br />
-        </div>
-    </div>
-    <div class="cl"></div>
-
-{%endblock Middle%}
-
-{%block End_Script%}{%endblock End_Script%}
+{%block head%}
+    <link rel="stylesheet" href="/static/css/User_CSS/Register.css">
+{%endblock head%}
+{##}
+{#{%block Header_context%}{%endblock Header_context%}#}
+{#{%block Middle%}#}
+{##}
+{#    <div id="home">#}
+{#        <h2 class="home">用 户 注 册</h2>#}
+{#    </div>#}
+{#    <div class="middle_content">#}
+{#        <div class="entry">#}
+{#            <p><img src="/static/images/Base_imge/Index_images/img_8.jpg" alt="" /></p>#}
+{#            <h3>用户注册</h3>#}
+{#            <p>萌站成立于 2016 年六一儿童节，目标是<建设国内最大的二次元资源站>，并在为此努力的路上。我们分享来自全球的动漫资源，无门槛下载资源给你最佳的体验。<P>萌站站长：黑夜主权   QQ：1427460400</p>#}
+{#            <a href="http://1-yi.cn" class="button btn_1">进入萌站</a>#}
+{#            <a href="http://wpa.qq.com/msgrd?v=3&uin=1427460400&site=qq&menu=yes" class="button btn_1">联系我</a>#}
+{#            <audio autoplay="autoplay"><source src="/mengzhan.mp3" type="audio/mpeg" /></audio>#}
+{##}
+{#            <div class="cl"></div>#}
+{#            <br />#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="cl"></div>#}
+{##}
+{#{%endblock Middle%}#}
+{##}
+{#{%block End_Script%}{%endblock End_Script%}#}
 
 {#{%block content%}#}
 {#    <div style="width:500px;height: 500px">#}
 {#        <p>郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！</p>#}
 {#    </div>#}
 {#{%endblock content%}#}
+
+{%block Middle%}
+<form id="reg-form" action="/user/RegHandle/" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input name="uid" type="text" id="uid"
+                       data-easyform="length:4 16;char-normal;real-time;ajax:ajax_demo(1);"
+                       data-message="用户名必须为4—16位的英文字母或数字"
+                       data-easytip="position:top;class:easy-red;" data-message-ajax="用户名已存在!">
+            </td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input name="psw1" type="password" id="psw1" data-easyform="length:6 16;"
+                       data-message="密码必须为6—16位"
+                       data-easytip="class:easy-blue;"></td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td><input name="psw2" type="password" id="psw2" data-easyform="length:6 16;equal:#psw1;"
+                       data-message="两次密码输入要一致" data-easytip="class:easy-blue;"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input name="email" type="text" id="email" data-easyform="email;real-time;easytip:false;"
+                       data-message="Email格式要正确"
+                       data-easytip="class:easy-blue;"></td>
+        </tr>
+        <tr>
+            <td>昵称</td>
+            <td><input name="nickname" type="text" id="nickname" data-easyform="length:2 16;"
+                       data-easytip="class:easy-blue;position:bottom;"></td>
+        </tr>
+    </table>
+
+    <div class="buttons" style="margin-top: 50px;">
+        <input value="注 册" type="submit" style="margin-right:20px; margin-top:20px;">
+        <input value="我有账号，我要登录" type="button" style="margin-right:45px; margin-top:20px;">
+    </div>
+
+    <br class="clear">
+</form>
+
+{%endblock Middle%}
+
+{%block End_Script%}
+    <script type="text/javascript">
+    $(document).ready(function ()
+    {
+        var v = $('#reg-form').easyform();
+
+        $('#demo-form').easyform();
+
+        v.is_submit = false;
+
+        v.error = function (ef, i, r)
+        {
+            //v.show("#email", "自定义消息");
+            //console.log("Error事件：" + i.id + "对象的值不符合" + r + "规则");
+        };
+
+        v.success = function (ef)
+        {
+            //console.log("成功");
+        };
+
+        v.complete = function (ef)
+        {
+            console.log("完成");
+        };
+
+        $('#tip-test1').easytip();
+        $('#tip-test2').easytip();
+        $('#tip-test3').easytip();
+        $('#tip-test4').easytip();
+
+        $("#uid").on("easyform-success-length", function (e, input)
+        {
+            alert("#uid的长度正确！");
+        });
+
+    });
+
+    function ajax_demo(p)
+    {
+        $("#uid").trigger("easyform-ajax", true);
+    }
+    </script>
+    <script>
+
+        $(document).ready(function ()
+        {
+            var v = $('#reg-form').easyform();
+
+            $('#demo-form').easyform();
+
+            v.is_submit = false;
+
+            v.error = function (ef, i, r)
+            {
+                //v.show("#email", "自定义消息");
+                //console.log("Error事件：" + i.id + "对象的值不符合" + r + "规则");
+            };
+
+            v.success = function (ef)
+            {
+                //console.log("成功");
+            };
+
+            v.complete = function (ef)
+            {
+                console.log("完成");
+            };
+
+            $('#tip-test1').easytip();
+            $('#tip-test2').easytip();
+            $('#tip-test3').easytip();
+            $('#tip-test4').easytip();
+
+            $("#uid").on("easyform-success-length", function (e, input)
+            {
+                alert("#uid的长度正确！");
+            });
+
+        });
+
+        function ajax_demo(p)
+        {
+            $("#uid").trigger("easyform-ajax", true);
+        }
+
+
+    </script>
+{#    <script type="text/javascript" src="/static/Java_Script/User_JS/jquery-2.1.0.min.js"></script>#}
+    <script type="text/javascript" src="/static/Java_Script/User_JS/easyform.js"></script>
+{%endblock End_Script%}
