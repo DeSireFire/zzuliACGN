@@ -17,10 +17,29 @@ def Register(request):
 
     context = {'title': '用户注册'}
     return  render(request,'ZA_users/RegEmail.html',context)
-    pass
+
+
+def register_skip(request):
+    '''
+        获取用户名
+        验证用户名是否重复,
+        返回json格式的数据(JsonResponse)
+        {根据名字查到的用户对象的num_id}
+        模板中接口为count
+    '''
+    uname = request.GET.get('user_name')
+    print(request.GET)
+    print(uname)
+    # num_id = ZA_UserInfo.objects.filter(uname = uname).count()
+    # return JsonResponse({'count':2})
+    return JsonResponse({'Judgement':'false'})
 
 # 用户注册：电子邮箱
 def Register_handle(request):
+
+    if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
+        q = request.GET.get('user_name')
+        print(q)
 
     New_ZA_User_Email = request.POST.get('Email')
     #电子邮箱
@@ -32,16 +51,18 @@ def Register_handle(request):
     #用户密码1
     New_ZA_User_pwd_again = request.POST.get('pwdagain')
     # 用户密码2
-    New_ZA_User_RegTime = datetime.now().strftime('%b-%d-%y %H:%M:%S')
+    New_ZA_User_RegTime = datetime.now().strftime('%b-%d-%Y %H:%M:%S')
     # 用户注册时间
 
 
     #后端再次确认密码是否一致
-    if New_ZA_User_pwd != New_ZA_User_pwd_again:
+    if New_ZA_User_pwd != New_ZA_User_pwd_again and New_ZA_User_pwd != None and New_ZA_User_pwd_again != None:
         return redirect('/user/Register')
     else:
         #加密
         Encipherment = sha1()
+        print(New_ZA_User_pwd)
+        print(type(New_ZA_User_pwd))
         Encipherment.update(New_ZA_User_pwd.encode('utf-8'))
         Up_Password_Encipherment = Encipherment.hexdigest()
 
