@@ -40,7 +40,7 @@
     <table>
         <tr>
             <td>用户名</td>
-            <td><input name="uid" type="text" id="uid"
+            <td><input name="user_name" type="text" id="uid"
                        data-easyform="length:4 16;char-normal;real-time;ajax:ajax_demo(1);"
                        data-message="用户名必须为4—16位的英文字母或数字"
                        data-easytip="position:top;class:easy-red;" data-message-ajax="用户名已存在!">
@@ -48,20 +48,26 @@
         </tr>
         <tr>
             <td>密码</td>
-            <td><input name="psw1" type="password" id="psw1" data-easyform="length:6 16;"
+            <td><input name="pwd" type="password" id="psw1" data-easyform="length:6 16;"
                        data-message="密码必须为6—16位"
                        data-easytip="class:easy-blue;"></td>
         </tr>
         <tr>
             <td>确认密码</td>
-            <td><input name="psw2" type="password" id="psw2" data-easyform="length:6 16;equal:#psw1;"
+            <td><input name="pwdagain" type="password" id="psw2" data-easyform="length:6 16;equal:#psw1;"
                        data-message="两次密码输入要一致" data-easytip="class:easy-blue;"></td>
         </tr>
         <tr>
             <td>email</td>
-            <td><input name="email" type="text" id="email" data-easyform="email;real-time;easytip:false;"
+            <td><input name="Email" type="text" id="email" data-easyform="email;real-time;easytip:true;"
                        data-message="Email格式要正确"
                        data-easytip="class:easy-blue;"></td>
+        </tr>
+        <tr>
+            <td>联系电话（手机）</td>
+            <td><input name="user_Phone" type="text" id="mobile" data-easyform="mobile;real-time;"
+                       data-message="手机号码的格式看起来不太对！"
+                       data-easytip="class:easy-blue;" data-message-ajax="该手机号码已注册!"></td>
         </tr>
         <tr>
             <td>昵称</td>
@@ -82,89 +88,17 @@
 
 {%block End_Script%}
     <script type="text/javascript">
-    $(document).ready(function ()
-    {
-        var v = $('#reg-form').easyform();
 
-        $('#demo-form').easyform();
 
-        v.is_submit = false;
-
-        v.error = function (ef, i, r)
-        {
-            //v.show("#email", "自定义消息");
-            //console.log("Error事件：" + i.id + "对象的值不符合" + r + "规则");
-        };
-
-        v.success = function (ef)
-        {
-            //console.log("成功");
-        };
-
-        v.complete = function (ef)
-        {
-            console.log("完成");
-        };
-
-        $('#tip-test1').easytip();
-        $('#tip-test2').easytip();
-        $('#tip-test3').easytip();
-        $('#tip-test4').easytip();
-
-        $("#uid").on("easyform-success-length", function (e, input)
-        {
-            alert("#uid的长度正确！");
-        });
-
+    $(document).ready(function(){
+        $('#reg-form').easyform();
     });
 
     function ajax_demo(p)
     {
         $("#uid").trigger("easyform-ajax", true);
     }
-    </script>
-    <script>
 
-        $(document).ready(function ()
-        {
-            var v = $('#reg-form').easyform();
-
-            $('#demo-form').easyform();
-
-            v.is_submit = false;
-
-            v.error = function (ef, i, r)
-            {
-                //v.show("#email", "自定义消息");
-                //console.log("Error事件：" + i.id + "对象的值不符合" + r + "规则");
-            };
-
-            v.success = function (ef)
-            {
-                //console.log("成功");
-            };
-
-            v.complete = function (ef)
-            {
-                console.log("完成");
-            };
-
-            $('#tip-test1').easytip();
-            $('#tip-test2').easytip();
-            $('#tip-test3').easytip();
-            $('#tip-test4').easytip();
-
-            $("#uid").on("easyform-success-length", function (e, input)
-            {
-                alert("#uid的长度正确！");
-            });
-
-        });
-
-        function ajax_demo(p)
-        {
-            $("#uid").trigger("easyform-ajax", true);
-        }
 
 
     </script>

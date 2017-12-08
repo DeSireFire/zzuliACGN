@@ -31,8 +31,8 @@ def register_skip(request):
     print(request.GET)
     print(uname)
     # num_id = ZA_UserInfo.objects.filter(uname = uname).count()
-    # return JsonResponse({'count':2})
-    return JsonResponse({'Judgement':'false'})
+    return JsonResponse({'count':1})
+    # return JsonResponse({'Judgement':'false'})
 
 # 用户注册：电子邮箱
 def Register_handle(request):
