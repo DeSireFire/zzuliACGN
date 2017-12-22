@@ -24,15 +24,15 @@ def register_skip(request):
         获取用户名
         验证用户名是否重复,
         返回json格式的数据(JsonResponse)
-        {根据名字查到的用户对象的num_id}
+        {根据名字查到的用户对象的user_name}
         模板中接口为count
     '''
     uname = request.GET.get('user_name')
     print(request.GET)
     print(uname)
     # num_id = ZA_UserInfo.objects.filter(uname = uname).count()
+    # return JsonResponse({'B_count':1,'Bool':'true'})
     return JsonResponse({'count':1})
-    # return JsonResponse({'Judgement':'false'})
 
 # 用户注册：电子邮箱
 def Register_handle(request):
