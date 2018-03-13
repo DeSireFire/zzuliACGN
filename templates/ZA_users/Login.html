@@ -1,0 +1,85 @@
+{%extends 'Base_Body.html' %}
+{%block head%}
+    <link rel="stylesheet" href="/static/css/User_CSS/Register.css">
+{%endblock head%}
+
+{%block Header_context%}{%endblock Header_context%}
+{%block Middle%}
+
+    <div id="home">
+        <h2 class="home">用 户 注 册</h2>
+    </div>
+    <div class="middle_content" style="z-index: 0">
+        <div class="entry">
+        <p><img class="middle_img" src="/static/images/Base_imge/Index_images/1500x500.jpg" alt="用户注册" /></p>
+{#            <h3>用户注册</h3>#}
+            <div class="form-div">
+                <form id="reg-form" action="/user/RegHandle/" method="post">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td>用户名</td>
+                            <td><input name="user_name" type="text" id="uid"
+                                       data-easyform="length:4 16;char-normal;real-time;ajax:ajax_message();"
+                                       data-message="用户名必须为4—16位的英文字母或数字！"
+                                       data-easytip="position:top;class:easy-red;" data-message-ajax="用户名已存在!">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>密码</td>
+                            <td><input name="pwd" type="password" id="psw1" data-easyform="length:6 16;"
+                                       data-message="密码必须为6—16位哦，朋友！"
+                                       data-easytip="class:easy-blue;"></td>
+                        </tr>
+                        <tr>
+                            <td>确认密码</td>
+                            <td><input name="pwdagain" type="password" id="psw2" data-easyform="length:6 16;equal:#psw1;real-time;"
+                                       data-message="两次密码输入要一致，检查一下！" data-easytip="class:easy-blue;"></td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td><input name="Email" type="text" id="email" data-easyform="email;real-time;"
+                                       data-message="Email的格式看起来不太对！"
+                                       data-easytip="class:easy-blue;" data-message-ajax="该电子邮箱已注册!"></td>
+                        </tr>
+                        <tr>
+                            <td>联系电话（手机）</td>
+                            <td><input name="user_Phone" type="text" id="mobile" data-easyform="mobile;real-time;"
+                                       data-message="手机号码的格式看起来不太对！"
+                                       data-easytip="class:easy-blue;" data-message-ajax="该手机号码已注册!"></td>
+                        </tr>
+                        <tr>
+                            <td>昵称</td>
+                            <td><input name="nickname" type="text" id="nickname" data-easyform="length:2 16;real-time;"
+                                       data-message="昵称长度过于短小！"
+                                       data-easytip="class:easy-blue;position:bottom;"></td>
+                        </tr>
+                    </table>
+
+                    <div class="buttons">
+                        <input value="注 册" type="submit" style="margin-right:20px; margin-top:20px;">
+                        <input value="我有账号，我要登录" type="button" style="margin-right:45px; margin-top:20px;">
+                    </div>
+
+                    <br class="clear">
+                </form>
+            </div>
+            <div class="cl"></div>
+            <br />
+        </div>
+    </div>
+    <div class="cl"></div>
+
+{%endblock Middle%}
+
+{%block End_Script%}
+{#    <script type="text/javascript" src="/static/Java_Script/User_JS/jquery-2.1.0.min.js"></script>#}
+    <script type="text/javascript" src="/static/Java_Script/User_JS/easyform.js"></script>
+    <script type="text/javascript" src="/static/Java_Script/User_JS/Register.js"></script>
+{%endblock End_Script%}
+
+{#{%block content%}#}
+{#    <div style="width:500px;height: 500px">#}
+{#        <p>郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！郑州轻工业学院 动漫协会！</p>#}
+{#    </div>#}
+{#{%endblock content%}#}
