@@ -6,6 +6,4 @@ from django.shortcuts import render
 def Construction_period(request):
     return render(request,'ZA_Index/Construction_period.html')
 
-# 网站招新展示页
-def ZA_show(request):
-    return render(request,'ZA_Show/ZA_show.html')
+
