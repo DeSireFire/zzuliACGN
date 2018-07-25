@@ -1,0 +1,6 @@
+# ignore 
+/zzuliACGN/
+/ZA_Index/__pycache__/
+/ZA_Index/migrations/__pycache__/
+
+*.txt
