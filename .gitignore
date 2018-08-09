@@ -1,6 +1,6 @@
 # ignore 
-/zzuliACGN/
+/zzuliACGN/s
 /ZA_Index/__pycache__/
 /ZA_Index/migrations/__pycache__/
-
+/easy_config.py
 *.txt

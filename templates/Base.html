@@ -2,26 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        {%block css%}{%endblock css%}
+        {%block head%}{%endblock head%}
         <title>郑州轻工大学 动漫协会！</title>
     </head>
     <body>
-    <!-- _________________________ Start Background Image __________________________ -->
+<!-- _________________________ Start Background Image __________________________ -->
         {%block bgImage%}{%endblock bgImage%}
-    <!-- _________________________ Finish Background Image __________________________ -->
+<!-- _________________________ Finish Background Image __________________________ -->
 
 
+<!-- _________________________ Start Page ___________________________ -->
+            {%block Header%}{%endblock Header%}
+<!-- _________________________ Finish Header ________________________ -->
 
 
-    <!-- _________________________ Start Page ___________________________ -->
+<!-- _________________________ Start Middle _________________________ -->
+            {%block Middle%}{%endblock Middle%}
+<!-- _________________________ Finish Middle _________________________ -->
 
+<!-- _________________________ Start Footer _________________________ -->
+        <nav id="footer">
+            <div class="container">
+                <div class="pull-left fnav">
+                    <p>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</p>
+                    <p>若本站收集的节目无意侵犯了贵司版权，请给<a href="mailto:1025212779@qq.com">1025212779@qq.com</a>邮箱地址来信，我们将在第一时间删除相应资源</p>
+{#                    <p>Copyright &#169; 2017-2018<a href="https://zzuilACG.net">zzuilACG.net</a>.All Rights Reserved .</p>#}
+                    <p>Copyright &copy; 2018.郑州轻工业大学 动漫协会 All rights reserved.</p>
+                </div>
+                <div class="pull-right fnav">
+                    <ul class="footer-social">
+                        <li><a href="#"><i class="fa fa-warning"></i>社团官网施工中...</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<!-- _________________________ Finish Footer ________________________ -->
 
-    <!-- _________________________ Start Header _________________________ -->
-        {%block Header%}{%endblock Header%}
-    <!-- _________________________ Finish Header ________________________ -->
-
-
-
-    <!-- _________________________ Finish Page __________________________ -->
+<!-- _________________________ Finish Middle ________________________ -->
+<!-- _________________________ Finish Page __________________________ -->
+<!-- _________________________ Start End_Script  ________________________ -->
+        {%block End_Script%}{%endblock End_Script%}
+<!-- _________________________ Finish End_Script __________________________ -->
     </body>
 </html>
