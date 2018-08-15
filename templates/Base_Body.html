@@ -1,56 +1,15 @@
 {%extends 'Base.html' %}
 
-{%block head%}
-    <!-- Bootstrap -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{%block head%}{%endblock head%}
 
-    <!-- Slider
-    ================================================== -->
-    <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css" rel="stylesheet" media="screen">
-    <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css" rel="stylesheet" media="screen">
 
-    <!-- Stylesheet
-    ================================================== -->
-    <link rel="stylesheet" type="text/css" href="/static/ZA_Show/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/static/ZA_Show/css/responsive.css">
+{%block body%}
 
-{%endblock head%}
+    {%block Header%}{%endblock Header%}
 
-{%block bgImage%}
-    <!--<div class="bgImage">-->
-        <!--<img src="/static/images/Base_imge/Index_images/subpage_bg.jpg" alt="" />-->
-    <!--</div>-->
-{%endblock bgImage%}
+    {%block Middle%}{%endblock Middle%}
 
-<!-- _________________________ Start Header _________________________ -->
-{%block Header%}
-    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="ZA_show.html">郑轻大动漫协会</a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#tf-home" class="page-scroll">首页</a></li>
-                <li><a href="#tf-about" class="page-scroll">关于社团</a></li>
-                <li><a href="#tf-team" class="page-scroll">社团部门</a></li>
-                <li><a href="#tf-services" class="page-scroll">部门详细</a></li>
-                <li><a href="#tf-works" class="page-scroll">社团活动</a></li>
-                <li><a href="#tf-testimonials" class="page-scroll">我们的荣誉</a></li>
-                <li><a href="#tf-contact" class="page-scroll">加入我们</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-{%endblock Header%}
+{%endblock body%}
+
+{%block End_Script%}{%endblock End_Script%}
