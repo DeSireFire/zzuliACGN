@@ -1,7 +1,7 @@
 {%extends 'Base_Body.html' %}
-{%block head%}
-    <link rel="stylesheet" href="static/ZA_User/css/User_CSS/Register.css">
-{%endblock head%}
+{%block head_more%}
+    <link rel="stylesheet" href="/static/ZA_User/css/Register.css">
+{%endblock head_more%}
 
 {%block Header_context%}{%endblock Header_context%}
 {%block Middle%}
@@ -11,7 +11,7 @@
     </div>
     <div class="middle_content" style="z-index: 0">
         <div class="entry">
-            <p><img src="/static/images/Base_imge/Index_images/1500x500.jpg"  alt="用户注册" /></p>
+{#            <p><img src="/static/images/Base_imge/Index_images/1500x500.jpg"  alt="用户注册" /></p>#}
 {#            <h3>用户注册</h3>#}
             <div class="form-div">
                 <form id="reg-form" action="/user/RegHandle/" method="post">
@@ -73,9 +73,9 @@
 {%endblock Middle%}
 
 {%block End_Script%}
-{#    <script type="text/javascript" src="/static/Java_Script/User_JS/jquery-2.1.0.min.js"></script>#}
-    <script type="text/javascript" src="/static/Java_Script/User_JS/easyform.js"></script>
-    <script type="text/javascript" src="/static/Java_Script/User_JS/Register.js"></script>
+    <script type="text/javascript" src="/static/ZA_User/js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/static/ZA_User/js/easyform.js"></script>
+    <script type="text/javascript" src="/static/ZA_User/js/Register.js"></script>
 {%endblock End_Script%}
 
 {#{%block content%}#}

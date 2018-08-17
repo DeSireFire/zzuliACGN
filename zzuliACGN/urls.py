@@ -22,7 +22,7 @@ from . import view
 urlpatterns = [
     path('NTadmin/', admin.site.urls),
     path('', include('ZA_Show.urls')),
-    path('user', include('ZA_User.urls')),
+    path('user/', include('ZA_User.urls')),
     # path('', include('ZA_Index.urls')),
 
     # 增加以下一行，以识别静态资源

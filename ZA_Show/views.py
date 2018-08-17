@@ -4,4 +4,6 @@ from django.shortcuts import render
 
 # 网站招新展示页
 def ZA_Show(request):
-    return render(request,'ZA_Show/ZA_show.html')
+    context = {'title': '用户注册'}
+    return render(request,'ZA_Show/ZA_show.html',context)
+
