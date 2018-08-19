@@ -38,7 +38,7 @@
             //当 滚动条距底部的距离 + 滚动条滚动的距离 >= 文档的高度 - 窗口的高度
             //换句话说：（滚动条滚动的距离 + 窗口的高度 = 文档的高度）  这个是基本的公式
 
-            if ((BOTTOM_OFFSET + scrollTop) >= docHeight - windowHeight - 1 && pos != MAX_POS) {
+            if ((BOTTOM_OFFSET + scrollTop) >= docHeight - windowHeight - 10 && pos != MAX_POS) {
                 showItems();
             }
         });

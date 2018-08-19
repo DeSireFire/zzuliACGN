@@ -1,10 +1,8 @@
 {%extends 'Base.html' %}
 
 {%block head%}
-        <!-- Bootstrap -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <script type="text/javascript" src="/static/jquery-1.12.4.js"></script>
     {%block head_more%}{%endblock head_more%}
 
 {%endblock head%}
@@ -15,40 +13,104 @@
 
     {%block Header%}
 
-        <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="ZA_show.html">郑轻大动漫协会</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#tf-home" class="page-scroll">首页</a></li>
-                        <li><a href="#tf-about" class="page-scroll">关于社团</a></li>
-                        <li><a href="#tf-team" class="page-scroll">社团部门</a></li>
-                        <li><a href="#tf-services" class="page-scroll">部门详细</a></li>
-                        <li><a href="#tf-works" class="page-scroll">社团活动</a></li>
-                        <li><a href="#tf-testimonials" class="page-scroll">我们的荣誉</a></li>
-                        <li><a href="#tf-contact" class="page-scroll">加入我们</a></li>
+<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- 移动设备显示的导航部分 -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="ZA_show.html">郑轻大动漫协会</a>
+        </div>
+        <!-- 导航主体 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">主站</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">社团活动公告</a></li>
+                        <li><a href="#">漫协干部公示</a></li>
+                        <li><a href="#">动漫协会编年史</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">动漫协会外宣展示</a></li>
+                        <li role="separator" class="divider"></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">肥宅快乐源 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu nav-menu navbar-inverse">
+                        <li><a href="#">动画番剧--Animations</a></li>
+                        <li><a href="#">漫有引力--Comics</a></li>
+                        <li><a href="#">游戏中心--Games</a></li>
+                        <li><a href="#">次元圣经--Novel&Fiction</a></li>
+                        <li><a href="#">资讯情报--Intelligence</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">BT资源区</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li><a href="#">漫协BBS</a></li>
+                <li><a href="#">画友涂墙</a></li>
+                <li><a href="#">聊天室</a></li>
+            </ul>
+            <!--搜索框-->
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn">Linking斯达托！</button>
+            </form>
+            <!--导航条右-->
+            <!--未登录状态-->
+            <ul id="noLogin" class="nav navbar-nav navbar-right">
+                <li><a href="#">用户登陆</a></li>
+                <li><a href="#">用户注册</a></li>
+            </ul>
+            <!--已登录状态-->
+            <!--<ul id="Logining" class="nav navbar-nav navbar-right">-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">（假装是用户头像图）<span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">（假装是用户简要资料）</a></li>-->
+                        <!--<li><a href="#">个人中心</a></li>-->
+                        <!--<li><a href="#">投稿管理</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li><a href="#">退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li><a href="#">消息</a></li>-->
+                <!--<li><a href="#">动态</a></li>-->
+                <!--<li><a href="#">收藏夹</a></li>-->
+                <!--<li><a href="#">历史</a></li>-->
+            <!--</ul>-->
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
     {%endblock Header%}
 
     {%block Middle%}{%endblock Middle%}
 
+<script>
+    $(function () {
+        //鼠标离开导航菜单消失
+        $(".dropdown").mouseleave(function () {
+            $(".open").attr("class","dropdown");
+            $(".dropdown-toggle").attr("aria-expanded","false");
+        });
 
+        $("#bs-example-navbar-collapse-1").mouseleave(function () {
+            $("#bs-example-navbar-collapse-1").attr("class","navbar-collapse collapse");
+        });
+
+    });
+</script>
 {%endblock body%}
 
 {%block End_Script%}{%endblock End_Script%}
