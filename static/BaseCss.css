@@ -166,11 +166,10 @@ ul,ol {
 	background-color:rgba(153,204,255,0.5);
 	border-radius: 5px;
 }
-.navbar-default .navbar-nav > .open > a:focus{
+.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
 	background-color:rgba(153,204,255,0.5);
 	border-radius: 5px;
 }
-
 
 .on {
 	background-color:#222222 !important;
@@ -190,6 +189,11 @@ ul,ol {
 }
 .navbar-default .navbar-toggle:hover > .icon-bar {
 	background-color:#FFF;
+}
+.nav > li > a > img {
+	max-width: 24px;!important;
+	display: block;
+	height: auto;
 }
 
 

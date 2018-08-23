@@ -23,7 +23,7 @@
 	/* W3C */
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000',endColorstr='#66000000',GradientType=0);
 	/* IE6-9 */
-	height:800px;
+	height:1200px;
 	background-attachment:fixed;
 }
 #tf-home p.lead {
@@ -31,7 +31,7 @@
 }
 .content {
 	position:relative;
-	padding:20% 0 0;
+	padding:15% 0 0;
 }
 .color {
 	color:#fcac45;
@@ -50,20 +50,42 @@ a.fa.fa-angle-down:hover {
 	color:#ffffff;
 	border:2px solid #fcac45;
 }
+
 @media (max-width: 603px) {
 	#tf-menu.navbar-default {
 		background-color: rgba(0, 0, 0, 0.79);
 	}
 
-	#tf-works li.pull-right, #tf-works li.pull-left {
-		margin-top: 10px;
-		float: none !important;
-		text-align: center;
-		display: block;
-	}
 }
 @media (max-width: 768px){
 	.content {
 		padding: 40% 0 0;
 	}
+	.container{
+		background-color: #2b2e33;
+
+	}
+}
+
+
+/*register*/
+.container{
+	border:1px solid #99CCFF;
+	background-color:rgba(153,204,255,0.1);
+	transition:all 2s ease-out;
+	-moz-transition:all 2s ease-out; /* Firefox 4 */
+	-webkit-transition:all 2s ease-out; /* Safari and Chrome */
+	-o-transition:all 2s ease-out; /* Opera */
+}
+.container:hover{
+	border-radius: 30px;
+	background-color:rgba(153,204,255,0.5);
+	/*transition:all 2s ease-out;*/
+	/*-moz-transition:all 2s ease-out; !* Firefox 4 *!*/
+	/*-webkit-transition:all 2s ease-out; !* Safari and Chrome *!*/
+	/*-o-transition:all 2s ease-out; !* Opera *!*/
+}
+
+.space{
+	margin-top: 40px;
 }
