@@ -80,7 +80,9 @@ ul,ol {
 	-webkit-padding:0;
 	-moz-padding:0;
 }
-
+.space{
+	margin-top: 40px;
+}
 /*Navigation*/
 #tf-menu{
 	padding:20px;

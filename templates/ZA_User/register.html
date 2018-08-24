@@ -1,6 +1,6 @@
 {%extends 'Base_Body.html' %}
 {%block head_more%}
-    <link rel="stylesheet" href="/static/ZA_User/css/Register.css">
+{#    <link rel="stylesheet" href="/static/ZA_User/css/Register.css">#}
     <link rel="stylesheet" href="/static/ZA_User/css/userBase.css">
 
 {%endblock head_more%}
@@ -15,7 +15,7 @@
             <!--<a href="#tf-about" class="fa fa-angle-down page-scroll"></a>-->
             <!--<img src="img/dont.jpg" class="img-responsive img-rounded center-block" alt="用户提示" style="height: 400px;width: auto;">-->
         </div>
-        <div class="container">
+        <div id="body-container" class="container">
             <div class="row">
                 <div class="space"></div>
                     <form class="form-horizontal">
@@ -142,10 +142,10 @@
 </div>
 {%endblock Middle%}
 
-{%block End_Script%}
+{%block End_Script_more%}
     <script type="text/javascript" src="/static/ZA_User/js/easyform.js"></script>
     <script type="text/javascript" src="/static/ZA_User/js/Register.js"></script>
-{%endblock End_Script%}
+{%endblock End_Script_more%}
 
 {#{%block content%}#}
 {#    <div style="width:500px;height: 500px">#}
