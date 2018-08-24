@@ -1,8 +1,6 @@
 {%extends 'Base_Body.html' %}
 {%block head_more%}
 
-
-
     <!-- Slider
     ================================================== -->
     <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css" rel="stylesheet" media="screen">
@@ -1616,19 +1614,11 @@
 
 {%endblock Middle%}
 
-
-{%block End_Script%}
-
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/static/ZA_Show/js/main.js"></script>
-
+{%block End_Script_more%}
+<script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.js"></script>
 <!-- 屏幕滚动效果 -->
 <script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script>
-
+<script type="text/javascript" src="/static/ZA_Show/js/main.js"></script>
 <script>
     $(function () {
         //第一次获取屏幕大小
@@ -1659,7 +1649,6 @@
         }
     });
 </script>
-
-{%endblock End_Script%}
+{%endblock End_Script_more%}
 
 

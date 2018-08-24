@@ -30,7 +30,7 @@
         <!-- 导航主体 -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">主站</a></li>
+                <li class="active"><a href="#">主站</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
                     <ul class="dropdown-menu">
@@ -64,31 +64,33 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn">Linking斯达托！</button>
+                <button type="submit" class="btn">Link Start!</button>
             </form>
             <!--导航条右-->
             <!--未登录状态-->
             <ul id="noLogin" class="nav navbar-nav navbar-right">
                 <li><a href="#">用户登陆</a></li>
-                <li><a href="/user/Register/">用户注册</a></li>
+                <li><a href="#">用户注册</a></li>
             </ul>
             <!--已登录状态-->
-            <!--<ul id="Logining" class="nav navbar-nav navbar-right">-->
-                <!--<li class="dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">（假装是用户头像图）<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li><a href="#">（假装是用户简要资料）</a></li>-->
-                        <!--<li><a href="#">个人中心</a></li>-->
-                        <!--<li><a href="#">投稿管理</a></li>-->
-                        <!--<li role="separator" class="divider"></li>-->
-                        <!--<li><a href="#">退出</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li><a href="#">消息</a></li>-->
-                <!--<li><a href="#">动态</a></li>-->
-                <!--<li><a href="#">收藏夹</a></li>-->
-                <!--<li><a href="#">历史</a></li>-->
-            <!--</ul>-->
+{#            <ul id="Logining" class="nav navbar-nav navbar-right">#}
+{#                <li class="dropdown">#}
+{#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">#}
+{#                        <img src="img/deaful.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">#}
+{#                    </a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li><a href="#">（假装是用户简要资料）</a></li>#}
+{#                        <li><a href="#">个人中心</a></li>#}
+{#                        <li><a href="#">投稿管理</a></li>#}
+{#                        <li role="separator" class="divider"></li>#}
+{#                        <li><a href="#">退出</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li><a href="#">消息</a></li>#}
+{#                <li><a href="#">动态</a></li>#}
+{#                <li><a href="#">收藏夹</a></li>#}
+{#                <li><a href="#">历史</a></li>#}
+{#            </ul>#}
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -98,23 +100,7 @@
 
     {%block Middle%}{%endblock Middle%}
 
-<script src="https://cdn.bootcss.com/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-<script src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.js"></script>
-<script>
-    $(function () {
-        //鼠标离开导航菜单消失
-        $(".dropdown").mouseleave(function () {
-            $(".open").attr("class","dropdown");
-            $(".dropdown-toggle").attr("aria-expanded","false");
-        });
-
-        $("#bs-example-navbar-collapse-1").mouseleave(function () {
-            $("#bs-example-navbar-collapse-1").attr("class","navbar-collapse collapse");
-        });
-
-    });
-
-</script>
 {%endblock body%}
 
-{%block End_Script%}{%endblock End_Script%}
+{#JS附加区#}
+{%block End_Script_more%}{%endblock End_Script_more%}

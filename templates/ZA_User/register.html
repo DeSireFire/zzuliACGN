@@ -7,80 +7,139 @@
 
 {%block Header_context%}{%endblock Header_context%}
 {%block Middle%}
-    <!-- Home Page
-    ==========================================-->
-    <div id="register" class="text-center">
-        <div class="overlay">
-            <div class="content">
+<div id="tf-home" class="text-center register">
+    <div class="overlay">
+        <div class="content">
+            <h1>动漫协会<strong><span class="color">用户注册</span></strong></h1>
+            <p class="lead">--网站的部分功能，仅对已经注册的用户才会开放哦</p>
+            <!--<a href="#tf-about" class="fa fa-angle-down page-scroll"></a>-->
+            <!--<img src="img/dont.jpg" class="img-responsive img-rounded center-block" alt="用户提示" style="height: 400px;width: auto;">-->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="space"></div>
+                    <form class="form-horizontal">
+                        <div class="col-md-6">
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4" for="inputSuccessId">用户名 Id</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputSuccessId" aria-describedby="inputSuccessIdStatus" placeholder="用户名的咯!">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputSuccessIdStatus" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputPassword1" class="col-sm-4 control-label">用户密码 Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputPassword1Status" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label for="inputPassword2" class="col-sm-4 control-label">二次密码 SecondPW</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="inputPassword2" aria-describedby="inputPassword1Status" placeholder="重要的东西要输两遍，我看看一不一样！">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputPassword2Status" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4" for="inputSuccess1">学生学号 StudentID</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputSuccess1" aria-describedby="inputSuccess1Status" placeholder="不填将默认为 校外人士 注册用户!">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputSuccess1Status" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4" for="inputSuccess1">用户性别? XiuJi?</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 猛汉 ♂
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 萌妹 ♀
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> <del>女装大佬</del>
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3"> <del>格格兰</del>
+                                    </label>
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="col-md-6">
+                            <!--has-success：验证成功 has-feedback：输入框内字符样式-->
+                            <div class="form-group has-feedback">
+                                <label for="inputEmail1" class="col-sm-4 control-label">电子邮箱 Email</label>
+                                <div class="col-sm-8">
+                                    <input type="email" class="form-control" id="inputEmail1" aria-describedby="inputEmail1Status" placeholder="萌萌的电子邮箱地址，可用于登陆或找回密码！">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputEmail1Status" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4" for="inputMobilePhone1">携带电话 MobilePhone</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputMobilePhone1" aria-describedby="inputMobilePhone1Status" placeholder="不公开的！可用于登陆或找回密码！！">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputMobilePhone1Status" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4" for="inputSpecialty">主修专业 Specialty</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputSpecialty" aria-describedby="inputSpecialtyStatus" placeholder="不公开的！用于信息采集">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span id="inputSpecialtyStatus" class="sr-only">(success)</span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4">院系 Faculty</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control">
+                                        <option>电气信息工程学院</option>
+                                        <option>机电工程学院</option>
+                                        <option>食品与生物工程学院</option>
+                                        <option>烟草科学与工程学院</option>
+                                        <option>材料与化学工程学院</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="control-label col-sm-4">校区 Campus</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control">
+                                        <option>东风校区</option>
+                                        <option>科学校区</option>
+                                        <option>禹州校区</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 我已同意《XXX用户使用协议》(预留)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-info">提交注册信息！</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
-                <div id="home">
-                    <h2 class="home">用 户 注 册</h2>
-                </div>
-                <div class="middle_content" style="z-index: 0">
-                    <div class="entry">
-            {#            <p><img src="/static/images/Base_imge/Index_images/1500x500.jpg"  alt="用户注册" /></p>#}
-            {#            <h3>用户注册</h3>#}
-                        <div class="form-div">
-                            <form id="reg-form" action="/user/RegHandle/" method="post">
-                                {% csrf_token %}
-                                <table>
-                                    <tr>
-                                        <td>用户名</td>
-                                        <td><input name="user_name" type="text" id="uid"
-                                                   data-easyform="length:4 16;char-normal;real-time;ajax:ajax_message();"
-                                                   data-message="用户名必须为4—16位的英文字母或数字！"
-                                                   data-easytip="position:top;class:easy-red;" data-message-ajax="用户名已存在!">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>密码</td>
-                                        <td><input name="pwd" type="password" id="psw1" data-easyform="length:6 16;"
-                                                   data-message="密码必须为6—16位哦，朋友！"
-                                                   data-easytip="class:easy-blue;"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>确认密码</td>
-                                        <td><input name="pwdagain" type="password" id="psw2" data-easyform="length:6 16;equal:#psw1;real-time;"
-                                                   data-message="两次密码输入要一致，检查一下！" data-easytip="class:easy-blue;"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>email</td>
-                                        <td><input name="Email" type="text" id="email" data-easyform="email;real-time;"
-                                                   data-message="Email的格式看起来不太对！"
-                                                   data-easytip="class:easy-blue;" data-message-ajax="该电子邮箱已注册!"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>联系电话（手机）</td>
-                                        <td><input name="user_Phone" type="text" id="mobile" data-easyform="mobile;real-time;"
-                                                   data-message="手机号码的格式看起来不太对！"
-                                                   data-easytip="class:easy-blue;" data-message-ajax="该手机号码已注册!"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>昵称</td>
-                                        <td><input name="nickname" type="text" id="nickname" data-easyform="length:2 16;real-time;"
-                                                   data-message="昵称长度过于短小！"
-                                                   data-easytip="class:easy-blue;position:bottom;"></td>
-                                    </tr>
-                                </table>
-
-                                <div class="buttons">
-                                    <input value="注 册" type="submit" style="margin-right:20px; margin-top:20px;">
-                                    <input value="我有账号，我要登录" type="button" style="margin-right:45px; margin-top:20px;" onclick="location.href='/user/login/'">
-                                </div>
-
-                                <br class="clear">
-                            </form>
-                        </div>
-                        <div class="cl"></div>
-                        <br />
-                    </div>
-                </div>
-                <div class="cl"></div>
-
+</div>
 {%endblock Middle%}
 
 {%block End_Script%}

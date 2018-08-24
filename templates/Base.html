@@ -14,13 +14,11 @@
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="">
-        <link href="/static/BaseCss.css" rel="stylesheet">
-
         <!-- Bootstrap -->
         <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-
+        <link href="/static/BaseCss.css" rel="stylesheet">
         {%block head%}{%endblock head%}
     </head>
     <body>
@@ -42,8 +40,19 @@
             </div>
         </nav>
 
-        {%block End_Script%}{%endblock End_Script%}
-        <script type="text/javascript" src="/static/jquery-1.12.4.js"></script>
-        <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{#        末端JavaScript重载区#}
+{#        子网页可使用 {%block End_Script%}{%endblock End_Script% 重载清空#}
+{#        否则使用 {%block End_Script_more%}{%endblock End_Script_more%添加新内容#}
+
+        {%block End_Script%}
+            <script type="text/javascript" src="/static/jquery-1.12.4.js"></script>
+            <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+            <script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.js"></script>
+            <script type="text/javascript" src="/static/BaseJs.js"></script>
+            {#末端JavaScript预留区，根据网页具体需求添加新JS#}
+            {%block End_Script_more%}{%endblock End_Script_more%}
+        {%endblock End_Script%}
     </body>
 </html>

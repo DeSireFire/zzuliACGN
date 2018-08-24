@@ -74,6 +74,19 @@ function main() {
 
 }());
 
+  	/*====================================
+    导航条控制
+    ======================================*/
+    //鼠标离开导航菜单消失
+    $(".dropdown").mouseleave(function () {
+        $(".open").attr("class","dropdown");
+        $(".dropdown-toggle").attr("aria-expanded","false");
+    });
+
+    $("#bs-example-navbar-collapse-1").mouseleave(function () {
+        $("#bs-example-navbar-collapse-1").attr("class","navbar-collapse collapse");
+    });
+
 
 }
 main();

@@ -9,7 +9,7 @@ from datetime import datetime
 
 # 用户注册跳转
 def Register(request):
-    context = {'title': '社员注册'}
+    context = {'title': '用户注册'}
     return render(request,'ZA_User/register.html',context)
 
 def register_skip(request):
