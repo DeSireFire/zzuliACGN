@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="space"></div>
                 <form class="form-horizontal" action="/user/RegHandle/" method="post">
-                        <!--{% csrf_token %}-->
+                        {% csrf_token %}
                         <div class="col-md-6 box">
                             <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
                         </div>
@@ -29,7 +29,7 @@
                                 <label class="control-label col-sm-4" for="inputUserId">用户名 UserName</label>
                                 <div class="col-sm-8">
                                     <input name="user_name" type="text" class="form-control" id="inputUserId" aria-describedby="inputUserIdStatus" placeholder="用户名的咯!"
-                                           data-easyform="length:4 16;char-chinese;real-time;ajax:ajax_message();"
+                                           data-easyform="length:4 16;char-chinese;real-time;"
                                            data-message="用户名必须为4—16位的英文字母、数字或者2-8个汉字！"
                                            data-easytip="position:top;class:easy-red;"
                                            data-message-ajax="用户名被人用过了!">
@@ -63,9 +63,10 @@
                                 <label for="inputEmail1" class="col-sm-4 control-label">电子邮箱 Email</label>
                                 <div class="col-sm-8">
                                     <input type="email" class="form-control" id="inputEmail1" aria-describedby="inputEmail1Status" placeholder="注册后无法修改，邮箱不可重复注册。"
-                                           data-easyform="email;real-time;"
-                                           data-message="邮箱格式没有对呢！"
-                                           data-easytip="position:top;class:easy-blue;ajax:ajax_message()">
+                                           data-easyform="email;real-time;ajax:ajax_message();"
+                                           data-message="邮箱的格式不对！"
+                                           data-easytip="position:top;class:easy-red;"
+                                           data-message-ajax="用户名被人用过了!">
                                     <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                     <span id="inputEmail1Status" class="sr-only">(success)</span>
                                 </div>

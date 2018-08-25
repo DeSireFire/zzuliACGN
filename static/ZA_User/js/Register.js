@@ -7,58 +7,40 @@ $(document).ready(function(){
     $(".form-horizontal").easyform();
 });
 
-
-// function check_user_name(error_name) {
-//     var WebHandler = $('#reg-form').easyform();
-//     $.get('/user/RegHandle_skip/?user_name='+$('#uid').val(),function (data) {
-//         if(data.count==1){
-//
-//             // alert("该用户名验证成功！");
-//             WebHandler.submit = true;
-//             WebHandler.success = function () {
-//                 WebHandler.show("#uid", "自定义消息");
-//             };
-//             var error_name = true;
-//
-//
-//         }else if(data.count==2){
-//
-//             // alert("该用户名已被使用！");z
-//             WebHandler.submit = false;
-//             var error_name = false;
-//
-//         }
-//         return error_name;
-//     });
-// }
-
-// function ajax_message(num)
-// {
-//     var error_name = null;
-//     check_user_name(error_name);
-//     alert(error_name);
-//     $("#uid").trigger("easyform-ajax",error_name);
-// }
-
 function ajax_message()
 {
     var error_name = null;
-    var WebHandler = $('#reg-form').easyform();
-    $.get('/user/RegHandle_skip/?user_name='+$('#uid').val(),function (data){
-        if(data.count==1){
+    var WebHandler = $('.form-horizontal').easyform();
+    $.get('/user/register_ajax/?user_name='+$('#inputUserId').val()+'&user_email='+$('#inputEmail1').val(),function (data){
+        if(data.user_name==1){
 
             WebHandler.submit = true;
-            var tip = $("#uid").easytip();
+            var tip = $("#inputUserId").easytip();
             tip.show("该用户名验证可用!");
             var error_name = true;
 
-        }else if(data.count==2){
+        }else if(data.user_name==0){
 
             WebHandler.submit = false;
             var error_name = false;
 
         }
-        $("#uid").trigger("easyform-ajax",error_name);
-    });
+        if(data.user_email==1){
 
+            WebHandler.submit = true;
+            var tip = $("#inputEmail1").easytip();
+            tip.show("该邮箱验证可用!");
+            var error_name = true;
+
+        }else if(data.user_email=0){
+
+            WebHandler.submit = false;
+            var error_name = false;
+
+        }
+
+        $("#inputUserId").trigger("easyform-ajax",error_name);
+        $("#inputEmail1").trigger("easyform-ajax",error_email);
+    });
 }
+

@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect,JsonResponse
 from hashlib import sha1
 from django.core.paginator import Paginator,Page
 from datetime import datetime
+import re
 
 # Create your views here.
 
@@ -12,7 +13,7 @@ def Register(request):
     context = {'title': '用户注册'}
     return render(request,'ZA_User/register.html',context)
 
-def register_skip(request):
+def register_ajax(request):
     '''
         获取用户名
         验证用户名是否重复,
@@ -21,20 +22,32 @@ def register_skip(request):
         模板中接口为count
     '''
     uname = request.GET.get('user_name')
-
+    uemail = request.GET.get('user_email')
+    print(request.GET)
+    print(uname)
+    returnTemp = {'user_name':0,'user_email':0}
+    pattern = re.compile(r'/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/')
+    m = pattern.match(uemail)
+    print(m)
     # return JsonResponse({'B_count':1,'Bool':'true'})
-    if uname == '':
-        return JsonResponse({'count': 2})
+    if len(uname) < 4 or len(uname) > 16 or m == None:
+        return JsonResponse(returnTemp)
     else:
-        print(request.GET)
-        print(uname)
-        num_id = ZA_UserInfo.objects.filter(ZA_User_Name=uname).count()
-        if num_id == 0:
-            return JsonResponse({'count':1})
+        num_uname = ZA_UserInfo.objects.filter(ZA_User_Name=uname).count()
+        num_uemail = ZA_UserInfo.objects.filter(ZA_User_Email=uemail).count()
+        if num_uname == 0:
+            returnTemp["user_name"] = 1
+        elif num_uemail == 0:
+            returnTemp["user_email"] = 1
         else:
-            return JsonResponse({'count': 2})
+            if num_uname != 0:
+                returnTemp["user_name"] = 0
+            elif num_uemail != 0:
+                returnTemp["user_email"] = 0
+        return JsonResponse(returnTemp)
 
-# 用户注册：电子邮箱
+
+ # 用户注册：电子邮箱
 def Register_handle(request):
 
     if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
