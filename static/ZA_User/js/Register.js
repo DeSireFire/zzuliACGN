@@ -4,7 +4,7 @@
 
 
 $(document).ready(function(){
-    $('#reg-form').easyform();
+    $(".form-horizontal").easyform();
 });
 
 

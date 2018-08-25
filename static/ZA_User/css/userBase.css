@@ -24,7 +24,7 @@
 	/* W3C */
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000',endColorstr='#66000000',GradientType=0);
 	/* IE6-9 */
-	height:800px;
+	height:1000px;
 	background-attachment:fixed;
 }
 #tf-home p.lead {
@@ -69,16 +69,3 @@ a.fa.fa-angle-down:hover {
 }
 
 
-/*register*/
-#body-container{
-	border:1px solid #99CCFF;
-	background-color:rgba(153,204,255,0.1);
-	transition:all 2s ease-out;
-	-moz-transition:all 2s ease-out; /* Firefox 4 */
-	-webkit-transition:all 2s ease-out; /* Safari and Chrome */
-	-o-transition:all 2s ease-out; /* Opera */
-}
-#body-container:hover{
-	border-radius: 30px;
-	background-color:rgba(153,204,255,0.5);
-}
