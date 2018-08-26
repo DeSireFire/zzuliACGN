@@ -1,13 +1,415 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>郑州轻工大学 动漫协会！</title>
-    <link rel="stylesheet" href="/static/css/Construction/CP_work.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--为了确保适当的绘制和触屏缩放，需要在 <head> 之中添加 viewport 元数据标签。-->
+    <!--
+    在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
+    这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。
+    注意，这种方式我们并不推荐所有网站使用，还是要看你自己的情况而定！
+    -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>Title</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/easyform/easyform.css">
+    <!--<link rel="stylesheet" href="CSS/Register.css">-->
+    <!--<link rel="stylesheet" href="CSS/bootstrap-theme.css">-->
+    <!--<script src="JS/npm.js"></script>-->
+    <script src="JS/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <style>
+        * {
+            /*校准标签对齐*/
+            margin: 0px; /*清除外边距*/
+            padding: 0px; /*清除内边距*/
+        }
+
+        li {
+            /*去掉列表头*/
+            list-style: none;
+        }
+
+        #tf-menu{
+            padding:20px;
+            transition:all 0.8s;
+            -moz-transition:all 0.8s; /* Firefox 4 */
+            -webkit-transition:all 0.8s; /* Safari and Chrome */
+            -o-transition:all 0.8s; /* Opera */
+        }
+        /*#tf-menu:hover{*/
+            /*padding: 20px;*/
+        /*}*/
+        #tf-menu.navbar-default{
+            background-color:rgba(153,204,255,0.1);
+            border-color:rgba(231,231,231,0);
+        }
+        #tf-menu a.navbar-brand {
+            text-transform:uppercase;
+            font-size:22px;
+            color:#fff;
+            font-weight:900;
+        }
+        #tf-menu.navbar-default .navbar-nav > li > a {
+            text-transform:uppercase;
+            color:#FFF;
+            font-size:12px;
+            letter-spacing:1px;
+        }
+        #tf-menu .dropdown-menu{
+            color: #f5e79e;
+            /*background-color:rgba(252,172,69,0.1);*/
+            background-color:rgba(153,204,255,0.1);
+            border-color:rgba(231,231,231,0);
+        }
+        #tf-menu .dropdown-menu > li >a{
+            color: #f5e79e;
+            transition:all 0.8s;
+        }
+        #tf-menu .dropdown-menu > li >a:hover{
+            color: #FCAC45;
+            border-bottom: #00FFCC 1px solid;
+            background-color:rgba(153,204,255,0.1)
+        }
+        #tf-menu .navbar-form > .form-group > .form-control{
+            width: 100px;
+            height: 30px;
+            /*background-color:transparent;*/
+            background-color:rgba(153,204,255,0.1);
+            border:1px solid #f5e79e;
+            transition:all 0.8s;
+            -moz-transition:all 0.8s; /* Firefox 4 */
+            -webkit-transition:all 0.8s; /* Safari and Chrome */
+            -o-transition:all 0.8s; /* Opera */
+        }
+        #tf-menu .navbar-form > .form-group > .form-control:focus{
+            width: 200px;
+            height: 30px;
+            /*background-color:transparent;*/
+            background-color:rgba(255,255,255,0.5);
+            border:1px solid #f5e79e;
+        }
+
+        #tf-menu .navbar-form > .btn{
+            height: 30px;
+            color: #fff;
+            font-size: 12px;
+            background-color:rgba(153,204,255,0.5);
+            border:1px solid #99CCFF;
+            transition:all 0.8s;
+            -moz-transition:all 0.8s; /* Firefox 4 */
+            -webkit-transition:all 0.8s; /* Safari and Chrome */
+            -o-transition:all 0.8s; /* Opera */
+        }
+        #tf-menu .navbar-form > .btn:hover{
+            height: 30px;
+            color: #fff;
+            font-size: 14px;
+            background-color:rgba(153,204,255,0.5);
+            border:1px solid #99CCFF;
+
+        }
+        /*导航按钮特效修正*/
+        .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+            background-color:rgba(153,204,255,0.5);
+            border-radius: 5px;
+        }
+        .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+            background-color:rgba(153,204,255,0.5);
+            border-radius: 5px;
+        }
+
+        .on {
+            background-color:#222222 !important;
+            padding:0 !important;
+        }
+        .navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > .active > a:hover,.navbar-default .navbar-nav > .active > a:focus {
+            color:#FCAC45 !important;
+            background-color:transparent;
+            font-weight:700;
+        }
+        .navbar-toggle {
+            border-radius:0;
+        }
+        .navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus {
+            background-color:#FCAC45;
+            border-color:#FCAC45;
+        }
+        .navbar-default .navbar-toggle:hover > .icon-bar {
+            background-color:#FFF;
+        }
+        .nav > li > a > img {
+            max-width: 24px;!important;
+            display: block;
+            height: auto;
+        }
+
+        /* Home Style */
+        #tf-home {
+            background:url(img/44873217_p0.jpg);
+            /*background:url(img/1500x500.jpg);*/
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+            color:#cfcfcf;
+        }
+        #tf-home .overlay {
+            background:-moz-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* FF3.6+ */
+            background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0.8)),color-stop(17%,rgba(0,0,0,0.73)),color-stop(35%,rgba(0,0,0,0.66)),color-stop(62%,rgba(0,0,0,0.55)),color-stop(100%,rgba(0,0,0,0.4)));
+            /* Chrome,Safari4+ */
+            background:-webkit-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* Chrome10+,Safari5.1+ */
+            background:-o-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* Opera 11.10+ */
+            background:-ms-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* IE10+ */
+            background:linear-gradient(to bottom,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* W3C */
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000',endColorstr='#66000000',GradientType=0);
+            /* IE6-9 */
+            height:1200px;
+            background-attachment:fixed;
+        }
+        #tf-home p.lead {
+            color:#e3e3e3;
+        }
+        .content {
+            position:relative;
+            padding:10% 0 0;
+        }
+        .color {
+            color:#fcac45;
+        }
+        a.fa.fa-angle-down {
+            padding:10px 15px;
+            color:#fff;
+            border:2px solid #b4b4b4;
+            border-radius:50%;
+            font-size:24px;
+            margin-top:200px;
+            transition:all 0.5s;
+        }
+        a.fa.fa-angle-down:hover {
+            background:#fcac45;
+            color:#ffffff;
+            border:2px solid #fcac45;
+        }
+
+        @media (max-width: 603px) {
+            #tf-menu.navbar-default {
+                background-color: rgba(0, 0, 0, 0.79);
+            }
+
+        }
+        @media (max-width: 768px){
+            .content {
+                padding: 40% 0 0;
+            }
+            .container{
+                background-color: #2b2e33;
+
+            }
+        }
+
+
+        /*cp*/
+        .box1{
+            border:rgba(153,204,255,0.5);
+            border-radius: 30px;
+            opacity: 0.99;
+            color: #99a2aa;
+        }
+        .box2{
+            border:rgba(153,204,255,0.5);
+            border-radius: 30px;
+            background-color: #fff;
+            opacity: 0.99;
+            color: #99a2aa;
+        }
+        .space{
+            margin-top: 40px;
+        }
+     </style>
+
+
 </head>
 <body>
-<!--<img src="/static/Images/Construction_period/Construction_period.png"  alt="郑轻漫协网工团 - 施工维护页" />-->
-<img src='{% static "Images/Construction_period/Construction_period.png" %}'  alt="郑轻漫协网工团 - 施工维护页" />
+<!-- Navigation
+==========================================-->
+<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- 移动设备显示的导航部分 -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="ZA_show.html">郑轻大动漫协会</a>
+        </div>
+        <!-- 导航主体 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主站</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">社团活动公告</a></li>
+                        <li><a href="#">漫协干部公示</a></li>
+                        <li><a href="#">动漫协会编年史</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">动漫协会外宣展示</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">肥宅快乐源 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu nav-menu navbar-inverse">
+                        <li><a href="#">动画番剧--Animations</a></li>
+                        <li><a href="#">漫有引力--Comics</a></li>
+                        <li><a href="#">游戏中心--Games</a></li>
+                        <li><a href="#">次元圣经--Novel&Fiction</a></li>
+                        <li><a href="#">资讯情报--Intelligence</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">BT资源区</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li><a href="#">漫协BBS</a></li>
+                <li><a href="#">画友涂墙</a></li>
+                <li><a href="#">聊天室</a></li>
+            </ul>
+            <!--搜索框-->
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn">Link Start!</button>
+            </form>
+            <!--导航条右-->
+            <!--未登录状态-->
+            <!--<ul id="noLogin" class="nav navbar-nav navbar-right">-->
+                <!--<li><a href="#">用户登陆</a></li>-->
+                <!--<li><a href="#">用户注册</a></li>-->
+            <!--</ul>-->
+            <!--已登录状态-->
+            <ul id="Logining" class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="img/deaful.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">（假装是用户简要资料）</a></li>
+                        <li><a href="#">个人中心</a></li>
+                        <li><a href="#">投稿管理</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">消息</a></li>
+                <li><a href="#">动态</a></li>
+                <li><a href="#">收藏夹</a></li>
+                <li><a href="#">历史</a></li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Home Page
+==========================================-->
+<div id="tf-home" class="text-center register">
+    <div class="overlay">
+        <div class="content">
+            <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
+            <p class="lead">--前方网站建设中，通行禁止！<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
+        </div>
+        <div id="body-container" class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="box1 img-responsive" src="img/cp0.png" alt="illustrator:荻pote"/>
+                </div>
+                <div class="col-md-6 box2">
+                    <img  class="img-responsive" src="img/very_sorry.png"/>
+                    <hr role="separator" class="divider">
+                    <div class="space"></div>
+                    <div class="row">
+                        <div class="col-sm-6"><a class="btn btn-info btn-lg" style="margin-top: 40px" href="www.zzuliacgn.cf" role="button">返回到动漫协会主页</a></div>
+                        <div class="col-sm-6 text-left" style="border-left: 1px #ccd0d7 dashed;">
+                            <span class="color">错误信息：</span>
+                            <ul>
+                                <li>错误号: 404</li>
+                                <li>用户IP: 182.xx.xxx.xxx</li>
+                                <li>前端服务器: tx-cd2-webcdn-11</li>
+                                <li>处理服务器: shylf-ops-slb-10</li>
+                                <li>请求地址: http://www.zzuliacgn.cf/404</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                    <hr role="separator" class="divider">
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <h1><strong><span class="color">你也想参与网站建设？</span></strong><small><a href="#">加入漫协联系笨站长</a></small></h1>
+                        </div>
+                    </div>
+                    <hr role="separator" class="divider">
+                    <div class="space"></div>
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <span class="color">←illustrator:荻pote</span>
+                            <br>
+                            <span class="color">Pixiv_id:2131660</span>
+                            <div class="space"></div>
+                            <ul>
+                                <li>我们肯定不会忘记</li>
+                                <li>和大家一起度过的特别的夏天</li>
+                                <li>不管时间怎样流逝</li>
+                                <li>我们都会在那个盛夏等待</li>
+                                <li class="text-right">——贵月一歌《在盛夏等待》</li>
+                            </ul>
+                            <ul>
+                                <li>建设总是需要时间的</li>
+                                <li>抿一口茶，享受青春时光</li>
+                            </ul>
+                            <div class="space"></div>
+                        </div>
+                        <div class="col-sm-6 text-left" style="border-left: 1px #ccd0d7 dashed;">
+                            <img class="box1 img-responsive" src="img/waiting.jpg"/>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="JS/jquery-1.12.4.js"></script>
+<script src="JS/bootstrap.js"></script>
+<script src="JS/main.js"></script>
+<script src="https://cdn.bootcss.com/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.js"></script>
+<script src="CSS/easyform/easyform.js"></script>
+<script>
+    $(function () {
+        //鼠标离开导航菜单消失
+        $(".dropdown").mouseleave(function () {
+            $(".open").attr("class","dropdown");
+            $(".dropdown-toggle").attr("aria-expanded","false")
+        });
+
+        $("#bs-example-navbar-collapse-1").mouseleave(function () {
+            $("#bs-example-navbar-collapse-1").attr("class","navbar-collapse collapse")
+        });
+        $(".form-horizontal").easyform();
+    });
+</script>
 </body>
 </html>

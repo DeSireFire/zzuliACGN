@@ -22,29 +22,31 @@ def register_ajax(request):
         模板中接口为count
     '''
     uname = request.GET.get('user_name')
-    uemail = request.GET.get('user_email')
+    # uemail = request.GET.get('user_email')
     print(request.GET)
     print(uname)
-    returnTemp = {'user_name':0,'user_email':0}
-    pattern = re.compile(r'/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/')
-    m = pattern.match(uemail)
-    print(m)
+    # returnTemp = {'user_name':0,'user_email':0}
+    # pattern = re.compile(r'/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/')
+    # m = pattern.match(uemail)
+    # print(m)
     # return JsonResponse({'B_count':1,'Bool':'true'})
-    if len(uname) < 4 or len(uname) > 16 or m == None:
-        return JsonResponse(returnTemp)
-    else:
-        num_uname = ZA_UserInfo.objects.filter(ZA_User_Name=uname).count()
-        num_uemail = ZA_UserInfo.objects.filter(ZA_User_Email=uemail).count()
-        if num_uname == 0:
-            returnTemp["user_name"] = 1
-        elif num_uemail == 0:
-            returnTemp["user_email"] = 1
-        else:
-            if num_uname != 0:
-                returnTemp["user_name"] = 0
-            elif num_uemail != 0:
-                returnTemp["user_email"] = 0
-        return JsonResponse(returnTemp)
+
+
+    # if len(uname) < 4 or len(uname) > 16 or m == None:
+    #     return JsonResponse(returnTemp)
+    # else:
+    #     num_uname = ZA_UserInfo.objects.filter(ZA_User_Name=uname).count()
+    #     num_uemail = ZA_UserInfo.objects.filter(ZA_User_Email=uemail).count()
+    #     if num_uname == 0:
+    #         returnTemp["user_name"] = 1
+    #     elif num_uemail == 0:
+    #         returnTemp["user_email"] = 1
+    #     else:
+    #         if num_uname != 0:
+    #             returnTemp["user_name"] = 0
+    #         elif num_uemail != 0:
+    #             returnTemp["user_email"] = 0
+    #     return JsonResponse(returnTemp)
 
 
  # 用户注册：电子邮箱
