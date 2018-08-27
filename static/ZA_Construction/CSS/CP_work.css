@@ -1,4 +1,9 @@
 /* Home Style */
+li {
+    /*去掉列表头*/
+    list-style: none;
+}
+
 #tf-home {
     background:url(../Images/Construction_period.png);
     /*background:url(img/1500x500.jpg);*/
@@ -66,6 +71,8 @@ a.fa.fa-angle-down:hover {
 
     }
 }
+
+
 /*cp*/
 .box1{
     border:rgba(153,204,255,0.5);
@@ -76,7 +83,10 @@ a.fa.fa-angle-down:hover {
 .box2{
     border:rgba(153,204,255,0.5);
     border-radius: 30px;
-    background-color: #fff;
+    border-top: 4px #ccd0d7 dashed;
     opacity: 0.99;
     color: #99a2aa;
+}
+.space{
+    margin-top: 40px;
 }

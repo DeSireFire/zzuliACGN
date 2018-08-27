@@ -4,6 +4,11 @@ body,html {
 	-webkit-font-smoothing:antialiased !important;
 	color:#5a5a5a;
 }
+
+li {
+	/*去掉列表头*/
+	list-style: none;
+}
 h1 {
 	text-transform:uppercase;
 }

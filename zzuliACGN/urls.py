@@ -19,10 +19,12 @@ from django.conf import settings
 # from django.views import static
 # from django.conf.urls.static import static
 from . import view
+handler404 = view.page_not_found
 urlpatterns = [
     path('NTadmin/', admin.site.urls),
     path('', include('ZA_Show.urls')),
     path('user/', include('ZA_User.urls')),
+    path('bulding/', handler404),
     # path('', include('ZA_Index.urls')),
 
     # 增加以下一行，以识别静态资源
@@ -32,5 +34,4 @@ urlpatterns = [
 # 配置异常页面
 # handler403 = view.page_permission_denied
 # handler404 = view.page_not_found
-handler404 = view.page_not_found
 # handler500 = view.page_inter_error
