@@ -10,7 +10,7 @@ class UserinfoAdmin(admin.ModelAdmin):
     '''
     list_per_page = 30
     list_display = [
-        'id',
+        'ZA_User_ID',
         # SQLID
         'ZA_User_Email',
         # 电子邮箱
@@ -22,12 +22,8 @@ class UserinfoAdmin(admin.ModelAdmin):
         # 密码，二次确认
         'ZA_User_motto',
         # 个性签名
-        'ZA_User_Specialty',
-        # 专业
         'ZA_User_StudentID',
         # 学号
-        'ZA_User_Class',
-        # 班级
         'ZA_User_Faculty',
         # 院系
         'ZA_User_Campus',
@@ -36,18 +32,8 @@ class UserinfoAdmin(admin.ModelAdmin):
         # 出生日期
         'ZA_User_Sex',
         # 性别
-        'ZA_User_Constellation',
-        # 星座
-        'ZA_User_HomeTown',
-        # 故乡
-        'ZA_User_Medal',
-        # 成就勋章
-        'ZA_User_Department',
-        # 协会部门
         'ZA_User_identity',
         # 用户身份
-        'ZA_User_Permission',
-        # 用户权限
         'ZA_User_FromIP',
         # 用户登录IP
         'ZA_User_HeaderImg',
