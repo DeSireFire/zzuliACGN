@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('Register/',views.Register),
+    path('register/',views.Register),
     path('login/', views.Login),
     path('RegHandle/',views.Register_handle),
     path('register_ajax/', views.register_ajax),

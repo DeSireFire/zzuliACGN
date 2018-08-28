@@ -1,0 +1,27 @@
+/*login*/
+#body-container.container{
+    border:1px solid #99CCFF;
+    background-color:rgba(153,204,255,0.1);
+    transition:all 2s ease-out;
+    -moz-transition:all 2s ease-out; /* Firefox 4 */
+    -webkit-transition:all 2s ease-out; /* Safari and Chrome */
+    -o-transition:all 2s ease-out; /* Opera */
+}
+#body-container.container:hover{
+    border-radius: 30px;
+    background-color:rgba(153,204,255,0.5);
+    /*transition:all 2s ease-out;*/
+    /*-moz-transition:all 2s ease-out; !* Firefox 4 *!*/
+    /*-webkit-transition:all 2s ease-out; !* Safari and Chrome *!*/
+    /*-o-transition:all 2s ease-out; !* Opera *!*/
+}
+/*右侧图*/
+.box1 img{
+    width: 75%;
+    /*opacity: 0;*/
+    transition: all 1s ease;
+}
+
+.box1{
+    border-right: 4px #ccd0d7 dashed;
+}
