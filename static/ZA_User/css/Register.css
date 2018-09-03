@@ -56,3 +56,16 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+.has-success .form-control-feedback{
+    color: #00FFCC;
+}
+.has-success .control-label{
+    color: #00FFCC;
+}
+.has-error .control-label{
+    color: rgba(255,102,102,0.9);
+}
+.has-error .form-control-feedback {
+    color: rgba(255,102,102,0.9);
+}

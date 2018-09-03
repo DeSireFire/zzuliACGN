@@ -19,136 +19,82 @@
             <div class="row">
                 <div class="space"></div>
                 <form class="form-horizontal" action="/user/RegHandle/" method="post">
-                        {% csrf_token %}
-                        <div class="col-md-6 box">
-                            <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
-                        </div>
-                        <div class="col-md-6">
-                            <!--has-success：验证成功 has-feedback：输入框内字符样式-->
-                            <div class="form-group has-feedback">
-                                <label class="control-label col-sm-4" for="inputUserId">用户名 UserName</label>
-                                <div class="col-sm-8">
-                                    <input name="user_name" type="text" class="form-control" id="inputUserId" aria-describedby="inputUserIdStatus" placeholder="用户名的咯!"
-                                           data-easyform="length:4 16;char-chinese;real-time;ajax:ajax_message();"
-                                           data-message="用户名必须为4—16位的英文字母、数字或者2-8个汉字！"
-                                           data-easytip="position:top;class:easy-red;">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    <span id="inputSuccessIdStatus" class="sr-only">(success)</span>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label for="inputPassword1" class="col-sm-4 control-label">用户密码 Password</label>
-                                <div class="col-sm-8">
-                                    <input type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！"
-                                           data-easyform="length:6 16;char-english;real-time;"
-                                           data-message="密码必须为6—16位,只能为英文、数字、下划线、英文标点符号哦，朋友！"
-                                           data-easytip="position:top;class:easy-blue;">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    <span id="inputPassword1Status" class="sr-only">(success)</span>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label for="inputPassword2" class="col-sm-4 control-label">二次密码 SecondPW</label>
-                                <div class="col-sm-8">
-                                    <input type="password" class="form-control" id="inputPassword2" aria-describedby="inputPassword1Status" placeholder="重要的东西要输两遍，我看看一不一样！"
-                                           data-easyform="length:6 16;char-english;equal:#inputPassword1;real-time;"
-                                           data-message="两次密码输入要一致，检查一下！"
-                                           data-easytip="position:top;class:easy-blue;">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    <span id="inputPassword2Status" class="sr-only">(success)</span>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label for="inputEmail1" class="col-sm-4 control-label">电子邮箱 Email</label>
-                                <div class="col-sm-8">
-                                    <input type="email" class="form-control" id="inputEmail1" aria-describedby="inputEmail1Status" placeholder="注册后无法修改，邮箱不可重复注册。"
-                                           data-easyform="email;real-time;"
-                                           data-message="邮箱的格式不对！"
-                                           data-easytip="position:top;class:easy-red;"
-                                           data-message-ajax="用户名被人用过了!">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    <span id="inputEmail1Status" class="sr-only">(success)</span>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label col-sm-4" for="inputSuccess1">学号绑定 StudentID</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="inputSuccess1" aria-describedby="inputSuccess1Status" placeholder="选填，注册后无法修改。"
-                                           data-easyform="length:12;number;regex:^5(2|4)([1][2-9])(\d{4})([0][1-5])([0-6][0-9])$;null;real-time;"
-                                           data-message="似乎是不正确的学号呢"
-                                           data-easytip="position:top;class:easy-blue;">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    <span id="inputSuccess1Status" class="sr-only">(success)</span>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label col-sm-4">院系 Faculty</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control">
-                                        <option>校外人士</option>
-                                        <option>电气信息工程学院</option>
-                                        <option>机电工程学院</option>
-                                        <option>食品与生物工程学院</option>
-                                        <option>烟草科学与工程学院</option>
-                                        <option>材料与化学工程学院</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label col-sm-4">校区 Campus</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control">
-                                        <option>校外人士</option>
-                                        <option>东风校区</option>
-                                        <option>科学校区</option>
-                                        <option>禹州校区</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label col-sm-4" for="inputSuccess1">用户性别? XiuJi?</label>
-                                <div class="col-sm-8">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked data-message="请选择一个性别"> 猛汉 ♂
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 萌妹 ♀
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> <del>女装大佬</del>
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3"> <del>格格兰</del>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label col-sm-4" for="inputSpecialty">验证码 VerificationCode</label>
-                                <div class="col-sm-4">
-                                    验证码预留
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="inputSpecialty" aria-describedby="inputSpecialtyStatus" placeholder="选填，不公开的！用于信息采集">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                    <span id="inputSpecialtyStatus" class="sr-only">(success)</span>
-                                </div>
+                    {% csrf_token %}
+                    <div class="col-md-6 box">
+                        <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
+                    </div>
+                    <div class="col-md-6">
+                        <!--has-success：验证成功 has-feedback：输入框内字符样式-->
+                        <div class="form-group has-feedback uname">
+                            <label class="control-label col-sm-4" for="inputUserId">用户名 UserName</label>
+                            <div class="col-sm-8">
+                                <input name="user_name" type="text" class="form-control" id="inputUserId" aria-describedby="inputUserIdStatus" placeholder="用户名的咯!"
+                                       data-easytip="position:top;class:easy-red;">
+                                <span class="logoAction1 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputSuccessIdStatus" class="sr-only">(success)</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-sm-offset-3 col-sm-3">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> 我已同意《XXX用户使用协议》(预留)
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <button type="submit" class="btn btn-info">提交注册信息！</button>
-                                </div>
+                        <div class="space"></div>
+                        <div class="form-group has-feedback pwd1">
+                            <label for="inputPassword1" class="col-sm-4 control-label">用户密码 Password</label>
+                            <div class="col-sm-8 ">
+                                <input type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！"
+                                       data-easytip="position:top;class:easy-red;">
+                                <span class="logoAction2 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputPassword1Status" class="sr-only">(success)</span>
                             </div>
                         </div>
-                    </form>
+                        <div class="space"></div>
+                        <div class="form-group has-feedback pwd2">
+                            <label for="inputPassword2" class="col-sm-4 control-label">二次密码 SecondPW</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword2" aria-describedby="inputPassword2Status" placeholder="重要的东西要输两遍，我看看一不一样！"
+                                       data-easyform="length:6 16;char-english;equal:#inputPassword1;real-time;"
+                                       data-message="两次密码输入要一致，检查一下！"
+                                       data-easytip="position:top;class:easy-blue;">
+                                <span class="logoAction3 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputPassword2Status" class="sr-only">(success)</span>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                        <div class="form-group has-feedback email">
+                            <label for="inputEmail1" class="col-sm-4 control-label">电子邮箱 Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputEmail1" aria-describedby="inputEmail1Status" placeholder="注册后无法修改，邮箱不可重复注册。"
+                                       data-easytip="position:top;class:easy-blue;">
+                                <span class="logoAction4 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputEmail1Status" class="sr-only">(success)</span>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                        <div class="form-group has-feedback phone">
+                            <label class="control-label col-sm-4" for="inputphone1">联系手机 Mobile</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputphone1" aria-describedby="inputphone1Status" placeholder="选填，注册后无法修改。"
+                                       data-easytip="position:top;class:easy-blue;">
+                                <span class="logoAction5 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputphone1Status" class="sr-only">(success)</span>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                        <div class="form-group has-feedback">
+                            <label class="control-label col-sm-4">验证码 VerificationCode</label>
+                            <div class="col-sm-6 col-sm-offset-1 text-center btn btn-info" id="TencentCaptcha" data-appid="2089650139" data-cbfn="callback">点我开始验证</div>
+                        </div>
+                        <div class="space"></div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="inputcheckbox"> 我已同意《XXX用户使用协议》(预留)
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button type="submit" class="btn btn-info btn-register"
+                                        data-easytip="position:top;class:easy-red;">提交注册信息！</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -156,7 +102,6 @@
 {%endblock Middle%}
 
 {%block End_Script_more%}
-    <script type="text/javascript" src="/static/ZA_User/js/easyform.js"></script>
     <script type="text/javascript" src="/static/ZA_User/js/Register.js"></script>
 {%endblock End_Script_more%}
 
