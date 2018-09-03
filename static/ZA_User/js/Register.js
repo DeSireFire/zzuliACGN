@@ -403,14 +403,16 @@ function username() {
     // 判断是否符合前端正则
     if (_usernameReg.test(_usernameVal)) {
         // 符合前端验证，发送ajax请求进行后端验证
-        $.get('/user/RegHandle_skip/?user_name='+_usernameVal,function (data){
-            if(data.count==0){
+        $.get('/user/register_ajax/?user_name='+_usernameVal,function (data){
+            if(data.count === 0){
+
                 var tip = $("#inputUserId").easytip();
                 tip.show("该用户名验证可用!");
                 $(".logoAction1").attr("class","logoAction1 glyphicon glyphicon-ok form-control-feedback");
                 $(".uname").attr("class","form-group has-feedback uname has-success");
                 return true;
-            }else if(data.count>0){
+
+            }else if(data.count > 0){
 
                 var tip = $("#inputUserId").easytip();
                 tip.show("该用户名已被使用！");
@@ -441,6 +443,7 @@ function pwd() {
 
     if (_pwdReg.test(_pwdVal)) {
         $(".pwd1").attr("class","form-group has-feedback pwd1 has-success");
+        $(".logoAction2").attr("class","logoAction2 glyphicon glyphicon-ok form-control-feedback");
         return true;
     } else {
         $(".pwd1").attr("class","form-group has-feedback pwd1 has-error");
@@ -492,7 +495,7 @@ function email() {
     // 判断是否符合前端正则
     if (_useremailReg.test(_useremailVal)) {
         // 符合前端验证，发送ajax请求进行后端验证
-        $.get('/user/RegHandle_skip/?user_email='+_useremailVal,function (data){
+        $.get('/user/register_ajax/?user_email='+_useremailVal,function (data){
             if(data.count==0){
                 var tip = $("#inputEmail1").easytip();
                 tip.show("该电子邮箱验证可用!");
@@ -531,7 +534,7 @@ function phone() {
     if (_userphoneLen !== 0){
         if (_userphoneReg.test(_userphoneVal)) {
             // 符合前端验证，发送ajax请求进行后端验证
-            $.get('/user/RegHandle_skip/?user_phone='+_userphoneVal,function (data){
+            $.get('/user/register_ajax/?user_phone='+_userphoneVal,function (data){
                 if(data.count==0){
                     var tip = $("#inputphone1").easytip();
                     tip.show("该号码验证可用!");
@@ -563,10 +566,12 @@ function phone() {
 }
 
 window.callback = function(res){
+
     console.log(res);
+    var cb = res;
     // res（未通过验证）= {ret: 1, ticket: null}
     // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
-    if(res.ret === 0){
+    if(cb.ret === 0){
         // alert(res.ticket)   // 票据
         return true;
     } else {
@@ -580,19 +585,32 @@ function checkBox() {
     var checkBox = $("#inputcheckbox");
     //检查checked
     if (checkBox.is(":checked")) {
-        // alert("true!");
         return true;
     } else {
-
-        // return false;
+        return false;
     }
 }
+
 // 前端认证汇总
+// $('.form-horizontal').submit(function register() {
 function register() {
     //judge
-    // if (username() && pwd() && pwdConfirm() && callback() && checkBox() && email() && phone()){
-    if (pwd() && pwdConfirm() && callback() && checkBox()){
-        alert("ok!");
+    // var _u = username();
+    // var _p = pwd();
+    // var _p2 = pwdConfirm();
+    // var _cb = callback();
+    // var _c = checkBox();
+    // var _e = email();
+    // var _ph = phone();
+    // console.log(_u);
+    // console.log(_p);
+    // console.log(_p2);
+    // console.log(_cb);
+    // console.log(_c);
+    // console.log(_e);
+    // console.log(_ph);
+    if (username() == true && pwd() == true && pwdConfirm() == true && callback() == true && checkBox() == true && email() == true && phone() == true ){
+        alert(ok);
         return true;
     } else {
         var tip = $(".btn-register").easytip();
@@ -609,5 +627,5 @@ $(document).ready(function() {
     $("#inputEmail1").blur(email);
     $("#inputphone1").blur(phone);
     $("#inputcheckbox").blur(checkBox);
-    $(".btn-register").click(register);
+    $("#reg_form").submit(register);
 });

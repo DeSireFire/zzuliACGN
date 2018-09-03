@@ -18,7 +18,8 @@
         <div id="body-container" class="container">
             <div class="row">
                 <div class="space"></div>
-                <form class="form-horizontal" action="/user/RegHandle/" method="post">
+{#                <form class="form-horizontal" action="/user/RegHandle/" method="post" onsubmit="return register();">#}
+                <form class="form-horizontal" id="reg_form" action="/user/RegHandle/" method="post">
                     {% csrf_token %}
                     <div class="col-md-6 box">
                         <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
@@ -103,6 +104,7 @@
 
 {%block End_Script_more%}
     <script type="text/javascript" src="/static/ZA_User/js/Register.js"></script>
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 {%endblock End_Script_more%}
 
 {#{%block content%}#}

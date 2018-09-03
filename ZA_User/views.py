@@ -21,82 +21,101 @@ def register_ajax(request):
         {根据名字查到的用户对象的user_name}
         模板中接口为count
     '''
-    uname = request.GET.get('user_name')
-    # uemail = request.GET.get('user_email')
-    print(request.GET)
-    print(uname)
-    # returnTemp = {'user_name':0,'user_email':0}
-    # pattern = re.compile(r'/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/')
-    # m = pattern.match(uemail)
-    # print(m)
-    # return JsonResponse({'B_count':1,'Bool':'true'})
+    ajaxdict = {"ZA_User_Name":request.GET.get('user_name'),"ZA_User_Email":request.GET.get('user_email'),"ZA_User_Phone":request.GET.get('user_phone'),}
+    # user_name = request.GET.get('user_name')
+    # user_email = request.GET.get('user_email')
+    # user_phone = request.GET.get('user_phone')
+    keyName = ''
+    keyValue = ''
+    theNum = {"count":1}
+
+    # 分类ajax参数
+    for key in ajaxdict:
+        if ajaxdict.get(key,0) != None:
+            keyName = key
+            keyValue = ajaxdict[key]
+
+    if Register_Re(keyName,keyValue):
+        if keyName == 'ZA_User_Name':
+            theNum["count"] = ZA_UserInfo.objects.filter(ZA_User_Name=keyValue).count()
+        elif keyName == 'ZA_User_Email':
+            theNum["count"] = ZA_UserInfo.objects.filter(ZA_User_Email=keyValue).count()
+        elif keyName == "ZA_User_Phone":
+            theNum["count"] = ZA_UserInfo.objects.filter(ZA_User_Phone=keyValue).count()
+    else:
+        context = {'title': '用户注册'}
+        return render(request, 'ZA_User/register.html', context)
+
+    print(theNum)
+    return JsonResponse(theNum)
 
 
-    # if len(uname) < 4 or len(uname) > 16 or m == None:
-    #     return JsonResponse(returnTemp)
-    # else:
-    #     num_uname = ZA_UserInfo.objects.filter(ZA_User_Name=uname).count()
-    #     num_uemail = ZA_UserInfo.objects.filter(ZA_User_Email=uemail).count()
-    #     if num_uname == 0:
-    #         returnTemp["user_name"] = 1
-    #     elif num_uemail == 0:
-    #         returnTemp["user_email"] = 1
-    #     else:
-    #         if num_uname != 0:
-    #             returnTemp["user_name"] = 0
-    #         elif num_uemail != 0:
-    #             returnTemp["user_email"] = 0
-    #     return JsonResponse(returnTemp)
+# 后端正则验证
+def Register_Re(keyName,keyValue):
+    ResDict = {
+        "ZA_User_Name":r"^([\w]|[\u4e00-\u9fa5]|[ 。，、？￥“”‘’！：【】《》（）——.,?!$'\":+-]){4,16}$",
+        "ZA_User_Email":r"^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$",
+        "ZA_User_Phone":r"^1[34578]\d{9}$",
+    }
+    pattern = re.compile(ResDict.get(keyName))
+    retemp = pattern.match(keyValue)
+    print(retemp.group())
+    if retemp:
+        return True
+    else:
+        return False
 
 
- # 用户注册：电子邮箱
+ # 用户注册
 def Register_handle(request):
 
-    if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
-        q = request.GET.get('user_name')
-        print(q)
+    print(request.POST)
+    # if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
+    #     q = request.GET.get('user_name')
+    #     print(q)
 
-    New_ZA_User_Email = request.POST.get('Email')
-    #电子邮箱
-    New_ZA_User_name = request.POST.get('user_name')
-    #用户昵称
-    New_ZA_User_Phone = request.POST.get('user_Phone')
-    #用户电话
-    New_ZA_User_pwd = request.POST.get('pwd')
-    #用户密码1
-    New_ZA_User_pwd_again = request.POST.get('pwdagain')
-    # 用户密码2
-    New_ZA_User_RegTime = datetime.now().strftime('%b-%d-%Y %H:%M:%S')
-    # 用户注册时间
+    New_ZA_User_Email = request.POST.get('inputEmail1')
+    print("email:%s"%New_ZA_User_Email)
+    # #电子邮箱
+    # New_ZA_User_name = request.POST.get('user_name')
+    # #用户昵称
+    # New_ZA_User_Phone = request.POST.get('user_Phone')
+    # #用户电话
+    # New_ZA_User_pwd = request.POST.get('pwd')
+    # #用户密码1
+    # New_ZA_User_pwd_again = request.POST.get('pwdagain')
+    # # 用户密码2
+    # New_ZA_User_RegTime = datetime.now().strftime('%b-%d-%Y %H:%M:%S')
+    # # 用户注册时间
 
 
     #后端再次确认密码是否一致
-    if New_ZA_User_pwd != New_ZA_User_pwd_again and New_ZA_User_pwd != None and New_ZA_User_pwd_again != None:
-        return redirect('/user/Register')
-    else:
-        #加密
-        Encipherment = sha1()
-        print(New_ZA_User_pwd)
-        print(type(New_ZA_User_pwd))
-        Encipherment.update(New_ZA_User_pwd.encode('utf-8'))
-        Up_Password_Encipherment = Encipherment.hexdigest()
-
-        #创建新的用户对象
-        NewUser = ZA_UserInfo()
-        NewUser.ZA_User_RegTime = New_ZA_User_RegTime
-        NewUser.ZA_User_Email = New_ZA_User_Email
-        NewUser.ZA_User_Name = New_ZA_User_name
-        NewUser.ZA_User_Phone = New_ZA_User_Phone
-        NewUser.ZA_User_Password = Up_Password_Encipherment
-
-        print(New_ZA_User_RegTime)
-        print(New_ZA_User_Email)
-        print(New_ZA_User_name)
-        print(New_ZA_User_Phone)
-        print(Up_Password_Encipherment)
-        print(NewUser)
+    # if New_ZA_User_pwd != New_ZA_User_pwd_again and New_ZA_User_pwd != None and New_ZA_User_pwd_again != None:
+    #     return redirect('/user/register/')
+    # else:
+    #     #加密
+    #     Encipherment = sha1()
+    #     print(New_ZA_User_pwd)
+    #     print(type(New_ZA_User_pwd))
+    #     Encipherment.update(New_ZA_User_pwd.encode('utf-8'))
+    #     Up_Password_Encipherment = Encipherment.hexdigest()
+    #
+    #     #创建新的用户对象
+    #     NewUser = ZA_UserInfo()
+    #     NewUser.ZA_User_RegTime = New_ZA_User_RegTime
+    #     NewUser.ZA_User_Email = New_ZA_User_Email
+    #     NewUser.ZA_User_Name = New_ZA_User_name
+    #     NewUser.ZA_User_Phone = New_ZA_User_Phone
+    #     NewUser.ZA_User_Password = Up_Password_Encipherment
+    #
+    #     print(New_ZA_User_RegTime)
+    #     print(New_ZA_User_Email)
+    #     print(New_ZA_User_name)
+    #     print(New_ZA_User_Phone)
+    #     print(Up_Password_Encipherment)
+    #     print(NewUser)
         # NewUser.save()
-        return  redirect('/user/login/')
+    return redirect('/user/login/')
 
 # 用户登录页面
 def Login(request):
