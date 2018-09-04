@@ -18,8 +18,7 @@
         <div id="body-container" class="container">
             <div class="row">
                 <div class="space"></div>
-{#                <form class="form-horizontal" action="/user/RegHandle/" method="post" onsubmit="return register();">#}
-                <form class="form-horizontal" id="reg_form" action="/user/RegHandle/" method="post">
+                <form class="form-horizontal" id="reg_form" action="/user/RegHandle/" method="post" onsubmit="return register();">
                     {% csrf_token %}
                     <div class="col-md-6 box">
                         <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
@@ -39,7 +38,7 @@
                         <div class="form-group has-feedback pwd1">
                             <label for="inputPassword1" class="col-sm-4 control-label">用户密码 Password</label>
                             <div class="col-sm-8 ">
-                                <input type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！"
+                                <input name="password" type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！"
                                        data-easytip="position:top;class:easy-red;">
                                 <span class="logoAction2 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                 <span id="inputPassword1Status" class="sr-only">(success)</span>
@@ -49,7 +48,7 @@
                         <div class="form-group has-feedback pwd2">
                             <label for="inputPassword2" class="col-sm-4 control-label">二次密码 SecondPW</label>
                             <div class="col-sm-8">
-                                <input type="password" class="form-control" id="inputPassword2" aria-describedby="inputPassword2Status" placeholder="重要的东西要输两遍，我看看一不一样！"
+                                <input name="pwdConfirm" type="password" class="form-control" id="inputPassword2" aria-describedby="inputPassword2Status" placeholder="重要的东西要输两遍，我看看一不一样！"
                                        data-easyform="length:6 16;char-english;equal:#inputPassword1;real-time;"
                                        data-message="两次密码输入要一致，检查一下！"
                                        data-easytip="position:top;class:easy-blue;">
@@ -61,7 +60,7 @@
                         <div class="form-group has-feedback email">
                             <label for="inputEmail1" class="col-sm-4 control-label">电子邮箱 Email</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="inputEmail1" aria-describedby="inputEmail1Status" placeholder="注册后无法修改，邮箱不可重复注册。"
+                                <input name="Email" type="email" class="form-control" id="inputEmail1" aria-describedby="inputEmail1Status" placeholder="注册后无法修改，邮箱不可重复注册。"
                                        data-easytip="position:top;class:easy-blue;">
                                 <span class="logoAction4 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                 <span id="inputEmail1Status" class="sr-only">(success)</span>
@@ -71,7 +70,7 @@
                         <div class="form-group has-feedback phone">
                             <label class="control-label col-sm-4" for="inputphone1">联系手机 Mobile</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputphone1" aria-describedby="inputphone1Status" placeholder="选填，注册后无法修改。"
+                                <input name="phone" type="text" class="form-control" id="inputphone1" aria-describedby="inputphone1Status" placeholder="选填，注册后无法修改。"
                                        data-easytip="position:top;class:easy-blue;">
                                 <span class="logoAction5 glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                                 <span id="inputphone1Status" class="sr-only">(success)</span>

@@ -393,6 +393,8 @@ if (typeof(easy_load_options) == "undefined") {
     }
 }
 
+
+var _user = false;
 // 用户名检测以及ajax
 function username() {
     //var
@@ -404,15 +406,14 @@ function username() {
     if (_usernameReg.test(_usernameVal)) {
         // 符合前端验证，发送ajax请求进行后端验证
         $.get('/user/register_ajax/?user_name='+_usernameVal,function (data){
-            if(data.count === 0){
-
+            if(data.count==0){
                 var tip = $("#inputUserId").easytip();
                 tip.show("该用户名验证可用!");
                 $(".logoAction1").attr("class","logoAction1 glyphicon glyphicon-ok form-control-feedback");
                 $(".uname").attr("class","form-group has-feedback uname has-success");
-                return true;
-
-            }else if(data.count > 0){
+                _user = true;
+                return _user;
+            }else if(data.count>0){
 
                 var tip = $("#inputUserId").easytip();
                 tip.show("该用户名已被使用！");
@@ -421,7 +422,6 @@ function username() {
                 return false;
             }
         });
-
     } else {
         var tip = $("#inputUserId").easytip();
         $(".uname").addClass("has-error");
@@ -487,6 +487,7 @@ function pwdConfirm() {
 }
 
 // 邮箱验证以及ajax验证
+var _email = false;
 function email() {
     //var
     var _useremail = $("#inputEmail1");
@@ -501,7 +502,8 @@ function email() {
                 tip.show("该电子邮箱验证可用!");
                 $(".logoAction4").attr("class","logoAction4 glyphicon glyphicon-ok form-control-feedback");
                 $(".email").attr("class","form-group has-feedback email has-success");
-                return true;
+                _email = true;
+                return _email;
             }else if(data.count>0){
 
                 var tip = $("#inputEmail1").easytip();
@@ -511,7 +513,6 @@ function email() {
                 return false;
             }
         });
-
     } else {
         var tip = $("#inputEmail1").easytip();
         $(".email").attr("class","form-group has-feedback email has-error");
@@ -565,19 +566,20 @@ function phone() {
 
 }
 
+var VC_res = false;
 window.callback = function(res){
-
-    console.log(res);
-    var cb = res;
     // res（未通过验证）= {ret: 1, ticket: null}
     // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
-    if(cb.ret === 0){
-        // alert(res.ticket)   // 票据
-        return true;
+    if(res.ret === 0){
+        // alert(res.ticket); // 票据
+        VC_res = true;
+        return VC_res;
     } else {
-        return false;
+        VC_res = false;
+        return VC_res;
     }
 };
+
 
 //阅读协议勾选
 function checkBox() {
@@ -587,36 +589,46 @@ function checkBox() {
     if (checkBox.is(":checked")) {
         return true;
     } else {
+        var tip = $("#inputphone1").easytip();
+        tip.show("号码的格式好像不太对！");
         return false;
     }
 }
 
+
 // 前端认证汇总
-// $('.form-horizontal').submit(function register() {
 function register() {
+    // var _user = username();
+    var _pwd = pwd();
+    var _pwd2 = pwdConfirm();
+    // var _email = email();
+    var _checkBox = checkBox();
+    var _callback = VC_res;
+    var _phone = phone();
+    // alert("user:"+_user);
+    // alert("pwd:"+_pwd);
+    // alert("pwd2:"+_pwd2);
+    // alert("email:"+_email);
+    // alert("checkBox:"+_checkBox);
+    // alert("callback:"+_callback);
+    // alert("phone:"+_phone);
     //judge
-    // var _u = username();
-    // var _p = pwd();
-    // var _p2 = pwdConfirm();
-    // var _cb = callback();
-    // var _c = checkBox();
-    // var _e = email();
-    // var _ph = phone();
-    // console.log(_u);
-    // console.log(_p);
-    // console.log(_p2);
-    // console.log(_cb);
-    // console.log(_c);
-    // console.log(_e);
-    // console.log(_ph);
-    if (username() == true && pwd() == true && pwdConfirm() == true && callback() == true && checkBox() == true && email() == true && phone() == true ){
-        alert(ok);
+    if (_user === true && _pwd === true && _pwd2 === true && _email === true && _checkBox === true && _callback === true && _phone === true ){
+    // if (_user === true && _pwd === true && _pwd2 === true && _email === true && _checkBox === true && _phone === true ){
+        // var _usernameVal = $("#inputUserId").val();
+        // var _usernameVal = $("#inputPassword1").val();
+        // $.post(url, {
+        //     'user_name':_usernameVal,
+        //     'key2':val2
+        // });
         return true;
     } else {
         var tip = $(".btn-register").easytip();
         tip.show("注册信息不够完善！无法提交！请检查");
         return false;
     }
+
+
 }
 
 // 前端认证主函数
@@ -627,5 +639,5 @@ $(document).ready(function() {
     $("#inputEmail1").blur(email);
     $("#inputphone1").blur(phone);
     $("#inputcheckbox").blur(checkBox);
-    $("#reg_form").submit(register);
+    $(".btn-register").click(register);
 });

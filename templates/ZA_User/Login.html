@@ -21,7 +21,7 @@
                 <form class="form-horizontal" action="/user/login/" method="post">
                     <!--{% csrf_token %}-->
                     <div class="col-md-6 box1">
-                        <img class="img-responsive center-block hidden-xs hidden-sm" src="img/QYMX-logo.png"/>
+                        <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
                     </div>
                     <div class="col-md-6 box2">
                         <!--has-success：验证成功 has-feedback：输入框内字符样式-->
@@ -36,23 +36,18 @@
                         <div class="form-group">
                             <label for="inputPassword1" class="col-sm-4 control-label">用户登录密码</label>
                             <div class="col-sm-8">
-                                <input type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！">
+                                <input name="password" type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 text-right">
-                                <a class="btn btn-info" href="#" role="button">忘记密码？</a>
+                                <a class="btn btn-info" href="/bulding/" role="button">忘记密码？</a>
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="form-group has-feedback">
-                            <label class="control-label col-sm-4" for="inputSpecialty">验证码</label>
-                            <div class="col-sm-4">
-                                验证码预留
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputSpecialty" aria-describedby="inputSpecialtyStatus" placeholder="请输入验证码">
-                            </div>
+                            <label class="control-label col-sm-4">验证码 VerificationCode</label>
+                            <div class="col-sm-6 col-sm-offset-1 text-center btn btn-info" id="TencentCaptcha" data-appid="2089650139" data-cbfn="callback">点我开始验证</div>
                         </div>
                         <div class="space"></div>
                         <div class="form-group">
@@ -78,4 +73,5 @@
 {%endblock Middle%}
 
 {%block End_Script_more%}
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 {%endblock End_Script_more%}

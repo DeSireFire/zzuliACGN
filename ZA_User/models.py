@@ -64,8 +64,9 @@ class ZA_UserInfo(models.Model):
     ZA_User_Action = models.CharField('用户状态',max_length=6, default='0',)
     # 用户状态：0：正常 1:删除 2:黑名单 3：冻结
 
-    def __str__(self):
-        return self.ZA_User_ID
+    # def __str__(self):
+    #     str_ZA_User_ID = str(self.ZA_User_ID)
+    #     return str_ZA_User_ID
 
     # class Meta:
     #     verbose_name = '用户信息'

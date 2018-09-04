@@ -70,51 +70,50 @@ def Register_Re(keyName,keyValue):
 def Register_handle(request):
 
     print(request.POST)
-    # if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
-    #     q = request.GET.get('user_name')
-    #     print(q)
+    if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
+        q = request.GET.get('user_name')
+        print(q)
+    # < QueryDict: {'csrfmiddlewaretoken': ['NRKioLR9Nz0wPXLK2HGnaZgvY53ihDJmQ8eBBq5NjS0uRHxsl42sCDjITCJJa3f4'],
+    #               'pwdConfirm': ['RQganyongqi233?'], 'Email': ['1025212779@qq.com'], 'user_name': ['wocao'],
+    #               'phone': [''], 'password': ['RQganyongqi233?']} >
 
-    New_ZA_User_Email = request.POST.get('inputEmail1')
-    print("email:%s"%New_ZA_User_Email)
-    # #电子邮箱
-    # New_ZA_User_name = request.POST.get('user_name')
-    # #用户昵称
-    # New_ZA_User_Phone = request.POST.get('user_Phone')
-    # #用户电话
-    # New_ZA_User_pwd = request.POST.get('pwd')
-    # #用户密码1
-    # New_ZA_User_pwd_again = request.POST.get('pwdagain')
-    # # 用户密码2
+    New_ZA_User_Email = request.POST.get('Email')
+    #电子邮箱
+    New_ZA_User_name = request.POST.get('user_name')
+    #用户昵称
+    New_ZA_User_Phone = request.POST.get('phone')
+    #用户电话
+    New_ZA_User_pwd = request.POST.get('password')
+    #用户密码1
+    New_ZA_User_pwd_again = request.POST.get('pwdConfirm')
+    # 用户密码2
     # New_ZA_User_RegTime = datetime.now().strftime('%b-%d-%Y %H:%M:%S')
-    # # 用户注册时间
+    # 用户注册时间
 
+    # 后端再次确认密码是否一致
+    if New_ZA_User_pwd != New_ZA_User_pwd_again and New_ZA_User_pwd != None and New_ZA_User_pwd_again != None:
+        return redirect('/user/register/')
+    else:
+        #加密
+        Encipherment = sha1()
+        Encipherment.update(New_ZA_User_pwd.encode('utf-8'))
+        Up_Password_Encipherment = Encipherment.hexdigest()
 
-    #后端再次确认密码是否一致
-    # if New_ZA_User_pwd != New_ZA_User_pwd_again and New_ZA_User_pwd != None and New_ZA_User_pwd_again != None:
-    #     return redirect('/user/register/')
-    # else:
-    #     #加密
-    #     Encipherment = sha1()
-    #     print(New_ZA_User_pwd)
-    #     print(type(New_ZA_User_pwd))
-    #     Encipherment.update(New_ZA_User_pwd.encode('utf-8'))
-    #     Up_Password_Encipherment = Encipherment.hexdigest()
-    #
-    #     #创建新的用户对象
-    #     NewUser = ZA_UserInfo()
-    #     NewUser.ZA_User_RegTime = New_ZA_User_RegTime
-    #     NewUser.ZA_User_Email = New_ZA_User_Email
-    #     NewUser.ZA_User_Name = New_ZA_User_name
-    #     NewUser.ZA_User_Phone = New_ZA_User_Phone
-    #     NewUser.ZA_User_Password = Up_Password_Encipherment
-    #
-    #     print(New_ZA_User_RegTime)
-    #     print(New_ZA_User_Email)
-    #     print(New_ZA_User_name)
-    #     print(New_ZA_User_Phone)
-    #     print(Up_Password_Encipherment)
-    #     print(NewUser)
-        # NewUser.save()
+        #创建新的用户对象
+        NewUser = ZA_UserInfo()
+        # NewUser.ZA_User_RegTime = New_ZA_User_RegTime
+        NewUser.ZA_User_Email = New_ZA_User_Email
+        NewUser.ZA_User_Name = New_ZA_User_name
+        NewUser.ZA_User_Phone = New_ZA_User_Phone
+        NewUser.ZA_User_Password = Up_Password_Encipherment
+
+        # print(New_ZA_User_RegTime)
+        print(New_ZA_User_Email)
+        print(New_ZA_User_name)
+        print(New_ZA_User_Phone)
+        print(Up_Password_Encipherment)
+        print(NewUser)
+        NewUser.save()
     return redirect('/user/login/')
 
 # 用户登录页面
