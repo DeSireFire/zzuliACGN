@@ -18,25 +18,26 @@
         <div id="body-container" class="container">
             <div class="row">
                 <div class="space"></div>
-                <form class="form-horizontal" action="/user/login/" method="post">
-                    <!--{% csrf_token %}-->
+                <form class="form-horizontal" action="/user/login_handle/" method="post" onsubmit="return login()">
+                    {% csrf_token %}
                     <div class="col-md-6 box1">
                         <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
                     </div>
                     <div class="col-md-6 box2">
-                        <!--has-success：验证成功 has-feedback：输入框内字符样式-->
                         <div class="space"></div>
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="inputUserId">用户名/电子邮箱</label>
                             <div class="col-sm-8">
-                                <input name="user_name" type="text" class="form-control" id="inputUserId" aria-describedby="inputUserIdStatus" placeholder="输入用户名或电子邮箱地址都可!">
+                                <input name="user_name" type="text" class="form-control" id="inputUserId" aria-describedby="inputUserIdStatus" placeholder="输入用户名或电子邮箱地址都可!"
+                                       data-easytip="position:top;class:easy-blue;">
                             </div>
                         </div>
                         <div class="space"></div>
                         <div class="form-group">
                             <label for="inputPassword1" class="col-sm-4 control-label">用户登录密码</label>
                             <div class="col-sm-8">
-                                <input name="password" type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！">
+                                <input name="password" type="password" class="form-control" id="inputPassword1" aria-describedby="inputPassword1Status" placeholder="密码越复杂越好，拿小本子记下来！"
+                                       data-easytip="position:top;class:easy-blue;">
                             </div>
                         </div>
                         <div class="form-group">
@@ -45,7 +46,7 @@
                             </div>
                         </div>
                         <div class="space"></div>
-                        <div class="form-group has-feedback">
+                        <div class="form-group">
                             <label class="control-label col-sm-4">验证码 VerificationCode</label>
                             <div class="col-sm-6 col-sm-offset-1 text-center btn btn-info" id="TencentCaptcha" data-appid="2089650139" data-cbfn="callback">点我开始验证</div>
                         </div>
@@ -54,12 +55,13 @@
                             <div class="col-sm-5 col-sm-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"> 记住 本大爷 登陆状态！
+                                        <input type="checkbox" id="inputcheckbox" name="rememberme"
+                                               data-easytip="position:top;class:easy-red;"> 记住 本大爷 登陆状态！
                                     </label>
                                 </div>
                             </div>
                             <div class="col-sm-2 text-right">
-                                <button type="submit" class="btn btn-info">Link Start!</button>
+                                <button type="submit" class="btn btn-info btn-login" data-easytip="position:top;class:easy-blue;">Link Start!</button>
                             </div>
                         </div>
                     </div>
@@ -74,4 +76,5 @@
 
 {%block End_Script_more%}
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+    <script src="/static/ZA_User/js/Login.js"></script>
 {%endblock End_Script_more%}
