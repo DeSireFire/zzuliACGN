@@ -158,8 +158,8 @@ def Login_Handler(request):
         RememberMe = request.POST.get('rememberme')
         print(RememberMe)
 
-    print("Tmp:%s" % New_ZA_User_Temp)
-    print("pwd:%s" % New_ZA_User_pwd)
+    # print("Tmp:%s" % New_ZA_User_Temp)
+    # print("pwd:%s" % New_ZA_User_pwd)
     # print("old_users:%s" % old_users[0])
     # print("old_users:%s" % old_users[0].ZA_User_ID)
     # print("old_users:%s" % old_users[0].ZA_User_Name)
@@ -167,8 +167,8 @@ def Login_Handler(request):
     # print("CK_URL:%s" % request.COOKIES)
     # print("CK_URL:%s" % request.COOKIES.get("url"))
 
+    login_json = {"login":"no","url":"","zzuliacgn_user_name":None,"un_max_age":"None",}
     if len(old_users) == 1:
-        print("old_users is 1")
         # 获取到用户名
         # 验证密码
         # 我就是要把变量名写得让你看起来头皮发麻！2333
@@ -177,20 +177,17 @@ def Login_Handler(request):
         ZA_User_Password_encipherment = encipherment.hexdigest()
         if ZA_User_Password_encipherment==old_users[0].ZA_User_Password:
             print("%s 登录成功！"%old_users[0].ZA_User_Name)
-            url = request.COOKIES.get('url','/')
-            cookiesWarn = HttpResponseRedirect(url)
-            # 成功后删除转向地址，防止以后直接登录造成的转向
-            cookiesWarn.set_cookie('url','',max_age=-1)
+            login_json["login"] = "ok"
             # 记住用户名
             if RememberMe == "on" or RememberMe == "true":
                 print("保持登录状态！")
                 # 用户名以utf8编码以保证cookies不报错，使用时用.decode("utf-8")解码
-                cookiesWarn.set_cookie("zzuliacgn_user_name",old_users[0].ZA_User_Name.encode('utf-8').decode())
+                login_json["zzuliacgn_user_name"] = old_users[0].ZA_User_Name.encode('utf-8').decode()
             else:
                 print("未勾选登录状态记忆！")
-                cookiesWarn.set_cookie("zzuliacgn_user_name",'',max_age=-1)
+                login_json["un_max_age"] = "-1"
+                login_json["zzuliacgn_user_name"] = ""
             # 登录成功保存session信息
-            print("cookiesWarn:%s"%cookiesWarn)
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
             print("session信息保存成功！")
@@ -199,20 +196,12 @@ def Login_Handler(request):
             print("session——id:%s"%request.session.session_key)
             print("session——keys:%s"%request.session.keys())
             print("session——values:%s"%request.session.values())
-            return cookiesWarn
-            # return JsonResponse({"login":"ok","url":"","zzuliacgn_user_name":old_users[0].ZA_User_Name.encode('utf-8').decode()})
+            return JsonResponse(login_json)
         else:
             # 密码验证失败，返回json给js
-            return JsonResponse({"login":"no"})
-
+            print("登陆失败！密码错误")
+            return JsonResponse(login_json)
     else:
         # 密码验证失败，返回json给js
-        # context = {'warning': '用户名或者密码错误啦！'}
-        # return render(request, 'ZA_User/Login.html', context)
-        return JsonResponse({"login": "no"})
-
-
-
-
-
-
+        print("登陆失败！用户名不存在")
+        return JsonResponse(login_json)
