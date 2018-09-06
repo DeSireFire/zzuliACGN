@@ -11,14 +11,15 @@
     <div class="overlay">
         <div class="content">
             <h1>动漫协会<strong><span class="color">用户登陆</span></strong></h1>
-            <p class="lead">--网站的部分功能，仅对已经注册的用户才会开放哦</p>
+            <p class="lead" style="color: pink">{{warning}}</p>
             <!--<a href="#tf-about" class="fa fa-angle-down page-scroll"></a>-->
             <!--<img src="img/dont.jpg" class="img-responsive img-rounded center-block" alt="用户提示" style="height: 400px;width: auto;">-->
         </div>
         <div id="body-container" class="container">
             <div class="row">
                 <div class="space"></div>
-                <form class="form-horizontal" action="/user/login_handle/" method="post" onsubmit="return login()">
+{#                <form class="form-horizontal" action="/user/login_handle/" method="post" onsubmit="return login()">#}
+                <form class="form-horizontal" action="/bulding/" method="post" onsubmit="return login()">
                     {% csrf_token %}
                     <div class="col-md-6 box1">
                         <img class="img-responsive center-block hidden-xs hidden-sm" src="/static/ZA_Show/img/background/QYMX-logo.png"/>
@@ -76,5 +77,6 @@
 
 {%block End_Script_more%}
     <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="/static/ZA_User/js/Login.js"></script>
 {%endblock End_Script_more%}

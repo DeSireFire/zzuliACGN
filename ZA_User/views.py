@@ -5,6 +5,7 @@ from hashlib import sha256
 from django.core.paginator import Paginator,Page
 from datetime import datetime
 import re
+# from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -120,10 +121,12 @@ def Register_handle(request):
 # 用户登录跳转
 def Login(request):
 
-    context = {'title': '用户登录'}
+    context = {'warning': ''}
     return  render(request,'ZA_User/Login.html',context)
 
 # 用户登录处理
+
+# @csrf_exempt # 该视图无视跨域请求保护，有风险
 def Login_Handler(request):
 
     # {'password': ['123qwe'], 'user_name': ['1025212779@qq.com'], 'rememberme': ['on'],
@@ -136,15 +139,13 @@ def Login_Handler(request):
     # 判断使用邮箱登录还是用户名登录
     if Register_Re("ZA_User_Email", New_ZA_User_Temp):
         New_ZA_User_Email = New_ZA_User_Temp
-        print("re:%s"%New_ZA_User_Email)
         old_users = ZA_UserInfo.objects.filter(ZA_User_Email=New_ZA_User_Email)  # 从后端获取用户名
 
     elif Register_Re("ZA_User_Name", New_ZA_User_Temp):
         New_ZA_User_name = New_ZA_User_Temp
-        print("re:%s" % New_ZA_User_name)
         old_users = ZA_UserInfo.objects.filter(ZA_User_Name=New_ZA_User_name)  # 从后端获取邮箱
     else:
-        context = {'title': '用户登录失败！'}
+        context = {'warning': '用户名或者密码错误啦！'}
         return render(request, 'ZA_User/Login.html', context)
 
     # 用户密码
@@ -175,35 +176,43 @@ def Login_Handler(request):
         encipherment.update(New_ZA_User_pwd.encode('utf-8'))
         ZA_User_Password_encipherment = encipherment.hexdigest()
         if ZA_User_Password_encipherment==old_users[0].ZA_User_Password:
-
+            print("%s 登录成功！"%old_users[0].ZA_User_Name)
             url = request.COOKIES.get('url','/')
             cookiesWarn = HttpResponseRedirect(url)
             # 成功后删除转向地址，防止以后直接登录造成的转向
             cookiesWarn.set_cookie('url','',max_age=-1)
             # 记住用户名
-            if RememberMe == "on":
+            if RememberMe == "on" or RememberMe == "true":
                 print("保持登录状态！")
                 # 用户名以utf8编码以保证cookies不报错，使用时用.decode("utf-8")解码
-                cookiesWarn.set_cookie("user_name",old_users[0].ZA_User_Name.encode('utf-8').decode())
+                cookiesWarn.set_cookie("zzuliacgn_user_name",old_users[0].ZA_User_Name.encode('utf-8').decode())
             else:
                 print("未勾选登录状态记忆！")
-                cookiesWarn.set_cookie("user_name",'',max_age=-1)
+                cookiesWarn.set_cookie("zzuliacgn_user_name",'',max_age=-1)
             # 登录成功保存session信息
-
+            print("cookiesWarn:%s"%cookiesWarn)
             request.session['user_id']=old_users[0].ZA_User_ID
-            request.session['user_name'] = old_users[0].ZA_User_Name
+            request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
             print("session信息保存成功！")
-            print("session——id:%s"%request.session['user_name'])
-            print("session——user_name:%s"%request.session['user_name'])
-
-            return JsonResponse({"login": "ok"}),cookiesWarn
+            print("session——user_id:%s"%request.session['user_id'])
+            print("session——user_name:%s"%request.session['zzuliacgn_user_name'])
+            print("session——id:%s"%request.session.session_key)
+            print("session——keys:%s"%request.session.keys())
+            print("session——values:%s"%request.session.values())
+            return cookiesWarn
+            # return JsonResponse({"login":"ok","url":"","zzuliacgn_user_name":old_users[0].ZA_User_Name.encode('utf-8').decode()})
         else:
-
+            # 密码验证失败，返回json给js
             return JsonResponse({"login":"no"})
 
+    else:
+        # 密码验证失败，返回json给js
+        # context = {'warning': '用户名或者密码错误啦！'}
+        # return render(request, 'ZA_User/Login.html', context)
+        return JsonResponse({"login": "no"})
 
 
 
 
-        context = {'title': '用户成功！'}
-        return  render(request,'ZA_Show/ZA_show.html',context)
+
+

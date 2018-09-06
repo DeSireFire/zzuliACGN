@@ -447,6 +447,20 @@ function checkBox() {
     }
 }
 
+function getCookie(name) {
+    var cookieValue = null;
+     if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+        }
+    }
+    }
+    return cookieValue;
+}
 
 function login(){
     // var
@@ -459,26 +473,51 @@ function login(){
     // alert("checkBox:"+_checkBox);
     // alert("VC_ticket:"+VC_ticket);
 
-    if (_loginTicket !== null && _usernameCheck === true && _pwd === true) {
+    // if (_loginTicket !== null && _usernameCheck === true && _pwd === true) {
+    if (_usernameCheck === true && _pwd === true) {
         var _usernameVal = $("#inputUserId").val();
         var _pwdVal = $("#inputPassword1").val();
-        var _url = "192.168.0.103:5678/user/login_handle/";
+        var _url = "http://192.168.0.103:5678/user/login_handle/";
+        // c_start=document.cookie.indexOf("zzuliacgn_user_name=");
+
         // post提交验证，成功跳转
-        $.post(_url, {
-            headers: {'X-CSRFToken': this.getCookie('csrftoken')},
+        $.ajax({
+            url: "http://192.168.0.103:5678/user/login_handle/",
+            method: "post",
+            headers:{'X-CSRFToken': getCookie('csrftoken')},
+            data: {
             'user_name':_usernameVal,
             'password':_pwdVal,
-            'loginTicket':_loginTicket.length,
+            'loginTicket':_loginTicket,
             'rememberme':_checkBox
-        },function (data){
-            if(data.login === "ok"){
-                alert("JQ有喜了！")
-            }else if(data.login === "no"){
-                var tip = $(".btn-login").easytip();
-                tip.show("用户名、邮箱或者密码不正确呢！");
-            }
+            },
+            // 回调函数，验证成功无返回值，验证失败有返回值
+            success: function(data){
+                console.log(data);
+                if(data.login === "ok"){
+                    console.log(data);
+                    console.log(data.url);
+                    console.log(data.zzuliacgn_user_name);
+                    $.cookie("url", data.url,{ path: '/' });
+                    $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ path: '/' });
+                    return false
+
+                } else if (data.login === "no"){
+                    var tip = $(".btn-login").easytip();
+                    tip.show("用户名、邮箱或者密码不正确呢！");
+                    return false
+                }
+
+            },
+            dataType: "json"
+
         });
-        return true
+
+        // s = $.cookie("zzuliacgn_user_name");
+        // console.log(s);
+        // c_start=document.cookie.indexOf("zzuliacgn_user_name");
+        // console.log(c_start);
+        // return false
 
     } else {
         var tip = $(".btn-login").easytip();
@@ -489,11 +528,7 @@ function login(){
     return false
 }
 
-function getCookie (name) {
-      var value = '; ' + document.cookie;
-      var parts = value.split('; ' + name + '=');
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
+
 
 // 前端登陆主函数
 $(document).ready(function() {
