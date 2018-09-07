@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date
-
+# todo 可能需要加入敏感词库
 # Create your models here.
 class ZA_UserInfo(models.Model):
     '''

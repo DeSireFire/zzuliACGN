@@ -18,12 +18,13 @@ from django.urls import path,include
 from django.conf import settings
 # from django.views import static
 # from django.conf.urls.static import static
-from . import view
-handler404 = view.page_not_found
+from . import views
+handler404 = views.page_not_found
 urlpatterns = [
     path('NTadmin/', admin.site.urls),
     path('', include('ZA_Show.urls')),
     path('user/', include('ZA_User.urls')),
+    path('mikutap/', views.Mikutap),
     path('bulding/', handler404),
     # path('', include('ZA_Index.urls')),
 

@@ -40,6 +40,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="/bulding/">动漫协会外宣展示</a></li>
                         <li role="separator" class="divider"></li>
+                        <li><a href="/mikutap/">Mikutap</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -75,7 +76,7 @@
                         <img src="/static/ZA_User/img/HeaderImg/default.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">{{request.session.zzuliacgn_user_name}}</a></li>
+                        <li><a href="#">昵称：{{request.session.zzuliacgn_user_name|escape}}</a></li>
                         <li><a href="#">个人中心</a></li>
                         <li><a href="#">投稿管理</a></li>
                         <li role="separator" class="divider"></li>

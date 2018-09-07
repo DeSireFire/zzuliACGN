@@ -5,6 +5,10 @@ from hashlib import sha256
 from django.core.paginator import Paginator,Page
 import re
 # from django.views.decorators.csrf import csrf_exempt
+
+from django.utils.html import escape
+# XSS防御组件
+
 # todo :用户注册尚未加入敏感词过滤，由于user视图变量过多或考虑参数分离。
 # Create your views here.
 
@@ -113,7 +117,7 @@ def Register_handle(request):
         print(New_ZA_User_Phone)
         print(Up_Password_Encipherment)
         print(NewUser)
-        NewUser.save()
+        # NewUser.save()
     return redirect('/user/login/')
 
 

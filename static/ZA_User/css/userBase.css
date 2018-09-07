@@ -67,7 +67,15 @@ a.fa.fa-angle-down:hover {
 
 	}
 }
+@media (max-width: 970px){
+	.content {
+		padding: 5% 0 0;
+	}
+	.container{
+		background-color: #2b2e33;
 
+	}
+}
 
 .easytip-text, .easytip-text:before, .easytip-text:after {
     box-sizing: content-box;
