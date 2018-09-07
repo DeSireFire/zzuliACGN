@@ -3,10 +3,9 @@ from .models import *
 from django.http import HttpResponseRedirect,JsonResponse
 from hashlib import sha256
 from django.core.paginator import Paginator,Page
-from datetime import datetime
 import re
 # from django.views.decorators.csrf import csrf_exempt
-
+# todo :用户注册尚未加入敏感词过滤，由于user视图变量过多或考虑参数分离。
 # Create your views here.
 
 # 用户注册跳转
@@ -167,7 +166,16 @@ def Login_Handler(request):
     # print("CK_URL:%s" % request.COOKIES)
     # print("CK_URL:%s" % request.COOKIES.get("url"))
 
-    login_json = {"login":"no","url":"","zzuliacgn_user_name":None,"un_max_age":"None",}
+    login_json = {
+        "login":"no", # 是否登录成功
+        "url":"", # 删除转向地址，防止以后直接登录造成的转向
+        "zzuliacgn_user_name":None, # 用户名信息
+
+        # max_age:-1表示为cookies的max-age的默认值是-1(即max-age和expires的有效期为session)
+        "max_age":-1, # 是否使用cookies的max-age,设置cookies还剩多少秒苟活，
+        # expires为0表示为cookies的expires的默认值是为session,否则留存天数，单位（天）(即max-age和expires的有效期为session)
+        "Expires":0, # 是否使用cookies的expires,设置cookies过期时间点,
+    }
     if len(old_users) == 1:
         # 获取到用户名
         # 验证密码
@@ -180,13 +188,22 @@ def Login_Handler(request):
             login_json["login"] = "ok"
             # 记住用户名
             if RememberMe == "on" or RememberMe == "true":
-                print("保持登录状态！")
+                print("保持登录状态与默认sessions寿命一致!")
                 # 用户名以utf8编码以保证cookies不报错，使用时用.decode("utf-8")解码
                 login_json["zzuliacgn_user_name"] = old_users[0].ZA_User_Name.encode('utf-8').decode()
             else:
-                print("未勾选登录状态记忆！")
-                login_json["un_max_age"] = "-1"
-                login_json["zzuliacgn_user_name"] = ""
+                print("未勾选登录状态记忆！关闭浏览器遍结束会话")
+                login_json["zzuliacgn_user_name"] = ''
+
+
+                # 用户关闭浏览器session就会失效
+                request.session.set_expiry(0)
+                # 你可以传递四种不同的值给它：
+                # *如果value是个整数，session会在些秒数后失效。
+                # *如果value是个datatime或timedelta，session就会在这个时间后失效。
+                # *如果value是0, 用户关闭浏览器session就会失效。
+                # *如果value是None, session会依赖全局session失效策略。
+
             # 登录成功保存session信息
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
@@ -205,3 +222,12 @@ def Login_Handler(request):
         # 密码验证失败，返回json给js
         print("登陆失败！用户名不存在")
         return JsonResponse(login_json)
+
+
+def login_out(request):
+    '''
+    注销登录，并删除session
+    '''
+
+    request.session.flush()
+    return redirect('/')

@@ -25,12 +25,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="www.zzuliacgn.cf">郑轻大动漫协会</a>
+            <a class="navbar-brand" href="/">郑轻大动漫协会</a>
         </div>
         <!-- 导航主体 -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主站</a></li>
+                <li class="active"><a href="/">主站</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
                     <ul class="dropdown-menu">
@@ -67,31 +67,33 @@
                 <button type="submit" class="btn">Link Start!</button>
             </form>
             <!--导航条右-->
+            {% if request.session.zzuliacgn_user_name|default:'' != '' %}
+            <!--已登录状态-->
+            <ul id="Logining" class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="/static/ZA_User/img/HeaderImg/default.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">{{request.session.zzuliacgn_user_name}}</a></li>
+                        <li><a href="#">个人中心</a></li>
+                        <li><a href="#">投稿管理</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/user/logout/">退出</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">消息</a></li>
+                <li><a href="#">动态</a></li>
+                <li><a href="#">收藏夹</a></li>
+                <li><a href="#">历史</a></li>
+            </ul>
+            {% else %}
             <!--未登录状态-->
             <ul id="noLogin" class="nav navbar-nav navbar-right">
                 <li><a href="/user/login/">用户登陆</a></li>
                 <li><a href="/user/register/">用户注册</a></li>
             </ul>
-            <!--已登录状态-->
-{#            <ul id="Logining" class="nav navbar-nav navbar-right">#}
-{#                <li class="dropdown">#}
-{#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">#}
-{#                        <img src="img/default.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">#}
-{#                    </a>#}
-{#                    <ul class="dropdown-menu">#}
-{#                        <li><a href="#">（假装是用户简要资料）</a></li>#}
-{#                        <li><a href="#">个人中心</a></li>#}
-{#                        <li><a href="#">投稿管理</a></li>#}
-{#                        <li role="separator" class="divider"></li>#}
-{#                        <li><a href="#">退出</a></li>#}
-{#                    </ul>#}
-{#                </li>#}
-{#                <li><a href="#">消息</a></li>#}
-{#                <li><a href="#">动态</a></li>#}
-{#                <li><a href="#">收藏夹</a></li>#}
-{#                <li><a href="#">历史</a></li>#}
-{#            </ul>#}
-
+        {% endif %}
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

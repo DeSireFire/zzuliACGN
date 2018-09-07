@@ -470,49 +470,7 @@ function login(){
     var _loginTicket = VC_ticket;
     var _usernameVal = $("#inputUserId").val();
     var _pwdVal = $("#inputPassword1").val();
-    var ajax_res = null;
-    var savetimes = 0;
-    var _url = "http://192.168.0.103:5678/user/login_handle/";
 
-    // // if (_loginTicket !== null && _usernameCheck === true && _pwd === true) {
-    // if (_usernameCheck === true && _pwd === true) {
-
-    //     // c_start=document.cookie.indexOf("zzuliacgn_user_name=");
-    //
-    //     // post提交验证，成功跳转
-    //     $.ajax({
-    //         url: "http://192.168.0.103:5678/user/login_handle/",
-    //         method: "post",
-    //         headers:{'X-CSRFToken': getCookie('csrftoken')},
-    //         data: {
-    //         'user_name':_usernameVal,
-    //         'password':_pwdVal,
-    //         'loginTicket':_loginTicket,
-    //         'rememberme':_checkBox
-    //         },
-    //         // 回调函数，验证成功无返回值，验证失败有返回值
-    //         success: function(data){
-    //             console.log(data);
-    //             if(data.login === "ok"){
-    //                 alert("登录成功!");
-    //                 $.cookie("url",'',{ path: '/', max_age:-1 });
-    //                 $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ path: '/', max_age:data.un_max_age });
-    //                 return false;
-    //             } else if (data.login === "no"){
-    //                 var tip = $(".btn-login").easytip();
-    //                 tip.show("用户名、邮箱或者密码不正确呢！");
-    //                 return false;
-    //             }
-    //
-    //         },
-    //         dataType: "json"
-    //     });
-    // } else {
-    //     var tip = $(".btn-login").easytip();
-    //     tip.show("登陆失败，检查一下！");
-    //     // 避免submit二次提交
-    //     return false
-    // }
     if(_usernameCheck === true && _pwd === true){
 
         $.ajax({
@@ -530,9 +488,14 @@ function login(){
 
                 if(data.login === "ok"){
                     // 后端验证通过ok
-                    console.log("ok:"+data.login);
-                    $.cookie("url",'',{ path: '/', max_age:-1 });
-                    $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ path: '/', max_age:data.un_max_age });
+                    console.log("max_age:"+data.max_age);
+                    if(data.max_age == -1){
+                        $.cookie("url",'',{ path: '/', max_age:-1 });
+                        $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ path: '/', max_age:-1 });
+                    } else {
+                        $.cookie("url",'',{ expires: data.Expires, path: '/', max_age: data.max_age });
+                        $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ expires: data.Expires, path: '/', max_age: data.max_age });
+                    }
                     window.location.href='/';
                 } else if(data.login === "no"){
                     // 后端验证不通过no
@@ -545,6 +508,8 @@ function login(){
         //用户名和密码等函数检查通过，防止submit在未通过ajax时依然出现无差别跳转。
         return false
     } else {
+        var tip = $(".btn-login").easytip();
+        tip.show("用户名、邮箱或者密码不正确呢！");
         //用户名和密码等函数检查不通过返回false
         return false
     }
