@@ -235,3 +235,16 @@ def login_out(request):
 
     request.session.flush()
     return redirect('/')
+
+def info(request):
+    '''
+        用户个人中心
+        从session获取user_info的id
+    '''
+    user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
+    context={
+        # 'title':'用户中心',
+        # 'user':user_info,
+        # 'page_name': 1
+    }
+    return render(request,'ZA_User/usercenter.html',context)
