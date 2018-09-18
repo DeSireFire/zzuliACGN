@@ -52,6 +52,15 @@
             <script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
             <script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.js"></script>
             <script type="text/javascript" src="/static/BaseJs.js"></script>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125963410-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-125963410-1');
+            </script>
             {#末端JavaScript预留区，根据网页具体需求添加新JS#}
             {%block End_Script_more%}{%endblock End_Script_more%}
         {%endblock End_Script%}
