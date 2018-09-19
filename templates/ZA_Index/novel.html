@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>(此处改为你需要的页首名)</title>
+    <!--动漫协会官网基础样式文件,start-->
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--BaseCSS-->
+    <link href="http://www.zzuliacgn.cf/static/BaseCss.css" rel="stylesheet">
+    <link href="http://www.zzuliacgn.cf/static/ZA_User/css/userBase.css" rel="stylesheet">
+    <!--动漫协会官网基础样式文件,end-->
+    <!--*********************************************************************************************-->
+    <!--此处引入你的外部CSS文件，start-->
+    <!--例如：<link href="CSS/xxx.css" rel="stylesheet">-->
+
+
+    <!--此处引入你的外部CSS文件，end-->
+    <!--*********************************************************************************************-->
+    <!--此处style标签输入你的CSS样式，start-->
+    <style>
+        #tf-home {
+            background:url(Images/5290131_p0.jpg);
+            /*background:url(img/1500x500.jpg);*/
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+            color:#cfcfcf;
+        }
+        #tf-home .overlay {
+            height:1900px;
+        }
+        /*#body-container.container {*/
+        .rgba-blue {
+            border: 1px solid #99CCFF;
+            background-color: rgba(153,204,255,0.1);
+        }
+        .content {
+            position:relative;
+            padding:6% 0 0;
+        }
+        .container{
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .title-img-md{
+            margin: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            width: 100%;
+        }
+
+        .title-img-lg{
+            background:url(Images/1500x500.jpg);
+            background-size:cover;
+            background-position:center;
+            width: 100%;
+            height: 500px;
+        }
+
+        /*.navbar-inverse .navbar-nav > li > a > span {*/
+            /*font: 16px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;*/
+            /*padding: 0 0 0 18px;*/
+            /*transition: all .5s;*/
+        /*}*/
+
+        .navbar-sec-first-btn > .dropdown > a{
+            padding-right: 65px;
+            padding-left: 65px;
+        }
+        .navbar-sec-first-btn > li > a {
+            padding-right: 25px;
+            padding-left: 25px;
+        }
+        .novel-sort li a{
+            display: inline-block;
+        }
+        .novel-sort {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 201px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            font-size: 14px;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0,0,0,.15);
+            border-radius: 4px;
+            -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+        .line-border{
+            border-bottom: #00FFCC 2px solid;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        .notice-list{
+            padding-top: 10px;
+            border: 1px solid pink;
+            margin-bottom: 15px;
+        }
+        .container-title{
+            border-bottom: 2px solid #00FFCC;
+        }
+        #body-container > .row{
+            margin-bottom: 2%;
+        }
+        </style>
+    <!--此处style标签输入你的CSS样式，end-->
+    <!--*********************************************************************************************-->
+
+
+</head>
+<body>
+<!-- Navigation 样式占位，用于大体预览网页效果，此处不用修改
+==========================================-->
+<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- 移动设备显示的导航部分 -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="zzuilACGN/ZA_show.html">郑轻大动漫协会</a>
+        </div>
+        <!-- 导航主体 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主站</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">社团活动公告</a></li>
+                        <li><a href="#">漫协干部公示</a></li>
+                        <li><a href="#">动漫协会编年史</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">动漫协会外宣展示</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">肥宅快乐源 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu nav-menu navbar-inverse">
+                        <li><a href="#">动画番剧--Animations</a></li>
+                        <li><a href="#">漫有引力--Comics</a></li>
+                        <li><a href="#">游戏中心--Games</a></li>
+                        <li><a href="#">次元圣经--Novel&Fiction</a></li>
+                        <li><a href="#">资讯情报--Intelligence</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">BT资源区</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li><a href="#">漫协BBS</a></li>
+                <li><a href="#">画友涂墙</a></li>
+                <li><a href="#">聊天室</a></li>
+            </ul>
+            <!--搜索框-->
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn">Link Start!</button>
+            </form>
+            <!--导航条右-->
+            <!--未登录状态-->
+            <ul id="noLogin" class="nav navbar-nav navbar-right">
+            <li><a href="#">用户登陆</a></li>
+            <li><a href="#">用户注册</a></li>
+            </ul>
+            <!--已登录状态-->
+            <!--<ul id="Logining" class="nav navbar-nav navbar-right">-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+                        <!--<img src="img/deaful.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">（假装是用户简要资料）</a></li>-->
+                        <!--<li><a href="#">个人中心</a></li>-->
+                        <!--<li><a href="#">投稿管理</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li><a href="#">退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li><a href="#">消息</a></li>-->
+                <!--<li><a href="#">动态</a></li>-->
+                <!--<li><a href="#">收藏夹</a></li>-->
+                <!--<li><a href="#">历史</a></li>-->
+            <!--</ul>-->
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+<!-- Home Page 在此处修改你的内容
+==========================================-->
+<div id="tf-home" class="text-center">
+
+    <div class="overlay">
+        <div class="content text-center"><!--此处为内容块的总标题，根据需要删减修改-->
+            <div class="title-img-lg visible-lg-inline-block">
+                <h1 style="line-height: 500px">动漫协会<strong><span class="color"> 小说文库</span></strong></h1>
+            </div>
+            <div class="hidden-lg">
+                <h1>动漫协会<strong><span class="color"> 小说文库</span></strong></h1>
+                <img  class="title-img-md" src="Images/1500x500.jpg"/>
+            </div>
+
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-sec" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">漫协小说文库</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navbar-sec">
+                            <ul class="nav navbar-nav navbar-sec-first-btn">
+                                <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+                                <!--<li><a href="#">Link</a></li>-->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作品分类 <i class="fa fa-toggle-down"></i></a>
+                                    <ul class="dropdown-menu novel-sort">
+                                        <li><a href="#">玄幻</a><a href="#">奇幻</a></li>
+                                        <!--<li><a href="#">奇幻</a></li>-->
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">武侠</a><a href="#">仙侠</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">都市</a><a href="#">现实</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">军事</a><a href="#">历史</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">游戏</a><a href="#">体育</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">女生</a><a href="#">二次元</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">全部作品</a></li>
+                                <li><a href="#">作品排行</a></li>
+                                <li><a href="#">完结作品</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">女生版文库</a></li>
+                                <li><a href="#">我的书架</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div id="body-container" class="container">
+            <!--小说版块轮播图&公告-->
+            <div class="row">
+                <div class="col-md-9">
+                    <h3>轮播图预留</h3>
+                </div>
+                <div class="col-md-3 rgba-blue">
+                    <h3>
+                        <span class="color"> 漫协文库公告</span>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="notice-list text-left">
+                        <ul>
+                            <li class="color-type_0"><a href="#" target="_blank"><i>「</i>资讯<i>」</i>沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank"><i>「</i>资讯<i>」</i>沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank"><i>「</i>资讯<i>」</i>沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank"><i>「</i>资讯<i>」</i>沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank"><i>「</i>资讯<i>」</i>沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank"><i>「</i>资讯<i>」</i>沉默的糕点新书上线</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="space"></div>
+            <!--小说版块主体-->
+            <div class="row">
+                <div class="col-md-3 text-left">
+                    <h3>
+                        <span class="color">本周强推</span>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="book-list">
+                        <ul>
+                            <li class="" data-rid="1"><a class="channel" href="//www.qidian.com/xianxia" target="_blank" data-eid="qd_A102"><em>「</em>仙侠<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012268446" target="_blank" data-eid="qd_A103" data-bid="1012268446" title="诸夏纪">诸夏纪</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=400288662" data-eid="qd_A104" target="_blank">会说忘言</a></li>
+                            <li class="" data-rid="2"><a class="channel" href="//www.qidian.com/xuanhuan" target="_blank" data-eid="qd_A102"><em>「</em>玄幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1005635953" target="_blank" data-eid="qd_A103" data-bid="1005635953" title="大龟甲师">大龟甲师</a><cite class="hot"></cite></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4921" data-eid="qd_A104" target="_blank">唐家三少</a></li>
+                            <li class="" data-rid="3"><a class="channel" href="//www.qidian.com/xuanhuan" target="_blank" data-eid="qd_A102"><em>「</em>玄幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012715591" target="_blank" data-eid="qd_A103" data-bid="1012715591" title="代练帝国">代练帝国</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=10004997" data-eid="qd_A104" target="_blank">钦定</a></li>
+                            <li class="" data-rid="4"><a class="channel" href="//www.qidian.com/lishi" target="_blank" data-eid="qd_A102"><em>「</em>历史<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012241685" target="_blank" data-eid="qd_A103" data-bid="1012241685" title="万历驾到">万历驾到</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=402538183" data-eid="qd_A104" target="_blank">青橘白衫</a></li>
+                            <li class="" data-rid="5"><a class="channel" href="//www.qidian.com/xianxia" target="_blank" data-eid="qd_A102"><em>「</em>仙侠<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012671036" target="_blank" data-eid="qd_A103" data-bid="1012671036" title="钧天道祖">钧天道祖</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=2894081" data-eid="qd_A104" target="_blank">雪满林中</a></li>
+                            <li class="" data-rid="6"><a class="channel" href="//www.qidian.com/kehuan" target="_blank" data-eid="qd_A102"><em>「</em>科幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012430501" target="_blank" data-eid="qd_A103" data-bid="1012430501" title="执剑诸天">执剑诸天</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=402302217" data-eid="qd_A104" target="_blank">灵魂的假面</a></li>
+                            <li class="" data-rid="7"><a class="channel" href="//www.qidian.com/xuanhuan" target="_blank" data-eid="qd_A102"><em>「</em>玄幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012780746" target="_blank" data-eid="qd_A103" data-bid="1012780746" title="全民领主">全民领主</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=8475105" data-eid="qd_A104" target="_blank">云梦大领主</a></li>
+                            <li class="" data-rid="8"><a class="channel" href="//www.qidian.com/qihuan" target="_blank" data-eid="qd_A102"><em>「</em>奇幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012443709" target="_blank" data-eid="qd_A103" data-bid="1012443709" title="恶魔贤者">恶魔贤者</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=7721892" data-eid="qd_A104" target="_blank">卖盘的狐狸</a></li>
+                            <li class="" data-rid="9"><a class="channel" href="//www.qidian.com/lishi" target="_blank" data-eid="qd_A102"><em>「</em>历史<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1009926350" target="_blank" data-eid="qd_A103" data-bid="1009926350" title="明末好女婿">明末好女婿</a><cite class="hot"></cite></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4420080" data-eid="qd_A104" target="_blank">任国成</a></li>
+                            <li class="" data-rid="10"><a class="channel" href="//www.qidian.com/junshi" target="_blank" data-eid="qd_A102"><em>「</em>军事<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012299710" target="_blank" data-eid="qd_A103" data-bid="1012299710" title="最强军火商">最强军火商</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=6628434" data-eid="qd_A104" target="_blank">江山挽歌</a></li>
+                            <li class="" data-rid="11"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012612881" target="_blank" data-eid="qd_A103" data-bid="1012612881" title="学霸聊天群">学霸聊天群</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4980517" data-eid="qd_A104" target="_blank">孙帅出口成诗</a></li>
+                            <li class="" data-rid="12"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012409187" target="_blank" data-eid="qd_A103" data-bid="1012409187" title="华娱特效大亨">华娱特效大亨</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=3593595" data-eid="qd_A104" target="_blank">余生所念</a></li>
+                            <li class="" data-rid="13"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012687191" target="_blank" data-eid="qd_A103" data-bid="1012687191" title="我的成就有点多">我的成就有点多</a><cite class="hot"></cite></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4362928" data-eid="qd_A104" target="_blank">虫2</a></li>
+                            <li class="" data-rid="14"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012749331" target="_blank" data-eid="qd_A103" data-bid="1012749331" title="重回80当大佬">重回80当大佬</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4500059" data-eid="qd_A104" target="_blank">浙东匹夫</a></li>
+                            <li class="" data-rid="15"><a class="channel" href="//www.qidian.com/wuxia" target="_blank" data-eid="qd_A102"><em>「</em>武侠<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012208437" target="_blank" data-eid="qd_A103" data-bid="1012208437" title="武侠之神级捕快">武侠之神级捕快</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=401065248" data-eid="qd_A104" target="_blank">紫衣居士</a></li>
+                            <li class="" data-rid="16"><a class="channel" href="//www.qidian.com/youxi" target="_blank" data-eid="qd_A102"><em>「</em>游戏<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012399137" target="_blank" data-eid="qd_A103" data-bid="1012399137" title="正牌亡灵法师">正牌亡灵法师</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=402506892" data-eid="qd_A104" target="_blank">清蒸咸鱼风</a></li>
+                            <li class="" data-rid="17"><a class="channel" href="//www.qidian.com/youxi" target="_blank" data-eid="qd_A102"><em>「</em>游戏<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1011462328" target="_blank" data-eid="qd_A103" data-bid="1011462328" title="炉石传说之吊打全球">炉石传说之吊打全球</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=401701601" data-eid="qd_A104" target="_blank">水果中的瞳神</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 text-left container-title">
+                    <h3>
+                        <span class="color">漫协推荐</span>
+                    </h3>
+                </div>
+                <div class="col-md-3 text-left">
+                    <h3>
+                        <span class="color">新书风云榜</span>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="book-list">
+                        <ul>
+                            <li class="" data-rid="1"><a class="channel" href="//www.qidian.com/xianxia" target="_blank" data-eid="qd_A102"><em>「</em>仙侠<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012268446" target="_blank" data-eid="qd_A103" data-bid="1012268446" title="诸夏纪">诸夏纪</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=400288662" data-eid="qd_A104" target="_blank">会说忘言</a></li>
+                            <li class="" data-rid="2"><a class="channel" href="//www.qidian.com/xuanhuan" target="_blank" data-eid="qd_A102"><em>「</em>玄幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1005635953" target="_blank" data-eid="qd_A103" data-bid="1005635953" title="大龟甲师">大龟甲师</a><cite class="hot"></cite></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4921" data-eid="qd_A104" target="_blank">唐家三少</a></li>
+                            <li class="" data-rid="3"><a class="channel" href="//www.qidian.com/xuanhuan" target="_blank" data-eid="qd_A102"><em>「</em>玄幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012715591" target="_blank" data-eid="qd_A103" data-bid="1012715591" title="代练帝国">代练帝国</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=10004997" data-eid="qd_A104" target="_blank">钦定</a></li>
+                            <li class="" data-rid="4"><a class="channel" href="//www.qidian.com/lishi" target="_blank" data-eid="qd_A102"><em>「</em>历史<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012241685" target="_blank" data-eid="qd_A103" data-bid="1012241685" title="万历驾到">万历驾到</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=402538183" data-eid="qd_A104" target="_blank">青橘白衫</a></li>
+                            <li class="" data-rid="5"><a class="channel" href="//www.qidian.com/xianxia" target="_blank" data-eid="qd_A102"><em>「</em>仙侠<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012671036" target="_blank" data-eid="qd_A103" data-bid="1012671036" title="钧天道祖">钧天道祖</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=2894081" data-eid="qd_A104" target="_blank">雪满林中</a></li>
+                            <li class="" data-rid="6"><a class="channel" href="//www.qidian.com/kehuan" target="_blank" data-eid="qd_A102"><em>「</em>科幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012430501" target="_blank" data-eid="qd_A103" data-bid="1012430501" title="执剑诸天">执剑诸天</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=402302217" data-eid="qd_A104" target="_blank">灵魂的假面</a></li>
+                            <li class="" data-rid="7"><a class="channel" href="//www.qidian.com/xuanhuan" target="_blank" data-eid="qd_A102"><em>「</em>玄幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012780746" target="_blank" data-eid="qd_A103" data-bid="1012780746" title="全民领主">全民领主</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=8475105" data-eid="qd_A104" target="_blank">云梦大领主</a></li>
+                            <li class="" data-rid="8"><a class="channel" href="//www.qidian.com/qihuan" target="_blank" data-eid="qd_A102"><em>「</em>奇幻<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012443709" target="_blank" data-eid="qd_A103" data-bid="1012443709" title="恶魔贤者">恶魔贤者</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=7721892" data-eid="qd_A104" target="_blank">卖盘的狐狸</a></li>
+                            <li class="" data-rid="9"><a class="channel" href="//www.qidian.com/lishi" target="_blank" data-eid="qd_A102"><em>「</em>历史<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1009926350" target="_blank" data-eid="qd_A103" data-bid="1009926350" title="明末好女婿">明末好女婿</a><cite class="hot"></cite></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4420080" data-eid="qd_A104" target="_blank">任国成</a></li>
+                            <li class="" data-rid="10"><a class="channel" href="//www.qidian.com/junshi" target="_blank" data-eid="qd_A102"><em>「</em>军事<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012299710" target="_blank" data-eid="qd_A103" data-bid="1012299710" title="最强军火商">最强军火商</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=6628434" data-eid="qd_A104" target="_blank">江山挽歌</a></li>
+                            <li class="" data-rid="11"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012612881" target="_blank" data-eid="qd_A103" data-bid="1012612881" title="学霸聊天群">学霸聊天群</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4980517" data-eid="qd_A104" target="_blank">孙帅出口成诗</a></li>
+                            <li class="" data-rid="12"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012409187" target="_blank" data-eid="qd_A103" data-bid="1012409187" title="华娱特效大亨">华娱特效大亨</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=3593595" data-eid="qd_A104" target="_blank">余生所念</a></li>
+                            <li class="" data-rid="13"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012687191" target="_blank" data-eid="qd_A103" data-bid="1012687191" title="我的成就有点多">我的成就有点多</a><cite class="hot"></cite></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4362928" data-eid="qd_A104" target="_blank">虫2</a></li>
+                            <li class="" data-rid="14"><a class="channel" href="//www.qidian.com/dushi" target="_blank" data-eid="qd_A102"><em>「</em>都市<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012749331" target="_blank" data-eid="qd_A103" data-bid="1012749331" title="重回80当大佬">重回80当大佬</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=4500059" data-eid="qd_A104" target="_blank">浙东匹夫</a></li>
+                            <li class="" data-rid="15"><a class="channel" href="//www.qidian.com/wuxia" target="_blank" data-eid="qd_A102"><em>「</em>武侠<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012208437" target="_blank" data-eid="qd_A103" data-bid="1012208437" title="武侠之神级捕快">武侠之神级捕快</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=401065248" data-eid="qd_A104" target="_blank">紫衣居士</a></li>
+                            <li class="" data-rid="16"><a class="channel" href="//www.qidian.com/youxi" target="_blank" data-eid="qd_A102"><em>「</em>游戏<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1012399137" target="_blank" data-eid="qd_A103" data-bid="1012399137" title="正牌亡灵法师">正牌亡灵法师</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=402506892" data-eid="qd_A104" target="_blank">清蒸咸鱼风</a></li>
+                            <li class="" data-rid="17"><a class="channel" href="//www.qidian.com/youxi" target="_blank" data-eid="qd_A102"><em>「</em>游戏<em>」</em></a><strong><a class="name" href="//book.qidian.com/info/1011462328" target="_blank" data-eid="qd_A103" data-bid="1011462328" title="炉石传说之吊打全球">炉石传说之吊打全球</a></strong><a class="author" href="//me.qidian.com/authorIndex.aspx?id=401701601" data-eid="qd_A104" target="_blank">水果中的瞳神</a></li>
+                            <li data-rid="18"><a class="channel" href="http://game.qidian.com/index.aspx" target="_blank" data-eid="qd_A106"><em>「</em>页游<em>」</em></a><a class="name" href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/hycs/way/1?qd_game_key=hycs-8&amp;qd_dd_p1=2385" target="_blank" data-eid="qd_A106" data-qd_dd_p1="1">造一个传奇</a><span class="author">广告</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+<!-- Footer 样式占位，用于大体预览网页效果，此处不用修改
+==========================================-->
+<nav id="footer">
+    <div class="container">
+        <div class="pull-left fnav">
+            <p>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</p>
+            <p>若本站收集的节目无意侵犯了贵司版权，请给<a href="mailto:1025212779@qq.com">1025212779@qq.com</a>邮箱地址来信，我们将在第一时间删除相应资源</p>
+            <p>Copyright &copy; 2018.郑州轻工业大学 动漫协会 All rights reserved.</p>
+        </div>
+        <div class="pull-right fnav">
+            <ul class="footer-social">
+                <li><a href="#"><i class="fa fa-warning"></i>社团官网施工中...</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+
+<!--JS,start-->
+<!--==========================================-->
+<!--以下JS插件，可通过注释来选择。使用方法可百度-->
+<!--JQ-->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!--Boostrap's JS-->
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--页面中的平滑滚动插件-->
+<script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<!--jQuery智能布局插件 Isotope -->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+<!--JQ幻灯片插件-->
+<script type="text/javascript" src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js"></script>
+<!--动漫协会官网基础JS-->
+<script type="text/javascript" src="http://www.zzuliacgn.cf/static/BaseJs.js"></script>
+<!--*********************************************************************************************-->
+<!--此处追加你要增加的外部JS文件标签，start-->
+<!--例如：<script type="text/javascript" src="JavaScript/xxx.js"></script>-->
+
+<!--此处追加你要增加的外部JS文件地址，end-->
+<!--*********************************************************************************************-->
+<!--在以下script标签中追加你的js代码，start-->
+<script>
+
+// 点击添加active(a标签不跳转)
+// $(document).ready(function (){
+//     $('#navbar-sec li').click(function (e) {
+//         e.preventDefault();
+//         $('#navbar-sec li').removeClass('active');
+//         $(this).addClass('active');
+//     });
+// });
+
+</script>
+<!--在以下script标签中追加你的js代码，end-->
+<!--*********************************************************************************************-->
+<!--JS,end-->
+</body>
+</html>
