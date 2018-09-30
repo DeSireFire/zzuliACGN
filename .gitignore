@@ -5,5 +5,4 @@
 /ZA_Index/__pycache__/
 /ZA_Index/migrations/__pycache__/
 /easy_config.py
-*.txt
 /ZA_*/migrations/0001_initial.py
