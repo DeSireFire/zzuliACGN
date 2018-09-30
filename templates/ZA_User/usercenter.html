@@ -1,17 +1,24 @@
 {%extends 'Base_Body.html' %}
 {%block head_more%}
     <link rel="stylesheet" href="/static/ZA_User/css/userBase.css">
-    <link rel="stylesheet" href="/static/ZA_User/css/userinfo.css">
+    <link rel="stylesheet" href="/static/ZA_User/css/userInfo.css">
 {%endblock head_more%}
 
 
 {%block Middle%}
 <div id="tf-home" class="text-center">
     <div class="overlay">
-        <div class="content"></div>
+        <div class="becomeBlack"></div>
+        <div class="content">
+            <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
+            <p class="lead">--前方网站建设中，通行禁止！<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
+        </div>
         <div id="body-container" class="container">
-            <div class="row">
-                <div class="col-sm-2 col-md-2 box1">
+            <main class="row">
+                <div class="user-Center-Container">
+                    <span class="glyphicon glyphicon-chevron-right user-Center" aria-hidden="true"></span>
+                </div>
+                <aside class="col-sm-2 col-md-2 box1">
                     <ul class="nav nav-pills nav-stacked navbar-inverse">
                         <li><span>个人中心</span></li>
                         <li class="active">
@@ -24,36 +31,36 @@
                             <a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-camera-retro"></i> 我的头像 </a>
                         </li>
                         <!--<li>-->
-                            <!--<a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>-->
+                        <!--<a href="#tab_3" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-flag"></i> 我的勋章 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>-->
+                        <!--<a href="#tab_4" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-secret"></i> 账号安全 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>-->
+                        <!--<a href="#tab_5" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-times"></i> 黑名单管理 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#tab_6" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>-->
+                        <!--<a href="#tab_6" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-location-arrow"></i> 我的记录 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>-->
+                        <!--<a href="#tab_7" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-id-card"></i> 实名认证 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>-->
+                        <!--<a href="#tab_8" data-toggle="tab" class="tab-default"><i class="fa fa-fw fa-user-plus"></i> 邀请注册 </a>-->
                         <!--</li>-->
                     </ul>
                     <ul class="nav nav-pills nav-stacked navbar-inverse nav-pills-special">
                         <!--<li>-->
-                            <!--<a href="#"> 个人空间 </a>-->
+                        <!--<a href="#"> 个人空间 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#"> 创作中心 </a>-->
+                        <!--<a href="#"> 创作中心 </a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#"> 投稿管理 </a>-->
+                        <!--<a href="#"> 投稿管理 </a>-->
                         <!--</li>-->
                     </ul>
-                </div>
+                </aside>
                 <div class="col-sm-10 col-md-10 box2">
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
@@ -135,7 +142,7 @@
                                 </div>
 
                                 <!--<div class="col-md-6" style="background-color: #00FFCC">-->
-                                    <!---->
+                                <!---->
                                 <!--</div>-->
                                 <!--<div class="col-md-6" style="background-color: pink"></div>-->
                             </div>
@@ -208,22 +215,51 @@
                                         </div>
                                     </div>
                                     <!--<div class="form-group form-group-sm">-->
-                                        <!--<label class="col-sm-2 control-label">院系 Faculty</label>-->
-                                        <!--<div class="col-sm-4" readonly>-->
-                                            <!--<select class="form-control">-->
-                                                <!--<option>校外人士</option>-->
-                                                <!--<option>电气信息工程学院</option>-->
-                                                <!--<option>机电工程学院</option>-->
-                                                <!--<option>食品与生物工程学院</option>-->
-                                                <!--<option>烟草科学与工程学院</option>-->
-                                                <!--<option>材料与化学工程学院</option>-->
-                                            <!--</select>-->
-                                        <!--</div>-->
+                                    <!--<label class="col-sm-2 control-label">院系 Faculty</label>-->
+                                    <!--<div class="col-sm-4" readonly>-->
+                                    <!--<select class="form-control">-->
+                                    <!--<option>校外人士</option>-->
+                                    <!--<option>电气信息工程学院</option>-->
+                                    <!--<option>机电工程学院</option>-->
+                                    <!--<option>食品与生物工程学院</option>-->
+                                    <!--<option>烟草科学与工程学院</option>-->
+                                    <!--<option>材料与化学工程学院</option>-->
+                                    <!--</select>-->
+                                    <!--</div>-->
                                     <!--</div>-->
                                 </form>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab_3">该标签页功能待建设</div>
+                        <!-- 更换头像 -->
+                        <div class="tab-pane fade" id="tab_3">
+                            <div class="row user-msg text-left">
+                                <div class="user-msg-title"><span><i class="fa fa-user-o fa-2x"></i> 我的头像</span></div>
+                                <div class="line-border"></div>
+                            </div>
+                            <div class="text-center">
+                                <div class="user-head">
+                                    <img src="/static/ZA_User/img/HeaderImg/head.jpg" class="img-circle"/>
+                                </div>
+                                <div id="img-container">
+                                    <img id="user-head-image" src="/static/ZA_User/img/background/head-zhanwei.png">
+                                </div>
+                                <div id="pre-container">
+                                    <div class="container">
+                                            <div class="col-xs-6 col-sm-6"><div class="img-preview squ"></div></div>
+                                            <div class="col-xs-6 col-sm-6"><div class="img-preview cir"></div></div>
+                                    </div>
+                                </div>
+                                <div class="btn-container">
+                                    <label class="btn btn-primary btn-upload" for="input-image" title="Upload image file">
+                                        <input type="file" class="sr-only" id="input-image" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                        <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Import image with Blob URLs">
+                                          选择图片<span class="fa fa-upload"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <button id="change-img-btn"type="button" class="btn btn-user">上传头像</button>
+                            </div>
+                        </div>
                         <div class="tab-pane fade" id="tab_4">该标签页功能待建设</div>
                         <div class="tab-pane fade" id="tab_5">该标签页功能待建设</div>
                         <div class="tab-pane fade" id="tab_6">该标签页功能待建设</div>
@@ -232,12 +268,14 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-            </div>
+            </main>
         </div>
     </div>
 </div>
 {%endblock Middle%}
 
 {%block End_Script_more%}
-{#---    #}
+<script type="text/javascript" src="https://cdn.bootcss.com/cropper/4.0.0/cropper.min.js"></script>
+<script type="text/javascript" src="/static/ZA_User/js/userCenter.js"></script>
+<script type="text/javascript" src="/static/ZA_User/js/headUpdate.js"></script>
 {%endblock End_Script_more%}

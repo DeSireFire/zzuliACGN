@@ -1,0 +1,448 @@
+/*轮播图*/
+.owl-Novel{
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+.owl-item-novel{
+    /*响应式标记,高度需要调整*/
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+}
+/*轮播图控制键v*/
+.owl-theme .owl-nav{
+    margin-top: 0px;
+}
+/*控制键“上一张”*/
+.owl-carousel .owl-nav button.owl-prev{
+    position: absolute;
+    z-index: 11;
+    top: 30%;
+    left: 0;
+    width: 60px;
+    height: 120px;
+    line-height: 120px;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+/*控制键“下一张”*/
+.owl-carousel .owl-nav button.owl-next{
+    position: absolute;
+    z-index: 11;
+    top: 30%;
+    right: 0;
+    width: 60px;
+    height: 120px;
+    line-height: 120px;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+@media (max-width: 960px){
+    .owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev {
+        display: none;
+    }
+}
+/*轮播图小圆点*/
+.owl-theme .owl-dots {
+    position: absolute;
+    z-index: 10;
+    right: 20px;
+    bottom: 15px
+}
+.owl-theme .owl-dots .owl-dot.active span{
+    background: #FF9966;
+    width: 50px;
+}
+.owl-theme .owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    background: #D6D6D6;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: all .2s ease;
+    border-radius: 2px;
+}
+/*公告*/
+.notices{
+    margin-bottom: 0;
+}
+.notice-list-first{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: red;
+}
+.notice-list{
+    margin-top: 15px;
+    /*border-right: 1px solid pink;*/
+    border-left: 1px solid pink;
+    margin-bottom: 15px;
+}
+.color-type_0 > a{
+    color: #f5e79e;
+}
+/*小说排行榜*/
+/*.container-title{*/
+    /*border-bottom: 2px solid #00FFCC;*/
+/*}*/
+.rank-list-title .more{
+    display: inline;
+    margin-left: 5px;
+    transition: ease-in-out .2s;
+    opacity: 0;
+}
+.book-list{
+    /*预留*/
+    height: auto;
+}
+.book-list-one {
+    margin-bottom: -1px;
+    display: inline-block;
+}
+.book-wrap .book-info h3 {
+    font: 700 14px/18px Arial;
+    width: 36px;
+    height: 18px;
+    margin-bottom: 3px;
+    text-align: center;
+    color: #fff;
+    background: #bf2c24;
+}
+.book-wrap .book-info h4 > a{
+    font: 16px/24px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    overflow: hidden;
+    height: 24px;
+    color: #fff;
+}
+.book-wrap .book-info p.digital {
+    font-size: 20px;
+    overflow: hidden;
+    height: 30px;
+    margin-bottom: 4px;
+    /*padding: 3px 0 0;*/
+    color: #bf2c24;
+}
+.book-wrap .book-info p.author {
+    font-family: PingFangSC-Regular,'-apple-system',Simsun;
+    font-size: 12px;
+    overflow: hidden;
+    height: 16px;
+}
+.book-wrap .book-info p.author a {
+    color: #FCAC45;
+}
+.book-wrap .book-cover {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    margin-left: -30px;
+}
+.book-list-other {
+    clear: both;
+    height: 31px;
+}
+.rank-list .book-list li .num-box {
+    float: left;
+    width: 28px;
+    height: 32px;
+    padding-right: 30px;
+    padding-left: 15px;
+}
+@media (max-width: 960px){
+    .rank-list .book-list li .num-box {
+        padding-left: 55px;
+    }
+}
+.rank-list .book-list li .name-box {
+    position: relative;
+    float: left;
+    height: 30px;
+    border-top: 1px solid #e6e6e6;
+}
+.rank-list .book-list li .num-box span {
+    font: 700 14px/16px Arial;
+    display: block;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #666;
+    background: #ededed;
+}
+.rank-list .book-list li .name-box a.name {
+    overflow: hidden;
+    height: 31px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #faf2cc;
+}
+.rank-list .book-list li .name-box a {
+    font: 14px/31px PingFangSC-Regular,'-apple-system',Simsun;
+    float: left;
+    width: 116px;
+}
+.rank-list .book-list li .name-box i.total {
+    font: 12px/32px PingFangSC-Regular,'-apple-system',Simsun;
+    float: right;
+    overflow: hidden;
+    width: 95px;
+    text-align: right;
+    white-space: normal;
+    text-overflow: ellipsis;
+    color: #b3b3b3;
+}
+@media (max-width: 960px){
+    .rank-list .book-list li .name-box i.total {
+        width: 100px;
+    }
+}
+@media (max-width: 320px) {
+    .rank-list .book-list li .name-box i.total {
+        width: 40px;
+    }
+}
+.rank-list .book-list li .num-box span.num2 {
+    color: #fff;
+    background: pink;
+}
+.rank-list .book-list li .num-box span.num3 {
+    color: #fff;
+    background: #e67225;
+}
+
+.rank-list .book-list li .num-box span.num4 {
+    color: #fff;
+    background: #e6bf25;
+}
+.rank-list .book-list li .num-box span.num5 {
+    color: #fff;
+    background: #99CC33;
+}
+.rank-list .book-list li .num-box span.num6 {
+    color: #fff;
+    background: #99CCFF;
+}
+.rank-list .book-list li .num-box span.num7 {
+    color: #fff;
+    background: #6600FF;
+}
+.rank-list .book-list li .num-box span.num8 {
+    color: #fff;
+    background: #6666CC;
+}
+.rank-list .book-list li .num-box span.num9 {
+    color: #fff;
+    background: purple;
+}
+.rank-list .book-list li .num-box span.num10{
+    color: #fff;
+    background: deeppink;
+}
+/*小说版块正文模块*/
+.novel-container{
+    display:block;
+    height: auto;
+    margin-bottom: 16px;
+}
+.block-left{
+    /*background-color: pink;*/
+}
+.block-right {
+    min-width: 260px;
+}
+.block-title {
+    margin-bottom: 15px;
+    height: 40px;
+}
+@media (max-width: 768px){
+    .block-title {
+        padding-bottom: 10%;
+    }
+}
+.block-title > a{
+    color: #fe6878;
+    text-decoration: none;
+    background-color: transparent;
+}
+.block-title .title {
+    font-size: 18px;
+    font-weight: 700;
+    float: left;
+    color: cyan;
+    line-height: 40px;
+    margin: 0 16px 0 0;
+}
+#icon-title-14 {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR…Tm/+S/nL/sMPxIfWKiwrwP+UUMrPD98FgtiQiW9qQ/9f8Fw70xpiDUPuEAAAAASUVORK5CYII=);
+}
+.block-title .icon-title {
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-top: 6px;
+    border-radius: 3px;
+    background-size: contain;
+    background-position: 50% 50%;
+    margin-right: 16px;
+    text-align: center;
+    line-height: 40px;
+}
+.block-title .link-faq {
+    float: left;
+    height: 40px;
+    line-height: 50px;
+    margin-right: 16px;
+    cursor: pointer;
+    min-width: 22px;
+    text-decoration: none;
+}
+.block-title .more {
+    float: right;
+    font-size: 12px;
+    line-height: 40px;
+    text-decoration: none;
+}
+/*小说列表*/
+.block-bottom{width: 100%}
+.novel-container .block-bottom ul.book-list li {
+    width: 100px;
+    margin: 0 7px 18px 7px;
+}
+@media (max-width: 640px){
+    .novel-container .block-bottom ul.book-list li {
+        width: 90px;
+        margin: 0 5px 10px 5px;
+    }
+}
+.novel-container .block-bottom ul.book-list li:hover .title h3{color:#fe6878;}
+.novel-container .block-bottom ul.book-list li .title{margin-top:4px;}
+/*小说封面下小说名*/.novel-container .block-bottom ul.book-list li .title h3{margin-left:0;color:#fff;white-space:normal;height:40px;line-height:20px;display:-webkit-box;-webkit-line-clamp:2;}
+.novel-container .block-bottom ul.book-list li .title h3.has-icon{text-indent:1.27em;}
+.novel-container .block-bottom ul.book-list li .title .icon{position:absolute;display:inline-block;width:12px;height:12px;top:5px;left:1px;border-radius:2px;}
+.novel-container .block-bottom ul.book-list li .title .icon-pay{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAATdJREFUKBVtUr1uwjAYPDshIiIKtBFsWRiYeQWEkPoAsAFjWJF4m45svAIjYmZjAgmJQsWClEhpqiYkrm2akIrcYPs7351/yedw+JYQ8s4Ys0EIwBiKQAj5oIw5NBXTahXWdPqkfXEcKPU6z2G20HITT+aodDr43myeDERVIVfmM0LLK16XyzC6XVxmM5iDAahhZEat2US130e438NfLiENtfFYilgYIlitAJH6B8Wy8LVe43Y+S0bVWi2wKEJ0PN4lpRKoriPc7WTNggC3ywXx9SprGp1OcOfzu5i3ieuiNhqBmmbG5QdUJCCOMy7xfXiLBV4nk4zLDx6bzbE/2y0SEVQAWsBJKjocZE807Z9EFS+YvkV+ptLrQW+3oTYa2YGFlqRfg5imnXjew0P54ooC8BsUSL/GL7UKeEG7Tl8nAAAAAElFTkSuQmCC);}
+.novel-container .block-bottom ul.book-list .thumb{width:100px;height:133px;}
+@media (max-width: 640px){
+    .novel-container .block-bottom ul.book-list .thumb {
+        width: 90px;
+        height: auto;
+    }
+}
+.block-bottom .book-list .recom{position:absolute;z-index:2;bottom:0;left:0;height:16px;width:20px;background:#fe6878 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAALCAMAAAB4W0xQAAAAaVBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8G612AAAAInRSTlMA6ubh1cijZe6yqouGfHhyXEk0Fg4LAvTav765mGtALSIHY1jOZAAAAGRJREFUCNdFzEUSw0AAA8FZNsQQU5j0/0dm46rYfRsdxGoMdmB3lFpgWuhvT5hL/4ZHUWMVgHQHggyVDsDFTNCqg1jONMrj4CLQyXll55Pq9XWTgNFu+SJr/hX5WdLVFcZX/Qe+UVQIvThG4pQAAAAASUVORK5CYII=) 50% 50% no-repeat;border-radius:0 7px 0 0;}
+.block-bottom .book-list li{float:left;width:126px;margin:20px 10px 0;}
+.block-bottom .book-list li:hover .title h3{color:#fe6878;}
+.block-bottom .book-list .thumb{display:block;width:126px;height:168px;position:relative;overflow:hidden;color:#fff;background-color:#eee;border-radius:4px;}
+.block-bottom .book-list a.thumb:after{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;box-shadow:inset 0 0 1px rgba(0,0,0,.2);}
+.block-bottom .book-list a.thumb:active,.block-bottom .book-list a.thumb:hover{color:#fff;}
+.block-bottom .book-list a.thumb:active .label-count,.block-bottom .book-list a.thumb:hover .label-count{display:none;}
+.block-bottom .book-list a.thumb:active .book-info,.block-bottom .book-list a.thumb:hover .book-info{filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);opacity:1;}
+.block-bottom .book-list a.thumb:active .book-info p,.block-bottom .book-list a.thumb:hover .book-info p{display:block;}
+.block-bottom .book-list a.thumb:active .cover,.block-bottom .book-list a.thumb:hover .cover{filter:blur(16px);}
+.block-bottom .book-list a.thumb:active .book-info-a .name,.block-bottom .book-list a.thumb:active .book-info-a img,.block-bottom .book-list a.thumb:hover .book-info-a .name,.block-bottom .book-list a.thumb:hover .book-info-a img{display:inline;}
+.block-bottom .book-list .cover{width:100%;height:100%;border-radius:4px;background-color:#eee;}
+.block-bottom .book-list .title{text-decoration:none;display:block;position:relative;margin-top:8px;}
+.block-bottom .book-list .title h3{font-size:12px;color:#505050;margin-bottom:0;margin-top:0;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .3s;height:12px;line-height:12px;}
+.block-bottom .book-list .title .icon{position:absolute;display:inline-block;width:14px;height:14px;bottom:-1px;-webkit-transform:translateY(-1px);background-position:50% 50%;border-radius:3px;}
+/*小说封面图*/.block-bottom .book-list .title .icon-pay{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAalJREFUOBGNUztrAkEQ/u7OGD0ixldjYWGtlVhEQir/gJ0WsRHSiKWkCxJImTZgYxP8AdqkSSXmH6QUKxVRNL4iRHO32T3u1luJ4sBy8/i+udmZHYlUKs5Bt/uo6/otgDA9p8hAluXXcDT6oNxFIk+UfE9ZnlOYJsZDCLlezWZO2fzzjnt2BncyubNtmnpzY7MAxpWpRyhbvbqCK5EQgJbhzWYt1fqGWQJBLtJpfL+/C75jhsMePI/HoXi92HQ68OZyUIJBexiy2w1/qQRtOsW8XjdiPIGkqvAVCiDbrRFYf3xAcjqFBK5YDKu3N5DNhvt5gst8HutWC2oqZQS3/T4coRB+h0MOJppmVMcdVOE9+Pn8xJJmt0QJBBAslyHTKx0TnmDdbgOEcKw2GmHRaMBfLAKSxP37Ck+wH2A2u5K+WICN9pDwHhwCTKtVwGzsf5ijFRgEi6wokOjZF1bBgB7hNdpBCp2E8SZ8PmEiJmbgYFtlLpMx369azc6HNplg2WwaDd72ekKMcZXnTKbFtopuV5ROwaONxwKITUafzaDP5/YpsXV+Yev8B7b/l0bzae49AAAAAElFTkSuQmCC);}
+.block-bottom .book-list .title h3.hasicon{margin-left:16px;}
+.block-bottom .book-list .label-count{position:absolute;right:0;top:0;padding:3px 4px 3px 8px;border-radius:0 4px 0 10px;color:#fff;font-size:10px;line-height:1;background-color:rgba(254,104,120,.9);}
+.block-bottom .book-list .label-count .fontstype{display:inline-block;transform:scale(.85);transform-origin:50% 50%;}
+/*小说信息*/.block-bottom .book-list .book-info{position:absolute;z-index:1;width:100%;height:100%;top:0;background-color:#000;background-color:rgba(0,0,0,.1);filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);padding:10px;opacity:0;transition:opacity .3s ease;border-radius:4px;}
+.block-bottom .book-list .book-info p{display:none;color:#fff;font-size:12px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.block-bottom .book-list .book-info p:first-child{animation:slide-in-r .4s cubic-bezier(0,0,.2,1) .283333333333333s both;}
+.block-bottom .book-list .book-info p:nth-child(2){animation:slide-in-r .4s cubic-bezier(0,0,.2,1) .366666666666667s both;}
+.block-bottom .book-list .book-info p:nth-child(3){animation:slide-in-r .4s cubic-bezier(0,0,.2,1) .45s both;}
+.block-bottom .book-list .book-info p:nth-child(4){animation:slide-in-r .4s cubic-bezier(0,0,.2,1) .533333333333333s both;}
+.block-bottom .book-list .book-info .avatar{border-radius:36px;width:36px;height:36px;margin-right:.5em;background-color:hsla(0,0%,100%,.8);}
+.block-bottom .book-list .book-info-a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;}
+.block-bottom .book-list .book-info-a img{display:none;animation:scale-in .5s both;}
+.block-bottom .book-list .book-info-a .name{display:none;animation:fadein .5s both .2s;}
+.block-bottom .book-list .book-info-b{position:absolute;bottom:10px;}
+.block-bottom .book-list .book-info-b .book-info-title{font-weight:700;}
+a.title:visited h3{color:#656565;}
+.novel-container .block-bottom .book-list li{margin:0 9px 15px 0;}
+/*小说列表右侧排行榜*/
+/*.novel-container .block-right{width:254px;}*/
+.block-title .title .s-t{font-size:14px;}
+.block-title .block-title-rank{float:right;height:40px;padding:9px 0;}
+.block-title .block-title-rank .tab{display:inline-block;font-size:14px;color:aliceblue;margin:0 6px;height:22px;line-height:22px;position:relative;cursor:pointer;text-decoration:none;}
+.block-title .block-title-rank .tab.active,.block-title .block-title-rank .tab:hover{color:#fe6878;}
+.block-title .block-title-rank .tab.active:after{content:"";position:absolute;width:100%;height:2px;border-radius:2px;background-color:#fe6878;left:0;bottom:-2px;}
+.novel-container .block-right .rank-wrap .rank-list{min-height:384px;}
+.novel-container .block-right .rank-wrap .rank-list li{margin-bottom:11px;margin-top:10px;}
+.novel-container .block-right .rank-wrap .rank-list li a.thumb:after{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;box-shadow:inset 0 0 1px rgba(0,0,0,.2);}
+.novel-container .block-right .rank-wrap .rank-list li .title:hover h3{color:#fe6878;}
+.novel-container .block-right .rank-wrap .rank-list .cover,.novel-container .block-right .rank-wrap .rank-list .thumb{width:60px;height:80px;}
+.novel-container .block-right .rank-wrap .rank-list .book-info{padding-left:66px;height:80px;}
+.novel-container .block-right .rank-wrap .rank-list .author{margin-top:20px;}
+.novel-container .block-right .rank-wrap .rank-list .author,.novel-container .block-right .rank-wrap .rank-list .count{font-size:12px;transform:scale(.875);transform-origin:10% 50%;}
+.novel-container .block-right .rank-wrap .rank-list .title.fz-14 h3{font-size:12px;color:#f5e79e;}
+.novel-container .block-right .rank-wrap .rank-list li:nth-child(-n+3){margin-bottom:10px;}
+.block-title-rank .title{margin-right:4px;}
+.novel-container .block-right .rank-wrap .rank-list{position:relative;min-height:400px;animation:fadein .5s;}
+.novel-container .block-right .rank-wrap .rank-list .title{margin:0;color:#333;font-weight:400;transition:all .5s;font-size:12px;display:block;text-decoration:none;position:relative;}
+.novel-container .block-right .rank-wrap .rank-list .title .num{display:inline-block;text-align:center;height:15px;line-height:15px;width:18px;color:#666;background-color:#eee;margin-right:8px;border-radius:4px;}
+.novel-container .block-right .rank-wrap .rank-list .title:visited h3{color:#222;}
+.novel-container .block-right .rank-wrap .rank-list .title:hover h3{color:#fe6878;}
+.novel-container .block-right .rank-wrap .rank-list .title h3{font-size:12px;margin:0;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color: #f5e79e}
+.novel-container .block-right .rank-wrap .rank-list .title.title-l2{height:30px;}
+.novel-container .block-right .rank-wrap .rank-list .title.title-l2 h3{line-height:1.2;white-space:normal;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;}
+.novel-container .block-right .rank-wrap .rank-list li{margin-bottom:13px;position:relative;}
+.novel-container .block-right .rank-wrap .rank-list li:last-child{margin-bottom:0;}
+.novel-container .block-right .rank-wrap .rank-list li:nth-child(2) .order{border-top-color:#fea958;border-left-color:#fea958;color:#fff;}
+.novel-container .block-right .rank-wrap .rank-list li:nth-child(3) .order{border-top-color:#36cfbf;border-left-color:#36cfbf;color:#fff;}
+.novel-container .block-right .rank-wrap .rank-list .thumb{display:block;position:absolute;left:0;top:0;border-radius:4px;overflow:hidden;background-color:#eee;width:51px;height:68px;}
+.novel-container .block-right .rank-wrap .rank-list .cover{width:51px;height:68px;background-color:#fff;}
+.novel-container .block-right .rank-wrap .rank-list .order{position:absolute;left:0;top:0;border:12px solid #fe6878;border-right-color:transparent;border-bottom-color:transparent;width:0;height:0;}
+.novel-container .block-right .rank-wrap .rank-list .order .no{position:absolute;font-size:12px;top:-12px;left:-8px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25);}
+.novel-container .block-right .rank-wrap .rank-list .book-info{padding-left:59px;height:68px;}
+.novel-container .block-right .rank-wrap .rank-list .author{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1;margin:7px 0 0;}
+.novel-container .block-right .rank-wrap .rank-list .count{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1;margin:7px 0 0;color: pink}
+.novel-container .block-right .rank-wrap .rank-list .author:active,.novel-container .block-right .rank-wrap .rank-list .author:hover{text-decoration:none;color:#fe6878;}
+.novel-container .block-right .rank-wrap .rank-list .count-rl{position:absolute;right:0;top:0;color:pink;height:15px;line-height:15px;}
+.novel-container .block-right .rank-wrap .rank-list .scl-hf{display:inline-block;transform:scale(.8);transform-origin:20% 50%;vertical-align:baseline;}
+.novel-container .block-right .rank-wrap .rank-list .title-txt{width:180px;hegiht:15px;line-height:15px;}
+/*小说推荐榜单*/
+.novel-container .block-center .rank-list li .cover,.novel-container .block-center .rank-list li .thumb,.novel-container .block-center .rank-list li a.thumb{width:72px;height:96px;}
+.novel-container .block-center .rank-list li .book-info{padding-left:79px;height:96px;overflow:hidden;}
+.novel-container .block-center .rank-list li .book-info h4{margin-top:24px;line-height:15px;color:#999;font-weight:400;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;}
+.novel-container .block-center .rank-list li .title h3{font-size:12px;line-height:17px;font-weight:400;}
+.novel-container .block-center .rank-list li .title:hover h3{color:#fe6878;}
+.novel-container .block-center .rank-list li .label-count{position:absolute;top:0;right:0;display:inline-block;padding:2px 1px 2px 4px;border-radius:0 4px 0 10px;font-size:5px;line-height:1;background-color:rgba(254,169,88,.9);}
+.novel-container .block-center .rank-list li .label-count span{display:inline-block;font-size:10px;color:#fff;transform:scale(.78);}
+.novel-container .block-center .rank-list li:nth-child(n){margin-bottom:10px;}
+.novel-container .block-center .rank-list .count{transform:scale(.875);transform-origin:10% 50%;font-size:12px;line-height:1.1;font-weight:500;color:#666;margin:10px 0 0;white-space:normal;}
+.novel-container .block-center .rank-wrap .rank-list{min-height:384px;}
+.novel-container .block-center .rank-wrap .rank-list li{margin-bottom:11px;margin-top:10px;}
+.novel-container .block-center .rank-wrap .rank-list li a.thumb:after{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;box-shadow:inset 0 0 1px rgba(0,0,0,.2);}
+.novel-container .block-center .rank-wrap .rank-list li .title:hover h3{color:#fe6878;}
+.novel-container .block-center .rank-wrap .rank-list .cover,.novel-container .block-center .rank-wrap .rank-list .thumb{width:60px;height:80px;}
+.novel-container .block-center .rank-wrap .rank-list .book-info{padding-left:66px;height:80px;}
+.novel-container .block-center .rank-wrap .rank-list .count{font-size:12px;transform:scale(.875);transform-origin:10% 50%;}
+.novel-container .block-center .rank-wrap .rank-list .title.fz-14 h3{font-size:12px;color:#f5e79e;}
+.novel-container .block-center .rank-wrap .rank-list{position:relative;min-height:400px;animation:fadein .5s;}
+.novel-container .block-center .rank-wrap .rank-list .title{margin:0;color:#333;font-weight:400;transition:all .5s;font-size:12px;display:block;text-decoration:none;position:relative;}
+.novel-container .block-center .rank-wrap .rank-list .title:visited h3{color:#f5e79e;}
+.novel-container .block-center .rank-wrap .rank-list .title:hover h3{color:#fe6878;}
+.novel-container .block-center .rank-wrap .rank-list .title h3{font-size:12px;margin:0;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.novel-container .block-center .rank-wrap .rank-list .title.fz-14 h3{font-size:12px;}
+.novel-container .block-center .rank-wrap .rank-list .title.title-l2{height:30px;}
+.novel-container .block-center .rank-wrap .rank-list .title.title-l2 h3{line-height:1.2;white-space:normal;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;}
+.novel-container .block-center .rank-wrap .rank-list li{margin-bottom:13px;position:relative;}
+.novel-container .block-center .rank-wrap .rank-list li:last-child{margin-bottom:0;}
+.novel-container .block-center .rank-wrap .rank-list .thumb{display:block;position:absolute;left:0;top:0;border-radius:4px;overflow:hidden;background-color:#eee;width:51px;height:68px;}
+.novel-container .block-center .rank-wrap .rank-list .cover{width:51px;height:68px;background-color:#fff;}
+.novel-container .block-center .rank-wrap .rank-list .book-info{padding-left:59px;height:68px;}
+.novel-container .block-center .rank-wrap .rank-list .count{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1;color:#fea958;margin:7px 0 0;}
+
+/*小说版块最新更新*/
+.novel-update{height: auto;}
+.novel-update .block-left{background-color: #b2dba1}
+.novel-update .block-right{background-color: paleturquoise}
+
