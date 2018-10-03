@@ -2,7 +2,6 @@
 .owl-Novel{
     padding-left: 0px;
     padding-right: 0px;
-
 }
 .owl-item-novel{
     /*响应式标记,高度需要调整*/
@@ -87,10 +86,18 @@
 .color-type_0 > a{
     color: #f5e79e;
 }
+.notice-list-first .line-border{
+    border-bottom: #00FFCC 2px solid;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
 /*小说排行榜*/
 /*.container-title{*/
     /*border-bottom: 2px solid #00FFCC;*/
 /*}*/
+.rank-list .line-border{
+    border-bottom: #00FFCC 2px solid;
+}
 .rank-list-title .more{
     display: inline;
     margin-left: 5px;
@@ -125,7 +132,6 @@
     overflow: hidden;
     height: 30px;
     margin-bottom: 4px;
-    /*padding: 3px 0 0;*/
     color: #bf2c24;
 }
 .book-wrap .book-info p.author {
@@ -255,11 +261,11 @@
     /*background-color: pink;*/
 }
 .block-right {
-    min-width: 260px;
+    /*min-width: 260px;*/
 }
 .block-title {
-    margin-bottom: 15px;
     height: 40px;
+    border-bottom: 2px solid #00FFCC;
 }
 @media (max-width: 768px){
     .block-title {
@@ -442,7 +448,53 @@ a.title:visited h3{color:#656565;}
 .novel-container .block-center .rank-wrap .rank-list .count{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1;color:#fea958;margin:7px 0 0;}
 
 /*小说版块最新更新*/
-.novel-update{height: auto;}
-.novel-update .block-left{background-color: #b2dba1}
-.novel-update .block-right{background-color: paleturquoise}
-
+/*.novel-update{height: auto;}*/
+.novel-update .block-right{}
+.novel-update .block-content{
+    width: auto;
+    margin-bottom: 15px;
+}
+.novel-update .block-content .update-list{
+    padding-top: 10px;
+}
+.novel-update .block-content .update-list > li{
+    height: 30px;
+    padding-left: 30px;
+    border-bottom: 1px dotted #faf2cc;
+    line-height: 30px;
+}
+.novel-update .block-content .update-list > li > p{
+    margin: 0px 0px 0px 0px;
+}
+.novel-update .block-content .update-list > li .update-list-left{
+    float: left;
+    width: 30%;
+    display:inline-block
+}
+.novel-update .block-content .update-list > li .update-list-center{
+    float: left;
+    width: 50%;
+    display:inline-block
+}
+.novel-update .block-content .update-list > li .update-list-right{
+    float: right;
+    width: 20%;
+    display:inline-block
+}
+.novel-update .block-content .update-list > li .update-list-right .update-writer{
+    display:inline-block
+}
+.novel-update .block-content .update-list > li .update-list-right .update-time{
+    float: right;
+    display:inline-block
+}
+/*最新收录作品*/
+/*.novel-update .block-left{background-color: #b2dba1}*/
+.novel-update .block-left .block-content .update-list > li .update-book{
+    text-align: left;
+    float: left;
+}
+.novel-update .block-left .block-content .update-list > li .update-time{
+    text-align: right;
+    float: right;
+}

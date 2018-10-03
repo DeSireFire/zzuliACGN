@@ -1,16 +1,1031 @@
 {%extends 'Base_Body.html' %}
 {%block head_more%}
-{#---    #}
+    <!--OwlCarousel2-->
+    <link href="https://cdn.bootcss.com/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/static/ZA_Novel/css/novelBase.css" rel="stylesheet">
+    <link href="/static/ZA_Novel/css/novelMain.css" rel="stylesheet">
+<style>
+
+
+    </style>
 {%endblock head_more%}
 
-{%block Header_context%}
-{#---    #}
-{%endblock Header_context%}
-
 {%block Middle%}
-{#---    #}
+<!-- Home Page 在此处修改你的内容
+==========================================-->
+<div id="tf-home" class="text-center">
+    <div class="overlay">
+        <!--小说版块头部-->
+        <div class="content text-center"><!--此处为内容块的总标题，根据需要删减修改-->
+            <div class="title-img-lg visible-lg-inline-block">
+                <h1 style="line-height: 500px">动漫协会<strong><span class="color"> 小说文库</span></strong></h1>
+            </div>
+            <div class="hidden-lg">
+                <h1>动漫协会<strong><span class="color"> 小说文库</span></strong></h1>
+                <img  class="title-img-md" src="Images/1500x500.jpg"/>
+            </div>
+        <!--小说版块导航-->
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-sec" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">漫协小说文库</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navbar-sec">
+                            <ul class="nav navbar-nav navbar-sec-first-btn">
+                                <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+                                <!--<li><a href="#">Link</a></li>-->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作品分类 <i class="fa fa-toggle-down"></i></a>
+                                    <ul class="dropdown-menu novel-class">
+                                        <li><a href="#">玄幻</a><a href="#">奇幻</a></li>
+                                        <!--<li><a href="#">奇幻</a></li>-->
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">武侠</a><a href="#">仙侠</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">都市</a><a href="#">现实</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">军事</a><a href="#">历史</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">游戏</a><a href="#">体育</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">女生</a><a href="#">二次元</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">全部作品</a></li>
+                                <li><a href="#">作品排行</a></li>
+                                <li><a href="#">完结作品</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">女生版文库</a></li>
+                                <li><a href="#">我的书架</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div id="body-container" class="container">
+            <!--小说版块轮播图-->
+            <div class="row">
+                <div class="col-md-12 owl-Novel">
+                    <div class="owl-carousel owl-theme owl-loaded">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item owl-item-novel"><img src="http://rs.sfacg.com/web/m/images/homePush/2018/09/95cb9b56-0619-45a4-b88f-61609d11a886_big.jpg" alt="233"></div>
+                                <div class="owl-item owl-item-novel"><img src="http://rs.sfacg.com/web/m/images/homePush/2018/09/a12b2008-b4b1-4920-81f8-496709f422f3_big.jpg" alt="233"></div>
+                                <div class="owl-item owl-item-novel"><img src="http://rs.sfacg.com/web/m/images/homePush/2018/09/47881a1a-008e-4280-af8d-a37b3134de19_big.jpg" alt="233"></div>
+                                <div class="owl-item owl-item-novel"><img src="http://rs.sfacg.com/web/m/images/homePush/2018/09/107259f2-3713-431c-9b66-04ec615d41da_big.jpg" alt="233"></div>
+                                <div class="owl-item owl-item-novel"><img src="http://rs.sfacg.com/web/m/images/homePush/2018/09/d2065b2c-c384-4601-b43c-d7ee62966c3b_big.jpg" alt="233"></div>
+                                <div class="owl-item owl-item-novel"><img src="http://rs.sfacg.com/web/m/images/homePush/2018/09/9103b3fd-e1a5-4aef-8101-1c830ed39880_big.jpg" alt="233"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--小说版块公告-->
+            <div class="notices row">
+                <div class="col-md-12 rgba-blue">
+                    <div class="col-md-3 col-sm-4 notice-list-first text-center">
+                        <div class="line-border"></div>
+                        <h3>第六届SF原创轻小说征文大赛正式开始！</h3>
+                        <div class="line-border"></div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 notice-list text-left">
+                        <ul>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-4 notice-list text-left hidden-xs">
+                        <ul>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-4 notice-list text-left hidden-xs hidden-sm">
+                        <ul>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!--小说版块排行榜-->
+            <div class="novel-sort row visible-md-block visible-lg-block">
+                <div class="rank-list col-md-3 col-sm-6">
+                    <h3 class="rank-list-title">
+                        SF轻小说·人气榜
+                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="book-list">
+                        <ul>
+                            <li class="book-list-one">
+                                <div class="book-wrap">
+                                    <div class="book-info text-left col-sm-8">
+                                        <h3>NO.1</h3>
+                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
+                                        <p class="digital">14167 月票</p>
+                                        <p class="author">
+                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
+                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover col-sm-4">
+                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num2">2</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num3">3</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num4">4</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num5">5</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num6">6</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num7">7</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num8">8</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num9">9</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num10">10</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rank-list col-md-3 col-sm-6">
+                    <h3 class="rank-list-title">
+                        SF轻小说·人气榜
+                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="book-list">
+                        <ul>
+                            <li class="book-list-one">
+                                <div class="book-wrap">
+                                    <div class="book-info text-left col-sm-8">
+                                        <h3>NO.1</h3>
+                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
+                                        <p class="digital">14167 月票</p>
+                                        <p class="author">
+                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
+                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover col-sm-4">
+                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num2">2</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num3">3</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num4">4</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num5">5</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num6">6</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num7">7</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num8">8</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num9">9</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num10">10</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rank-list col-md-3 col-sm-6">
+                    <h3 class="rank-list-title">
+                        SF轻小说·人气榜
+                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="book-list">
+                        <ul>
+                            <li class="book-list-one">
+                                <div class="book-wrap">
+                                    <div class="book-info text-left col-sm-8">
+                                        <h3>NO.1</h3>
+                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
+                                        <p class="digital">14167 月票</p>
+                                        <p class="author">
+                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
+                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover col-sm-4">
+                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num2">2</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num3">3</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num4">4</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num5">5</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num6">6</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num7">7</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num8">8</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num9">9</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num10">10</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rank-list col-md-3 col-sm-6">
+                    <h3 class="rank-list-title">
+                        SF轻小说·人气榜
+                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
+                    </h3>
+                    <div class="line-border"></div>
+                    <div class="book-list">
+                        <ul>
+                            <li class="book-list-one">
+                                <div class="book-wrap">
+                                    <div class="book-info text-left col-sm-8">
+                                        <h3>NO.1</h3>
+                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
+                                        <p class="digital">14167 月票</p>
+                                        <p class="author">
+                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
+                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
+                                        </p>
+                                    </div>
+                                    <div class="book-cover col-sm-4">
+                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num2">2</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num3">3</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num4">4</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num5">5</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num6">6</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num7">7</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num8">8</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num9">9</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                            <li class="book-list-other">
+                                <div class="num-box">
+                                    <span class="num10">10</span>
+                                </div>
+                                <div class="name-box">
+                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="text-center">展开更多 >>></a>
+            </div>
+            <div class="space"></div>
+            <div class="clearfix"></div>
+            <!--小说版块主体*N-->
+            <div class="novel-container row">
+                <div class="block-left col-md-6 col-sm-7 col-xs-12 text-center">
+                    <div class="block-title">
+                        <a href="#" class="title-link">
+                            <div class="icon-title"></div>
+                            <h2 class="title">热门文库本</h2>
+                        </a>
+                        <a href="/info/#/faq?to=rank" target="_blank" class="link-faq"><i class="fa fa-question-circle fa-2x"></i></a>
+                        <a href="/c/14" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
+                    </div>
+                    <div class="block-bottom">
+                        <ul class="book-list">
+                            <li>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="thumb">
+                                    <span class="recom"></span>
+                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
+                                    <div class="label-count">
+                                        <span class="fontstype">58.1万字</span>
+                                    </div>
+                                    <div class="book-info">
+                                        <div class="book-info-a">
+                                            <img data-sizes="36px" class="avatar" srcset="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36 36w, //new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_72,h_72 72w" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>
+                                        </div>
+                                        <div class="book-info-b">
+                                            <p><span class="book-info-title">人气：</span><span class="d">159万</span></p>
+                                            <p><span class="book-info-title">收藏：</span><span class="d">2810</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
+                                    <i class="icon icon-pay"></i>
+                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="thumb">
+                                    <span class="recom"></span>
+                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
+                                    <div class="label-count">
+                                        <span class="fontstype">58.1万字</span>
+                                    </div>
+                                    <div class="book-info">
+                                        <div class="book-info-a">
+                                            <img data-sizes="36px" class="avatar" srcset="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36 36w, //new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_72,h_72 72w" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>
+                                        </div>
+                                        <div class="book-info-b">
+                                            <p><span class="book-info-title">人气：</span><span class="d">159万</span></p>
+                                            <p><span class="book-info-title">收藏：</span><span class="d">2810</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
+                                    <i class="icon icon-pay"></i>
+                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="thumb">
+                                    <span class="recom"></span>
+                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
+                                    <div class="label-count">
+                                        <span class="fontstype">58.1万字</span>
+                                    </div>
+                                    <div class="book-info">
+                                        <div class="book-info-a">
+                                            <img data-sizes="36px" class="avatar" srcset="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36 36w, //new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_72,h_72 72w" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>
+                                        </div>
+                                        <div class="book-info-b">
+                                            <p><span class="book-info-title">人气：</span><span class="d">159万</span></p>
+                                            <p><span class="book-info-title">收藏：</span><span class="d">2810</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
+                                    <i class="icon icon-pay"></i>
+                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="thumb">
+                                    <span class="recom"></span>
+                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
+                                    <div class="label-count">
+                                        <span class="fontstype">58.1万字</span>
+                                    </div>
+                                    <div class="book-info">
+                                        <div class="book-info-a">
+                                            <img data-sizes="36px" class="avatar" srcset="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36 36w, //new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_72,h_72 72w" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>
+                                        </div>
+                                        <div class="book-info-b">
+                                            <p><span class="book-info-title">人气：</span><span class="d">159万</span></p>
+                                            <p><span class="book-info-title">收藏：</span><span class="d">2810</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
+                                    <i class="icon icon-pay"></i>
+                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="thumb">
+                                    <span class="recom"></span>
+                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
+                                    <div class="label-count">
+                                        <span class="fontstype">58.1万字</span>
+                                    </div>
+                                    <div class="book-info">
+                                        <div class="book-info-a">
+                                            <img data-sizes="36px" class="avatar" srcset="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36 36w, //new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_72,h_72 72w" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>
+                                        </div>
+                                        <div class="book-info-b">
+                                            <p><span class="book-info-title">人气：</span><span class="d">159万</span></p>
+                                            <p><span class="book-info-title">收藏：</span><span class="d">2810</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
+                                    <i class="icon icon-pay"></i>
+                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="thumb">
+                                    <span class="recom"></span>
+                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
+                                    <div class="label-count">
+                                        <span class="fontstype">58.1万字</span>
+                                    </div>
+                                    <div class="book-info">
+                                        <div class="book-info-a">
+                                            <img data-sizes="36px" class="avatar" srcset="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36 36w, //new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_72,h_72 72w" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>
+                                        </div>
+                                        <div class="book-info-b">
+                                            <p><span class="book-info-title">人气：</span><span class="d">159万</span></p>
+                                            <p><span class="book-info-title">收藏：</span><span class="d">2810</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
+                                    <i class="icon icon-pay"></i>
+                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="block-center col-md-3 visible-md-block visible-lg-block text-left">
+                    <div class="js-block-rank rank-wrap">
+                        <div class="block-title block-title-rank">
+                            <h2 class="title">漫协推荐</h2>
+                        </div>
+                        <div class="line-border"></div>
+                        <ol id="list-14" class="rank-list"><li class="recom-new"><a href="https://www.iqing.com/book/59609" target="_blank" title="刀剑神域" class="thumb"><img data-sizes="72px" class="cover" srcset="//new-image.iqing.com/recommend/5b9c39b1-3485-4cb2-b7e7-fb7ce1f88df5.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_86 72w, //new-image.iqing.com/recommend/5b9c39b1-3485-4cb2-b7e7-fb7ce1f88df5.jpg?x-oss-process=image/resize,w_144,h_192/format,jpg/interlace,1/quality,Q_86 144w" sizes="72px" src="//new-image.iqing.com/recommend/5b9c39b1-3485-4cb2-b7e7-fb7ce1f88df5.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_72"><div class="label-count"><span>322.5万</span></div></a><div class="book-info"><a href="https://www.iqing.com/book/59609" target="_blank" title="刀剑神域" class="title title-l2 fz-14"><h3>刀剑神域</h3></a><h4 class="count">虽然是游戏，但可不是闹着玩的！</h4></div></li><li class="recom-new"><a href="https://www.iqing.com/book/70248" target="_blank" title="神话传说英雄的异世界奇谭" class="thumb"><img data-sizes="72px" class="cover" srcset="//new-image.iqing.com/recommend/88d3c85c-e6cb-4af0-9afc-aa750342ae65.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_86 72w, //new-image.iqing.com/recommend/88d3c85c-e6cb-4af0-9afc-aa750342ae65.jpg?x-oss-process=image/resize,w_144,h_192/format,jpg/interlace,1/quality,Q_86 144w" sizes="72px" src="//new-image.iqing.com/recommend/88d3c85c-e6cb-4af0-9afc-aa750342ae65.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_72"><div class="label-count"><span>11.6万</span></div></a><div class="book-info"><a href="https://www.iqing.com/book/70248" target="_blank" title="神话传说英雄的异世界奇谭" class="title title-l2 fz-14"><h3>神话传说英雄的异世界奇谭</h3></a><h4 class="count">我拿你当兄弟，你却要泡我重孙女？</h4></div></li><li class="recom-new"><a href="https://www.iqing.com/book/69093" target="_blank" title="OVERLORD 不死者之王" class="thumb"><img data-sizes="72px" class="cover" srcset="//new-image.iqing.com/recommend/9938e4ff-0c36-4c3f-bb97-804893305fd6.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_86 72w, //new-image.iqing.com/recommend/9938e4ff-0c36-4c3f-bb97-804893305fd6.jpg?x-oss-process=image/resize,w_144,h_192/format,jpg/interlace,1/quality,Q_86 144w" sizes="72px" src="//new-image.iqing.com/recommend/9938e4ff-0c36-4c3f-bb97-804893305fd6.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_72"><div class="label-count"><span>87.2万</span></div></a><div class="book-info"><a href="https://www.iqing.com/book/69093" target="_blank" title="OVERLORD 不死者之王" class="title title-l2 fz-14"><h3>OVERLORD 不死者之王</h3></a><h4 class="count">吾乃侍奉无上至尊之人！</h4></div></li><li class="recom-new"><a href="https://www.iqing.com/book/35981" target="_blank" title="Fate/Prototype 苍银的碎片" class="thumb"><img data-sizes="72px" class="cover" srcset="//new-image.iqing.com/recommend/102fe928-efdf-4ec6-b26a-a7654f1ceb5b.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_86 72w, //new-image.iqing.com/recommend/102fe928-efdf-4ec6-b26a-a7654f1ceb5b.jpg?x-oss-process=image/resize,w_144,h_192/format,jpg/interlace,1/quality,Q_86 144w" sizes="72px" src="//new-image.iqing.com/recommend/102fe928-efdf-4ec6-b26a-a7654f1ceb5b.jpg?x-oss-process=image/resize,w_72,h_96/format,jpg/interlace,1/quality,Q_72"><div class="label-count"><span>132.2万</span></div></a><div class="book-info"><a href="https://www.iqing.com/book/35981" target="_blank" title="Fate/Prototype 苍银的碎片" class="title title-l2 fz-14"><h3>Fate/Prototype 苍银的碎片</h3></a><h4 class="count">为了你，我愿意放弃一切！</h4></div></li></ol>
+                    </div>
+                </div>
+                <div class="block-right col-md-3 col-sm-5 col-xs-12 text-left">
+                    <div class="js-block-rank rank-wrap">
+                        <div class="block-title block-title-rank">
+                            <h2 class="title">文库本<span class="s-t">战力榜</span>
+                            </h2>
+                            <!--a.more(href="/rank/", target="_blank") 更多-->
+                            <!--    i.fa.fa-angle-right.fa-fw-->
+                            <div class="js-rank-tab block-title-rank"><a class="tab active js-tab-14-0">日榜</a><a class="tab js-tab-14-1">周榜</a><a class="tab js-tab-14-2">月榜</a>
+                            </div>
+                        </div>
+                        <div class="line-border"></div>
+                        <ol id="list-14-rank0" class="rank-list"><li><a href="/book/34962" target="_blank" title="精灵幻想记" class="thumb"><img data-sizes="51px" alt="轻小说：精灵幻想记" class="cover" srcset="//new-image.iqing.com/cover/680ed4d9-0568-4113-944d-95ab025ae17e.jpg?x-oss-process=image/resize,w_51,h_68/format,jpg/interlace,1/quality,Q_86 51w, //new-image.iqing.com/cover/680ed4d9-0568-4113-944d-95ab025ae17e.jpg?x-oss-process=image/resize,w_102,h_136/format,jpg/interlace,1/quality,Q_86 102w" sizes="51px" src="//new-image.iqing.com/cover/680ed4d9-0568-4113-944d-95ab025ae17e.jpg?x-oss-process=image/resize,w_60,h_80/format,jpg/interlace,1/quality,Q_72"><span class="order"><span class="no">1</span></span></a><div class="book-info"><a href="/book/34962" target="_blank" title="精灵幻想记" class="title title-l2 fz-14"><h3>精灵幻想记</h3></a><a href="/u/280482" target="_blank" class="author">作者：HJ文库</a><p class="count">战力：291.4<span class="scl-hf">万</span></p></div></li><li><a href="/book/34925" target="_blank" title="百炼霸王与圣约女武神" class="thumb"><img data-sizes="51px" alt="轻小说：百炼霸王与圣约女武神" class="cover" srcset="//new-image.iqing.com/cover/e69f9980-88a5-4395-bb95-587af47477cc.jpg?x-oss-process=image/resize,w_51,h_68/format,jpg/interlace,1/quality,Q_86 51w, //new-image.iqing.com/cover/e69f9980-88a5-4395-bb95-587af47477cc.jpg?x-oss-process=image/resize,w_102,h_136/format,jpg/interlace,1/quality,Q_86 102w" sizes="51px" src="//new-image.iqing.com/cover/e69f9980-88a5-4395-bb95-587af47477cc.jpg?x-oss-process=image/resize,w_60,h_80/format,jpg/interlace,1/quality,Q_72"><span class="order"><span class="no">2</span></span></a><div class="book-info"><a href="/book/34925" target="_blank" title="百炼霸王与圣约女武神" class="title title-l2 fz-14"><h3>百炼霸王与圣约女武神</h3></a><a href="/u/280482" target="_blank" class="author">作者：HJ文库</a><p class="count">战力：252.8<span class="scl-hf">万</span></p></div></li><li><a href="/book/39311" target="_blank" title="带着智能手机闯荡异世界" class="thumb"><img data-sizes="51px" alt="轻小说：带着智能手机闯荡异世界" class="cover" srcset="//new-image.iqing.com/cover/f5f65df2-4791-4fb4-9b4d-1afbb9bd4daf.jpg?x-oss-process=image/resize,w_51,h_68/format,jpg/interlace,1/quality,Q_86 51w, //new-image.iqing.com/cover/f5f65df2-4791-4fb4-9b4d-1afbb9bd4daf.jpg?x-oss-process=image/resize,w_102,h_136/format,jpg/interlace,1/quality,Q_86 102w" sizes="51px" src="//new-image.iqing.com/cover/f5f65df2-4791-4fb4-9b4d-1afbb9bd4daf.jpg?x-oss-process=image/resize,w_60,h_80/format,jpg/interlace,1/quality,Q_72"><span class="order"><span class="no">3</span></span></a><div class="book-info"><a href="/book/39311" target="_blank" title="带着智能手机闯荡异世界" class="title title-l2 fz-14"><h3>带着智能手机闯荡异世界</h3></a><a href="/u/280482" target="_blank" class="author">作者：HJ文库</a><p class="count">战力：907.9<span class="scl-hf">万</span></p></div></li><li><a href="/book/38406" target="_blank" title="异世界料理道" class="title"><h3 class="title-txt"><span class="num">4</span>异世界料理道</h3><div class="count-rl">137.0<span class="scl-hf">万战力</span></div></a></li><li><a href="/book/39673" target="_blank" title="战斗面包师与机械看板娘" class="title"><h3 class="title-txt"><span class="num">5</span>战斗面包师与机械看板娘</h3><div class="count-rl">31.1<span class="scl-hf">万战力</span></div></a></li><li><a href="/book/59609" target="_blank" title="刀剑神域" class="title"><h3 class="title-txt"><span class="num">6</span>刀剑神域</h3><div class="count-rl">87.2<span class="scl-hf">万战力</span></div></a></li><li><a href="/book/54730" target="_blank" title="如果有妹妹就好了。" class="title"><h3 class="title-txt"><span class="num">7</span>如果有妹妹就好了。</h3><div class="count-rl">141.4<span class="scl-hf">万战力</span></div></a></li><li><a href="/book/69093" target="_blank" title="OVERLORD 不死者之王" class="title"><h3 class="title-txt"><span class="num">8</span>OVERLORD 不死者之王</h3><div class="count-rl">43.2<span class="scl-hf">万战力</span></div></a></li><li><a href="/book/57141" target="_blank" title="为了女儿，我说不定连魔王都能干掉。" class="title"><h3 class="title-txt"><span class="num">9</span>为了女儿，我说不定连魔王都能干掉。</h3><div class="count-rl">50.6<span class="scl-hf">万战力</span></div></a></li></ol>
+                        <ol id="list-14-rank1" class="rank-list hide"></ol>
+                        <ol id="list-14-rank2" class="rank-list hide"></ol>
+
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="clearfix"></div>
+            <!--小说版块最近更新-->
+            <div class="novel-update row">
+                <div class="block-left col-md-9 visible-lg-block visible-md-block visible-sm-block text-left">
+                    <div class="block-title">
+                        <a href="#" class="title-link">
+                            <div class="icon-title"></div>
+                            <h2 class="title">最近更新章节</h2>
+                        </a>
+                        <a href="#" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
+                    </div>
+                    <div class="block-content">
+                        <ul class="update-list">
+                            <!--(li>(p.update-list-left>a[href='\#' target='_blank' title='书的类别']{类型$《}+a[href='#' target='_blank' title='书的名字']{书名$》})+p.update-list-center>a[href='#' target='_blank' title='书的名字']{标题$}+(p.update-list-right>a.update-writer[href='#' target='_blank' title='作者名']{作者$}+span.update-time{18-10-0$}))*20-->
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型1《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名1》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题1</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者1</a><span
+                                        class="update-time">18-10-01</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型2《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名2》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题2</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者2</a><span
+                                        class="update-time">18-10-02</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型3《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名3》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题3</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者3</a><span
+                                        class="update-time">18-10-03</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型4《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名4》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题4</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者4</a><span
+                                        class="update-time">18-10-04</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型5《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名5》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题5</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者5</a><span
+                                        class="update-time">18-10-05</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型6《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名6》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题6</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者6</a><span
+                                        class="update-time">18-10-06</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型7《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名7》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题7</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者7</a><span
+                                        class="update-time">18-10-07</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型8《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名8》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题8</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者8</a><span
+                                        class="update-time">18-10-08</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型9《</a><a href="#"
+                                                                                                                target="_blank"
+                                                                                                                title="书的名字">书名9》</a>
+                                </p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题9</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者9</a><span
+                                        class="update-time">18-10-09</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型10《</a><a
+                                        href="#" target="_blank" title="书的名字">书名10》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题10</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者10</a><span
+                                        class="update-time">18-10-010</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型11《</a><a
+                                        href="#" target="_blank" title="书的名字">书名11》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题11</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者11</a><span
+                                        class="update-time">18-10-011</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型12《</a><a
+                                        href="#" target="_blank" title="书的名字">书名12》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题12</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者12</a><span
+                                        class="update-time">18-10-012</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型13《</a><a
+                                        href="#" target="_blank" title="书的名字">书名13》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题13</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者13</a><span
+                                        class="update-time">18-10-013</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型14《</a><a
+                                        href="#" target="_blank" title="书的名字">书名14》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题14</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者14</a><span
+                                        class="update-time">18-10-014</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型15《</a><a
+                                        href="#" target="_blank" title="书的名字">书名15》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题15</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者15</a><span
+                                        class="update-time">18-10-015</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型16《</a><a
+                                        href="#" target="_blank" title="书的名字">书名16》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题16</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者16</a><span
+                                        class="update-time">18-10-016</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型17《</a><a
+                                        href="#" target="_blank" title="书的名字">书名17》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题17</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者17</a><span
+                                        class="update-time">18-10-017</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型18《</a><a
+                                        href="#" target="_blank" title="书的名字">书名18》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题18</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者18</a><span
+                                        class="update-time">18-10-018</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型19《</a><a
+                                        href="#" target="_blank" title="书的名字">书名19》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题19</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者19</a><span
+                                        class="update-time">18-10-019</span></p>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="update-list-left"><a href="#" target="_blank" title="书的类别">类型20《</a><a
+                                        href="#" target="_blank" title="书的名字">书名20》</a></p>
+                                <p class="update-list-center"><a href="#" target="_blank" title="书的名字">标题20</a>
+                                <p class="update-list-right"><a href="#" class="update-writer" target="_blank"
+                                                                title="作者名">作者20</a><span
+                                        class="update-time">18-10-020</span></p>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="block-left col-md-3 col-sm-12">
+                    <div class="block-title">
+                        <a href="#" class="title-link">
+                            <h2 class="title">最新收录作品</h2>
+                        </a>
+                        <a href="#" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
+                    </div>
+                    <div class="block-content">
+                        <ul class="update-list">
+                            <!--li*20>a[href='#' target='_blank' title='书的名字'].update-book{书名$}+span.update-time{18-10-$}-->
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名1</a>
+                                <span class="update-time">18-10-1</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名2</a>
+                                <span class="update-time">18-10-2</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名3</a>
+                                <span class="update-time">18-10-3</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名4</a>
+                                <span class="update-time">18-10-4</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名5</a>
+                                <span class="update-time">18-10-5</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名6</a>
+                                <span class="update-time">18-10-6</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名7</a>
+                                <span class="update-time">18-10-7</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名8</a>
+                                <span class="update-time">18-10-8</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名9</a>
+                                <span class="update-time">18-10-9</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名10</a>
+                                <span class="update-time">18-10-10</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名11</a>
+                                <span class="update-time">18-10-11</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名12</a>
+                                <span class="update-time">18-10-12</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名13</a>
+                                <span class="update-time">18-10-13</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名14</a>
+                                <span class="update-time">18-10-14</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名15</a>
+                                <span class="update-time">18-10-15</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名16</a>
+                                <span class="update-time">18-10-16</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名17</a>
+                                <span class="update-time">18-10-17</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名18</a>
+                                <span class="update-time">18-10-18</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名19</a>
+                                <span class="update-time">18-10-19</span>
+                            </li>
+                            <li><a href="#" target="_blank" title="书的名字" class="update-book">书名20</a>
+                                <span class="update-time">18-10-20</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {%endblock Middle%}
 
 {%block End_Script_more%}
-{#---    #}
+<!--JQ幻灯片插件-->
+<script type="text/javascript" src="https://cdn.bootcss.com/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        items:1,
+        dots:true,//轮播图圆点
+        nav:true,//轮播图导航
+        loop:true,//无限循环
+        transitionStyle:true,//添加css3过度效果
+        lazyLoad:true,//延时加载
+        autoHeight:true,//自动适应高度
+        // navContainer: '#owl-novel-nav',
+        // dotsContainer: '#owl-novel-dots',
+        navText: ['<i class="fa fa-chevron-left fa-1x"></i>', '<i class="fa fa-chevron-right fa-1x"></i>'],
+        //自动播放组
+        autoplay:true,
+        autoplayTimeout:2000,
+        autoplayHoverPause:true
+    });
+});
+// todo 768*1024分辨率下，左侧只显示6本小说
+
+</script>
 {%endblock End_Script_more%}
