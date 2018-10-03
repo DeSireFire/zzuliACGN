@@ -1,6 +1,7 @@
 # ignore
 /.idea
 /uwsgi_Nginx/
+/zzuliACGN/
 /ZA_Index/__pycache__/
 /ZA_Index/migrations/__pycache__/
 /easy_config.py
