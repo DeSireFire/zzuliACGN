@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>(此处改为你需要的页首名)</title>
+    <!--动漫协会官网基础样式文件,start-->
+    <!--OwlCarousel2-->
+    <link href="https://cdn.bootcss.com/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--BaseCSS-->
+    <link href="http://www.zzuliacgn.cf/static/BaseCss.css" rel="stylesheet">
+    <!--<link href="http://www.zzuliacgn.cf/static/ZA_User/css/userBase.css" rel="stylesheet">-->
+
+
+    <!--动漫协会官网基础样式文件,end-->
+    <!--*********************************************************************************************-->
+    <!--此处引入你的外部CSS文件，start-->
+    <!--例如：<link href="CSS/xxx.css" rel="stylesheet">-->
+
+
+    <!--此处引入你的外部CSS文件，end-->
+    <!--*********************************************************************************************-->
+    <!--此处style标签输入你的CSS样式，start-->
+    <style>
+        .color{color: #fcac45;}
+        #tf-home {
+            background:url(Images/5290131_p0.jpg);
+            /*background:url(img/1500x500.jpg);*/
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+            color:#cfcfcf;
+        }
+        #tf-home .overlay {
+            background:-moz-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* FF3.6+ */
+            background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0.8)),color-stop(17%,rgba(0,0,0,0.73)),color-stop(35%,rgba(0,0,0,0.66)),color-stop(62%,rgba(0,0,0,0.55)),color-stop(100%,rgba(0,0,0,0.4)));
+            /* Chrome,Safari4+ */
+            background:-webkit-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* Chrome10+,Safari5.1+ */
+            background:-o-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* Opera 11.10+ */
+            background:-ms-linear-gradient(top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* IE10+ */
+            background:linear-gradient(to bottom,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+            /* W3C */
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000',endColorstr='#66000000',GradientType=0);
+            /* IE6-9 */
+            height:auto;
+            background-attachment:fixed;
+        }
+        .rgba-blue {
+            border: 1px solid #99CCFF;
+            background-color: rgba(153,204,255,0.1);
+        }
+        .content {
+            position:relative;
+            /*响应式标记，全改为20%*/
+            padding:6% 0 0;
+        }
+        @media (max-width: 640px){
+            .content {
+                padding:30% 0 0;
+            }
+        }
+        @media (max-width: 960px){
+            .content {
+                padding:15% 0 0;
+            }
+        }
+        .container{
+            /*响应式标记，全改为15px*/
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        @media (max-width: 768px){
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+        .title-img-md{
+            margin: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            width: 100%;
+        }
+        .title-img-lg{
+            background:url(Images/1500x500.jpg);
+            background-size:cover;
+            background-position:center;
+            width: 100%;
+            height: 500px;
+        }
+        .navbar-bottom{
+            margin-bottom: 0px;
+        }
+        .navbar-sec-first-btn > .dropdown > a{
+            padding-right: 65px;
+            padding-left: 65px;
+        }
+        .navbar-sec-first-btn > li > a {
+            padding-right: 25px;
+            padding-left: 25px;
+        }
+        .novel-class li a{
+            display: inline-block;
+        }
+        .novel-class {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 201px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            font-size: 14px;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0,0,0,.15);
+            border-radius: 4px;
+            -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+
+        .fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+        .book-top{margin-bottom:32px;}
+        .book-top .thumb{position:relative;width:100%;height:240px;}
+        .book-top .cover{position:absolute;width:100%;height:100%;background-color:#f3f3f3;border-radius:4px;box-shadow:2px 3px 5px #bbb;}
+        .book-top .count-txt{position:absolute;right:0;background-color:#fe6878;color:#fff;font-size:12px;padding:3px 7px 2px 12px;border-radius:0 4px 0 15px;}
+        .book-top .book-title{margin-bottom:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        .book-top .book-tag{display:inline-block;height:20px;line-height:20px;background-color:#a5bbd4;border-radius:3px;margin-right:6px;color:#fff;color:hsla(0,0%,100%,.9);font-family:Helvetica Neue,Helvetica,Arial,sans-serif;padding:0;text-align:center;width:38px;vertical-align:middle;font-size:12px;}
+
+        .book-top .book-tag:last-of-type{margin-right:12px;}
+        .book-top .book-tag.tag-pay{background-color:#fa8490;}
+        .book-top .book-tag.tag-serial{background-color:#7ac3f5;}
+        .book-top .title{display:inline-block;vertical-align:middle;margin:0;font-size:20px;line-height:30px;color:#fff;white-space:nowrap;}
+        .book-top .intro,.book-top .title{overflow:hidden;text-overflow:ellipsis;}
+        .book-top .intro{height:auto;line-height:17px;display:-webkit-box;-webkit-line-clamp:4;margin:6px 0 8px;}
+        .book-top .intro-mb {
+            font-size: 12px;
+            font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Helvetica Neue,STHeiti,Microsoft Yahei,Tahoma,Simsun,sans-serif;
+            line-height: 1.42857;
+            background-color: #2b2e33;
+            padding: 10px 10px 10px 10px;
+        }
+        .book-top .read-mb {
+            font-size: 12px;
+            font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Helvetica Neue,STHeiti,Microsoft Yahei,Tahoma,Simsun,sans-serif;
+            line-height: 1.42857em;
+            background-color: #2b2e33;
+            padding: 10px 10px 10px 10px;
+            height: 60px;
+        }
+        .book-top .book-info{position:relative;height:240px;}
+        .book-top .book-info .book-top-icon{height:20px;width:20px;display:inline-block;vertical-align:middle;background-size:75%;background-position:25% 25%;background-repeat:no-repeat;}
+        .book-top .book-info .views-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAlBJREFUOBGdVDusEkEUnV1+AR4kSJSY+CGiibGiMJGKioYQPuHfYSMFBVBrg6+xsKEmJNZQKIUJJoSGAgohoUEFChQQDc9ODA9Ydj1rZPPY3SfBSWDnnnvvmTv3MxS5ZOVyObrb7aYVCkVQpVJZKYoi6/V6st1u39rt9pfQM3KulBwYCoXugeCNz+e77fF4ToxG4x+zxWJBarXaslwuTxmGiVYqla6c/x7mdrs1IPwwHA65zWYj+5tOp1w0Gh1FIpGTPWcItBhQq9XPE4nEHavVKlYJssViIalU6gYOzAvg342EkKbpmNPp1IgNxbLD4VAC84pxCaEGS6/Xi+0kMopFkFuK47i9OkgIUcWfSLiEQA5A1VcoHndRJyGE0etGo3GQsdPpsKvV6t1FMn4vR/iiWCx+nUwmYltBns/nJJ/PfwfwTAD/tUHb3I/H45N6vb4Wt06r1WJisdg32DyU45BEiAlQIo9xnU6nwYRI9GgrhdlsVrIs+9jr9erkSAUsGAxex8kfS6XSL+RHtql3EVer1XM095fLIiXo+ivhcPhTr9djd06HvuPxmIPfmd/vfyBEtdsguma73WYOkYj1g8GAg28/mUyqeC4F/xcIBDIulyuGh0DLy8csk8lEkFdds9k09Pv9GoVwbxoMhveFQsGCIhzDJdhiWkg6nT6bzWYuvopPM5nMtf8l41n5tzKbzV7FOJ7SWq3Wgwdzbx6Fo4/Y2Gw2gps+opHkH6PR6AhXeVNclyyXywWF5ryF675CpHfxPbooPD3m/xx9+xnBPfkNGuZy1XeL3HYAAAAASUVORK5CYII=);}
+        .book-top .book-info .follow-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAo5JREFUOBGlVM9rkmEcf97XV01ym4ZThswO+QcsV5dgJgmJTdJtiIxNsA5Chx12X2CeY4MhiNApIUVBCY8epK1DK8gOBsNDdJgz0GmHppg/1ucdPetVmz/qCy/P835/fJ7vj8/zMGSA2O32OxKJ5FW73f7cbDadqVSqNsB9uGllZWWvVCqdZTKZn0tLS298Ph87LGqgg0wmu6FSqYjJZBID0JDNZv3/DGiz2bRqtVpEAdbX1+VardaLrG9R3d/WSzNE7+b1ev0VGsQwDNna2ppmWTbqdruvUn3vyvUqBP8bZrN5SvBPZmZmyObmpm57ezu/vLx8BPApfFKxWMx0Oh22Xq+/ZYQBaDqXy+UeYqo+p9N5fXV1dVJop/tWq0UajQZBjwkAqZrAv8ghUARKOGB4nM/n5xcWFqQOh0Oh0+kuHHs3HMcR/hMKYvlDPnI4LbO4uHjTYrHIZ2dnhT5j7YPB4An6/Iwgw3ylUjn7H0mn0w1U9ZLPgEW/HqHR38rl8lgZUedisUhCoVBhYmLiCdURTOy2y+U6AnHb42bq8XjKyG6Ogp2PKJFIfKjVanN+v39vZ2fnOz/BUQXk74A27Uv9ccU+VavVkRM9ODjoICZAAf+Q6LcGdFAqFApqH7oaDAYGMQ+oYx+gSCS6uG7UiV8LhQKJx+Onh4eHQvU5H1G2DGyR8YZudkIhlUr7+rG/v9/c3d39guv1PBKJ3EcFd9fW1q4ZjUYO/SNKpZI5Pj7mSZzvA8RAuiYSi8Vq0Wj0vVwut4XD4VMEvUDP1IFAYAN0cWk0mkmA/UDZX2HrFzxP73iig5dneF0qoERo0MNqtVqnvV6vmCJ1PQ68EqffQx/DGPMJSnyaTCZfU+dR1l9gv4GVue3AXAAAAABJRU5ErkJggg==);}
+        .book-top .book-info .gold-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAjNJREFUOBGdlD9oU1EUxvuuJEP7Mgg6JnbroNhumXSU/E+WYFEjoaDFxSgOFhGNU0GKiP+GUKyCohAQE2oSUERwcejkrC6OZqnJEBKT+DvBW25fXl6LDw733u9857v3nXvusaY8vkgksmJZ1hKU3/9o04yfgsFgoVQq9dxCLTcwGo0eBn+BbYXD4dvFYvGP5uG7NBwO82x0pl6vf9e4HscECTiFcw27QsBHTTTHWCy2gOhT7G6j0Xht+nYEs9nsgVartcrORyHkEftlEp3zVCoV6PV6JUS3A4HA5XK53BXOSDCTycx2Op2XiL2p1Wr3GIdOgUlrTrs8GAyW/H7/2Wq1+s0i8YsIXMcuILY1KdALTyQS8/1+fwONNRH8gfo86i2voL18pMwmZV+nuIT/OpXbBqKlSKqN7VyOG3E/mGiIluK/KyT22n6CvDhoFNDaVLZt34CYBgh7BXj5iF3Av8gjWBn9ajqdDna73U3ET1JP217BTl8ymZymHj9zsaelbJQQKpXKT6XUnXa7ve4M2GtNuTwg9qGIjXEpoUfyVsccEwD4WfivTPfohBoIhUJXuak8xOMamzSStyNcwk2fz3fR5OwSlJYkTwjCRi6XmzGJ5lzePRs/B1t2PohdghI0SqxS95vN5hNTxJyT61us39NAvpi455zcPMPOO0nxePwE+AcpZKdP1mMn1CRKSBppgTY1pzHEDtJZHpO7c5hrR3LdxRA4hsA71ro3HmIujfet5jjHv7Sz17dpi9wUAAAAAElFTkSuQmCC);}
+        .book-top .book-info .coin-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAYtJREFUOBHtVbFKw1AUbRpSEsjkKopDMpR+QOqgIE4tKZ3iYjaXfIBTQQkITo6C/oBTp5A2XQQDtdqAm7h10l/ImDbeAz7IS0pSR8FAuJd7zrm575KcCLWKy7IsNY7je9BUVXWGw2FcJqmXgaZp7lOzGXF83MhRK9OI60DXdeuyLF+uVqszSZJOxuPxy2Kx+Gg2m0GSJLeapu3Ztj0NwzDN6wsT9vv9nSiKngRBSNrt9rHv+59MhBw1YOCAyzAWBZYgdjqdUwrnJHCCIIiyWD7vdrtGmqbY7c1kMnlgODchEa5o8QdVzSAGh9ZxCA1rVog04VuhWFHIa7gJK7Qbwf8NN1pTKemP7ZBe0i24S+mZMiC40GRKNe7I9MldkKNM8VllSetycMCFJotzbkOO8t5qtYLlcnmn6/o2Ocos7yhwIkVRBtTEaTQa1mg0es425CYE4Hnel2EYR/RkaT6fP/Z6vV0mQI4aMHDAZRiLnNuwIoswU5oWjnL9UxuIoujQVK+Mk4+lDUH+7S/gG/G3oJhbTLG8AAAAAElFTkSuQmCC);}
+        .book-top .book-info .combat-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAkJJREFUOBFjZEACPj4+X3l4eN7+/v37x////y8B8Ukg3r1hw4YLSMrwMlmQZUVERL7Onj1b9t+/fwyPHz9WvXPnTuCRI0dKWVlZvwAtWQGke1avXv0OWQ9edkJCwiugxv/o+Nu3b/937tz5Oz4+/nlgYODE0NBQTrwGwSRxGYhswdatW38ADbwXFBRkAdOHTDMhc4hhu7m5sU+ePFmRn59/g7+/vwu6HpINBBkgLCzM0NfXJ87Hx7fYz89PCtlQsgwEGQBMDQxFRUXizMzM/cgGMsI4wDCZw8XFlcTCwvIfJkYM/ffvX4YvX77MW79+fSpIPTzZ8PLy+syZMwdkAdwSYgwEqUlJSfGFqYUb+OnTp82JiYnJpLrwz58/jMBktQVmIAodGxv7EjmJEMOOi4t7jWwIeqT8Q5Ykhs3ExIQS5ugGYjVjx44dDPv27WMA5mus8siC8DBEFkRmT506leH8+fMMsrKyDMB8zVBXV4csjcEmaCDIkKVLl4I1RkdHYxiALoBiIDA9ce/fv/+vubk5MzBNgtVqamoyNDc3Mzx69IjBxsYGrv/nz58Mx48f//fx40eUggIlzQEzvS4wZkOBSSdUTU1NJCYmRkRFRYXhwIEDDCADPDw8GN68ecOwbt26T4cOHXrx48eP1UC1y9euXXsVbhMuBtBwS2DuOd7f3/8B6PL/v379+g/0+heg2K3g4OAAXPpQXIhNEbD8S1VUVGwFBgHz5cuXZwFL7ypGRkbC0Y3NMJgY0EWZQFwN4+OjAcgRN8mHxpIMAAAAAElFTkSuQmCC);}
+        .book-top .book-info .belief-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAqZJREFUOBGdVE2IUlEUfs+fpxQNKA6OjWAImiDErGRAcBHF4E5lHGZUlKK0XTvBYEDatQqCWs1ARDQDNiuhReTCRTC6EWocxbEiGSRNN5al48/tu9KTVz7HqQePe9855/vu+c4577LMjMfv99sJIfcRxmG9s7Ozkz8NIj3N6fV61SzLPlpdXXUYjUZtqVQy2Gy2V7lc7uQ0nKhvfX39UiAQ+Li/v9/v9XqEvul0+sTn85U8Ho9OFDTNiMw4SD0ql8sjIp6QroeHh0P43iFGVJ1EjFQmk91dW1vTGwyGCbfJZGKdTqdRKpXenHDCIEqIul1fXl5WigGozW63n0fMNTG/DDXxDofDt7u7u1U+QKFQmNRqNf85ser1ekYuly8JHairgdpkMG5ptdouiCsgfo2Tr6ysrExn+83icDjmUdMERumDRCJxLiws6Gq1GmFCodAxLXa9XieZTIYUi8WJRgibItzn83mSzWZJs9kcYehUyBBQajQaixqNhlGpVEIVM/dms3kcU6lUmH6/n5Mg5ceYrx9jz39uUqnUN0CfMCBkg8HgEbI8s1ShbLqvVqsEct/TXCRoAkEzbsdisa+FQuGf8zs4OGA2Nze/QO4NCmZ5Bkz+ZaVS+cBisTii0eiZihmPx5uo3ZtOpxNLJBKfKNdosEEWxgw9g/wltJ/wh8xadTodIMQG7AvMoW9MiO4+h0O6sbGhRT1nziB/UCQS0bhcLi2wPfyKL6l9LDkcDstbrdZDnOp1u93zkM5OGyPMHUMvib29PfSy8RQ9uAfJgz8I+VORup7juFs48Spsi7gozqEkc6jTIJlMfkfxfyKjz4PBIIU/ZAsXbo3HihIKnXQPMg5Df9ztdgfb29sX6VT8HSP8Fr1thAFWq3UIWXPtdvvCLDKK+wUYR5LDfq1sAQAAAABJRU5ErkJggg==);}
+        .book-top .book-info p{font-size:12px;color:#ff8349;}
+        .book-top .book-info .w{margin-right:1em;white-space:nowrap;}
+        .book-top .book-info .w:last-child{margin-right:0;}
+        .book-top .book-info .t{color:#fff;}
+        .book-top .book-info .d{color:pink;}
+        .book-top .book-info .cat-list{padding-top:7px;border-top:1px dashed #ddd;}
+        .book-top .book-info .cat{margin-right:10px;display:inline-block;font-size:12px;padding:1px 4px 0;border:1px solid #ccc;color:#ff8349;border-radius:2px;cursor:pointer;text-decoration:none;}
+        .book-top .book-info .cat:hover{color:#fe6878;border-color:#fe6878;}
+        .book-top .book-info .update-time{line-height:0;margin-top:18px;}
+        .book-top .book-info .count{margin-bottom:0;display:flex;justify-content:space-between;}
+        .book-top .book-info .read{width:100%;position:absolute;bottom:0;margin:0;}
+        .book-top .btn-book{float:left;font-size:12px;width:100px;height:38px;line-height:38px;border-radius:3px;text-decoration:none;margin-right:16px;cursor:pointer;background-color:#fff;color:#505050;-webkit-user-select:none;-moz-user-select:none;}
+        .book-top .btn-book:hover{background-color:#f3f3f3;}
+        .book-top .btn-book:active{background-color:#eee;}
+        .book-top .min-btn-group {
+            color: #888;
+            margin-top: 5px;
+            position: relative;
+        }
+        .book-top .btn-book-min{display:inline-block;margin:0 6px 0 8px;text-decoration:none;-webkit-user-select:none;-moz-user-select:none;}
+        .book-top .btn-book-min .na {
+            color: #e8e8e8;
+            display: inline-block;
+            white-space: nowrap;
+            height: 16px;
+            font-size: 14px;
+            line-height: 16px;
+            padding: 0 6px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .book-top .btn-read{background-color:#ff7c8c;color:#fff;text-align:center;font-size:14px;}
+        .book-top .btn-read:hover{background-color:#fe6878;}
+        .book-top .btn-read:active{background-color:#ea5464;}
+        .book-top .btn-booklist,.book-top .btn-coin,.book-top .btn-pay{border:1px solid #ccc;text-align:center;color:#888;line-height:36px;display:flex;justify-content:center;}
+        .book-top .btn-booklist .na,.book-top .btn-coin .na,.book-top .btn-pay .na{color:#888;display:inline-block;white-space:nowrap;height:36px;font-size:14px;padding:0 2px;vertical-align:middle;}
+        .book-top .book-icon{display:inline-block;vertical-align:middle;width:20px;height:36px;font-size:16px;line-height:36px;background-position:50% 50%;background-repeat:no-repeat;background-size:16px;}
+        .book-top .btn-book-min .book-icon{height:16px;}
+        .book-top .btn-pay{color:red;}
+        .book-top .btn-pay .book-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA7BJREFUSA2tVs1rE1EQ383mq01JCn6BB4390AolPQj2oGDPXopKC4W21IM9CL0I3vtPmEOhpaSQQ1PECoIVlF4EFUVpUUuSWik9lChBm7TGJJv190u7203ytk3rPti8efNm5jczb+blyYODg5ck03C73VImk1mPxWJ/TGzbSacsyw/MVjVNkzwezzPwnpr5dtMODEn/aLxYLEoAv9bX19dgN5jZnoxU3yUDkWuqqp5XFOUs1wB/iSlJ2s7hdDrT09PT32Wz0aGhoQtw4GGpVFIwlzNh3reDRkAqvrBiNra0tPSrs7MzCK/OAJxR2/6Vz1aSvjrMwKS9Xu8CUq5V8+1YM4uwvQHwjzXAk5OTq4j0M87aDqwaGwCdxxnnaoAhqcGzFwC3NWoGApOfIpHIMr0RAUttbW0JpGTFrqiZYtTMX7TqPAMjsDCfi4uLWigU2oJCN7ysqHwqHXUwAAC/ikaj73RdYcTcbG9vX4Fw/H+jZrSINO33+xd0UM7CiLnBqLu6ujKIuJvr4469aGNTU1OrZhuWEVOotbX1C6ZjnzVBUSvJ3t7eN2ZQ0gcCj4+PlyCzVa1Uz5opRrY0XEZP+vv71WodZzXDvMYVehkGrsBr3uXmrUNpyOeht4D2SYiELYERrTuRSNxGwyNjCgvkLQzUpExklDyXy5UG6KbVviUwQHuQpnOobLbCj0AgMBsOh7NWho7KF57x6OioC6m6TlAOHNVjO0FpUxhxPp9XAObhuWKmXA/+t4/dVrBRhM1ZPKd+0xiHEJiXOAorjnO6WigU+L9c8S7bVa3vF7oSbeDY+JQ6GJgmc7ncHDxF0HIHUu7W014f3L4UgWEnD05FSx3aI6zuVCrl3tnZcW5vbwtrYh9ml0KmtObm5gJX6AYlm806EPUWUm2AHwg8MDBwEkY6oK82NTUt11tgY2NjnnQ6HUJ6G5CxOI6upq0sgYeHhy8C8B4U/fQcqU6hnx+JjHBfH3idBvCKuY8UB8mD3l9MkZmZmfdc60OYOigrULhFUN5a/OD9aaTrpq5oNeNNfgOyQV0PDnhg6071c1kI7PP5XDB8AgqGfdJw5JTBsCBQSOWHor69Z8MPZ3w6j7MQOBgMsgrXIWzI8trEWDMYFgQiXGUl64M0HN5EkVX82exL6JKYUcklgM4htRsEhCJ7MY5onpvEhCSq+TVAPlCHukj5T8xRVDSDMYZlcVFiZGTEC8AWnJsKR75NTEyUW8TQtiDguCOZTLZAp6GxsXFN1A3/AOPp1ePjzUG5AAAAAElFTkSuQmCC);}
+        .book-top .btn-share .book-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAQ1JREFUKBVjZCASzDzzX+7XD4a5jAwMFv8ZGE6wcTAksxCplwGkkYHhvwtQIwi4/PrBOJcJwiZMgmxEVgXiAzFuMPnIfymgbCVUhQbIZoRqxj1YNYM0MTIyVPz/z5DGwMjwk4mRoYeFjWEhup8ZUQKCkeEU43+G60DTk4F++ws0eRIHE0NPihXjO4SNCBYj0JbdyM5hZGD8C7RtAhcnQ2eSEeNrhFJMFgvI49AQhMn+zrFmLIFx8NFMoDhDU8A65ej/nnnn/ouiiWNwKfMzhnFAAfTQBnqtm5WdYRFGaGPTDBMjK55hmpHpKUf+f/7P8J8HJgaMlS9EJ0/0gAXxidYMykUMDKAkyfgFRIP4AOQqboI1ccvaAAAAAElFTkSuQmCC);}
+        .book-top .btn-coin .book-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA4VJREFUSA3dlk1IVFEUx+fjqTM5gxVJuKiIoiAFCYogWrQqsYQSFFSYKWeRrYI2SR+bbOMygqJilCaUsGVBRdAmWkTk1khBrBYhfUw06XxPv3N57/Hem+c4DJTUhcs553/OPf97z/14z+NZo+Z14x0fH99fKpVG8LUhG7xe7xvkg3A4PNHb21twGyNYPB5vJzZK7C7kIvJhLBZ74hZfRpxIJNpyudxrgte5DJjRNO1ENBp97/RBOgzZNcj8Dt/E4OBgBF/RipcRk0Bm2GENcujzfr+/p1gs9oA3kjABWTv9riPONGVCkF8xARQb8dTUVH0qlVpyzPoVA+NgO5EXHD7JlQMvgAf0xDPIONge5Glw4fjR0tKyubOzM6PHeDRDEZlOp9dbEzP4c3Nz85Gurq4l8Y+NjX1C3BTd0uoYUyc28W9DodBhzkFKbKqXRJynNyWTyTDSJPZhmC0SiSxizJuAxzNnkApGuW4hnur++xCdksmJjfwQCASOGaSCsSUvdN9sX1/fV9GNZiMWkMMTI8kv0VnJAQ7bPtGlyVbgv4qa8fl8I0zkHvoz8THmUSaT2c4YlRPp5RzIxJJ0OVwliTOabY8nJyc3Ue7bOI8zsF6CGCD7N4fUkNuA1PZgT6M/p58DN/YX0/MN3ztkE3grehb9MdU409/f/0UCpNlWDOkdgrvpilQC0OV67EbuQJpngoQ3WPEw+KjEWdpGsIP0VsGQ9fRufUFmmI2YgKOmZxUF4lk95OMqocpNbtsVtRET4fZouOaFWJ109nrZNaActOV2EpeHr4CwAtk7KeWKT+gKQxVcMzFXJS8ZWLntKaxEZvXVTJzP5xUhV0ZNwJq0Gr1mYvZWXUVWXlOpzethnSXlk7u7LGVElpBy+aXnMPPY0nMyBvs7+rSBA8lEZJxMzI9PrlMQGcJ2b7xSW+mN7t7/BLU9mXx9XrKun5RG7mia8hj7p95ZcB+YV8rIE3hpYGBgQd5yDtpFMCmrbJ0fXUOXF09seWrF1njp9mKrZttjAg4ZDpHYVlPpBpbNZq8DLPC3sgV5UpyGz6m72TWfakjUN5ikhpT8VbeaiSmd+pBwndaGuFAoWD+Jf37FlLpBZ/mHidk39ctTZb3UShlT1YPjzG07XJTP+JGrhtsocVXEzty2e8yszhIgn7oOZMWE+Ef5fb3MDDdUmqWsVEiDweBQpbi/5vsNZLeUR4gxzrsAAAAASUVORK5CYII=);}
+        .book-top .btn-coin,.book-top .btn-pay,.book-top .btn-share{position:relative;}
+        .book-top .btn-share #block-share{display:none;width:182px;position:absolute;top:-52px;left:50%;margin-left:-90px;background-color:#fff;z-index:1;box-shadow:1px 1px 16px rgba(0,0,0,.2);border-color:#ddd;animation:qrc-slide .3s both;}
+        .book-top .btn-share #block-share .weibo{margin-left:0;}
+        .book-top .btn-share:hover #block-share{display:block;}
+        #btn-activity-vote{position:relative;background-color:#ff8349;box-shadow:0 0 4px #ff8349;}
+        #btn-activity-vote .bg-img{position:absolute;bottom:-10px;left:-10px;width:120px;height:71px;text-align:center;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABHCAMAAAD7lnOYAAABO1BMVEUAAAD/jGv/j0v/gID/hk7/i13/g0n/iEz/jFH/g07/hkn/g07/hkv/iFr/hU3/iE7/hUn/hk7/hUz/hUv/hEz/hU7/hUz/hE7/hk3/x8b/rYj/hUv/6ef/iVP/hUv/xcT/hEv/sY3/g0z/hUv/amn/bWf/qqr/hEr/tZL/7er/3Nr/6Ob/7ur/5d3/wKX/hEv/7ez/vr3/vLv/19b/gXn/5Nr/3dD/0Lz/qYL/wqb/aWn/////iIj/d3f/xcX/7e3/cnL/6ur/tbX/enr/0dH/bGz/2tr/gYH/bm7/29v/fn7/0tL/b2//rKz/o6P/hYX/ysr/v7//u7v/dXX/1tb/zs7/nZ3/lJT/zMz/pqb/mJj/j4//+Pj/5+f/mZn/4eH/ubn/sLD/i4v/ycn/8PD/wsL/9PT/x8f/3d3RSjp4AAAAOnRSTlMAAwYCFgswHg8nOw0RCBwTCiMsJRUpIRoY7VI44DYz7jpOQj3ypP5KR9Lz6L2SYVb08fDquLKkc2hQdtEAUgAABhVJREFUaN68lGdzElEUhi3byPa+ShHBgr23s8Bg1ETQxBISxDhgMmr8/7/Ac8u6G9Asw6LPDF8uM/vc95xzz6k5zuZwauVw6ekc/oGcW8+cCHev2Musuq5bljiPZek6d6/SzLW6Jaqqqiiagr8UeoB/iJaeqFesVVX0maYnzOF5nqlp6NZ1pl6R9jTRohWdYWgYhjyDgUSR4GkKqklqGrq4l6XVPCEy5MC2Xbc0g+vadiAboWCaimrpqbmwV1QVUwiNwHZ9x3GkOfDQLxE3plbF1Fzcq3kRav1Wq3UROT8LOWy1qm5gRALWu7g58WJc2fada+cSLmRJDm888+3AEExuLihmXiNwfalagRO58kRySrYReWmjF+YPgS1VI16nVm7miO/frtcc35Yj3mh0Lw6zZwNjf0PqbTRyxOfON5pVCc0hlhvV+KgXhrsTMQscybcqlLs7cIxXcIzrFcpNNyDTTZdZDnzbzq3bsyywYV8DysdNyHJ4MCMGyoMqNjoUPNPUlFy07LrlZi42I9m9yaKOJ5DlzY+3kGUIlAppdCCTXbYA9IKkPMk8crGlYof9W/tA2F+HDO043oIMg++s/tew0Y7v2kEg58DXbRgJKOeLh4qxxSKptHP7HhB6u5DhZRx/ew0pkzEQRo8bzXpNwl3ml/Jxybol25abWWTaYkF2pfoNoPRTzYtJjHwdpAO23maz/fTqVVSXq7WatAhs2+LrN9HMI7MWB7609oh99D3r9eHu9Euc8PzNNm85vcPryp07V1HdaDaba/nUy3hDySFvEF+/RSInQ43iWuMhK/I2dxzFGaY7QI1v2PragyW4dNmXI6y2norN0Haql6H7DpBO0uTunBdGW1Tfh+W4bOOWVy1Saz7UBoovwc4GEDZezZqnPWB8GNCnPoLluOQHoamIWGsmVoi4TKpMt8XWZ+A85+IXwKFRD49gWRyMzGvNxS4Vw9GEPKghcJLpagNjRC426L+FZZFKQTQjlupsag/JXL/jrynmbANjF0ve6XdgaWq+HWKTuVhUBBSX+diiZLPLA8bxl6/jb3H8kV/kPUC7P4DlqWKtTeW3WBNoYsb69x58Yh8/iLsdvMvBjyEfrTaMX/agAGXHNbysWC6hmLO/sbXJXtQeD9e7wgK//NwfQyHKkovTJR4TrwEHhcPpBOYZ/jx4BcWoS66cEStZMQs3nZ+gvS4UZk0qyYJyghgGQww3cwL/QwyjT3CMnX7n/4hhb/d1tvZ/fUXt9orFON2baf6NF/AX1n/RXqc5CsJgGMdv4yEel5alsjoVEFBZRMTl/ieYUh0wZIYEGH+pHyQk/7wESFGBIxFigBOhqpfAx4YRhEWAGg99hr5wtKU0jPCUijVhYinRz4C59jrjGmhw5XZTgmIDbOuwQbJsLhfhU8Iw9wC9dA9ebWrjiS19f1kSA/B2kQlu/UxsLf45LLnXPX271KsEgFa/a3m1Ws3lqj4ShmagCW+dciNpgLlouJ8It2h0UvLS2hVFkXIAm/WLis+GI90RCfskkg8IdPlCp4VdEQ5kuPdxgufxtARA3owLM0uXdrruiJ/w4D1hrG8zSDRGfsHCxsiJNQ8dxy/8qhBhvid3ZWYCOJBNHU6yM5sUdqWesOukOXPIgUG7VwmcUIOaqQDzLTTswWF9K1k9E5c2kDDUDBe0PjGWfyka58HhHaSQNeExkuzABoYtQ1pjUpjpwdCJk8Kv5dPCiPFH+Pl5POCuHoh1NnttuNnQNwJn0aFGmKjd3na+nVr84ZyUju9azVgFYRiKokNKpS5dDAjF4mB/4oGOdhBEXCSDo///C76EwM0QeMNtziw8YmnpO6ffxz0ICV7o8+AxrqkCwkdA+fwkwAqDwXEx97OAZ7hWWF/CUi5tWUUMfXm2963CbxUKrKkY3Ol/LRtjL+Z6I48q2C6yKbaKSBdZj7xIayBf4JtUZvql8ZlL3QRtfEhdoJ9P03Te09iCDWUglZDBo79w2ErRudxgYvvZaXFCciKwJSoqjIa97ojGRmFrY3QnVEUaW5RXO6r+gsVOA5hclGMSO4aYrZzHru0uzm6E/X2Ba0w56w+zB3e5bFU9LgAAAABJRU5ErkJggg==);}
+        #block-share{position:absolute;bottom:0;height:52px;padding:10px 12px;border:1px solid #eee;border-radius:3px;}
+        #block-share .share-icons{float:right;}
+        #block-share .icon{height:30px;width:30px;float:left;margin-left:12px;border-radius:50%;background-position:50% 50%;background-repeat:no-repeat;background-size:20px;cursor:pointer;}
+        #block-share .weibo{background-color:#f56467;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAkCAMAAADFCSheAAAAq1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Nr6iZAAAAOHRSTlMA+uDX/IlN6oMbE8WZbmBSKyUh8c6eewj15rh2V9Kxln9qPjk0MBcNCwXBvaaikGdlH8isW0iuR2/6jHIAAAIXSURBVDjLjZPrgqIwDIXDHUSRi6igooC43nUcnen7P9k2NhVYdWa/H0CaYxtPUviRqWsp0WxewH9QKUzglr+LT0yi934Vr1S927OzMcrtl4qw6tTBGh+dI6r7/wo3/Szi66kDkrOdBwB9Xry1bkvzhAkGQPQx2q8h569hU1to7MGS1pYKRtsNDBhTG9saOquZAuGUJ4uxHnh80Qeis2NNbvhP+56JdfoKL8tp7BBqLa3eWS3uKxF6sGMKgML3J63KWmiG7N3YAfgk8YnMZ285A8RsDI50enR5r0XDwsMUhvzzA8Xd91J5NiwY2+HbbOaigbu9JDKq/foz3ztYxKNg9WjSWIwKW9pzCKHBRM6sCS2+L+RHXq+NxJmWB09MyL8uxbLimSMqO2ea6hqBzNEELERIVqii1qslkorMDin2Kd5id5eUemBTjfTrOYld/v1FBdXotFdM7a/FNE5kVveGT6NllUViVY66jy2J98p5julMZO32zjP+XdINSnj3PZH+FNlURPHDDRrUm7AoFOkJIAF5V5K44rG2wbui3D3oibataGM6RmLgHIozoqsvukaX4oif1AUi43GO7Ru0bV4fRJAEUOOg8/sOjqHYdvZ9t52mcfABTSpURwZfXHmG0VviKR4doxsjaBO6YkfDK4IgKK/2Vt7X1IdnPI09M44reE0Rt6940jVH8APBdBh/pbv0cJyYzivBX0TNku5WVBS1AAAAAElFTkSuQmCC);}
+        #block-share .weibo:hover{background-color:#ff6e71;}
+        #block-share .weixin{background-color:#8dc81b;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAkCAMAAADIF1gZAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMA+9u689VV7t/QlxX46ujKsUAQCqWSkXhaOS0gHAYC4qCAZ2AZDMONhnI2JL61m25MKCbEqUd6RzsVAAABmUlEQVQ4y4WTiXKCMBCGN4AooHIoh6ggl/W+2ub9H60pASQkaf9hkn8yH8lmNwudrHxpjNF0bpv6Av7SykG40/hjLQWtL8xqGm4lW84xJ9sSke4UCzTa8GSsYaEM7nbbEZboNkRDur6LnG67IqMhuSy5GNere4BEaVAS5KE2KotGzabEqtRqxBbUsuldNll/wqpNxB08m7qcQdtLIeVdrlQjufIL98TmS5gpZMav++7TMFRf9zoUCUj7/L1/19hsIx7z5MdGZc8Ikxq1OTLkn4RaAZE/XDZjwUHqlqAuZqWUaT0FBsY9YxI0GTwB3fwdZ17zNuZVY1aE1RkyLVFb0vqfKzG3rshOHw2OtHglLJR6ewuqSb1UEtRT+udf6TxfTgYmAqJNj42JFyujXfhO+XomQwMCMleLUxl6AGhvRkN6XGRoQQNAWHHhlfvOJcpk6LlGj9jvuvMpIW2gaL/fHDGqA6+18LGrINID8eTEAqEixJFnkOg0GfYFSFWFvaJp5PNAroW+G2kYzfaHU5LPcAb/KGlmL1iS8QffvbXCVjSPvwAAAABJRU5ErkJggg==);}
+        #block-share .weixin:hover{background-color:#97d225;}
+        #block-share .weixin:hover .qrcode{display:block;}
+        #block-share .qq{background-color:#68a5e1;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAqCAMAAADs1AnaAAAAjVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8DizOFAAAALnRSTlMA/M35mjHww8BjH/W6bWldQTobF+zj393Zta+riHAJ6MiikXdFLSwRDgXy1IFWM8hIaQAAARlJREFUOMuF09lugzAQheEx+5ZAwppASJpm7TLv/3iFtrJj4MB/h/RJjDw2aSWNdzTNo9tsCLUuWVbFkyR1WSu6j8225EFVOjTtJ48y2gGyeKKzbmyeStw0tOfJam1qMY3E6+wHBq1ItUNoRyoHIUeZgGGBRBeMEolijGK1fozWEq0wWoFjAsjFyNO2i7L/0dscsv7MPZxD4UMdAM5XYy+MHvBC2w69L6FDh4wlZGh/QwXkLyOfrGVk9SOVHgZu3g+VMScWRtaFOSPBDflz85xZkBM9KRXIiC09vQ/6buUrB+/uEdNvV/TMbZLB3XxJgC9eTXrXamyKm0YSsOXTRpmNYJCplB3lYe+E6eTGvj4VWWgK0X0VkU1dPyXYvw2fCK89AAAAAElFTkSuQmCC);background-size:17px;}
+        #block-share .qq:hover{background-color:#72afeb;}
+        #block-share .qzone{background-color:#68a5e1;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAuCAMAAABZAGpeAAABNVBMVEUAAADStlL+1GX+1Wjnx1v+02b2z2P+1GX80mb+1Wj+1GX+1Gb60mT+1Wf+1GX+1GX+1GX91GX91GX902T91GT902X802T81GX80mX802X71GbzzGH+2HX+13P+1Gb+1GX+02X902b91GX902X902b90mX902X91GX902X802X70mT702P40GTuy2P+1m3+24D+1Wj+02X+1Gb+02X+1GX+02X+02b902X90mb++en+8Mr+34/+67v+13P+89T+7Lz+5qj+4ZP+56n+02b867v50GX5zmH+1Gb////+/vr+/Pf+9+H++Oj+5aL+2Xj+13H+1Wn++/P++u7++ev+89T+8c7+56n+4ZL+347+9dz+7cH+9+X+78b+7b7+6rb+6bD+4pj+3Yj+24D+1m7+67n+3or+3IRWbydbAAAAR3RSTlMABf75Cvwb7WDw3Lg0/dbJxZyVhXpwXFRPSkYT+/b05L+RjomAd3RsZlhAOyMO9uDg0s3AvLOupXjy8ejl5eLg3tu+sksrKvsC/LIAAAInSURBVEjHldVne9owEABg2QGzN4SEPQKUhuzVvdtrAjYj7A1p+/9/QpH92BZwTsz7DXH33Fk6ywTHhQpkJ/sAh7vEWy4A/NxuBYDfoQR3CSsZ8wlloPiY6QI+kF2bTYiCwvPafAGFy1zCAaispkpwftDcmEk4BJ312ESBK2DcvpwQ44Et4X5+hITj8iWsuSq7BQsW6Y6GAxmnAxAO53WgEHULnNpDMejy2nh4gcfmdQUjq30OwobGUz2RSCSTydPTPc9Wnp1k9Uip1x22q7VW80HWbLZqg/Z4KvYlXk9gSkjdYac9oAn3v9fci1p8iKxkt1qSloueOJt0HuT4xz6ojogsB7iuXKkjsfGKPCDqY7mdGWjCRBOCLYsqja/+BU2RMI622pH7nzxpC3yErAkDS+rQ8FqPObcS2fAGdPMWjR/WmSF8RbYUefVphzR81AMsnhVpANUf0c35Uwddyk5Q7+mxTenmN+fAChDcGcByoAxDq9qZzLrivNdf/Fue5wjhsNfHAeLGFCnZbz99/vYDSajsNfridEzn73GlNqq233348vXsoyNlP3n2uuD3ZFZeW8Df7AgYwncpAIbyaIIfDH3H4k/SYMiL7eovKzBuXMBwCOilrcvEVr/ZFrU7Fh1XX1TugNu/0Jaw4btT+7VrDVtKTlDkkAQfUM7S2qHGC2mjb1HcBgDpcHxzXQjRP5wWLMGWFwiikk3BuQX5+t9ViIGftwdE9R+OKBKKmp/NGgAAAABJRU5ErkJggg==);background-size:22px;}
+        #block-share .qzone:hover{background-color:#72afeb;}
+        #block-share .qrcode{position:absolute;border:1px solid #ddd;padding:20px 30px;background-color:#fff;top:-237px;left:42px;box-shadow:1px 1px 16px rgba(0,0,0,.2);display:none;z-index:1;animation:qrc-slide .3s both;}
+        #block-share .qrcode p{text-align:center;font-size:18px;}
+        #weixin-qrcode{width:150px;height:150px;}
+        #btn-booklist{position:relative;}
+
+        .icon {
+            display: inline-block;
+            width: 2.45333rem;
+            height: 1.45333rem;
+            margin-right: .29333rem;
+            background-size: cover;
+        }
+        .icon-menu {
+            background-image: url(Images/目录.png);
+        }
+
+        /*小说章节内容*/
+        .book-main-pc .panel-group .panel {
+            margin-bottom: 0px;
+            margin-top: 0px;
+            background-color: rgba(153,204,255,0.1);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            padding: 10px 20px 10px 20px;
+        }
+        .book-main-pc .panel-group .panel-heading {
+            border-bottom: 1px solid #00FFCC;
+        }
+
+        .book-main-mb .panel-group .panel {
+            margin-bottom: 0px;
+            margin-top: 0px;
+            background-color: rgba(153,204,255,0.1);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+        .book-main-mb .panel-group .panel-heading {
+            border-bottom: 1px solid #00FFCC;
+        }
+        .book-middle{height: auto;border: 1px solid #00FFCC; border-radius: 3px;}
+        .list-chapter{padding-left:20px;}
+        .list-chapter .chapter{float:left;}
+        .chapter{width:25%;padding:2px 0 0;border-bottom:1px solid #eee;line-height:1;}
+        .chapter a {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 16px 0 10px;
+            border-radius: 2px;
+            font-size: 14px;
+            height: 33px;
+            line-height: 33px;
+            text-decoration: none;
+            max-width: 100%;
+        }
+        .chapter a:before{content:"";display:inline-block;width:2px;height:11px;border-radius:2px;background-color:#ffb5c1;position:absolute;top:10px;left:0;}
+        .chapter a:hover{border-color:#fe6878;color:#fe6878;}
+        .chapter a:hover:before{background-color:#fe6878;}
+        .volume h3{font-weight:400;color:#333;font-size:14px;padding:16px 0 4px;margin:0;cursor:pointer;}
+        .volume h3:before{content:"";display:inline-block;width:4px;height:12px;background-color:#fe6878;margin-right:6px;position:relative;top:1px;border-radius:3px;}
+        .volume .icon-arrow{position:absolute;display:inline-block;margin-left:.5em;width:14px;height:14px;text-align:center;border:1px solid currentColor;border-radius:50%;}
+        .volume .icon-arrow:after{content:"";display:inline-block;width:4px;height:4px;margin-bottom:5px;transform:rotate(-45deg);border-left:1px solid currentColor;border-bottom:1px solid currentColor;}
+        .volume .list-chapter{display:none;}
+
+        .icon-free{width:.48rem;height:.48rem;line-height:.48rem;text-align:center;border:1px solid;border-radius:50%;color:#6cc3c1;}
+        .chapter-title {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            overflow: hidden;
+            height: 2.90667rem;
+            padding: 0 .4rem 0 .29333rem;
+        }
+        .chapter-title>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        .chapter-title{padding-left:.88rem;}
+        .chapter-list{background-color:rgba(153,204,255,0.1);}
+        .continue{color:#fa8e9b;}
+
+        /*响应式统筹*/
+        @media (max-width: 1920px) {}
+        @media (max-width: 1600px) {}
+        @media (max-width: 1440px) {}
+        @media (max-width: 1280px) {}
+        @media (max-width: 1140px) {}
+        @media (max-width: 1024px) {}
+        @media (max-width: 992px) {}
+        @media (max-width: 960px) {}
+        @media (max-width: 768px) {
+            .book-top .book-info {
+                position: relative;
+                height: 240px;
+            }
+        }
+        @media (max-width: 640px) {
+            .book-top .thumb {
+                position: relative;
+                width: 100%;
+                height: 160px;
+            }
+            .book-top .book-info {
+                position: relative;
+                height: 170px;
+            }
+            .book-top {
+                margin-bottom: 0px;
+            }
+        }
+        @media (max-width: 413px) {
+        }
+        @media (max-width: 411px) {}
+        @media (max-width: 375px) {}
+        @media (max-width: 360px) {
+            .book-top .thumb {
+                position: relative;
+                width: 100%;
+                height: 160px;
+            }
+            .book-top .book-info {
+                position: relative;
+                height: 170px;
+            }
+            .book-top {
+                margin-bottom: 0px;
+            }
+        }
+        @media (max-width: 320px) {
+            .book-top .thumb {
+                position: relative;
+                width: 100%;
+                height: 155px;
+            }
+            .book-top .book-info {
+                position: relative;
+                height: 160px;
+                margin-left: -20px;
+            }
+            .book-top {
+                 margin-bottom: 0px;
+            }
+        }
+
+    </style>
+    <!--此处style标签输入你的CSS样式，end-->
+    <!--*********************************************************************************************-->
+
+
+</head>
+<body>
+<!-- Navigation 样式占位，用于大体预览网页效果，此处不用修改
+==========================================-->
+<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- 移动设备显示的导航部分 -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="zzuilACGN/ZA_show.html">郑轻大动漫协会</a>
+        </div>
+        <!-- 导航主体 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主站</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">社团活动公告</a></li>
+                        <li><a href="#">漫协干部公示</a></li>
+                        <li><a href="#">动漫协会编年史</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">动漫协会外宣展示</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">肥宅快乐源 <i class="fa fa-toggle-down"></i></a>
+                    <ul class="dropdown-menu nav-menu navbar-inverse">
+                        <li><a href="#">动画番剧--Animations</a></li>
+                        <li><a href="#">漫有引力--Comics</a></li>
+                        <li><a href="#">游戏中心--Games</a></li>
+                        <li><a href="#">次元圣经--Novel&Fiction</a></li>
+                        <li><a href="#">资讯情报--Intelligence</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">BT资源区</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+                <li><a href="#">漫协BBS</a></li>
+                <li><a href="#">画友涂墙</a></li>
+                <li><a href="#">聊天室</a></li>
+            </ul>
+            <!--搜索框-->
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn">Link Start!</button>
+            </form>
+            <!--导航条右-->
+            <!--未登录状态-->
+            <ul id="noLogin" class="nav navbar-nav navbar-right">
+                <li><a href="#">用户登陆</a></li>
+                <li><a href="#">用户注册</a></li>
+            </ul>
+            <!--已登录状态-->
+            <!--<ul id="Logining" class="nav navbar-nav navbar-right">-->
+            <!--<li class="dropdown">-->
+            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+            <!--<img src="img/deaful.jpg" class="img-responsive img-circle center-block nav-header" alt="用户头像">-->
+            <!--</a>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">（假装是用户简要资料）</a></li>-->
+            <!--<li><a href="#">个人中心</a></li>-->
+            <!--<li><a href="#">投稿管理</a></li>-->
+            <!--<li role="separator" class="divider"></li>-->
+            <!--<li><a href="#">退出</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!--<li><a href="#">消息</a></li>-->
+            <!--<li><a href="#">动态</a></li>-->
+            <!--<li><a href="#">收藏夹</a></li>-->
+            <!--<li><a href="#">历史</a></li>-->
+            <!--</ul>-->
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+<!-- Home Page 在此处修改你的内容
+==========================================-->
+<div id="tf-home">
+    <div class="overlay">
+        <!--小说版块头部-->
+        <div class="content text-center"><!--此处为内容块的总标题，根据需要删减修改-->
+            <div class="title-img-lg visible-lg-inline-block">
+                <h1 style="line-height: 500px">动漫协会<strong><span class="color"> 小说文库</span></strong></h1>
+            </div>
+            <div class="hidden-lg">
+                <h1>动漫协会<strong><span class="color"> 小说文库</span></strong></h1>
+                <img  class="title-img-md" src="Images/1500x500.jpg"/>
+            </div>
+            <!--小说版块导航-->
+            <nav class="navbar navbar-inverse navbar-bottom">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-sec" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">漫协小说文库</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navbar-sec">
+                            <ul class="nav navbar-nav navbar-sec-first-btn">
+                                <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+                                <!--<li><a href="#">Link</a></li>-->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作品分类 <i class="fa fa-toggle-down"></i></a>
+                                    <ul class="dropdown-menu novel-class">
+                                        <li><a href="#">玄幻</a><a href="#">奇幻</a></li>
+                                        <!--<li><a href="#">奇幻</a></li>-->
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">武侠</a><a href="#">仙侠</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">都市</a><a href="#">现实</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">军事</a><a href="#">历史</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">游戏</a><a href="#">体育</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">女生</a><a href="#">二次元</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">全部作品</a></li>
+                                <li><a href="#">作品排行</a></li>
+                                <li><a href="#">完结作品</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">女生版文库</a></li>
+                                <li><a href="#">我的书架</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div id="body-container" class="container">
+            <div class="book-top row">
+                <!--visible-lg-block visible-md-block visible-sm-block visible-xs-block-->
+                <div class="col-md-2 col-sm-3 col-xs-5">
+                    <div class="thumb">
+                        <img src="https://image.iqing.com/cover/680ed4d9-0568-4113-944d-95ab025ae17e.jpg?imageMogr2/thumbnail/180x240&gt;/format/jpg/interlace/1/quality/86" srcset="https://image.iqing.com/cover/680ed4d9-0568-4113-944d-95ab025ae17e.jpg?imageMogr2/thumbnail/180x240>/format/jpg/interlace/1/quality/86 180w, https://image.iqing.com/cover/680ed4d9-0568-4113-944d-95ab025ae17e.jpg?imageMogr2/thumbnail/360x480>/format/jpg/interlace/1/quality/86 360w" sizes="180px" itemprop="image" alt="轻小说：精灵幻想记" class="cover">
+                        <div class="count-txt">110.4万字</div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-9 col-xs-7 text-left book-info">
+
+                        <div class="book-title">
+                            <span class="book-tag tag-serial">连载</span>
+                            <h1 itemprop="headline" title="精灵幻想记" class="title">精灵幻想记</h1>
+                        </div>
+                        <p id="block-book-count" class="count">
+                            <span class="w">
+                                <span class="book-tag tag-pay">作者：</span>
+                                <span class="d">XXXX</span>
+                            </span>
+                            <span class="w">
+                                <span class="book-tag tag-pay">画师：</span>
+                                <span class="d">XXXX</span>
+                            </span>
+                            <span class="w visible-lg-block visible-md-block visible-sm-block">
+                                <i class="book-top-icon views-icon"></i>
+                                <span class="t">人气：</span>
+                                <span class="d">2000万</span>
+                            </span>
+                            <span class="w visible-lg-block visible-md-block visible-sm-block">
+                                <i class="book-top-icon follow-icon"></i>
+                                <span class="t">收藏：</span>
+                                <span class="d">1.5万</span>
+                            </span>
+                        <p class="intro visible-lg-block visible-md-block visible-sm-block">
+                            <span class="t">简介：</span>
+                            <span class="color">精灵幻想记是围绕一个生活在贫民窟的少年孤儿利欧，他在七岁的某天突然想起曾身为日本大学生“天川春人”的记忆，然后发现自己转生到了剑与魔法的异世界之中，前方那个熟悉的身影是谁？前世和世间交错的异世界转世幻想就此展开！</span>
+                        </p>
+                        <p class="update-time">
+                            <span class="t">更新时间：</span>
+                            <span itemprop="datePublished" content="2018-09-28" class="d">2018-09-28</span>
+                        </p>
+                        <p id="cat-list" class="cat-list">
+                            <span class="t">分类：</span>
+                            <a href="/c/42#/?categories=98" class="cat cat-98">文库本</a>
+                            <a href="/c/42#/?categories=34" class="cat cat-34">异界</a>
+                            <a href="/c/42#/?categories=19" class="cat cat-19">战斗</a>
+                            <a href="/c/42#/?categories=42" class="cat cat-42">穿越</a>
+                            <a href="/c/42#/?categories=26" class="cat cat-26">后宫</a>
+                        </p>
+                        <div class="read visible-lg-block visible-md-block visible-sm-block">
+                            <a id="btn-read" href="/read/334178" itemprop="url" class="btn-read btn-book">开始阅读</a>
+                            <a id="btn-pay" class="btn-pay btn-book">
+                                <i class="book-icon pay-icon"></i>
+                                <span class="na">订阅</span>
+                            </a>
+                            <a id="btn-coin" class="btn-coin btn-book">
+                                <i class="book-icon fav-icon"></i>
+                                <span class="na">投石</span>
+                            </a>
+                            <a id="btn-booklist" class="btn-booklist btn-book">
+                                <i class="book-icon fa fa-plus-square"></i>
+                                <span class="na">加入书单</span>
+                            </a>
+                            <a id="btn-activity-vote" class="btn-book hide">
+                                <div class="bg-img"></div>
+                            </a>
+                            <div class="min-btn-group visible-lg-block visible-md-block">
+                                <a id="btn-share" class="btn-share btn-book-min">
+                                    <i class="book-icon share-icon"></i>
+                                    <span class="na">分享</span>
+                                    <div id="block-share">
+                                        <div class="share-icons">
+                                            <div title="微博" data-type="weibo" class="icon weibo"></div>
+                                            <div title="QQ" data-type="qq" class="icon qq"></div>
+                                            <div title="微信" data-type="weixin" class="icon weixin">
+                                                <div class="qrcode">
+                                                    <p>扫一扫分享到微信</p>
+                                                    <div id="weixin-qrcode"></div>
+                                                </div>
+                                            </div>
+                                            <div title="QQ空间" data-type="qzone" class="icon qzone"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                </div>
+                <div class="intro-mb visible-xs-block">
+                    <span class="t">简介：</span>
+                    <span class="color">精灵幻想记是围绕一个生活在贫民窟的少年孤儿利欧，他在七岁的某天突然想起曾身为日本大学生“天川春人”的记忆，然后发现自己转生到了剑与魔法的异世界之中，前方那个熟悉的身影是谁？前世和世间交错的异世界转世幻想就此展开！</span>
+                </div>
+                <div class="read-mb visible-xs-block">
+                    <a id="btn-read-mb" href="#" itemprop="url" class="btn-read btn-book">开始阅读</a>
+                    <a id="btn-booklist-mb" class="btn-booklist btn-book">
+                        <i class="book-icon fa fa-plus-square"></i>
+                        <span class="na">加入书单</span>
+                    </a>
+                </div>
+
+            </div>
+            <div class="book-main row">
+                <!--visible-lg-block visible-md-block visible-sm-block visible-xs-block-->
+                <!--<i class="icon icon-menu"></i>-->
+                <div class="book-main-pc col-md-12 visible-lg-block visible-md-block visible-sm-block clearfix">
+                    <div class="book-middle panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="book-chapter-1">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#book-container-1" aria-expanded="true" aria-controls="book-container-1">
+                                        <i class="icon icon-menu"></i>
+                                        第一卷 XXXXX
+                                        <i class="fa fa-toggle-down"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="book-container-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="book-chapter-1">
+                                <div class="panel-body">
+                                    <ul class="list-chapter clearfix">
+                                        <li class="chapter cpt-334174"><a href="#" title="封面&amp;彩插">封面&amp;彩插</a>
+                                        </li>
+                                        <li class="chapter cpt-354659"><a href="#" title="第一章 Case of Mio 序章（一）">第一章 Case of Mio 序章（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354662"><a href="#" title="第二章 Case of Mio 序章（二）">第二章 Case of Mio 序章（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354663"><a href="#" title="第三章 Case of Mio 1st Cut对话（一）">第三章 Case of Mio 1st Cut对话（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354665"><a href="#" title="第四章 Case of Mio 1st Cut对话（二）">第四章 Case of Mio 1st Cut对话（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354666"><a href="#" title="第五章 Case of Mio 1st Cut对话（三）">第五章 Case of Mio 1st Cut对话（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354667"><a href="#" title="第六章 Case of Mio 1st Cut对话（四）">第六章 Case of Mio 1st Cut对话（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354669"><a href="#" title="第七章 Case of Mio 1st Cut对话（五）">第七章 Case of Mio 1st Cut对话（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354672"><a href="#" title="第八章 Case of Mio 1st Cut对话（六）">第八章 Case of Mio 1st Cut对话（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354673"><a href="#" title="第九章 Case of Mio 1st Cut对话（七）">第九章 Case of Mio 1st Cut对话（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354675"><a href="#" title="第十章 Case of Mio 1st Cut对话（八）">第十章 Case of Mio 1st Cut对话（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354678"><a href="#" title="第十一章  Case of Mio Inter cut">第十一章  Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354682"><a href="#" title="第十二章 Case of Mio 2nd Cut造访（一）">第十二章 Case of Mio 2nd Cut造访（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354683"><a href="#" title="第十三章 Case of Mio 2nd Cut造访（二）">第十三章 Case of Mio 2nd Cut造访（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354686"><a href="#" title="第十四章 Case of Mio 2nd Cut造访（三）">第十四章 Case of Mio 2nd Cut造访（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354688"><a href="#" title="第十五章 Case of Mio 2nd Cut造访（四）">第十五章 Case of Mio 2nd Cut造访（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354692"><a href="#" title="第十六章 Case of Mio 2nd Cut造访（五）">第十六章 Case of Mio 2nd Cut造访（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354694"><a href="#" title="第十七章 Case of Mio 2nd Cut造访（六）">第十七章 Case of Mio 2nd Cut造访（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354695"><a href="#" title="第十八章 Case of Mio Inter cut">第十八章 Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354699"><a href="#" title="第十九章 Case of Mio 3rd Cut伤害（一）">第十九章 Case of Mio 3rd Cut伤害（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354701"><a href="#" title="第二十章 Case of Mio 3rd Cut伤害（二）">第二十章 Case of Mio 3rd Cut伤害（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354707"><a href="#" title="第二十一章 Case of Mio 3rd Cut伤害（三）">第二十一章 Case of Mio 3rd Cut伤害（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354713"><a href="#" title="第二十二章 Case of Mio 3rd Cut伤害（四）">第二十二章 Case of Mio 3rd Cut伤害（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354714"><a href="#" title="第二十三章 Case of Mio 3rd Cut伤害（五）">第二十三章 Case of Mio 3rd Cut伤害（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354716"><a href="#" title="第二十四章 Case of Mio 3rd Cut伤害（六）">第二十四章 Case of Mio 3rd Cut伤害（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354718"><a href="#" title="第二十五章 Case of Mio 3rd Cut伤害（七）">第二十五章 Case of Mio 3rd Cut伤害（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354722"><a href="#" title="第二十六章  Case of Mio Inter cut">第二十六章  Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354725"><a href="#" title="第二十七章  Case of Mio 4th Cut伤心（一）">第二十七章  Case of Mio 4th Cut伤心（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354730"><a href="#" title="第二十八章  Case of Mio 4th Cut伤心（二）">第二十八章  Case of Mio 4th Cut伤心（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354737"><a href="#" title="第二十九章  Case of Mio 4th Cut伤心（三）">第二十九章  Case of Mio 4th Cut伤心（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354742"><a href="#" title="第三十章  Case of Mio 4th Cut伤心（四）">第三十章  Case of Mio 4th Cut伤心（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354745"><a href="#" title="第三十一章  Case of Mio 4th Cut伤心（五）">第三十一章  Case of Mio 4th Cut伤心（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354750"><a href="#" title="第三十二章  Case of Mio 4th Cut伤心（六）">第三十二章  Case of Mio 4th Cut伤心（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354755"><a href="#" title="第三十三章  Case of Mio 4th Cut伤心（七）">第三十三章  Case of Mio 4th Cut伤心（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354758"><a href="#" title="第三十四章  Case of Mio 4th Cut伤心（八）">第三十四章  Case of Mio 4th Cut伤心（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354761"><a href="#" title="第三十五章  Case of Mio 4th Cut伤心（九）">第三十五章  Case of Mio 4th Cut伤心（九）</a>
+                                        </li>
+                                        <li class="chapter cpt-354763"><a href="#" title="第三十六章  Case of Mio 4th Cut伤心（十）">第三十六章  Case of Mio 4th Cut伤心（十）</a>
+                                        </li>
+                                        <li class="chapter cpt-354767"><a href="#" title="第三十七章  Case of Mio 4th Cut伤心（十一）">第三十七章  Case of Mio 4th Cut伤心（十一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354770"><a href="#" title="第三十八章  Case of Mio Inter Cut（一）">第三十八章  Case of Mio Inter Cut（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354772"><a href="#" title="第三十九章  Case of Mio Inter Cut（二）">第三十九章  Case of Mio Inter Cut（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354775"><a href="#" title="第四十章  Case of Mio 5th Cut决定（一）">第四十章  Case of Mio 5th Cut决定（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354778"><a href="#" title="第四十一章  Case of Mio 5th Cut决定（二）">第四十一章  Case of Mio 5th Cut决定（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354786"><a href="#" title="第四十二章  Case of Mio 5th Cut决定（三）">第四十二章  Case of Mio 5th Cut决定（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354787"><a href="#" title="第四十三章  Case of Mio 5th Cut决定（四）">第四十三章  Case of Mio 5th Cut决定（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354790"><a href="#" title="第四十四章  Case of Mio 5th Cut决定（五）">第四十四章  Case of Mio 5th Cut决定（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354795"><a href="#" title="第四十五章  Case of Mio 5th Cut决定（六）">第四十五章  Case of Mio 5th Cut决定（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354799"><a href="#" title="第四十六章  Case of Mio 5th Cut决定（七）">第四十六章  Case of Mio 5th Cut决定（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354800"><a href="#" title="第四十七章  Case of Mio 5th Cut决定（八）">第四十七章  Case of Mio 5th Cut决定（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354805"><a href="#" title="第四十八章  Case of Mio 5th Cut决定（九）">第四十八章  Case of Mio 5th Cut决定（九）</a>
+                                        </li>
+                                        <li class="chapter cpt-354812"><a href="#" title="第四十九章  Case of Mio 5th Cut决定（十）">第四十九章  Case of Mio 5th Cut决定（十）</a>
+                                        </li>
+                                        <li class="chapter cpt-354814"><a href="#" title="第五十章  Case of Mio 5th Cut决定（十一）">第五十章  Case of Mio 5th Cut决定（十一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354818"><a href="#" title="第五十一章  Case of Mio 5th Cut决定（十二）">第五十一章  Case of Mio 5th Cut决定（十二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354823"><a href="#" title="第五十二章 Case of Mio 5th Cut决定（十三）">第五十二章 Case of Mio 5th Cut决定（十三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354825"><a href="#" title="第五十三章  Case of Mio Last Cut 伤痕（一）">第五十三章  Case of Mio Last Cut 伤痕（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354829"><a href="#" title="第五十四章  Case of Mio Last Cut 伤痕（二）">第五十四章  Case of Mio Last Cut 伤痕（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354831"><a href="#" title="第五十五章  Case of Mio Last Cut 伤痕（三）">第五十五章  Case of Mio Last Cut 伤痕（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354833"><a href="#" title="第五十六章  Case of Mio Last Cut 伤痕（三）">第五十六章  Case of Mio Last Cut 伤痕（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354860"><a href="#" title="第五十七章  Case of Mio Last Cut 伤痕（四）">第五十七章  Case of Mio Last Cut 伤痕（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354861"><a href="#" title="第五十八章  后记~孤独的白乌鸦独白">第五十八章  后记~孤独的白乌鸦独白</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="book-chapter-2">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#book-container-2" aria-expanded="true" aria-controls="book-container-2">
+                                        <i class="icon icon-menu"></i>
+                                        第二卷 XXXXX
+                                        <i class="fa fa-toggle-down"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="book-container-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="book-chapter-2">
+                                <div class="panel-body">
+                                    <ul class="list-chapter clearfix">
+                                        <li class="chapter cpt-334174"><a href="#" title="封面&amp;彩插">封面&amp;彩插</a>
+                                        </li>
+                                        <li class="chapter cpt-354659"><a href="#" title="第一章 Case of Mio 序章（一）">第一章 Case of Mio 序章（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354662"><a href="#" title="第二章 Case of Mio 序章（二）">第二章 Case of Mio 序章（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354663"><a href="#" title="第三章 Case of Mio 1st Cut对话（一）">第三章 Case of Mio 1st Cut对话（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354665"><a href="#" title="第四章 Case of Mio 1st Cut对话（二）">第四章 Case of Mio 1st Cut对话（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354666"><a href="#" title="第五章 Case of Mio 1st Cut对话（三）">第五章 Case of Mio 1st Cut对话（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354667"><a href="#" title="第六章 Case of Mio 1st Cut对话（四）">第六章 Case of Mio 1st Cut对话（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354669"><a href="#" title="第七章 Case of Mio 1st Cut对话（五）">第七章 Case of Mio 1st Cut对话（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354672"><a href="#" title="第八章 Case of Mio 1st Cut对话（六）">第八章 Case of Mio 1st Cut对话（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354673"><a href="#" title="第九章 Case of Mio 1st Cut对话（七）">第九章 Case of Mio 1st Cut对话（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354675"><a href="#" title="第十章 Case of Mio 1st Cut对话（八）">第十章 Case of Mio 1st Cut对话（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354678"><a href="#" title="第十一章  Case of Mio Inter cut">第十一章  Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354682"><a href="#" title="第十二章 Case of Mio 2nd Cut造访（一）">第十二章 Case of Mio 2nd Cut造访（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354683"><a href="#" title="第十三章 Case of Mio 2nd Cut造访（二）">第十三章 Case of Mio 2nd Cut造访（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354686"><a href="#" title="第十四章 Case of Mio 2nd Cut造访（三）">第十四章 Case of Mio 2nd Cut造访（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354688"><a href="#" title="第十五章 Case of Mio 2nd Cut造访（四）">第十五章 Case of Mio 2nd Cut造访（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354692"><a href="#" title="第十六章 Case of Mio 2nd Cut造访（五）">第十六章 Case of Mio 2nd Cut造访（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354694"><a href="#" title="第十七章 Case of Mio 2nd Cut造访（六）">第十七章 Case of Mio 2nd Cut造访（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354695"><a href="#" title="第十八章 Case of Mio Inter cut">第十八章 Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354699"><a href="#" title="第十九章 Case of Mio 3rd Cut伤害（一）">第十九章 Case of Mio 3rd Cut伤害（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354701"><a href="#" title="第二十章 Case of Mio 3rd Cut伤害（二）">第二十章 Case of Mio 3rd Cut伤害（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354707"><a href="#" title="第二十一章 Case of Mio 3rd Cut伤害（三）">第二十一章 Case of Mio 3rd Cut伤害（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354713"><a href="#" title="第二十二章 Case of Mio 3rd Cut伤害（四）">第二十二章 Case of Mio 3rd Cut伤害（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354714"><a href="#" title="第二十三章 Case of Mio 3rd Cut伤害（五）">第二十三章 Case of Mio 3rd Cut伤害（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354716"><a href="#" title="第二十四章 Case of Mio 3rd Cut伤害（六）">第二十四章 Case of Mio 3rd Cut伤害（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354718"><a href="#" title="第二十五章 Case of Mio 3rd Cut伤害（七）">第二十五章 Case of Mio 3rd Cut伤害（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354722"><a href="#" title="第二十六章  Case of Mio Inter cut">第二十六章  Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354725"><a href="#" title="第二十七章  Case of Mio 4th Cut伤心（一）">第二十七章  Case of Mio 4th Cut伤心（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354730"><a href="#" title="第二十八章  Case of Mio 4th Cut伤心（二）">第二十八章  Case of Mio 4th Cut伤心（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354737"><a href="#" title="第二十九章  Case of Mio 4th Cut伤心（三）">第二十九章  Case of Mio 4th Cut伤心（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354742"><a href="#" title="第三十章  Case of Mio 4th Cut伤心（四）">第三十章  Case of Mio 4th Cut伤心（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354745"><a href="#" title="第三十一章  Case of Mio 4th Cut伤心（五）">第三十一章  Case of Mio 4th Cut伤心（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354750"><a href="#" title="第三十二章  Case of Mio 4th Cut伤心（六）">第三十二章  Case of Mio 4th Cut伤心（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354755"><a href="#" title="第三十三章  Case of Mio 4th Cut伤心（七）">第三十三章  Case of Mio 4th Cut伤心（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354758"><a href="#" title="第三十四章  Case of Mio 4th Cut伤心（八）">第三十四章  Case of Mio 4th Cut伤心（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354761"><a href="#" title="第三十五章  Case of Mio 4th Cut伤心（九）">第三十五章  Case of Mio 4th Cut伤心（九）</a>
+                                        </li>
+                                        <li class="chapter cpt-354763"><a href="#" title="第三十六章  Case of Mio 4th Cut伤心（十）">第三十六章  Case of Mio 4th Cut伤心（十）</a>
+                                        </li>
+                                        <li class="chapter cpt-354767"><a href="#" title="第三十七章  Case of Mio 4th Cut伤心（十一）">第三十七章  Case of Mio 4th Cut伤心（十一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354770"><a href="#" title="第三十八章  Case of Mio Inter Cut（一）">第三十八章  Case of Mio Inter Cut（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354772"><a href="#" title="第三十九章  Case of Mio Inter Cut（二）">第三十九章  Case of Mio Inter Cut（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354775"><a href="#" title="第四十章  Case of Mio 5th Cut决定（一）">第四十章  Case of Mio 5th Cut决定（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354778"><a href="#" title="第四十一章  Case of Mio 5th Cut决定（二）">第四十一章  Case of Mio 5th Cut决定（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354786"><a href="#" title="第四十二章  Case of Mio 5th Cut决定（三）">第四十二章  Case of Mio 5th Cut决定（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354787"><a href="#" title="第四十三章  Case of Mio 5th Cut决定（四）">第四十三章  Case of Mio 5th Cut决定（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354790"><a href="#" title="第四十四章  Case of Mio 5th Cut决定（五）">第四十四章  Case of Mio 5th Cut决定（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354795"><a href="#" title="第四十五章  Case of Mio 5th Cut决定（六）">第四十五章  Case of Mio 5th Cut决定（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354799"><a href="#" title="第四十六章  Case of Mio 5th Cut决定（七）">第四十六章  Case of Mio 5th Cut决定（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354800"><a href="#" title="第四十七章  Case of Mio 5th Cut决定（八）">第四十七章  Case of Mio 5th Cut决定（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354805"><a href="#" title="第四十八章  Case of Mio 5th Cut决定（九）">第四十八章  Case of Mio 5th Cut决定（九）</a>
+                                        </li>
+                                        <li class="chapter cpt-354812"><a href="#" title="第四十九章  Case of Mio 5th Cut决定（十）">第四十九章  Case of Mio 5th Cut决定（十）</a>
+                                        </li>
+                                        <li class="chapter cpt-354814"><a href="#" title="第五十章  Case of Mio 5th Cut决定（十一）">第五十章  Case of Mio 5th Cut决定（十一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354818"><a href="#" title="第五十一章  Case of Mio 5th Cut决定（十二）">第五十一章  Case of Mio 5th Cut决定（十二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354823"><a href="#" title="第五十二章 Case of Mio 5th Cut决定（十三）">第五十二章 Case of Mio 5th Cut决定（十三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354825"><a href="#" title="第五十三章  Case of Mio Last Cut 伤痕（一）">第五十三章  Case of Mio Last Cut 伤痕（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354829"><a href="#" title="第五十四章  Case of Mio Last Cut 伤痕（二）">第五十四章  Case of Mio Last Cut 伤痕（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354831"><a href="#" title="第五十五章  Case of Mio Last Cut 伤痕（三）">第五十五章  Case of Mio Last Cut 伤痕（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354833"><a href="#" title="第五十六章  Case of Mio Last Cut 伤痕（三）">第五十六章  Case of Mio Last Cut 伤痕（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354860"><a href="#" title="第五十七章  Case of Mio Last Cut 伤痕（四）">第五十七章  Case of Mio Last Cut 伤痕（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354861"><a href="#" title="第五十八章  后记~孤独的白乌鸦独白">第五十八章  后记~孤独的白乌鸦独白</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="book-chapter-3">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#book-container-3" aria-expanded="true" aria-controls="book-container-3">
+                                        <i class="icon icon-menu"></i>
+                                        第三卷 XXXXX
+                                        <i class="fa fa-toggle-down"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="book-container-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="book-chapter-3">
+                                <div class="panel-body">
+                                    <ul class="list-chapter clearfix">
+                                        <li class="chapter cpt-334174"><a href="#" title="封面&amp;彩插">封面&amp;彩插</a>
+                                        </li>
+                                        <li class="chapter cpt-354659"><a href="#" title="第一章 Case of Mio 序章（一）">第一章 Case of Mio 序章（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354662"><a href="#" title="第二章 Case of Mio 序章（二）">第二章 Case of Mio 序章（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354663"><a href="#" title="第三章 Case of Mio 1st Cut对话（一）">第三章 Case of Mio 1st Cut对话（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354665"><a href="#" title="第四章 Case of Mio 1st Cut对话（二）">第四章 Case of Mio 1st Cut对话（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354666"><a href="#" title="第五章 Case of Mio 1st Cut对话（三）">第五章 Case of Mio 1st Cut对话（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354667"><a href="#" title="第六章 Case of Mio 1st Cut对话（四）">第六章 Case of Mio 1st Cut对话（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354669"><a href="#" title="第七章 Case of Mio 1st Cut对话（五）">第七章 Case of Mio 1st Cut对话（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354672"><a href="#" title="第八章 Case of Mio 1st Cut对话（六）">第八章 Case of Mio 1st Cut对话（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354673"><a href="#" title="第九章 Case of Mio 1st Cut对话（七）">第九章 Case of Mio 1st Cut对话（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354675"><a href="#" title="第十章 Case of Mio 1st Cut对话（八）">第十章 Case of Mio 1st Cut对话（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354678"><a href="#" title="第十一章  Case of Mio Inter cut">第十一章  Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354682"><a href="#" title="第十二章 Case of Mio 2nd Cut造访（一）">第十二章 Case of Mio 2nd Cut造访（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354683"><a href="#" title="第十三章 Case of Mio 2nd Cut造访（二）">第十三章 Case of Mio 2nd Cut造访（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354686"><a href="#" title="第十四章 Case of Mio 2nd Cut造访（三）">第十四章 Case of Mio 2nd Cut造访（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354688"><a href="#" title="第十五章 Case of Mio 2nd Cut造访（四）">第十五章 Case of Mio 2nd Cut造访（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354692"><a href="#" title="第十六章 Case of Mio 2nd Cut造访（五）">第十六章 Case of Mio 2nd Cut造访（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354694"><a href="#" title="第十七章 Case of Mio 2nd Cut造访（六）">第十七章 Case of Mio 2nd Cut造访（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354695"><a href="#" title="第十八章 Case of Mio Inter cut">第十八章 Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354699"><a href="#" title="第十九章 Case of Mio 3rd Cut伤害（一）">第十九章 Case of Mio 3rd Cut伤害（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354701"><a href="#" title="第二十章 Case of Mio 3rd Cut伤害（二）">第二十章 Case of Mio 3rd Cut伤害（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354707"><a href="#" title="第二十一章 Case of Mio 3rd Cut伤害（三）">第二十一章 Case of Mio 3rd Cut伤害（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354713"><a href="#" title="第二十二章 Case of Mio 3rd Cut伤害（四）">第二十二章 Case of Mio 3rd Cut伤害（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354714"><a href="#" title="第二十三章 Case of Mio 3rd Cut伤害（五）">第二十三章 Case of Mio 3rd Cut伤害（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354716"><a href="#" title="第二十四章 Case of Mio 3rd Cut伤害（六）">第二十四章 Case of Mio 3rd Cut伤害（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354718"><a href="#" title="第二十五章 Case of Mio 3rd Cut伤害（七）">第二十五章 Case of Mio 3rd Cut伤害（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354722"><a href="#" title="第二十六章  Case of Mio Inter cut">第二十六章  Case of Mio Inter cut</a>
+                                        </li>
+                                        <li class="chapter cpt-354725"><a href="#" title="第二十七章  Case of Mio 4th Cut伤心（一）">第二十七章  Case of Mio 4th Cut伤心（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354730"><a href="#" title="第二十八章  Case of Mio 4th Cut伤心（二）">第二十八章  Case of Mio 4th Cut伤心（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354737"><a href="#" title="第二十九章  Case of Mio 4th Cut伤心（三）">第二十九章  Case of Mio 4th Cut伤心（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354742"><a href="#" title="第三十章  Case of Mio 4th Cut伤心（四）">第三十章  Case of Mio 4th Cut伤心（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354745"><a href="#" title="第三十一章  Case of Mio 4th Cut伤心（五）">第三十一章  Case of Mio 4th Cut伤心（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354750"><a href="#" title="第三十二章  Case of Mio 4th Cut伤心（六）">第三十二章  Case of Mio 4th Cut伤心（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354755"><a href="#" title="第三十三章  Case of Mio 4th Cut伤心（七）">第三十三章  Case of Mio 4th Cut伤心（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354758"><a href="#" title="第三十四章  Case of Mio 4th Cut伤心（八）">第三十四章  Case of Mio 4th Cut伤心（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354761"><a href="#" title="第三十五章  Case of Mio 4th Cut伤心（九）">第三十五章  Case of Mio 4th Cut伤心（九）</a>
+                                        </li>
+                                        <li class="chapter cpt-354763"><a href="#" title="第三十六章  Case of Mio 4th Cut伤心（十）">第三十六章  Case of Mio 4th Cut伤心（十）</a>
+                                        </li>
+                                        <li class="chapter cpt-354767"><a href="#" title="第三十七章  Case of Mio 4th Cut伤心（十一）">第三十七章  Case of Mio 4th Cut伤心（十一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354770"><a href="#" title="第三十八章  Case of Mio Inter Cut（一）">第三十八章  Case of Mio Inter Cut（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354772"><a href="#" title="第三十九章  Case of Mio Inter Cut（二）">第三十九章  Case of Mio Inter Cut（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354775"><a href="#" title="第四十章  Case of Mio 5th Cut决定（一）">第四十章  Case of Mio 5th Cut决定（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354778"><a href="#" title="第四十一章  Case of Mio 5th Cut决定（二）">第四十一章  Case of Mio 5th Cut决定（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354786"><a href="#" title="第四十二章  Case of Mio 5th Cut决定（三）">第四十二章  Case of Mio 5th Cut决定（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354787"><a href="#" title="第四十三章  Case of Mio 5th Cut决定（四）">第四十三章  Case of Mio 5th Cut决定（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354790"><a href="#" title="第四十四章  Case of Mio 5th Cut决定（五）">第四十四章  Case of Mio 5th Cut决定（五）</a>
+                                        </li>
+                                        <li class="chapter cpt-354795"><a href="#" title="第四十五章  Case of Mio 5th Cut决定（六）">第四十五章  Case of Mio 5th Cut决定（六）</a>
+                                        </li>
+                                        <li class="chapter cpt-354799"><a href="#" title="第四十六章  Case of Mio 5th Cut决定（七）">第四十六章  Case of Mio 5th Cut决定（七）</a>
+                                        </li>
+                                        <li class="chapter cpt-354800"><a href="#" title="第四十七章  Case of Mio 5th Cut决定（八）">第四十七章  Case of Mio 5th Cut决定（八）</a>
+                                        </li>
+                                        <li class="chapter cpt-354805"><a href="#" title="第四十八章  Case of Mio 5th Cut决定（九）">第四十八章  Case of Mio 5th Cut决定（九）</a>
+                                        </li>
+                                        <li class="chapter cpt-354812"><a href="#" title="第四十九章  Case of Mio 5th Cut决定（十）">第四十九章  Case of Mio 5th Cut决定（十）</a>
+                                        </li>
+                                        <li class="chapter cpt-354814"><a href="#" title="第五十章  Case of Mio 5th Cut决定（十一）">第五十章  Case of Mio 5th Cut决定（十一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354818"><a href="#" title="第五十一章  Case of Mio 5th Cut决定（十二）">第五十一章  Case of Mio 5th Cut决定（十二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354823"><a href="#" title="第五十二章 Case of Mio 5th Cut决定（十三）">第五十二章 Case of Mio 5th Cut决定（十三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354825"><a href="#" title="第五十三章  Case of Mio Last Cut 伤痕（一）">第五十三章  Case of Mio Last Cut 伤痕（一）</a>
+                                        </li>
+                                        <li class="chapter cpt-354829"><a href="#" title="第五十四章  Case of Mio Last Cut 伤痕（二）">第五十四章  Case of Mio Last Cut 伤痕（二）</a>
+                                        </li>
+                                        <li class="chapter cpt-354831"><a href="#" title="第五十五章  Case of Mio Last Cut 伤痕（三）">第五十五章  Case of Mio Last Cut 伤痕（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354833"><a href="#" title="第五十六章  Case of Mio Last Cut 伤痕（三）">第五十六章  Case of Mio Last Cut 伤痕（三）</a>
+                                        </li>
+                                        <li class="chapter cpt-354860"><a href="#" title="第五十七章  Case of Mio Last Cut 伤痕（四）">第五十七章  Case of Mio Last Cut 伤痕（四）</a>
+                                        </li>
+                                        <li class="chapter cpt-354861"><a href="#" title="第五十八章  后记~孤独的白乌鸦独白">第五十八章  后记~孤独的白乌鸦独白</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-main-mb visible-xs-block">
+                    <div class="panel-group" id="accordion-mb" role="tablist" aria-multiselectable="true">
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion-mb" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="icon icon-menu"></i>
+                                        第一卷 XXXXX
+                                        <i class="fa fa-toggle-down"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <ul class="chapter-list">
+                                        <li class="chapter-title">
+                                            <span data-v-a03e2d3e="">
+                                                <span data-v-a03e2d3e="" class="continue">[继续阅读]</span>
+                                                封面&amp;彩插
+                                            </span>
+                                            <div data-v-a03e2d3e="" class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第一章 Case of Mio 序章（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二章 Case of Mio 序章（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三章 Case of Mio 1st Cut对话（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四章 Case of Mio 1st Cut对话（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五章 Case of Mio 1st Cut对话（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第六章 Case of Mio 1st Cut对话（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第七章 Case of Mio 1st Cut对话（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第八章 Case of Mio 1st Cut对话（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第九章 Case of Mio 1st Cut对话（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十章 Case of Mio 1st Cut对话（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十一章  Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十二章 Case of Mio 2nd Cut造访（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十三章 Case of Mio 2nd Cut造访（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十四章 Case of Mio 2nd Cut造访（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十五章 Case of Mio 2nd Cut造访（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十六章 Case of Mio 2nd Cut造访（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十七章 Case of Mio 2nd Cut造访（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十八章 Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十九章 Case of Mio 3rd Cut伤害（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十章 Case of Mio 3rd Cut伤害（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十一章 Case of Mio 3rd Cut伤害（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十二章 Case of Mio 3rd Cut伤害（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十三章 Case of Mio 3rd Cut伤害（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十四章 Case of Mio 3rd Cut伤害（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十五章 Case of Mio 3rd Cut伤害（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十六章  Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十七章  Case of Mio 4th Cut伤心（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十八章  Case of Mio 4th Cut伤心（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十九章  Case of Mio 4th Cut伤心（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十章  Case of Mio 4th Cut伤心（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十一章  Case of Mio 4th Cut伤心（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十二章  Case of Mio 4th Cut伤心（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十三章  Case of Mio 4th Cut伤心（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十四章  Case of Mio 4th Cut伤心（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十五章  Case of Mio 4th Cut伤心（九）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十六章  Case of Mio 4th Cut伤心（十）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十七章  Case of Mio 4th Cut伤心（十一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十八章  Case of Mio Inter Cut（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十九章  Case of Mio Inter Cut（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十章  Case of Mio 5th Cut决定（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十一章  Case of Mio 5th Cut决定（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十二章  Case of Mio 5th Cut决定（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十三章  Case of Mio 5th Cut决定（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十四章  Case of Mio 5th Cut决定（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十五章  Case of Mio 5th Cut决定（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十六章  Case of Mio 5th Cut决定（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十七章  Case of Mio 5th Cut决定（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十八章  Case of Mio 5th Cut决定（九）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十二章 Case of Mio 5th Cut决定（十三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十三章  Case of Mio Last Cut 伤痕（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十四章  Case of Mio Last Cut 伤痕（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十五章  Case of Mio Last Cut 伤痕（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十六章  Case of Mio Last Cut 伤痕（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十七章  Case of Mio Last Cut 伤痕（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十八章  后记~孤独的白乌鸦独白</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-mb" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="icon icon-menu"></i>
+                                        第二卷 XXXXX
+                                        <i class="fa fa-toggle-down"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <ul class="chapter-list">
+                                        <li class="chapter-title">
+                                            <span data-v-a03e2d3e="">
+                                                <span data-v-a03e2d3e="" class="continue">[继续阅读]</span>
+                                                封面&amp;彩插
+                                            </span>
+                                            <div data-v-a03e2d3e="" class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第一章 Case of Mio 序章（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二章 Case of Mio 序章（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三章 Case of Mio 1st Cut对话（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四章 Case of Mio 1st Cut对话（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五章 Case of Mio 1st Cut对话（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第六章 Case of Mio 1st Cut对话（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第七章 Case of Mio 1st Cut对话（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第八章 Case of Mio 1st Cut对话（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第九章 Case of Mio 1st Cut对话（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十章 Case of Mio 1st Cut对话（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十一章  Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十二章 Case of Mio 2nd Cut造访（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十三章 Case of Mio 2nd Cut造访（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十四章 Case of Mio 2nd Cut造访（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十五章 Case of Mio 2nd Cut造访（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十六章 Case of Mio 2nd Cut造访（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十七章 Case of Mio 2nd Cut造访（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十八章 Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十九章 Case of Mio 3rd Cut伤害（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十章 Case of Mio 3rd Cut伤害（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十一章 Case of Mio 3rd Cut伤害（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十二章 Case of Mio 3rd Cut伤害（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十三章 Case of Mio 3rd Cut伤害（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十四章 Case of Mio 3rd Cut伤害（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十五章 Case of Mio 3rd Cut伤害（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十六章  Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十七章  Case of Mio 4th Cut伤心（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十八章  Case of Mio 4th Cut伤心（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十九章  Case of Mio 4th Cut伤心（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十章  Case of Mio 4th Cut伤心（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十一章  Case of Mio 4th Cut伤心（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十二章  Case of Mio 4th Cut伤心（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十三章  Case of Mio 4th Cut伤心（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十四章  Case of Mio 4th Cut伤心（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十五章  Case of Mio 4th Cut伤心（九）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十六章  Case of Mio 4th Cut伤心（十）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十七章  Case of Mio 4th Cut伤心（十一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十八章  Case of Mio Inter Cut（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十九章  Case of Mio Inter Cut（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十章  Case of Mio 5th Cut决定（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十一章  Case of Mio 5th Cut决定（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十二章  Case of Mio 5th Cut决定（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十三章  Case of Mio 5th Cut决定（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十四章  Case of Mio 5th Cut决定（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十五章  Case of Mio 5th Cut决定（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十六章  Case of Mio 5th Cut决定（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十七章  Case of Mio 5th Cut决定（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十八章  Case of Mio 5th Cut决定（九）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十二章 Case of Mio 5th Cut决定（十三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十三章  Case of Mio Last Cut 伤痕（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十四章  Case of Mio Last Cut 伤痕（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十五章  Case of Mio Last Cut 伤痕（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十六章  Case of Mio Last Cut 伤痕（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十七章  Case of Mio Last Cut 伤痕（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十八章  后记~孤独的白乌鸦独白</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-mb" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="icon icon-menu"></i>
+                                        第三卷 XXXXX
+                                        <i class="fa fa-toggle-down"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <ul class="chapter-list">
+                                        <li class="chapter-title">
+                                            <span data-v-a03e2d3e="">
+                                                <span data-v-a03e2d3e="" class="continue">[继续阅读]</span>
+                                                封面&amp;彩插
+                                            </span>
+                                            <div data-v-a03e2d3e="" class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第一章 Case of Mio 序章（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二章 Case of Mio 序章（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三章 Case of Mio 1st Cut对话（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四章 Case of Mio 1st Cut对话（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五章 Case of Mio 1st Cut对话（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第六章 Case of Mio 1st Cut对话（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第七章 Case of Mio 1st Cut对话（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第八章 Case of Mio 1st Cut对话（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第九章 Case of Mio 1st Cut对话（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十章 Case of Mio 1st Cut对话（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十一章  Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十二章 Case of Mio 2nd Cut造访（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十三章 Case of Mio 2nd Cut造访（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十四章 Case of Mio 2nd Cut造访（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十五章 Case of Mio 2nd Cut造访（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十六章 Case of Mio 2nd Cut造访（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十七章 Case of Mio 2nd Cut造访（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十八章 Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第十九章 Case of Mio 3rd Cut伤害（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十章 Case of Mio 3rd Cut伤害（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十一章 Case of Mio 3rd Cut伤害（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十二章 Case of Mio 3rd Cut伤害（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十三章 Case of Mio 3rd Cut伤害（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十四章 Case of Mio 3rd Cut伤害（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十五章 Case of Mio 3rd Cut伤害（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十六章  Case of Mio Inter cut</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十七章  Case of Mio 4th Cut伤心（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十八章  Case of Mio 4th Cut伤心（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第二十九章  Case of Mio 4th Cut伤心（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十章  Case of Mio 4th Cut伤心（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十一章  Case of Mio 4th Cut伤心（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十二章  Case of Mio 4th Cut伤心（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十三章  Case of Mio 4th Cut伤心（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十四章  Case of Mio 4th Cut伤心（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十五章  Case of Mio 4th Cut伤心（九）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十六章  Case of Mio 4th Cut伤心（十）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十七章  Case of Mio 4th Cut伤心（十一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十八章  Case of Mio Inter Cut（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第三十九章  Case of Mio Inter Cut（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十章  Case of Mio 5th Cut决定（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十一章  Case of Mio 5th Cut决定（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十二章  Case of Mio 5th Cut决定（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十三章  Case of Mio 5th Cut决定（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十四章  Case of Mio 5th Cut决定（五）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十五章  Case of Mio 5th Cut决定（六）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十六章  Case of Mio 5th Cut决定（七）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十七章  Case of Mio 5th Cut决定（八）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第四十八章  Case of Mio 5th Cut决定（九）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十二章 Case of Mio 5th Cut决定（十三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十三章  Case of Mio Last Cut 伤痕（一）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十四章  Case of Mio Last Cut 伤痕（二）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十五章  Case of Mio Last Cut 伤痕（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十六章  Case of Mio Last Cut 伤痕（三）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十七章  Case of Mio Last Cut 伤痕（四）</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                        <li class="chapter-title">
+                                            <span>第五十八章  后记~孤独的白乌鸦独白</span>
+                                            <div class="icon-free">免</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+<!-- Footer 样式占位，用于大体预览网页效果，此处不用修改
+==========================================-->
+<nav id="footer">
+    <div class="container">
+        <div class="pull-left fnav">
+            <p>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</p>
+            <p>若本站收集的节目无意侵犯了贵司版权，请给<a href="mailto:1025212779@qq.com">1025212779@qq.com</a>邮箱地址来信，我们将在第一时间删除相应资源</p>
+            <p>Copyright &copy; 2018.郑州轻工业大学 动漫协会 All rights reserved.</p>
+        </div>
+        <div class="pull-right fnav">
+            <ul class="footer-social">
+                <li><a href="#"><i class="fa fa-warning"></i>社团官网施工中...</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+
+<!--JS,start-->
+<!--==========================================-->
+<!--以下JS插件，可通过注释来选择。使用方法可百度-->
+<!--JQ-->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!--Boostrap's JS-->
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--页面中的平滑滚动插件-->
+<script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<!--jQuery智能布局插件 Isotope -->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+<!--JQ幻灯片插件-->
+<script type="text/javascript" src="https://cdn.bootcss.com/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!--动漫协会官网基础JS-->
+<script type="text/javascript" src="http://www.zzuliacgn.cf/static/BaseJs.js"></script>
+
+<!--*********************************************************************************************-->
+<!--此处追加你要增加的外部JS文件标签，start-->
+<!--例如：<script type="text/javascript" src="JavaScript/xxx.js"></script>-->
+
+<!--此处追加你要增加的外部JS文件地址，end-->
+<!--*********************************************************************************************-->
+<!--在以下script标签中追加你的js代码，start-->
+<script>
+
+
+</script>
+<!--在以下script标签中追加你的js代码，end-->
+<!--*********************************************************************************************-->
+<!--JS,end-->
+</body>
+</html>
