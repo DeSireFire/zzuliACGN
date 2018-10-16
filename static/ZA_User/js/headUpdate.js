@@ -18,7 +18,7 @@
               console.log(event.detail.scaleY);
             }
           });
-    })
+    });
     $("#input-image").on("change", function (e) {
         var fileInput = document.getElementById("input-image");        
         var file = fileInput.files[0];        //创建读取文件的对象
@@ -33,17 +33,15 @@
         };                 
         reader.readAsDataURL(file);
         $("#pre-container").addClass('active')
-    })
-    
+    });
     //剪切部分转换为base64
     $("#change-img-btn").on("click", function () {
         var cas=$('#img-container>img').cropper('getCroppedCanvas');
         var base64url=cas.toDataURL('image/jpeg');
         cas.toBlob(function (e) {
             console.log(e);  //生成Blob的图片格式
-        })
         console.log(base64url); //生成base64图片的格式
-
+        });
         $.ajax({
             url:'127.0.0.1',
             type:'POST',
@@ -56,4 +54,4 @@
             }
         })
     })
-})()
+})();
