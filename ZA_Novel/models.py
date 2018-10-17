@@ -74,6 +74,10 @@ class ZA_NovelInfo(models.Model):
     ZA_Novel_top = # 小说人气
     ZA_Novel_collections = # 小说收藏数
     ZA_Novel_hop = # 人气（分为XX网站人气）
+
+
+# 小說章节信息
+class ZA_NovelInfo(models.Model):
     ZA_Novel_title = # 小说册名
     ZA_Novel_secondaryId = #小说章节id（用于网页）
     ZA_Novel_chapter = # 小说章节名
@@ -81,7 +85,6 @@ class ZA_NovelInfo(models.Model):
     ZA_Novel_chapterSecNum = # 小说章节数
     ZA_Novel_chapterNum = # 小说总章节数
     ZA_Novel_container = # 小说正文
-
 
     class Meta:
         verbose_name = '小说信息'
