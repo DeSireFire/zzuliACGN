@@ -1,5 +1,6 @@
 from django.db import models
 from ZA_User.models import ZA_UserInfo
+from datetime import date
 '''
 小说文库数据库设计：
 
@@ -30,7 +31,7 @@ from ZA_User.models import ZA_UserInfo
 # Create your models here.
 
 # 小说分类信息
-class ZA_NovelType(models.Model):
+class ZA_Novel_Type(models.Model):
     ZA_Novel_Type_title = models.CharField('类型名称',max_length=20) #小说的分类（玄幻 奇幻 武侠 仙侠...）
     isDelete = models.BooleanField('是否删除', default=False)   #是否删除,默认不删
     def __str__(self):
@@ -40,21 +41,29 @@ class ZA_NovelType(models.Model):
         verbose_name_plural = '小说所属分类'
 
 # 小说作者信息
-class ZA_NovelArtistInfo(models.Model):
-    ZA_Novel_writer = # 作者名
-    ZA_Novel_illustrator = # 插画师名
-    ZA_Novel_library = # 文库名
-    ZA_Novel_Result = # 作者作品
-    ZA_Novel_Tags = # 作者自定义标签
+class ZA_Novel_Artist(models.Model):
+    ZA_Novel_writer = models.CharField('作者名',max_length=50,unique=True,default='未知',) # 作者名
+    ZA_Novel_illustrator = models.CharField('插画师名',max_length=50,unique=True,default='未知',) # 插画师名
+    ZA_Novel_library = models.CharField('文库名',max_length=100,unique=True,default='未知',)  # 文库名
+    ZA_Novel_Result = models.CharField('作者作品',max_length=100,unique=True,default='未知',)  # 作者作品
+    ZA_Novel_Tags = models.CharField('作者自定义标签',max_length=100,default='',)  # 作者自定义标签
+
+    class Meta:
+        verbose_name = '作者信息'
+        verbose_name_plural = '作者信息'
 
 
 # 读者信息
-class ZA_NovelUserInfo(models.Model):
+class ZA_Novel_User(models.Model):
+    ZA_Novel_UserId = models.OneToOneField(ZA_UserInfo,to_field="ZA_User_ID",verbose_name='读者ID', on_delete=models.CASCADE)# 读者ID
+    ZA_Novel_Username = models.OneToOneField(ZA_UserInfo,to_field="ZA_User_Name",verbose_name='读者信息', on_delete=models.CASCADE)# 读者信息
+    ZA_Novel_history = models.CharField('读书历史',max_length=500,default='未知',) # 读书历史
+    ZA_Novel_subscription = models.CharField('读者书架',max_length=50,unique=True,default='未知',) # 读者书架
 
-    ZA_Novel_UserId = # 读者id
-    ZA_Novel_UserName = # 读者名
-    ZA_Novel_history = # 读书历史
-    ZA_Novel_subscription = # 读者书架
+    class Meta:
+        verbose_name = '读者信息'
+        verbose_name_plural = '读者信息'
+
 
 # 小說基本信息
 class ZA_NovelInfo(models.Model):
@@ -63,29 +72,40 @@ class ZA_NovelInfo(models.Model):
     # teacherPhoto = models.ImageField(upload_to='pictures/')
     # teacherIntro = models.CharField(max_length=300)
 
-    ZA_Novel_id = # 小说Id
-    ZA_Novel_name = # 小说名
-    ZA_Novel_intro = # 小说简介
-    ZA_Novel_headerImage = # 小说封面
-    ZA_Novel_worksNum = # 小说字数
-    ZA_Novel_types = models.ForeignKey(ZA_NovelType, verbose_name='小说所属分类', on_delete=models.CASCADE)     #小说所属类型
-    ZA_Novel_saveTime = # 小说收录时间
-    ZA_Novel_updateTime = # 小说更新时间
-    ZA_Novel_top = # 小说人气
-    ZA_Novel_collections = # 小说收藏数
-    ZA_Novel_hop = # 人气（分为XX网站人气）
+    ZA_Novel_id = models.AutoField('书d',primary_key=True,unique=True,) # 小说Id
+    ZA_Novel_name = models.CharField('书名',max_length=100,unique=True,default='',) # 小说名
+    ZA_Novel_writer = models.ForeignKey(ZA_Novel_Artist,to_field="ZA_Novel_writer", verbose_name='该小说作者', on_delete=models.CASCADE)  # 作者名
+    ZA_Novel_intro = models.CharField('书名',max_length=500,default='',) # 小说简介
+    ZA_Novel_headerImage = models.URLField("小说封面URL", unique=True) # 小说封面
+    ZA_Novel_worksNum = models.CharField('小说字数',max_length=500,default='0',) # 小说字数
+    ZA_Novel_types = models.ForeignKey(ZA_Novel_Type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
+    ZA_Novel_saveTime = models.DateField('小说收录时间',default=date.today,) # 小说收录时间
+    ZA_Novel_updateTime = models.DateField('小说更新时间',default=date.today,) # 小说更新时间
 
-
-# 小說章节信息
-class ZA_NovelInfo(models.Model):
-    ZA_Novel_title = # 小说册名
-    ZA_Novel_secondaryId = #小说章节id（用于网页）
-    ZA_Novel_chapter = # 小说章节名
-    ZA_Novel_chapterId = # 小说章节ID
-    ZA_Novel_chapterSecNum = # 小说章节数
-    ZA_Novel_chapterNum = # 小说总章节数
-    ZA_Novel_container = # 小说正文
 
     class Meta:
         verbose_name = '小说信息'
         verbose_name_plural = '小说信息'
+
+
+# 小說章节信息
+class ZA_Novel_Chapter(models.Model):
+    ZA_Novel_name = models.ForeignKey(ZA_NovelInfo,to_field="ZA_Novel_name", verbose_name='章节所属小说', on_delete=models.CASCADE)
+    ZA_Novel_title = models.CharField('小说册名',max_length=500,default='正文卷',) # 小说册名
+    ZA_Novel_secondaryId = models.CharField('小说章节id', unique=True ,max_length=500,default='',) # 小说章节id（用于网页）
+    ZA_Novel_chapter = models.CharField('小说章节名', unique=True ,max_length=500,default='',) # 小说章节名
+    ZA_Novel_chapterId = models.CharField('小说章节id', unique=True ,max_length=300,default='',) # 小说章节ID
+    ZA_Novel_chapterSecNum = models.CharField('小说章节数',max_length=100,default='',) # 小说章节数
+    ZA_Novel_chapterNum = models.CharField('小说总章节数',max_length=100,default='',) # 小说总章节数
+    ZA_Novel_container = models.CharField('小说正文',default='',) # 小说正文
+
+    class Meta:
+        verbose_name = '小說章节信息'
+        verbose_name_plural = '小說章节信息'
+
+# 小说人气信息
+class ZA_NovelInfo(models.Model):
+    ZA_Novel_name = models.ForeignKey(ZA_NovelInfo,to_field="ZA_Novel_name", verbose_name='小说的人气信息', on_delete=models.CASCADE)
+    ZA_Novel_top = models.CharField('小说人气',max_length=500,default='0',) # 小说人气
+    ZA_Novel_collections = models.CharField('小说收藏数',max_length=500,default='0',) # 小说收藏数
+    ZA_Novel_hop = models.CharField('人气',max_length=500,default='0',) # 人气（分为XX网站人气）

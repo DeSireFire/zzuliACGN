@@ -33,7 +33,7 @@ class ZA_UserInfo(models.Model):
 
     ZA_User_ID = models.AutoField('用户ID',primary_key=True,unique=True,)
     # 用户ID(自增)
-    ZA_User_RegTime =  models.DateField('用户注册时间',default=date.today,)
+    ZA_User_RegTime = models.DateField('用户注册时间',default=date.today,)
     # 用户注册时间
     ZA_User_Email = models.CharField('电子邮箱',max_length=100,unique=True,default='',)
     #电子邮箱
