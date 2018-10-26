@@ -248,3 +248,14 @@ def info(request):
         # 'page_name': 1
     }
     return render(request,'ZA_User/usercenter.html',context)
+
+def headUpdate(request):
+    '''
+        用于处理用户头像
+    :param request: request实例
+    :return:
+    '''
+    print(request.POST)
+    if 'user_name' in request.POST and request.POST['user_name']:  # 获得用户输入值
+        q = request.GET.get('user_name')
+        print(q)

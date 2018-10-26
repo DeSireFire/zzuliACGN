@@ -1,10 +1,10 @@
 #ftp演示，首先要在本机或远程服务器开启ftp功能
 import sys,os,ftplib,socket,hashlib
-print("=====================FTP客户端=====================");
-HOST = ''  # FTP主机地址
-username = ''  # 用户名
-password = ''  # 密码
-buffer_size = 8192  # 缓冲区大小
+from zzuliACGN.settings import FTP_Login
+HOST = FTP_Login["HOST"]  # FTP主机地址
+username = FTP_Login["username"]  # 用户名
+password = FTP_Login["password"]  # 密码
+buffer_size = FTP_Login["buffer_size"]  # 缓冲区大小
 
 
 # 连接登陆
@@ -191,10 +191,16 @@ def DeleteFile(ftp,filepath = "/",file_name = None):
             if checkFileDir(ftp,i) == "File":
                 ftp.delete(i)  # 删除文件
                 print("%s 是文件，已删除！" % i)
-            elif checkFileDir(ftp,i) == "Dir":
-                print("%s 是文件夹" % i)
+                try:
+                    ftp.delete(i)  # 删除文件
+                    print("%s 是文件夹，已删除！" % i)
+                    return True
+                except ftplib.error_perm as e:
+                    print('无法删除 %s,报错信息："%s"' %(i,e))
+                    return False
             else:
                 print("%s 无法识别，跳过" % i)
+                return False
     else:
         print("%s 未找到，删除中止！" % file_name)
 
@@ -215,19 +221,21 @@ def DeleteDir(ftp,dirpath,dir_name = None):
         # print("file_name:%s 将删除 %s 目录下所有文件夹（文件除外）！" % (dir_name,ftp.pwd()))
         filelist = nlstListInfo(ftp)
         for i in filelist:
-            if checkFileDir(ftp,i) == "File":
-                print("%s 是文件，不与理会！" % i)
-            elif checkFileDir(ftp,i) == "Dir":
+            if checkFileDir(ftp,i) == "Dir":
                 try:
                     ftp.rmd(i)  # 删除文件)  # 重定向到指定路径
                     print("%s 是文件夹，已删除！" % i)
+                    return True
                 except ftplib.error_perm as e:
                     print('无法删除 %s，文件夹里似乎还有东西！报错信息："%s"' %(i,e))
+                    return False
             else:
                 print("%s 无法识别，跳过" % i)
+                return False
 
     else:
         print("%s 未找到，删除中止！" % dir_name)
+        return False
 
 # 查询目录下的非空文件夹
 def listdir(ftp,fulllist):

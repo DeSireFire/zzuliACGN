@@ -59,7 +59,8 @@ class ZA_UserInfo(models.Model):
     #用户身份
     ZA_User_FromIP = models.CharField('用户登录IP',max_length=20,default='IPUnknow',blank=True,)
     #用户登录IP
-    ZA_User_HeaderImg = models.ImageField('用户头像',upload_to="ZA_User/img/HeaderImg", default='/ZA_User/img/HeaderImg/default.jpg',blank=True,)
+    # ZA_User_HeaderImg = models.ImageField('用户头像',upload_to="ZA_User/img/HeaderImg", default='/ZA_User/img/HeaderImg/default.jpg',blank=True,)
+    ZA_User_HeaderImg = models.CharField('用户头像',max_length=200, default='/ZA_User/img/HeaderImg/default.jpg',blank=True,)
     # 用户头像
     ZA_User_Action = models.CharField('用户状态',max_length=6, default='0',)
     # 用户状态：0：正常 1:删除 2:黑名单 3：冻结
