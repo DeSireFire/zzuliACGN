@@ -74,11 +74,11 @@ class novel_info(models.Model):
 
     novel_id = models.AutoField('书d',primary_key=True,unique=True,) # 小说Id
     novel_name = models.CharField('书名',max_length=100,unique=True,default='',) # 小说名
-    novel_writer = models.ForeignKey(ZA_Novel_Artist,to_field="ZA_Novel_writer", verbose_name='该小说作者', on_delete=models.CASCADE)  # 作者名
+    novel_writer = models.ForeignKey(artist,to_field="writer", verbose_name='该小说作者', on_delete=models.CASCADE)  # 作者名
     novel_intro = models.CharField('书名',max_length=200,default='',) # 小说简介
     novel_headerImage = models.URLField("小说封面URL", unique=True) # 小说封面
     novel_worksNum = models.CharField('小说字数',max_length=200,default='0',) # 小说字数
-    novel_types = models.ForeignKey(ZA_Novel_Type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
+    novel_types = models.ForeignKey(type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
     novel_saveTime = models.DateField('小说收录时间',default=date.today,) # 小说收录时间
     novel_updateTime = models.DateField('小说更新时间',default=date.today,) # 小说更新时间
 
@@ -90,7 +90,7 @@ class novel_info(models.Model):
 
 # 小說章节信息
 class Chapter(models.Model):
-    novel_novel_name = models.ForeignKey(ZA_NovelInfo,to_field="ZA_Novel_name", verbose_name='章节所属小说', on_delete=models.CASCADE)
+    novel_novel_name = models.ForeignKey(novel_info,to_field="novel_name", verbose_name='章节所属小说', on_delete=models.CASCADE)
     novel_title = models.CharField('小说册名',max_length=200,default='正文卷',) # 小说册名
     novel_secondaryId = models.CharField('小说章节id', unique=True ,max_length=200,default='',) # 小说章节id（用于网页）
     novel_chapter = models.CharField('小说章节名', unique=True ,max_length=200,default='',) # 小说章节名
@@ -105,7 +105,7 @@ class Chapter(models.Model):
 
 # 小说人气信息
 class Top(models.Model):
-    novel_name = models.ForeignKey(ZA_NovelInfo,to_field="ZA_Novel_name", verbose_name='小说的人气信息', on_delete=models.CASCADE)
+    novel_name = models.ForeignKey(novel_info,to_field="novel_name", verbose_name='小说的人气信息', on_delete=models.CASCADE)
     novel_top = models.CharField('小说人气',max_length=200,default='0',) # 小说人气
     novel_collections = models.CharField('小说收藏数',max_length=200,default='0',) # 小说收藏数
     novel_hop = models.CharField('人气',max_length=200,default='0',) # 人气（分为XX网站人气）
