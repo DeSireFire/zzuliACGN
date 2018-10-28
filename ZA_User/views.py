@@ -13,7 +13,7 @@ from django.utils.html import escape
 # Create your views here.
 
 # 用户注册跳转
-def Register(request):
+def register(request):
     context = {'title': '用户注册'}
     return render(request,'ZA_User/register.html',context)
 
@@ -39,7 +39,7 @@ def register_ajax(request):
             keyName = key
             keyValue = ajaxdict[key]
 
-    if Register_Re(keyName,keyValue):
+    if register_RE(keyName,keyValue):
         if keyName == 'ZA_User_Name':
             theNum["count"] = ZA_UserInfo.objects.filter(ZA_User_Name=keyValue).count()
         elif keyName == 'ZA_User_Email':
@@ -55,7 +55,7 @@ def register_ajax(request):
 
 
 # 后端正则验证
-def Register_Re(keyName,keyValue):
+def register_RE(keyName,keyValue):
     ResDict = {
         "ZA_User_Name":r"^([\w]|[\u4e00-\u9fa5]|[ 。，、？￥“”‘’！：【】《》（）——.,?!$'\":+-]){4,16}$",
         "ZA_User_Email":r"^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$",
@@ -71,7 +71,7 @@ def Register_Re(keyName,keyValue):
 
 
  # 用户注册处理
-def Register_handle(request):
+def register_handle(request):
 
 
     if 'user_name' in request.GET and request.GET['user_name']:  # 获得用户输入值
@@ -117,12 +117,12 @@ def Register_handle(request):
         print(New_ZA_User_Phone)
         print(Up_Password_Encipherment)
         print(NewUser)
-        # NewUser.save()
+        NewUser.save()
     return redirect('/user/login/')
 
 
 # 用户登录跳转
-def Login(request):
+def login(request):
 
     context = {'warning': ''}
     return  render(request,'ZA_User/Login.html',context)
@@ -130,21 +130,20 @@ def Login(request):
 # 用户登录处理
 
 # @csrf_exempt # 该视图无视跨域请求保护，有风险
-def Login_Handler(request):
+def login_handler(request):
 
     # {'password': ['123qwe'], 'user_name': ['1025212779@qq.com'], 'rememberme': ['on'],
     #  'csrfmiddlewaretoken': ['O8nwHR9211S1Xw0jbWLtsr4YHu2kq7V4RpRPUwnGxkSZZgM1uj7yU57bC1ILjxrM']}
-
-    print(request.POST)
+    # print(request.POST)
 
     New_ZA_User_Temp = request.POST.get('user_name')
 
     # 判断使用邮箱登录还是用户名登录
-    if Register_Re("ZA_User_Email", New_ZA_User_Temp):
+    if register_RE("ZA_User_Email", New_ZA_User_Temp):
         New_ZA_User_Email = New_ZA_User_Temp
         old_users = ZA_UserInfo.objects.filter(ZA_User_Email=New_ZA_User_Email)  # 从后端获取用户名
 
-    elif Register_Re("ZA_User_Name", New_ZA_User_Temp):
+    elif register_RE("ZA_User_Name", New_ZA_User_Temp):
         New_ZA_User_name = New_ZA_User_Temp
         old_users = ZA_UserInfo.objects.filter(ZA_User_Name=New_ZA_User_name)  # 从后端获取邮箱
     else:
@@ -249,7 +248,7 @@ def info(request):
     }
     return render(request,'ZA_User/usercenter.html',context)
 
-def headUpdate(request):
+def head_Update(request):
     '''
         用于处理用户头像
     :param request: request实例

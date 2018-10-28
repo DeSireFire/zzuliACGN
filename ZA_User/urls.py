@@ -3,14 +3,14 @@ from . import views
 
 
 urlpatterns = [
-    path('register/',views.Register),
-    path('login/', views.Login),
-    path('RegHandle/',views.Register_handle),
+    path('register/',views.register),
+    path('login/', views.login),
+    path('RegHandle/',views.register_handle),
     path('register_ajax/', views.register_ajax),
-    path('login_handle/', views.Login_Handler),
+    path('loginHandle/', views.login_handler),
     path('logout/',views.login_out),
     path('info/', views.info),
-    path('headUpdate/', views.headUpdate),
+    path('headUpdate/', views.head_Update),
     # path('site/', views.site),
     #此处设置为首页，以前写法是'^$',新版本不再使用^、$，只需要‘’就可以
     # path('index/', include('ZA_Index.urls')),

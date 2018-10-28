@@ -470,11 +470,14 @@ function login(){
     var _loginTicket = VC_ticket;
     var _usernameVal = $("#inputUserId").val();
     var _pwdVal = $("#inputPassword1").val();
-
+    console.log(_usernameVal);
+    console.log(_pwdVal);
+    console.log(_loginTicket);
+    console.log(_checkBox);
     if(_usernameCheck === true && _pwd === true){
 
         $.ajax({
-            url: "http://192.168.0.103:5678/user/login_handle/",
+            url: "http://192.168.0.104:5678/user/loginHandle/",     // 此处URL一定要改！
             method: "post",
             headers:{'X-CSRFToken': getCookie('csrftoken')},
             data: {
@@ -483,6 +486,8 @@ function login(){
             'loginTicket':_loginTicket,
             'rememberme':_checkBox
             },
+
+
             // 回调函数
             success: function(data){
 
