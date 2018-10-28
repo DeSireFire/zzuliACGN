@@ -3,6 +3,7 @@ from .models import *
 from django.http import HttpResponseRedirect,JsonResponse
 from hashlib import sha256
 from django.core.paginator import Paginator,Page
+from . import loginCheck
 import re
 # from django.views.decorators.csrf import csrf_exempt
 
@@ -134,7 +135,7 @@ def login_handler(request):
 
     # {'password': ['123qwe'], 'user_name': ['1025212779@qq.com'], 'rememberme': ['on'],
     #  'csrfmiddlewaretoken': ['O8nwHR9211S1Xw0jbWLtsr4YHu2kq7V4RpRPUwnGxkSZZgM1uj7yU57bC1ILjxrM']}
-    # print(request.POST)
+    print(request.POST)
 
     New_ZA_User_Temp = request.POST.get('user_name')
 
@@ -158,7 +159,7 @@ def login_handler(request):
     RememberMe = "off"
     if 'rememberme' in request.POST and request.POST['rememberme']:  # 获得用户输入值
         RememberMe = request.POST.get('rememberme')
-        print(RememberMe)
+        print("是否记住登陆状态：%s"%RememberMe)
 
     # print("Tmp:%s" % New_ZA_User_Temp)
     # print("pwd:%s" % New_ZA_User_pwd)
@@ -173,11 +174,12 @@ def login_handler(request):
         "login":"no", # 是否登录成功
         "url":"", # 删除转向地址，防止以后直接登录造成的转向
         "zzuliacgn_user_name":None, # 用户名信息
+        "zzuliacgn_u":None, # 用户名信息
 
         # max_age:-1表示为cookies的max-age的默认值是-1(即max-age和expires的有效期为session)
         "max_age":-1, # 是否使用cookies的max-age,设置cookies还剩多少秒苟活，
         # expires为0表示为cookies的expires的默认值是为session,否则留存天数，单位（天）(即max-age和expires的有效期为session)
-        "Expires":0, # 是否使用cookies的expires,设置cookies过期时间点,
+        "Expires":0, # 是否使用cookies的expires,设置cookies过期时间点,预留
     }
     if len(old_users) == 1:
         # 获取到用户名
@@ -226,7 +228,7 @@ def login_handler(request):
         print("登陆失败！用户名不存在")
         return JsonResponse(login_json)
 
-
+@loginCheck.logining
 def login_out(request):
     '''
     注销登录，并删除session
@@ -235,6 +237,7 @@ def login_out(request):
     request.session.flush()
     return redirect('/')
 
+@loginCheck.logining
 def info(request):
     '''
         用户个人中心
@@ -248,6 +251,7 @@ def info(request):
     }
     return render(request,'ZA_User/usercenter.html',context)
 
+@loginCheck.logining
 def head_Update(request):
     '''
         用于处理用户头像

@@ -474,7 +474,7 @@ function login(){
     console.log(_pwdVal);
     console.log(_loginTicket);
     console.log(_checkBox);
-    if(_usernameCheck === true && _pwd === true){
+    if(_usernameCheck === true && _pwd === true && _loginTicket !== null){
 
         $.ajax({
             url: "http://192.168.0.104:5678/user/loginHandle/",     // 此处URL一定要改！
