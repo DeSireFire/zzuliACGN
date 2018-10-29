@@ -1,4 +1,4 @@
-import MySQLdb,sys
+import MySQLdb,sys,time
 from zzuliACGN.settings import DATABASES
 
 connect_dict = {
@@ -28,11 +28,16 @@ def connect(connect_dict):
     try:
         # 创建连接对象
         conn = MySQLdb.connect(
-            host=connect_dict["HOST"],
-            port=connect_dict["PORT"],
-            user=connect_dict["USER"],
-            passwd=connect_dict["PASSWORD"],
-            db=connect_dict["NAME"],
+            # host=connect_dict["HOST"],
+            # port=connect_dict["PORT"],
+            # user=connect_dict["USER"],
+            # passwd=connect_dict["PASSWORD"],
+            # db=connect_dict["NAME"],
+            host=DATABASES["default"]["HOST"],
+            port= int(DATABASES["default"]["PORT"]),
+            user= DATABASES["default"]["USER"],
+            passwd= DATABASES["default"]["PASSWORD"],
+            db= DATABASES["default"]["NAME"],
         )
         return conn
     except Exception as e:
@@ -99,14 +104,62 @@ def column_name(connect,db_name = 'zzuli_ACGN',table_name = 'ZA_Novel_novel_info
 
 # 插入数据
 def insert_into(connect,table_name,data):
-    cur = connect.cursor()
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s']*len(data))
     sql = "INSERT INTO{table}({keys) VALUES ({values})".format(table=table_name,keys=mykeys,values=myvalues)
+    try:
+        if cursor.execute(sql,tuple(data.values())):
+            print("中出成功！")
+            connect.commit()
+    except Exception as e:
+        print("插入数据时发生错误:%s"%e)
+        connect.rollback()
 
-    # try:
-    #     # 使用cursor()方法获取操作游标
-    #     cur = connect.cursor()
-    #     return data
-    # except Exception as e:
-    #     print("插入数据时发生错误:%s"%e)
+# 批量插入executemany
+def insert_by_many(connect,table_name,data):
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    mykeys = ",".join(data.keys())
+    myvalues = ",".join(['%s'] * len(data))
+    sql = "INSERT INTO{table}({keys) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    try:
+        if cursor.executemany(sql, tuple(data.values())):
+            print("批量中出成功！")
+    except Exception as e:
+        print("批量插入executemany 时发生错误:%s" % e)
+        connect.rollback()
+
+# 数据提交
+def sql_commit(connect):
+    connect.commit()
+
+# 更新数据
+def sql_update(connect,table_name,data):
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    mykeys = ",".join(data.keys())
+    myvalues = ",".join(['%s'] * len(data))
+    sql = "INSERT INTO{table}({keys) VALUES ({values}) ON DUPLICATE KEY UPDATE".format(table=table_name, keys=mykeys, values=myvalues)
+    myUpdate = ",".join([" {key} = %s".format(key=key) for key in data])
+    sql += myUpdate
+    try:
+        if cursor.executemany(sql, tuple(data.values())):
+            print("批量中出成功！")
+    except Exception as e:
+        print("更新数据时发生错误:%s"%e)
+
+print(connect_dict)
+time.sleep(100)
+conn = connect(connect_dict)
+cur = conn.cursor()
+table = "students"
+
+# try:
+#     # 使用cursor()方法获取操作游标
+#     cursor = connect.cursor()
+#     return data
+# except Exception as e:
+#     print("插入数据 时发生错误:%s"%e)
+conn.close()
