@@ -25,19 +25,24 @@ insert_dict = {
 
 # 创建连接对象
 def connect(connect_dict):
+    """
+
+    :param connect_dict: 传入连接数据库的必要信息
+    :return: 返回连接对象
+    """
     try:
         # 创建连接对象
         conn = MySQLdb.connect(
-            # host=connect_dict["HOST"],
-            # port=connect_dict["PORT"],
-            # user=connect_dict["USER"],
-            # passwd=connect_dict["PASSWORD"],
-            # db=connect_dict["NAME"],
-            host=DATABASES["default"]["HOST"],
-            port= int(DATABASES["default"]["PORT"]),
-            user= DATABASES["default"]["USER"],
-            passwd= DATABASES["default"]["PASSWORD"],
-            db= DATABASES["default"]["NAME"],
+            host=connect_dict["host"],
+            port=connect_dict["port"],
+            user=connect_dict["user"],
+            passwd=connect_dict["passwd"],
+            db=connect_dict["db"],
+            # host=DATABASES["default"]["HOST"],
+            # # port= int(DATABASES["default"]["PORT"]),
+            # user= DATABASES["default"]["USER"],
+            # passwd= DATABASES["default"]["PASSWORD"],
+            # db= DATABASES["default"]["NAME"],
         )
         return conn
     except Exception as e:
@@ -77,7 +82,7 @@ def tables(connect, db_name='zzuli_ACGN'):
             print(i[0])
         return data
     except Exception as e:
-        print("查询数据库中所有表名发生错误:%s"%e)
+        print("查询数据库中所有表名 时发生错误:%s"%e)
 
 # 查询指定数据库中指定表的所有字段名column_name
 def column_name(connect,db_name = 'zzuli_ACGN',table_name = 'ZA_Novel_novel_info'):
@@ -100,10 +105,17 @@ def column_name(connect,db_name = 'zzuli_ACGN',table_name = 'ZA_Novel_novel_info
             print(i[0])
         return data
     except Exception as e:
-        print("查询指定数据库中指定表的所有字段名时发生错误:%s"%e)
+        print("查询指定数据库中指定表的所有字段名 时发生错误:%s"%e)
 
 # 插入数据
 def insert_into(connect,table_name,data):
+    """
+
+    :param connect: 连接对象
+    :param table_name: 表名
+    :param data: 要插入的数据，传入字典
+    :return:
+    """
     # 使用cursor()方法获取操作游标
     cursor = connect.cursor()
     mykeys = ",".join(data.keys())
@@ -114,7 +126,7 @@ def insert_into(connect,table_name,data):
             print("中出成功！")
             connect.commit()
     except Exception as e:
-        print("插入数据时发生错误:%s"%e)
+        print("插入数据 时发生错误:%s"%e)
         connect.rollback()
 
 # 批量插入executemany
@@ -129,6 +141,29 @@ def insert_by_many(connect,table_name,data):
             print("批量中出成功！")
     except Exception as e:
         print("批量插入executemany 时发生错误:%s" % e)
+        connect.rollback()
+
+
+# 忽略以存在数据插入
+def insert_IGNORE(connect, table_name, data):
+    """
+
+    :param connect: 连接对象
+    :param table_name: 表名
+    :param data: 要插入的数据，传入字典
+    :return:
+    """
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    mykeys = ",".join(data.keys())
+    myvalues = ",".join(['%s'] * len(data))
+    sql = "INSERT IGNORE INTO{table}({keys) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    try:
+        if cursor.execute(sql, tuple(data.values())):
+            print("中出成功！")
+            connect.commit()
+    except Exception as e:
+        print("忽略以存在数据插入 时发生错误:%s" % e)
         connect.rollback()
 
 # 数据提交
@@ -148,18 +183,58 @@ def sql_update(connect,table_name,data):
         if cursor.executemany(sql, tuple(data.values())):
             print("批量中出成功！")
     except Exception as e:
-        print("更新数据时发生错误:%s"%e)
+        print("更新数据 时发生错误:%s"%e)
 
-print(connect_dict)
-time.sleep(100)
-conn = connect(connect_dict)
-cur = conn.cursor()
-table = "students"
+# 删除数据
+def delete(connect,table_name,conditon):
+    """
+
+    :param connect: 连接对象
+    :param table_name: 表名
+    :param conditon: 删除条件多样，直接将其当作字符串来床底，以实现删除操作（例如：“age > 20"）
+    :return:
+    """
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    sql = "DELETE FROM {table} WHERE {conditon}".format(table=table_name,conditon=conditon)
+    try:
+        cursor.execute()
+    except Exception as e:
+        print("插入数据 时发生错误:%s"%e)
+
+# 查询数据
+def demand(connect,table_name,conditon):
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    sql = "SELECT * FROM {table} WHERE {conditon}".format(table=table_name,conditon=conditon)
+    try:
+        cursor.execute(sql)
+        print("查询到数量: %s 条"%(cursor.rowcount))
+        row = cursor.fetchone()
+        while row:
+            print("row:",row)
+            row = cursor.fetchone()
+    except Exception as e:
+        print("查询数据 时发生错误:%s"%e)
+
+# 测试用主函数
+def main():
+    # 建立连接
+    db = connect(connect_dict)
+    try:
+        pass
+    except Exception as e:
+        print("插入数据 时发生错误:%s"%e)
+    finally:
+        db.close()
+
+if __name__ == '__main__':
+    main()
+
 
 # try:
 #     # 使用cursor()方法获取操作游标
 #     cursor = connect.cursor()
-#     return data
+#     cursor.execute()
 # except Exception as e:
 #     print("插入数据 时发生错误:%s"%e)
-conn.close()
