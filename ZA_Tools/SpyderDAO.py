@@ -1,4 +1,4 @@
-import MySQLdb,sys,time
+import MySQLdb,sys,datetime
 from zzuliACGN.settings import DATABASES
 
 connect_dict = {
@@ -9,19 +9,6 @@ connect_dict = {
     "db":DATABASES["default"]["NAME"],
 }
 
-# 需要插入的数据
-
-insert_dict = {
-    'novel_id':'',
-    'novel_name':'',
-    'novel_intro':'',
-    'novel_headerImage':'',
-    'novel_worksNum':'',
-    'novel_saveTime':'',
-    'novel_updateTime':'',
-    'novel_types_id':'',
-    'novel_writer_id':'',
-}
 
 # 创建连接对象
 def connect(connect_dict):
@@ -44,6 +31,7 @@ def connect(connect_dict):
             # passwd= DATABASES["default"]["PASSWORD"],
             # db= DATABASES["default"]["NAME"],
         )
+        conn.set_character_set('utf8')
         return conn
     except Exception as e:
         print("FTP登陆失败，请检查主机号、用户名、密码是否正确:%s"%e)
@@ -63,7 +51,7 @@ def mysql_version(connect):
 
 
 # 查询数据库中所有表名
-def tables(connect, db_name='zzuli_ACGN'):
+def tables_list(connect, db_name='zzuli_ACGN'):
     """
 
     :param connect: 连接对象
@@ -75,7 +63,7 @@ def tables(connect, db_name='zzuli_ACGN'):
         # 使用cursor()方法获取操作游标
         cur = connect.cursor()
         # 使用execute方法执行SQL语句
-        cur.execute("select table_name from information_schema.TABLES where TABLE_SCHEMA=%s;" % (db_name))
+        cur.execute("SELECT TABLE_NAME,TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='%s';" % (db_name))
         # 使用 fetchone() 方法获取所有数据
         data = cur.fetchall()
         for i in data:
@@ -98,7 +86,8 @@ def column_name(connect,db_name = 'zzuli_ACGN',table_name = 'ZA_Novel_novel_info
         # 使用cursor()方法获取操作游标
         cur = connect.cursor()
         cur.execute(
-            "select column_name from information_schema.columns where table_schema=%s and table_name=%s;"%(db_name,table_name)
+            "select column_name from information_schema.columns where table_schema='%s' and table_name='%s';"%(db_name,table_name)
+
         )
         data = cur.fetchall()
         for i in data:
@@ -120,7 +109,9 @@ def insert_into(connect,table_name,data):
     cursor = connect.cursor()
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s']*len(data))
-    sql = "INSERT INTO{table}({keys) VALUES ({values})".format(table=table_name,keys=mykeys,values=myvalues)
+    sql = "INSERT INTO {table}({keys}) VALUES ({values})".format(table=table_name,keys=mykeys,values=myvalues)
+    print(sql)
+
     try:
         if cursor.execute(sql,tuple(data.values())):
             print("中出成功！")
@@ -135,7 +126,7 @@ def insert_by_many(connect,table_name,data):
     cursor = connect.cursor()
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s'] * len(data))
-    sql = "INSERT INTO{table}({keys) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    sql = "INSERT INTO {table}({keys}) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
     try:
         if cursor.executemany(sql, tuple(data.values())):
             print("批量中出成功！")
@@ -157,7 +148,7 @@ def insert_IGNORE(connect, table_name, data):
     cursor = connect.cursor()
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s'] * len(data))
-    sql = "INSERT IGNORE INTO{table}({keys) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    sql = "INSERT IGNORE INTO {table}({keys}) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
     try:
         if cursor.execute(sql, tuple(data.values())):
             print("中出成功！")
@@ -176,7 +167,7 @@ def sql_update(connect,table_name,data):
     cursor = connect.cursor()
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s'] * len(data))
-    sql = "INSERT INTO{table}({keys) VALUES ({values}) ON DUPLICATE KEY UPDATE".format(table=table_name, keys=mykeys, values=myvalues)
+    sql = "INSERT INTO {table}({keys}) VALUES ({values}) ON DUPLICATE KEY UPDATE".format(table=table_name, keys=mykeys, values=myvalues)
     myUpdate = ",".join([" {key} = %s".format(key=key) for key in data])
     sql += myUpdate
     try:
@@ -222,9 +213,45 @@ def main():
     # 建立连接
     db = connect(connect_dict)
     try:
-        pass
+        # 需要插入的数据
+
+        insert_dict = {
+            # 'novel_id': '1',
+            # 'novel_name': 'test',
+            # 'novel_intro': 'test',
+            # 'novel_headerImage': 'test',
+            # 'novel_worksNum': '233',
+            # 'novel_saveTime': datetime.date.today(),
+            # 'novel_updateTime': datetime.date.today(),
+            # 'novel_types_id': '1',
+            # 'novel_writer_id': '1',
+            "Type_title":"武侠",
+            "isDelete":"0",
+
+        }
+
+        tables_list(db)
+        print("*"*50)
+        column_name(db,table_name="ZA_Novel_type")
+        print("*" * 50)
+        # insert_into(db, "ZA_Novel_type", insert_dict)
+        newlist = []
+        typelist = ["玄幻","奇幻","武侠","仙侠","都市","现实","军事","历史","游戏","体育","科幻","灵异","女生","二次元",]
+        for i in typelist:
+            temp = (i,0)
+            newlist.append(temp)
+        print(newlist)
+        insert_by_many(db,"ZA_Novel_type",newlist)
+        # cursor = db.cursor()
+        # mysql_version(db)
+        # cursor.execute("SHOW DATABASES;")
+        # cursor.execute("SELECT TABLE_NAME,TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='zzuli_ACGN';")
+        # data = cursor.fetchall()
+        # data = cursor.fetchone()
+        # print(data)
+
     except Exception as e:
-        print("插入数据 时发生错误:%s"%e)
+        print("总函数 时发生错误:%s"%e)
     finally:
         db.close()
 
