@@ -107,6 +107,7 @@ def insert_into(connect,table_name,data):
     """
     # 使用cursor()方法获取操作游标
     cursor = connect.cursor()
+    print(data.keys())
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s']*len(data))
     sql = "INSERT INTO {table}({keys}) VALUES ({values})".format(table=table_name,keys=mykeys,values=myvalues)
@@ -124,12 +125,14 @@ def insert_into(connect,table_name,data):
 def insert_by_many(connect,table_name,data):
     # 使用cursor()方法获取操作游标
     cursor = connect.cursor()
-    mykeys = ",".join(data.keys())
-    myvalues = ",".join(['%s'] * len(data))
-    sql = "INSERT INTO {table}({keys}) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    mykeys = ",".join([x[0] for x in column_name(connect,table_name = table_name)[1:]])
+    myvalues = ",".join(['%s'] * len([x[0] for x in column_name(connect,table_name = table_name)[1:]]))
+    sql = "INSERT INTO {table} ({keys}) VALUES({values})".format(table=table_name, keys=mykeys, values=myvalues)
+
     try:
-        if cursor.executemany(sql, tuple(data.values())):
+        if cursor.executemany(sql, data):
             print("批量中出成功！")
+            connect.commit()
     except Exception as e:
         print("批量插入executemany 时发生错误:%s" % e)
         connect.rollback()
@@ -151,7 +154,30 @@ def insert_IGNORE(connect, table_name, data):
     sql = "INSERT IGNORE INTO {table}({keys}) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
     try:
         if cursor.execute(sql, tuple(data.values())):
-            print("中出成功！")
+            print("忽略中出成功！")
+            connect.commit()
+    except Exception as e:
+        print("忽略以存在数据插入 时发生错误:%s" % e)
+        connect.rollback()
+
+# 替换方式数据插入
+def replace_INTO(connect, table_name, data):
+    """
+
+    :param connect: 连接对象
+    :param table_name: 表名
+    :param data: 要插入的数据，传入字典
+    :return:
+    """
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    mykeys = ",".join(data.keys())
+    myvalues = ",".join(['%s'] * len(data))
+    sql = "REPLACE  INTO {table}({keys}) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    # sql = "INSERT IGNORE INTO {table}({keys}) VALUES ({values})".format(table=table_name, keys=mykeys, values=myvalues)
+    try:
+        if cursor.execute(sql, tuple(data.values())):
+            print("替换插入成功！")
             connect.commit()
     except Exception as e:
         print("忽略以存在数据插入 时发生错误:%s" % e)
@@ -167,12 +193,14 @@ def sql_update(connect,table_name,data):
     cursor = connect.cursor()
     mykeys = ",".join(data.keys())
     myvalues = ",".join(['%s'] * len(data))
-    sql = "INSERT INTO {table}({keys}) VALUES ({values}) ON DUPLICATE KEY UPDATE".format(table=table_name, keys=mykeys, values=myvalues)
     myUpdate = ",".join([" {key} = %s".format(key=key) for key in data])
+    sql = "INSERT INTO {table}({keys}) VALUES ({values}) ON DUPLICATE KEY UPDATE".format(table=table_name, keys=mykeys, values=myvalues)
     sql += myUpdate
+
     try:
-        if cursor.executemany(sql, tuple(data.values())):
-            print("批量中出成功！")
+        if cursor.execute(sql, tuple(data.values())*2):
+            print("更新成功！")
+            connect.commit()
     except Exception as e:
         print("更新数据 时发生错误:%s"%e)
 
@@ -188,8 +216,10 @@ def delete(connect,table_name,conditon):
     # 使用cursor()方法获取操作游标
     cursor = connect.cursor()
     sql = "DELETE FROM {table} WHERE {conditon}".format(table=table_name,conditon=conditon)
+    print(sql)
     try:
-        cursor.execute()
+        cursor.execute(sql)
+        connect.commit()
     except Exception as e:
         print("插入数据 时发生错误:%s"%e)
 
@@ -225,30 +255,49 @@ def main():
             # 'novel_updateTime': datetime.date.today(),
             # 'novel_types_id': '1',
             # 'novel_writer_id': '1',
-            "Type_title":"武侠",
+            "id":6,
+            "Type_title":"test666",
             "isDelete":"0",
 
         }
-
         tables_list(db)
         print("*"*50)
         column_name(db,table_name="ZA_Novel_type")
         print("*" * 50)
+        # 单条插入
         # insert_into(db, "ZA_Novel_type", insert_dict)
-        newlist = []
-        typelist = ["玄幻","奇幻","武侠","仙侠","都市","现实","军事","历史","游戏","体育","科幻","灵异","女生","二次元",]
-        for i in typelist:
-            temp = (i,0)
-            newlist.append(temp)
-        print(newlist)
-        insert_by_many(db,"ZA_Novel_type",newlist)
-        # cursor = db.cursor()
-        # mysql_version(db)
-        # cursor.execute("SHOW DATABASES;")
-        # cursor.execute("SELECT TABLE_NAME,TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='zzuli_ACGN';")
-        # data = cursor.fetchall()
-        # data = cursor.fetchone()
-        # print(data)
+        print("*" * 50)
+        # 批量插入
+        # newlist = []
+        # typelist = ["玄幻","奇幻","武侠","仙侠","都市","现实","军事","历史","游戏","体育","科幻","灵异","女生","二次元",]
+        # for i in typelist:
+        #     temp = (i,0)
+        #     newlist.append(temp)
+        # print(newlist)
+        # insert_by_many(db,"ZA_Novel_type",newlist)
+        print("*" * 50)
+        # 忽略以存在数据插入
+        # insert_IGNORE(db,"ZA_Novel_type", insert_dict)
+        print("*" * 50)
+        # 以替换数据插入
+        # replace_INTO(db,"ZA_Novel_type", insert_dict)
+        print("*" * 50)
+        # 数据更新
+        insert_dict = {
+            "id": 7,
+            "Type_title":"test666",
+            "isDelete":"0",
+        }
+        sql_update(db,"ZA_Novel_type", insert_dict)
+        print("*" * 50)
+        # 数据删除
+        conditon = "Type_title  = 'test'"
+        # conditon = "REGEXP '^test';"
+        delete(db,"ZA_Novel_type", conditon)
+        print("*" * 50)
+        # 查询数据
+        conditon = "Type_title REGEXP '^test'"
+        demand(db,"ZA_Novel_type", conditon)
 
     except Exception as e:
         print("总函数 时发生错误:%s"%e)
