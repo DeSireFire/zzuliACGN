@@ -238,6 +238,25 @@ def demand(connect,table_name,conditon):
     except Exception as e:
         print("查询数据 时发生错误:%s"%e)
 
+# 删除表数据并重置ID
+def Refresh_ID(connect,table_name):
+    """
+
+    :param connect: 连接对象
+    :param table_name: 表名
+    :return:
+    """
+    # 使用cursor()方法获取操作游标
+    cursor = connect.cursor()
+    sql1 = "DELETE FROM {table}".format(table=table_name)
+    sql2 = "ALTER TABLE {table} AUTO_INCREMENT = 1;".format(table=table_name)
+    try:
+        cursor.execute(sql1)
+        cursor.execute(sql2)
+        connect.commit()
+    except Exception as e:
+        print("删除表数据并重置ID 时发生错误:%s"%e)
+
 # 测试用主函数
 def main():
     # 建立连接
@@ -283,21 +302,24 @@ def main():
         # replace_INTO(db,"ZA_Novel_type", insert_dict)
         print("*" * 50)
         # 数据更新
-        insert_dict = {
-            "id": 7,
-            "Type_title":"test666",
-            "isDelete":"0",
-        }
-        sql_update(db,"ZA_Novel_type", insert_dict)
+        # insert_dict = {
+        #     "id": 7,
+        #     "Type_title":"test666",
+        #     "isDelete":"0",
+        # }
+        # sql_update(db,"ZA_Novel_type", insert_dict)
+        # print("*" * 50)
+        # # 数据删除
+        # conditon = "Type_title  = 'test'"
+        # # conditon = "REGEXP '^test';"
+        # delete(db,"ZA_Novel_type", conditon)
+        # print("*" * 50)
+        # # 查询数据
+        # conditon = "Type_title REGEXP '^test'"
+        # demand(db,"ZA_Novel_type", conditon)
         print("*" * 50)
-        # 数据删除
-        conditon = "Type_title  = 'test'"
-        # conditon = "REGEXP '^test';"
-        delete(db,"ZA_Novel_type", conditon)
-        print("*" * 50)
-        # 查询数据
-        conditon = "Type_title REGEXP '^test'"
-        demand(db,"ZA_Novel_type", conditon)
+        # # 删除表数据并重置ID
+        Refresh_ID(db, "ZA_Novel_type")
 
     except Exception as e:
         print("总函数 时发生错误:%s"%e)
