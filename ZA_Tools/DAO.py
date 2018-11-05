@@ -287,13 +287,13 @@ def main():
         # insert_into(db, "ZA_Novel_type", insert_dict)
         print("*" * 50)
         # 批量插入
-        # newlist = []
-        # typelist = ["玄幻","奇幻","武侠","仙侠","都市","现实","军事","历史","游戏","体育","科幻","灵异","女生","二次元",]
-        # for i in typelist:
-        #     temp = (i,0)
-        #     newlist.append(temp)
-        # print(newlist)
-        # insert_by_many(db,"ZA_Novel_type",newlist)
+        newlist = []
+        typelist = ["玄幻","奇幻","武侠","仙侠","都市","现实","军事","历史","游戏","体育","科幻","灵异","女生","轻小说",]
+        for i in typelist:
+            temp = (i,0)
+            newlist.append(temp)
+        print(newlist)
+        insert_by_many(db,"ZA_Novel_type",newlist)
         print("*" * 50)
         # 忽略以存在数据插入
         # insert_IGNORE(db,"ZA_Novel_type", insert_dict)
@@ -319,7 +319,7 @@ def main():
         # demand(db,"ZA_Novel_type", conditon)
         print("*" * 50)
         # # 删除表数据并重置ID
-        Refresh_ID(db, "ZA_Novel_type")
+        # Refresh_ID(db, "ZA_Novel_type")
 
     except Exception as e:
         print("总函数 时发生错误:%s"%e)
