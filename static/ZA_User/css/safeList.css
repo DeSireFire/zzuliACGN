@@ -1,0 +1,19 @@
+.safe-list-li>div{
+    width:100%;
+    color:black;
+}
+.safe-list-li>div>div>i.fa-exclamation-circle{
+    color:#EFA957;
+}
+
+.safe-list-li>div>div>i.fa-check-circle{
+    color:#48BD86;
+}
+.safe-list-li{
+    border-top:1px solid #aaa;
+    padding:30px 0 30px 0;
+    word-break:break-all
+}
+.safe-list-li>.container{
+    padding:0;
+}

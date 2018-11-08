@@ -1,0 +1,43 @@
+.blackList-item{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    padding-bottom:10px;
+    border-bottom:1px solid #ddd
+}
+.blackList-item-lt{
+    display:flex;
+}
+.blackList-item-lt-message{
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.blackList-item-lt-message p{
+    margin:0;
+    padding:0;
+}
+.blackList-item-lt div img{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+}
+.blackList-item-lt-message>div:nth-child(1){
+    color:#222;
+}
+.blackList-item-lt>div{
+    min-width:60px;
+}
+.topage{
+    width:40px;
+    height:33.8px;
+    margin-left:20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,22 @@
+.form-group-sm{
+    
+}
+.sex-btn{
+    background: #fff;
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+.radio-inline.active > .sex-btn{
+    background: #22A1D6;
+    color:#fff
+}
+.sex-radio-container>.radio-inline{
+    padding:0px;
+    height:auto;
+    line-height:auto;
+}
+.radio-inline > input{
+    display:none;
+}
