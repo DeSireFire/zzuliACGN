@@ -54,11 +54,8 @@ let heimingdanguanli = Vue.component('black-list',{
                 pages:5,
                 size:10,
                 total:50,
-                records:[{uid:1,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:2,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:3,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:4,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
-                    {uid:5,head:"Images/手机.png",userName:"userName",time:"2018-06-30 02:44:21"}
+                records:[
+                    // {uid:1,head:"../../img/background/手机.png",userName:"userName",time:"2018-06-30 02:44:21"},
                 ]
             },
             next:{
@@ -130,7 +127,13 @@ let heimingdanguanli = Vue.component('black-list',{
                 processData: false,    //false
                 cache: false,    //缓存
                 beforeSend:function(){//用来测试列表是否会被更改，上线时移到success中
-                    _self.ajaxSuccess('{"code":200,"message":null,"data":{"total":18,"size":10,"pages":10,"current":2,"records":[{"uid":100,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"Images/head.jpg","userName":"userName","time":"2019-06-30 02:44:21"},{"uid":5,"head":"Images/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}')
+                    _self.ajaxSuccess(
+                        '{"code":200,"message":null,' +
+                        '"data":{"total":18,"size":10,' +
+                        '"pages":10,' +
+                        '"current":2,' +
+                        '"records":[{"uid":100,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2019-06-30 02:44:21"},{"uid":5,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+                    )
                     $('.loading').addClass("active")
                 }.bind(this),
                 success: function(data){

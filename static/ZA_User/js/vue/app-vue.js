@@ -26,7 +26,7 @@
             username:'用户名',//用户名
             userid:'8080',//用户id
             usermotto:'个性签名',//没有就返回空
-            userheadimg:'Images/head.jpg',//用户头像
+            userheadimg:'/static/ZA_User/img/HeaderImg/head.jpg',//用户头像
             emailif:1,//判断邮箱是否存在，0不存在，1存在，下面if同理
             emailvalue:"example@email.com",//若存在返回邮箱exa***@qq.com,不存在返回空值
             phoneif:1,

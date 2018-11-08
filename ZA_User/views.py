@@ -238,14 +238,14 @@ def login_out(request):
     return redirect('/')
 
 @loginCheck.logining
-def info(request):
+def userCenter(request):
     '''
         用户个人中心
         从session获取user_info的id
     '''
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     context={
-        # 'title':'用户中心',
+        'title':'用户中心',
         # 'user':user_info,
         # 'page_name': 1
     }
