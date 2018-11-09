@@ -32,7 +32,7 @@ let wodetouxiang = Vue.component('my-head',{
 </div>
     `,
     data:function(){
-        return {xxx:1}
+        return {xxx:0}
     },
     methods:{
         getCookie:function(name) {
@@ -106,7 +106,12 @@ let wodetouxiang = Vue.component('my-head',{
                     _temp.$emit('loading-open')
                 },
                 success:function(data){
-                    console.log('上传成功')
+                    if(data.xxx === 1){
+                        alert('上传成功')
+                    } else {
+                        alert('上传失败')
+                    }
+
                 },
                 fail:function(){
                     console.log('上传失败')

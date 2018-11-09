@@ -33,7 +33,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
         </div>
         <div class="col-sm-6 col-md-6">
         <div class="user-msg-th">
-            <img class="user-msg-th-icon" src="Images/邮箱.png"/>
+            <img class="user-msg-th-icon" src="/static/ZA_User/img/background/邮箱.png"/>
             <div class="user-msg-th-cont">
                 <b class="h-safe-title">我的邮箱</b>
                 <p class="h-safe-desc">绑定邮箱即可邮箱登录</p>
@@ -46,7 +46,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     </div>
     <div class="col-sm-6 col-md-6">
         <div class="user-msg-th">
-            <img class="user-msg-th-icon" src="Images/手机.png"/>
+            <img class="user-msg-th-icon" src="/static/ZA_User/img/background/手机.png"/>
             <div class="user-msg-th-cont">
                 <b class="h-safe-title">我的手机</b>
                 <p class="h-safe-desc">绑定手机即可手机登录</p>
@@ -59,7 +59,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     </div>
     <div class="col-sm-6 col-md-6">
         <div class="user-msg-th">
-            <img class="user-msg-th-icon" src="Images/写报告.png"/>
+            <img class="user-msg-th-icon" src="/static/ZA_User/img/background/写报告.png"/>
             <div class="user-msg-th-cont">
                 <b class="h-safe-title">密保问题</b>
                 <p class="h-safe-desc">设置密保，账号更安全</p>
@@ -72,7 +72,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     </div>
     <div class="col-sm-6 col-md-6">
         <div class="user-msg-th">
-            <img class="user-msg-th-icon" src="Images/代办事项.png"/>
+            <img class="user-msg-th-icon" src="/static/ZA_User/img/background/代办事项.png"/>
             <div class="user-msg-th-cont">
                 <b class="h-safe-title">实名认证</b>
                 <p class="h-safe-desc">学号认证、证件认证</p>
