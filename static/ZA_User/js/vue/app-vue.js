@@ -47,6 +47,20 @@
           } 
         },
         methods:{
+            getCookie:function(name) {
+                var cookieValue = null;
+                 if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                    }
+                }
+                }
+                return cookieValue;
+            },
           asideOpen:function(){
             this.ifblack = true;
           },
@@ -94,17 +108,18 @@
         console.log(_temp)
         $.ajax({
             type: "post",
-            url: "/downloadpreson",
+            url: "/user/downloadperson/",
+            headers:{'X-CSRFToken': this.getCookie('csrftoken')},
             data:user,
             processData: false,    //false
             cache: false,    //缓存
             beforeSend:function(){
-              console.log(_temp)
+              // console.log(_temp)
               _temp.loadingOpen()
               _temp.ajaxsuccess(_temp.userdata)
             },
             success: function(data){
-              //_temp.ajaxsuccess(data)     
+              _temp.ajaxsuccess(data)
             },
             fail:function(){
               console.log('请刷新页面重试')

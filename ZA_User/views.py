@@ -243,7 +243,8 @@ def userCenter(request):
         用户个人中心
         从session获取user_info的id
     '''
-    user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
+    from django.http import HttpResponse
+    # user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     context={
         'title':'用户中心',
         # 'user':user_info,
@@ -252,7 +253,60 @@ def userCenter(request):
     return render(request,'ZA_User/usercenter.html',context)
 
 @loginCheck.logining
-def head_Update(request):
+def loadingBlacklist(request):
+    '''
+        用户个人中心黑名单
+    '''
+    blackList_json = {
+        'data':{
+            "total": 18,
+            "size": 10,
+            "pages": 10,
+            "current": 1,
+            "records": [
+                {"uid": 100, "head": "/static/ZA_User/img/HeaderImg/head.jpg", "userName": "来自后端的响应",
+                 "time": "2018-06-30 02:44:21"},
+            ]
+        },
+    }
+    return JsonResponse(blackList_json)
+
+@loginCheck.logining
+def downloadperson(request):
+    '''
+        用户中心首页信息
+    '''''
+    person_info = {
+        'ifblack':'false',
+        'ifloading':'true',
+        'userdata': {
+            'username': '可爱的子昂同学',
+            'userid': '8080',
+            'usermotto': '个性签名',
+            'userheadimg': '/static/ZA_User/img/HeaderImg/head.jpg',
+            'emailif': 1,
+            'emailvalue': "example@email.com",
+            'phoneif': 1,
+            'phonevalue': 13312345678,
+            'passwordif': 1,
+            'passwordvalue': "已设置",
+            'questionif': 0,
+            'questionvalue': "未设置密保问题",
+            'certificationif': 0,
+            'certificationvalue': "未实名认证",
+            'birthday': '1990-01-01',
+            'sex': 2,
+            'sexselect': ['', '', ''],
+            'ip': '127.0.0.1',
+            'identity': '校外人士',
+            'truename': '',
+            'idcard': '1***************3',
+        },
+    }
+    return JsonResponse(person_info)
+
+@loginCheck.logining
+def header_Update(request):
     '''
         用于处理用户头像
     :param request: request实例

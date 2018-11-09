@@ -77,6 +77,20 @@ let heimingdanguanli = Vue.component('black-list',{
     }
     },
     methods:{
+        getCookie:function(name) {
+            var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+                }
+            }
+            }
+            return cookieValue;
+        },
         cons:function(){
             console.log(this.bLists)
         },
@@ -87,7 +101,8 @@ let heimingdanguanli = Vue.component('black-list',{
             temp= JSON.stringify(temp)
             $.ajax({
                 type: "post",
-                url: "/removeBlacklist",
+                url: "/user/removeBlacklist/",
+                headers:{'X-CSRFToken': this.getCookie('csrftoken')},
                 data: temp, 
                 processData: false,    //false
                 cache: false,    //缓存
@@ -118,40 +133,39 @@ let heimingdanguanli = Vue.component('black-list',{
                 temp ={page:e.target.dataset.page,user:user}
             }
             console.log(temp)
-            let _self = this
+            let _temp = this
             temp = JSON.stringify(temp)
             $.ajax({
                 type: "post",
-                url: "/loadingBlacklist",
+                url: "/user/loadingBlacklist/",
+                headers:{'X-CSRFToken': this.getCookie('csrftoken')},
                 data: temp, 
                 processData: false,    //false
                 cache: false,    //缓存
                 beforeSend:function(){//用来测试列表是否会被更改，上线时移到success中
-                    _self.ajaxSuccess(
-                        '{"code":200,"message":null,' +
-                        '"data":{"total":18,"size":10,' +
-                        '"pages":10,' +
-                        '"current":2,' +
-                        '"records":[{"uid":100,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2019-06-30 02:44:21"},{"uid":5,"head":"../../img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
-                    )
-                    $('.loading').addClass("active")
+                    // _temp.ajaxSuccess(
+                    //     '{"code":200,"message":null,' +
+                    //     '"data":{"total":18,"size":10,' +
+                    //     '"pages":10,' +
+                    //     '"current":2,' +
+                    //     '"records":[{"uid":100,"head":"/static/ZA_User/img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":2,"head":"/static/ZA_User/img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":3,"head":"/static/ZA_User/img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"},{"uid":4,"head":"/static/ZA_User/img/HeaderImg/head.jpg","userName":"userName","time":"2019-06-30 02:44:21"},{"uid":5,"head":"/static/ZA_User/img/HeaderImg/head.jpg","userName":"userName","time":"2018-06-30 02:44:21"}]}}'
+                    // )
                 }.bind(this),
                 success: function(data){
-                    this.$options.methods.ajaxSuccess(data);      
-                }.bind(this),
+                    console.log(data)
+                    _temp.ajaxSuccess(data)
+                },
                 fail:function(){
                     console.log('error')
                 },
                 complete:function(){
-                    setTimeout(function(){
-                        $('.loading').removeClass("active")
-                    },1000)
+
                 }
             })
         },
         ajaxSuccess:function(xxx){
             let temp = xxx
-            this.bLists = Object.assign({}, this.bLists, JSON.parse(temp))
+            this.bLists = Object.assign({}, this.bLists, temp)
             this.bLists.pages = []
             // this.bLists.data.currentcopy = this.bLists.data.current
             console.log(this.bLists)

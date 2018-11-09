@@ -12,11 +12,11 @@ let wodetouxiang = Vue.component('my-head',{
         </div>
         <div class="cas-container">
             <div id="img-container">
-                <img id="user-head-image" src="../../img/background/head-zhanwei.png">
+                <img id="user-head-image" src="/static/ZA_User/img/background/head-zhanwei.png">
             </div>
             <div id="pre-container">
-                <div class=""><div class="img-preview squ"><img src="../../img/background/preview.png"></div><p>方形头像</p></div>
-                <div class=""><div class="img-preview cir"><img src="../../img/background/preview.png"></div><p>圆形头像</p></div>
+                <div class=""><div class="img-preview squ"><img src="/static/ZA_User/img/background/preview.png"></div><p>方形头像</p></div>
+                <div class=""><div class="img-preview cir"><img src="/static/ZA_User/img/background/preview.png"></div><p>圆形头像</p></div>
             </div>
         </div>
         <div class="btn-container">
@@ -84,7 +84,7 @@ let wodetouxiang = Vue.component('my-head',{
             let temp = {user:user,userheadimg:base64url}
             _temp = this
             $.ajax({
-                url:'/xxx',
+                url:'/user/header_Update/',
                 type:'POST',
                 data:temp,
                 beforeSend:function(){

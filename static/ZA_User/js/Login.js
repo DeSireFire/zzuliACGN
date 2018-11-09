@@ -477,7 +477,7 @@ function login(){
     if(_usernameCheck === true && _pwd === true && _loginTicket !== null){
 
         $.ajax({
-            url: "http://192.168.0.104:5678/user/loginHandle/",     // 此处URL一定要改！
+            url: "http://192.168.0.104:5360/user/loginHandle/",     // 此处URL一定要改！
             method: "post",
             headers:{'X-CSRFToken': getCookie('csrftoken')},
             data: {
