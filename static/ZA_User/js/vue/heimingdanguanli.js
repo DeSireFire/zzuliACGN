@@ -107,7 +107,7 @@ let heimingdanguanli = Vue.component('black-list',{
                 processData: false,    //false
                 cache: false,    //缓存
                 beforeSend:function(){
-                    $('.loading').addClass("active")
+                    _temp.$emit('loading-open')
                 },
                 success: function(data){//重新接收数据
                     console.log('成功移除')
@@ -117,9 +117,7 @@ let heimingdanguanli = Vue.component('black-list',{
                     console.log('error')
                 },
                 complete:function(){
-                    setTimeout(function(){
-                        $('.loading').removeClass("active")
-                    },1000)
+                    _temp.$emit('loading-close')
                 }
             })
         },

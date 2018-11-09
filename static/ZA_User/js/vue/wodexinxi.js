@@ -110,7 +110,7 @@ let wodexinxi = Vue.component('per-inf',{
                 processData: false,    //false
                 cache: false,    //缓存
                 beforeSend:function(){
-                    $('.loading').addClass("active")
+                    _temp.$emit('loading-open')
                 },
                 success: function(data){
                     console.log(data);      
@@ -119,9 +119,7 @@ let wodexinxi = Vue.component('per-inf',{
                     console.log('error')
                 },
                 complete:function(){
-                    setTimeout(function(){
-                        $('.loading').removeClass("active")
-                    },1000)
+                    _temp.$emit('loading-close')
                 }
           })
 
