@@ -35,6 +35,20 @@ let wodetouxiang = Vue.component('my-head',{
         return {xxx:1}
     },
     methods:{
+        getCookie:function(name) {
+            var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+                }
+            }
+            }
+            return cookieValue;
+        },
         selectimg:function(e){
             let fileInput = e.target;
             console.log(fileInput.files[0])        
@@ -84,8 +98,9 @@ let wodetouxiang = Vue.component('my-head',{
             let temp = {user:user,userheadimg:base64url}
             _temp = this
             $.ajax({
-                url:'/user/header_Update/',
+                url:'/user/headerUpdate/',
                 type:'POST',
+                headers:{'X-CSRFToken': this.getCookie('csrftoken')},
                 data:temp,
                 beforeSend:function(){
                     _temp.$emit('loading-open')

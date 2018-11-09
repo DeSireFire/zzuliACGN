@@ -276,34 +276,30 @@ def downloadperson(request):
     '''
         用户中心首页信息
     '''''
-    person_info = {
-        'ifblack':'false',
-        'ifloading':'true',
-        'userdata': {
+    userdata={
             'username': '可爱的子昂同学',
             'userid': '8080',
             'usermotto': '个性签名',
             'userheadimg': '/static/ZA_User/img/HeaderImg/head.jpg',
-            'emailif': 1,
-            'emailvalue': "example@email.com",
+            'emailif': 0,
+            'emailvalue': "exampl233e@email.com",
             'phoneif': 1,
-            'phonevalue': 13312345678,
+            'phonevalue': 13517683169,
             'passwordif': 1,
             'passwordvalue': "已设置",
             'questionif': 0,
             'questionvalue': "未设置密保问题",
-            'certificationif': 0,
-            'certificationvalue': "未实名认证",
-            'birthday': '1990-01-01',
+            'certificationif': 1,
+            'certificationvalue': "已实名认证",
+            'birthday': '1999-02-10',
             'sex': 2,
             'sexselect': ['', '', ''],
             'ip': '127.0.0.1',
             'identity': '校外人士',
             'truename': '',
-            'idcard': '1***************3',
-        },
-    }
-    return JsonResponse(person_info)
+            'idcard': '41***************3',
+        }
+    return JsonResponse(userdata)
 
 @loginCheck.logining
 def header_Update(request):

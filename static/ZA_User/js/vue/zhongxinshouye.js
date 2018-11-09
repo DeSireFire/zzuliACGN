@@ -75,7 +75,6 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
                 </div>
             </div>
         </div>
-
         <!--<div class="col-md-6" style="background-color: #00FFCC">-->
         <!---->
         <!--</div>-->
@@ -104,26 +103,7 @@ let zhongxinshouye = Vue.component('user-center-home-page',{
     data:function(){
         return {
             userbasedata:{
-                email:'未绑定',
-                phone:'未绑定',
-                question:'未绑定',
-                certification:'未认证',
             }
-        }
-    },
-    created:function(){
-        console.log(this.userdata)
-        if(this.userdata.emailif == 1){
-            this.userbasedata.email="已绑定"
-        }
-        if(this.userdata.phoneif == 1){
-            this.userbasedata.phone="已绑定"
-        }
-        if(this.userdata.questionif == 1){
-            this.userbasedata.questiond="已绑定"
-        }
-        if(this.userdata.certificationif == 1){
-            this.userbasedata.certification="已认证"
         }
     },
 })

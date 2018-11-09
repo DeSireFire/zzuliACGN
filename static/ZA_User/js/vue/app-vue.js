@@ -75,8 +75,9 @@
           },
           ajaxsuccess:function(data){
             // let temp=JSON.parse(data)
+              console.log(data.userdata)
             this.userdata=Object.assign({}, this.userdata,data)
-
+            console.log(this.userdata)
             if(this.userdata.emailif != 1){
                 this.userdata.emailvalue="未绑定邮箱"
             }
@@ -98,6 +99,7 @@
             }else{
                 this.userdata.certificationvalue="已实名认证"
             }
+            // this.userdata.certificationvalue=data.certificationvalue
         }
         },
         created:function(){
@@ -116,9 +118,9 @@
             beforeSend:function(){
               // console.log(_temp)
               _temp.loadingOpen()
-              _temp.ajaxsuccess(_temp.userdata)
             },
             success: function(data){
+                console.log(data)
               _temp.ajaxsuccess(data)
             },
             fail:function(){
