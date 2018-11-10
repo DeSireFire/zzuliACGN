@@ -116,10 +116,33 @@ def upload(ftp, filepath,file_name = None):
     else:
         try:
             ftp.storbinary('STOR %s'%file_name, f, buffer_size)
+            f.close()
             print('成功上传文件： "%s"' %file_name)
+            return True
+        except ftplib.error_perm:
+            f.close()
+            return False
+
+def upload_RB(ftp, fileOpenRB,file_name):
+    """
+    同样是上传文件，但是此函数不在自行读取文件，而是直接传入f=open(xx,"rb")编码即可
+    :param ftp: 实例化的FTP对象
+    :param filepath: 上传文件的本地路径
+    :param file_name: 上传后的文件名（结合fileNameMD5()方法用）
+    :return:
+    """
+
+    if find(ftp, file_name) or file_name == "无后缀格式的文件":
+        print("%s 已存在或识别为无后缀格式的文件,上传终止"%file_name) # 上传本地文件,同名文件会替换
+        return False
+    else:
+        try:
+            ftp.storbinary('STOR %s'%file_name, fileOpenRB, buffer_size)
+            print('成功上传文件： "%s"' %file_name)
+            return True
         except ftplib.error_perm:
             return False
-    return True
+
 
 # 下载文件
 def download(ftp, filename):

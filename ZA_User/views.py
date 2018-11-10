@@ -6,6 +6,7 @@ from hashlib import sha256
 from django.core.paginator import Paginator,Page
 from . import loginCheck
 import re,base64,os
+from ZA_Tools.aixinxi_FTP import *
 
 # from django.views.decorators.csrf import csrf_exempt
 
@@ -233,7 +234,7 @@ def userCenter(request):
         用户个人中心
         从session获取user_info的id
     '''
-    from django.http import HttpResponse
+    # from django.http import HttpResponse
     # user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     context={
         'title':'用户中心',
@@ -309,9 +310,15 @@ def header_Update(request):
     '''
     print(headerImgBase64[:23])
     imgdata = base64.b64decode(headerImgBase64[23:])
+    user_imgdata = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id']).UserHeaderImg()
+    if '/ZA_User/img/HeaderImg/default.jpg' not in user_imgdata[1:5] and user_imgdata:
+        # 第一次传头像
+        ftp = connect()
 
-    file = open('1.jpg', 'wb')
-    file.write(imgdata)
-    file.close()
+        print(user_imgdata)
 
-    return HttpResponse(status=404),JsonResponse({233:666})
+    # file = open('1.jpg', 'wb')
+    # file.write(imgdata)
+    # file.close()
+
+    return HttpResponse(status=404)
