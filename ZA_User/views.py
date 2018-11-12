@@ -1,10 +1,13 @@
 from django.shortcuts import render,redirect
 from .models import *
-from django.http import HttpResponseRedirect,JsonResponse
+# from django.http import HttpResponseRedirect,JsonResponse
+from django.http import HttpResponse,JsonResponse
 from hashlib import sha256
 from django.core.paginator import Paginator,Page
 from . import loginCheck
-import re
+import re,base64,os
+from ZA_Tools.aixinxi_FTP import *
+
 # from django.views.decorators.csrf import csrf_exempt
 
 from django.utils.html import escape
@@ -27,9 +30,6 @@ def register_ajax(request):
         模板中接口为count
     '''
     ajaxdict = {"ZA_User_Name":request.GET.get('user_name'),"ZA_User_Email":request.GET.get('user_email'),"ZA_User_Phone":request.GET.get('user_phone'),}
-    # user_name = request.GET.get('user_name')
-    # user_email = request.GET.get('user_email')
-    # user_phone = request.GET.get('user_phone')
     keyName = ''
     keyValue = ''
     theNum = {"count":1}
@@ -126,7 +126,7 @@ def register_handle(request):
 def login(request):
 
     context = {'warning': ''}
-    return  render(request,'ZA_User/Login.html',context)
+    return render(request,'ZA_User/Login.html',context)
 
 # 用户登录处理
 
@@ -160,15 +160,6 @@ def login_handler(request):
     if 'rememberme' in request.POST and request.POST['rememberme']:  # 获得用户输入值
         RememberMe = request.POST.get('rememberme')
         print("是否记住登陆状态：%s"%RememberMe)
-
-    # print("Tmp:%s" % New_ZA_User_Temp)
-    # print("pwd:%s" % New_ZA_User_pwd)
-    # print("old_users:%s" % old_users[0])
-    # print("old_users:%s" % old_users[0].ZA_User_ID)
-    # print("old_users:%s" % old_users[0].ZA_User_Name)
-    # print("old_users:%s" % old_users[0].ZA_User_Email)
-    # print("CK_URL:%s" % request.COOKIES)
-    # print("CK_URL:%s" % request.COOKIES.get("url"))
 
     login_json = {
         "login":"no", # 是否登录成功
@@ -243,7 +234,7 @@ def userCenter(request):
         用户个人中心
         从session获取user_info的id
     '''
-    from django.http import HttpResponse
+    # from django.http import HttpResponse
     # user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     context={
         'title':'用户中心',
@@ -259,13 +250,16 @@ def loadingBlacklist(request):
     '''
     blackList_json = {
         'data':{
-            "total": 18,
-            "size": 10,
-            "pages": 10,
-            "current": 1,
+            # "total": 18,
+            # "size": 10,
+            # "pages": 0,
+            # "current": 1,
+            'current': 0,
+            'pages': 0,
+            'size': 0,
+            'total': 0,
             "records": [
-                {"uid": 100, "head": "/static/ZA_User/img/HeaderImg/head.jpg", "userName": "来自后端的响应",
-                 "time": "2018-06-30 02:44:21"},
+                # {"uid": 100, "head": "/static/ZA_User/img/HeaderImg/head.jpg", "userName": "来自后端的响应","time": "2018-06-30 02:44:21"},
             ]
         },
     }
@@ -275,13 +269,14 @@ def loadingBlacklist(request):
 def downloadperson(request):
     '''
         用户中心首页信息
+        
     '''''
     userdata={
             'username': '可爱的子昂同学',
             'userid': '8080',
             'usermotto': '个性签名',
             'userheadimg': '/static/ZA_User/img/HeaderImg/head.jpg',
-            'emailif': 0,
+            'emailif': 1,
             'emailvalue': "exampl233e@email.com",
             'phoneif': 1,
             'phonevalue': 13517683169,
@@ -299,16 +294,31 @@ def downloadperson(request):
             'truename': '',
             'idcard': '41***************3',
         }
+
     return JsonResponse(userdata)
 
-@loginCheck.logining
+# @loginCheck.logining
 def header_Update(request):
     '''
         用于处理用户头像
-    :param request: request实例
-    :return:
+        返回http状态码
     '''
-    print(request.POST)
-    if 'user_name' in request.POST and request.POST['user_name']:  # 获得用户输入值
-        q = request.GET.get('user_name')
-        print(q)
+    headerImgBase64 = request.POST.get('userheadimg')
+    '''
+    data:image/jpeg;base64,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
+    
+    '''
+    print(headerImgBase64[:23])
+    imgdata = base64.b64decode(headerImgBase64[23:])
+    user_imgdata = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id']).UserHeaderImg()
+    if '/ZA_User/img/HeaderImg/default.jpg' not in user_imgdata[1:5] and user_imgdata:
+        # 第一次传头像
+        ftp = connect()
+
+        print(user_imgdata)
+
+    # file = open('1.jpg', 'wb')
+    # file.write(imgdata)
+    # file.close()
+
+    return HttpResponse(status=404)
