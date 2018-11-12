@@ -1,0 +1,6 @@
+ul.nav>li>a:focus, ul.nav>li>a:hover {
+    background:rgba(255,255,255,0.5)
+}
+#denglujilu thead>tr>th{
+    text-align: center;
+}
