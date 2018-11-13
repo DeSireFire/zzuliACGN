@@ -1,7 +1,7 @@
 Vue.component('app-aside',{
     template:`
     <aside class="col-sm-2 col-md-2 box1">
-    <ul class="nav nav-pills nav-stacked navbar-inverse" @click="$emit('click-aside')">
+    <ul class="nav nav-pills nav-stacked navbar-inverse" @click="$emit('click-aside');totop()">
         <li><span>个人中心</span></li>
         <li>
         <router-link to="/zhongxinshouye"><i class="fa fa-fw fa-home"></i> 中心首页 </router-link>
@@ -32,5 +32,10 @@ Vue.component('app-aside',{
         </li>
     </ul>
 </aside>
-    `
+    `,
+    methods:{
+        totop:function(){
+            window.scrollTo(0,0);
+        }
+    }
 })
