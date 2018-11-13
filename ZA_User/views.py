@@ -118,7 +118,7 @@ def register_handle(request):
         print(New_ZA_User_Phone)
         print(Up_Password_Encipherment)
         print(NewUser)
-        NewUser.save()
+        # NewUser.save()
     return redirect('/user/login/')
 
 
