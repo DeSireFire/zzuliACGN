@@ -313,7 +313,6 @@ def header_Update(request):
     user_imgdata = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id']).UserHeaderImg()
     if '/ZA_User/img/HeaderImg/default.jpg' not in user_imgdata[1:5] and user_imgdata:
         # 第一次传头像
-        ftp = connect()
 
         print(user_imgdata)
 
@@ -321,4 +320,4 @@ def header_Update(request):
     # file.write(imgdata)
     # file.close()
 
-    return HttpResponse(status=404)
+    return HttpResponse(status=200)
