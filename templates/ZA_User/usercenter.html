@@ -26,7 +26,7 @@
                 <main class="col-sm-10 col-md-10 box2">
                     <div class="">
                         <!-- 渲染主要内容的地方 详细内容见app-vue和里面指向的各个文件-->
-                        <router-view :userdata="userdata" @loading-open="loadingOpen" @loading-close="loadingClose" @updata-fail="popwindowopen"></router-view>
+                        <router-view :userdata="userdata" @loading-open="loadingOpen" @loading-close="loadingClose" @updata-fail="popwindowopen" @updata-success="popwindowopensuc"></router-view>
                     </div>
                 </main>
                 <div class="clearfix"></div>
@@ -50,9 +50,10 @@
     </div>
     <div class="popwindow" :class="ifpopwindow" @touchmove.stop.prevent="">
         <div class="warn-cotainer">
-            <div class="warn-top"><span @click="popwindowclose">X</span></div>
+            <div class="warn-top"><span @click="popwindowclose" v-show=ifwarn>X</span></div>
             <div class="warn-bottom">
-                <span>上传失败，请重试</span>
+                <span v-show=ifwarn>上传失败，请重试</span>
+                <span v-show=!ifwarn>上传成功，点击确定刷新页面</span>
                 <span class="btn btn-default" @click="popwindowclose">确定</span>
             </div>
         </div>

@@ -36,6 +36,7 @@
           ifblack:false,
           ifloading:true,
           ifpopwindow:'',
+          ifwarn:true,
           userdata:{//里面的默认填的信息为从后台获取失败时会显示的内容
             username:'用户名',//用户名
             userid:'8080',//用户id
@@ -76,10 +77,19 @@
                 return cookieValue;
           },
           popwindowclose:function(){
-            this.ifpopwindow = '';
+            if(this.ifwarn){
+              this.ifpopwindow = '';
+            }else{
+              location.reload()
+            }
           },
           popwindowopen:function(){
             this.ifpopwindow = 'active';
+            this.ifwarn=true
+          },
+          popwindowopensuc:function(){
+            this.ifpopwindow = 'active';
+            this.ifwarn=false
           },
           asideOpen:function(){
             this.ifblack = true;
