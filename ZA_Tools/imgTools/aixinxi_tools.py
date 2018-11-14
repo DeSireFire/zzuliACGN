@@ -1,5 +1,6 @@
-import requests,re,json,hashlib
+import requests,re,json
 from ZA_Tools.imgTools.config import *
+from ZA_Tools.imgTools.publicHandlers import proxy_list
 
 # 登陆aixinxi
 def login():
@@ -8,7 +9,7 @@ def login():
     :return:登陆成功后返回cookie
     """
     header = get_header()
-    req1 = requests.post(url=aixinxi_login_url, headers=header, data=aixinxi_login, proxies=proxy_list())
+    req1 = requests.post(url=aixinxi_login_url, headers=header, data=aixinxi_login, proxies=proxy_list(PROXYURL,testURL))
     if req1.status_code == 200:
         header.update({'cookie':req1.headers['Set-Cookie'][:36],'referer':'https://tu.aixinxi.net/views/pages.php?id=explore','upgrade-insecure-requests':'1',})
         if logining(header):
@@ -27,7 +28,7 @@ def logining(header):
     :param header: 字典，请求头
     :return: 布尔值
     """
-    req = requests.post(url=aixinxi_index_url, headers=header, proxies=proxy_list())
+    req = requests.post(url=aixinxi_index_url, headers=header, proxies=proxy_list(PROXYURL,testURL))
     if '<a href="https://tu.aixinxi.net/views/login.php"><i class="fa fa-user" aria-hidden="true"></i> 登录/注册</a>' not in req.text:
         return True
     else:
@@ -126,7 +127,7 @@ def delete(header,key):
     header.update(delete_header)
     header['referer'] += key
     aixinxi_data_delete['key'] = key
-    req = requests.post(url=aixinxi_delete_url, headers=header, data=aixinxi_data_delete, proxies=proxy_list())
+    req = requests.post(url=aixinxi_delete_url, headers=header, data=aixinxi_data_delete, proxies=proxy_list(PROXYURL,testURL))
     if 'ok' in req.text:
         print('OK')
         print(req.status_code)
@@ -170,10 +171,6 @@ def token_get(header):
         print('token请求失败！')
         return False
 
-# 文件名生成器
-def fileNameIter():
-    hash_md5 = hashlib.md5(fileName_data)
-    return hash_md5.hexdigest()
 
 # 退出aixinxi
 def loginOutloginOut(outcookie):
@@ -195,37 +192,7 @@ def loginOutloginOut(outcookie):
     # print(req.reason)
     # print(req.headers)
 
-def proxy_list(url = PROXYURL,testURL = testURL):
-    """
-    获取并检测代理池返回的IP
-    :param url: 获取IP的代理池地址
-    :param testURL: 检测网址
-    :return: 一个能用的ip组成的proxies字典
-    """
-    count = 0 # 获取的IP数
-    try:
-        r = requests.get(url)
-        count = len(json.loads(r.text))
-        while count != 0:
-            r = requests.get(url)
-            ip_ports = json.loads(r.text)
-            count = len(ip_ports)
-            for i in range(0,4):
-                ip = ip_ports[i][0]
-                port = ip_ports[i][1]
-                proxies = {
-                    'http': 'http://%s:%s' % (ip, port),
-                    'https': 'https://%s:%s' % (ip, port)
-                }
-                r = requests.get(testURL, proxies=proxies,timeout=TIMEOUT)
-                if (not r.ok) or len(r.content) < 500:
-                    r = requests.get(delproxyIP%(ip,port))
-                else:
-                    return proxies
 
-    except Exception as e:
-        # print(e)
-        return None
 
 def main():
     # ok = login()

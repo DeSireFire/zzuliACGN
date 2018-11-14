@@ -1,5 +1,5 @@
 import random
-from zzuliACGN.settings import aixinxi_login_dirt
+from zzuliACGN.config import aixinxi_login_dirt
 
 '''
     附加信息设置
@@ -55,7 +55,8 @@ aixinxi_token_url = 'https://tu.aixinxi.net/includes/token.php'
 
 # sm.ms，上传地址
 sm_update_url = 'https://sm.ms/api/upload'
-
+# sm.ms,删除地质
+sm_delete_url = 'https://sm.ms/delete/%s'
 
 
 
