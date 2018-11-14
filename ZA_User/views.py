@@ -6,8 +6,7 @@ from hashlib import sha256
 from django.core.paginator import Paginator,Page
 from . import loginCheck
 import re,base64,os
-from ZA_Tools.aixinxi_FTP import *
-
+from ZA_Tools.imgTools import aixinxi_tools
 # from django.views.decorators.csrf import csrf_exempt
 
 from django.utils.html import escape
@@ -311,11 +310,13 @@ def header_Update(request):
     print(headerImgBase64[:23])
     imgdata = base64.b64decode(headerImgBase64[23:])
     user_imgdata = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id']).UserHeaderImg()
+    print(user_imgdata)
     if '/ZA_User/img/HeaderImg/default.jpg' not in user_imgdata[1:5] and user_imgdata:
         # 第一次传头像
-
         print(user_imgdata)
 
+
+    # 本地存储
     # file = open('1.jpg', 'wb')
     # file.write(imgdata)
     # file.close()
