@@ -5,7 +5,6 @@ from ZA_Tools.imgTools.publicHandlers import proxy_list
 # 登陆aixinxi
 def login():
     """
-
     :return:登陆成功后返回cookie
     """
     header = get_header()
@@ -192,7 +191,17 @@ def loginOutloginOut(outcookie):
     # print(req.reason)
     # print(req.headers)
 
+# 文件名拼接
+def fileNameIter(Anystr,fileType):
+    """
 
+    :param Anystr: 字符串
+    :param fileType: 字符串,文件格式（后缀,例如：.jpg,.png,.txt）
+    :return: 字符串，拼接好的文件名
+    """
+    new_name = 'o_1csbn'+Anystr+fileType
+    print(new_name)
+    return new_name
 
 def main():
     # ok = login()
@@ -221,5 +230,6 @@ def main():
     # token_get(header_test)
     # loginOutloginOut('PHPSESSID=29botdjah0n9seekpdm2n9d0o5')
     # print(fileNameIter())
+    # fileNameIter('233366688', '.jpg')
 if __name__ == '__main__':
     main()
