@@ -1,11 +1,11 @@
 import requests,re,json
 from ZA_Tools.imgTools.config import *
-from ZA_Tools.imgTools.publicHandlers import proxy_list
+from ZA_Tools.imgTools.publicHandlers import proxy_list,fileNameIter
 
 # 登陆aixinxi
 def login():
     """
-    :return:登陆成功后返回cookie
+    :return:登陆成功后返回带cookie的头部
     """
     header = get_header()
     req1 = requests.post(url=aixinxi_login_url, headers=header, data=aixinxi_login, proxies=proxy_list(PROXYURL,testURL))
@@ -172,13 +172,12 @@ def token_get(header):
 
 
 # 退出aixinxi
-def loginOutloginOut(outcookie):
+def loginOut(Header):
     """
 
-    :param outcookie: 传入已经登陆了的cookie值
+    :param Header: 传入已经登陆了的头部
     :return:
     """
-    loginOut_Header['cookie'] = outcookie
     req = requests.post(url=aixinxi_loginOut_url, headers=loginOut_Header, data=aixinxi_loginOut_dirt)
     if req.status_code == 200:
         print('退出成功！')
@@ -192,16 +191,14 @@ def loginOutloginOut(outcookie):
     # print(req.headers)
 
 # 文件名拼接
-def fileNameIter(Anystr,fileType):
+def fileNameadd(Anystr = fileNameIter(),fileType = '.jpg'):
     """
 
     :param Anystr: 字符串
     :param fileType: 字符串,文件格式（后缀,例如：.jpg,.png,.txt）
     :return: 字符串，拼接好的文件名
     """
-    new_name = 'o_1csbn'+Anystr+fileType
-    print(new_name)
-    return new_name
+    return "{}{}{}".format("o_1csbn", Anystr, fileType)
 
 def main():
     # ok = login()

@@ -306,11 +306,11 @@ def header_Update(request):
     data:image/jpeg;base64,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
     
     '''
-    imgdata = base64.b64decode(headerImgBase64[23:])
+    # imgdata = base64.b64decode(headerImgBase64[23:])
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     # 删除旧头像
     # 判断是否使用的是原始头像
-    if '/ZA_User/img/HeaderImg/default.jpg' == user_info.UserHeaderImg:
+    if 'default.jpg' in user_info.UserHeaderImg:
         pass
 
     # 上传新头像
@@ -334,6 +334,8 @@ def imgUpdate(filesRB):
     """
     图片上传主函数，用于往图床上传图片
     :param filesRB: 已经读取的文件byte码
+    # :param filename: 文件名
+    # :param filename: 文件格式
     :return: 字典
     """
     from ZA_Tools.imgTools import sm_tools, aixinxi_tools
@@ -345,12 +347,24 @@ def imgUpdate(filesRB):
     }
     # 上传SM
     sm_temp = sm_tools.update(filesRB)['data']
+    if sm_temp:
+        imginfo['aurl'] = sm_temp['url']
+        imginfo['hash'] = sm_temp['hash']
     # 上传爱信息
     axx_header = aixinxi_tools.login()
+    # 登陆状态检测
     if axx_header:
-        print(axx_header)
+        # 上传
+        filename = aixinxi_tools.fileNameadd()
+        aixinxi_temp = aixinxi_tools.updata(axx_header,filename,filesRB)
+        # 提交成功
+        if aixinxi_temp:
+            imginfo['surl'] = filename
+            imginfo['key'] = aixinxi_temp[0]
     else:
         print('No')
+    # 退出状态
+    aixinxi_tools.loginOut(axx_header)
 
 
 def imgDelete(surl):
