@@ -365,6 +365,7 @@ def imgUpdate(filesRB):
         print('No')
     # 退出状态
     aixinxi_tools.loginOut(axx_header)
+    return imginfo
 
 
 def imgDelete(surl):
