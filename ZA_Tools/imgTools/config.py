@@ -17,9 +17,9 @@ aixinxi_data_delete = {
 # 爱信息图床，上传时的附加数据
 aixinxi_update_data = {
 'name':'o_test.jpg',
-'policy':'',
-'signature':'',
-'OSSAccessKeyId':'',
+'policy':'eyJleHBpcmF0aW9uIjoiMjAxOC0xMS0xMVQxNDozNzo1NFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MF0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIiXV19',
+'signature':'maH2ayNKySSl5nvbPdJvdm4/Gro=',
+'OSSAccessKeyId':'LTAIyUoGoXRUSdwm',
 'key':'o_test.jpg',
 'success_action_status':'200',
 }

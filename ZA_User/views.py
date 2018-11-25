@@ -310,9 +310,10 @@ def header_Update(request):
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     # 删除旧头像
     # 判断是否使用的是原始头像
-    if 'default.jpg' in user_info.UserHeaderImg:
+    if 'default.jpg' in user_info.UserHeaderImg():
         upRec = imgUpdate(imgdata)
         if upRec:
+            print(upRec)
             user_info.UserHeaderImg = upRec
             user_info.save()
             return HttpResponse(status=200)
@@ -327,18 +328,8 @@ def header_Update(request):
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)
-    # 上传新头像
-    # temp1 = sm_tools.update(imgdata)['data']
-    # temp2 = aixinxi_tools.update(imgdata)['data']
-    # if temp:
-    #     user_info.UserHeaderImg = imginfo
-    #     print(imginfo)
-    #     print(user_info.UserHeaderImg)
-    #     return HttpResponse(status=200)
-    # else:
-    #     return HttpResponse(status=404)
-
-    return HttpResponse(status=404)
+    else:
+        return HttpResponse(status=404)
     # 本地存储
     # file = open('1.jpg', 'wb')
     # file.write(imgdata)
@@ -370,7 +361,7 @@ def imgUpdate(filesRB):
     if axx_header:
         # 上传
         filename = aixinxi_tools.fileNameadd()
-        aixinxi_temp = aixinxi_tools.updata(axx_header,filename,filesRB)
+        aixinxi_temp = aixinxi_tools.updata(axx_header,filename,{'file':filesRB})
         # 提交成功
         if aixinxi_temp:
             imginfo['surl'] = filename
