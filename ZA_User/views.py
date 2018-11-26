@@ -267,28 +267,33 @@ def loadingBlacklist(request):
 def downloadperson(request):
     '''
         用户中心首页信息
-        
     '''''
+    user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     userdata={
-            'username': '可爱的子昂同学',
-            'userid': '8080',
+            'username': user_info.ZA_User_Name,
+            # 'userid': '8080',
+            # 'userid': user_info.UserID(),
             'usermotto': '个性签名',
+            # 'usermotto': user_info.UseMotto,
             'userheadimg': '/static/ZA_User/img/HeaderImg/head.jpg',
             'emailif': 1,
-            'emailvalue': "exampl233e@email.com",
+            # 'emailvalue': "exampl233e@email.com",
+            'emailvalue': user_info.UserEmail,
             'phoneif': 1,
-            'phonevalue': 13517683169,
+            'phonevalue': user_info.UserPhone,
             'passwordif': 1,
             'passwordvalue': "已设置",
             'questionif': 0,
             'questionvalue': "未设置密保问题",
             'certificationif': 1,
             'certificationvalue': "已实名认证",
-            'birthday': '1999-02-10',
-            'sex': 2,
+            # 'birthday': '1999-02-10',
+            'birthday': user_info.UserBirthday,
+            'sex': user_info.UserSex(),
             'sexselect': ['', '', ''],
-            'ip': '127.0.0.1',
-            'identity': '校外人士',
+            'ip': user_info.UserFromIP,
+            # 'identity': '校外人士',
+            'identity':user_info.Useridentity,
             'truename': '',
             'idcard': '41***************3',
         }
