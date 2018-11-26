@@ -330,10 +330,6 @@ def header_Update(request):
             return HttpResponse(status=404)
     else:
         return HttpResponse(status=404)
-    # 本地存储
-    # file = open('1.jpg', 'wb')
-    # file.write(imgdata)
-    # file.close()
 
 def imgUpdate(filesRB):
     """
