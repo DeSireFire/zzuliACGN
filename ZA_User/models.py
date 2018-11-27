@@ -64,7 +64,16 @@ class ZA_UserInfo(models.Model):
     # 用户头像
     ZA_User_Action = models.CharField('用户状态',max_length=6, default='0',)
     # 用户状态：0：正常 1:删除 2:黑名单 3：冻结
-    ZA_User_TrueName = models.CharField('真实姓名', max_length=50, default='Name Unknown', )
+    ZA_User_TrueName = models.CharField('真实姓名', max_length=50, default='Unknow', )
+    # 用户实名姓名
+    ZA_User_IDcard = models.CharField('实名身份证', max_length=50, default='Unknow', )
+    # 用户实名身份证号码
+    ZA_User_Blist = models.TextField('用户黑名单', max_length=50, default='{}', )
+    # 用户黑名单
+    ZA_User_questions = models.TextField('用户密保问题', max_length=50, default='{"q1":'',"q2":'',"q3":'',}', )
+    # 用户密保问题
+    ZA_User_level = models.TextField('用户等级', max_length=50, default='0', )
+
     # def __str__(self):
     #     str_ZA_User_ID = str(self.ZA_User_ID)
     #     return str_ZA_User_ID
