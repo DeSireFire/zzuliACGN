@@ -268,10 +268,20 @@ def downloadperson(request):
     '''
         用户中心首页信息
     '''''
+    import json
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     f1 = lambda x:1 if 1 else 0
     f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
-    f3 = lambda x:1 if x['q1'] else 0 # 密保函数
+    f3 = lambda x:1 if json.loads(x)['q1']!= '' else 0 # 密保函数
+    agent = request.META.get('HTTP_USER_AGENT',None)
+    # print(f3(user_info.ZA_User_questions()))
+    # print(type(user_info.ZA_User_questions()))
+
+    print(user_info.ZA_User_questions)
+    print(type(user_info.ZA_User_questions))
+    print(json.load(user_info.ZA_User_questions))
+    print(type(json.load(user_info.ZA_User_questions)))
+    print(agent)
     userdata={
             'username': user_info.ZA_User_Name,
             'userid': "{}".format(user_info.UserID()),
@@ -282,7 +292,8 @@ def downloadperson(request):
             'phoneif': f1(user_info.UserPhone()),# 是否设置手机号码
             'phonevalue': "{}".format(user_info.UserPhone()),
             'passwordif': f1(user_info.UserPassword()),# 是否设置密码
-            'questionif': f3(user_info.ZA_User_questions()),# 未设置密保问题
+            # 'questionif': f3(user_info.ZA_User_questions()),# 未设置密保问题
+            'questionif': 1,# 未设置密保问题
             'certificationif': f1(user_info.ZA_User_IDcard),# 已实名认证
             'birthday': "{}".format(user_info.UserBirthday()),
             'sex': int("{}".format(user_info.UserSex())),
