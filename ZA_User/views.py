@@ -5,7 +5,7 @@ from django.http import HttpResponse,JsonResponse
 from hashlib import sha256
 from django.core.paginator import Paginator,Page
 from . import loginCheck
-import re,base64
+import re,base64,json
 # from django.views.decorators.csrf import csrf_exempt
 
 from django.utils.html import escape
@@ -268,20 +268,13 @@ def downloadperson(request):
     '''
         用户中心首页信息
     '''''
-    import json
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
-    f1 = lambda x:1 if 1 else 0
+    f1 = lambda x:1 if x else 0
     f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
-    f3 = lambda x:1 if json.loads(x)['q1']!= '' else 0 # 密保函数
+    f3 = lambda x:1 if json.loads(x)!={} else 0 # 密保函数
     agent = request.META.get('HTTP_USER_AGENT',None)
-    # print(f3(user_info.ZA_User_questions()))
-    # print(type(user_info.ZA_User_questions()))
-
-    print(user_info.ZA_User_questions)
-    print(type(user_info.ZA_User_questions))
-    print(json.load(user_info.ZA_User_questions))
-    print(type(json.load(user_info.ZA_User_questions)))
     print(agent)
+    print(user_info.UserHeaderImg())
     userdata={
             'username': user_info.ZA_User_Name,
             'userid': "{}".format(user_info.UserID()),
@@ -292,8 +285,7 @@ def downloadperson(request):
             'phoneif': f1(user_info.UserPhone()),# 是否设置手机号码
             'phonevalue': "{}".format(user_info.UserPhone()),
             'passwordif': f1(user_info.UserPassword()),# 是否设置密码
-            # 'questionif': f3(user_info.ZA_User_questions()),# 未设置密保问题
-            'questionif': 1,# 未设置密保问题
+            'questionif': f3(user_info.ZA_User_questions),# 未设置密保问题
             'certificationif': f1(user_info.ZA_User_IDcard),# 已实名认证
             'birthday': "{}".format(user_info.UserBirthday()),
             'sex': int("{}".format(user_info.UserSex())),
@@ -317,22 +309,26 @@ def header_Update(request):
     '''
     imgdata = base64.b64decode(headerImgBase64[23:])
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
+    print(user_info.UserHeaderImg())
+    print(type(user_info.UserHeaderImg()))
     # 删除旧头像
     # 判断是否使用的是原始头像
     if 'default.jpg' in user_info.UserHeaderImg():
         upRec = imgUpdate(imgdata)
         if upRec:
-            print(upRec)
-            user_info.UserHeaderImg = upRec
+            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
+            user_info.ZA_User_HeaderImg = json.dumps(upRec)
             user_info.save()
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)
-    elif 'surl' in user_info.UserHeaderImg:
+    elif 'surl' in user_info.UserHeaderImg():
         upRec = imgUpdate(imgdata)
         if upRec:
-            imgDelete(imgdata)
-            user_info.UserHeaderImg.update(upRec)
+            imgDelete(user_info.UserHeaderImg())
+            print(json.dumps(upRec))
+            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
+            user_info.ZA_User_HeaderImg = json.dumps(upRec)
             user_info.save()
             return HttpResponse(status=200)
         else:
@@ -380,13 +376,18 @@ def imgUpdate(filesRB):
     else:
         return None
 
-def imgDelete(imginfo):
+def imgDelete(imginfo_f):
     """
     图片删除主函数，用于删除图床上的图片
     :param imginfo: 字符串，存储在数据库字段里的字典
     :return:
     """
     from ZA_Tools.imgTools import sm_tools, aixinxi_tools
+    print(imginfo_f)
+    print(type(imginfo_f))
+    imginfo = json.loads(imginfo_f)
+    print(imginfo)
+    print(type(imginfo))
     if imginfo['hash']:
         del_sm = sm_tools.delete(imginfo['hash'])
         if del_sm:
