@@ -267,19 +267,30 @@ def loadingBlacklist(request):
 def downloadperson(request):
     '''
         用户中心首页信息
+        (尚未加入头像地址失效的检测)
     '''''
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     f1 = lambda x:1 if x else 0
     f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
     f3 = lambda x:1 if json.loads(x)!={} else 0 # 密保函数
     agent = request.META.get('HTTP_USER_AGENT',None)
-    print(agent)
-    print(user_info.UserHeaderImg())
+    if 'default.jpg' in user_info.UserHeaderImg():
+        imgurl = user_info.UserHeaderImg()
+    else:
+        UserHeaderImg = json.loads(user_info.UserHeaderImg())
+        print(UserHeaderImg)
+        if UserHeaderImg['aurl'] and 'Chrome' in agent :
+            imgurl = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
+        elif UserHeaderImg['surl'] and 'Chrome' not in agent:
+            imgurl = UserHeaderImg['surl']
+        else:
+            imgurl = '/static/ZA_User/img/HeaderImg/head.jpg'
+    print(imgurl)
     userdata={
             'username': user_info.ZA_User_Name,
             'userid': "{}".format(user_info.UserID()),
             'usermotto': "{}".format(user_info.ZA_User_motto),
-            'userheadimg': '/static/ZA_User/img/HeaderImg/head.jpg',
+            'userheadimg': "{}".format(imgurl),
             'emailif': f1(user_info.UserEmail()),# 是否设置邮箱
             'emailvalue': "{}".format(user_info.UserEmail()),
             'phoneif': f1(user_info.UserPhone()),# 是否设置手机号码
@@ -309,8 +320,6 @@ def header_Update(request):
     '''
     imgdata = base64.b64decode(headerImgBase64[23:])
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
-    print(user_info.UserHeaderImg())
-    print(type(user_info.UserHeaderImg()))
     # 删除旧头像
     # 判断是否使用的是原始头像
     if 'default.jpg' in user_info.UserHeaderImg():
@@ -354,7 +363,7 @@ def imgUpdate(filesRB):
     # 上传SM
     sm_temp = sm_tools.update(filesRB)['data']
     if sm_temp:
-        imginfo['aurl'] = sm_temp['url']
+        imginfo['surl'] = sm_temp['url']
         imginfo['hash'] = sm_temp['hash']
     # 上传爱信息
     axx_header = aixinxi_tools.login()
@@ -362,10 +371,11 @@ def imgUpdate(filesRB):
     if axx_header:
         # 上传
         filename = aixinxi_tools.fileNameadd()
+        print('文件名预计为：%s'%filename)
         aixinxi_temp = aixinxi_tools.updata(axx_header,filename,{'file':filesRB})
         # 提交成功
         if aixinxi_temp:
-            imginfo['surl'] = filename
+            imginfo['aurl'] = filename
             imginfo['key'] = aixinxi_temp[0]
     else:
         print('爱信息图床上传失败')
@@ -383,11 +393,7 @@ def imgDelete(imginfo_f):
     :return:
     """
     from ZA_Tools.imgTools import sm_tools, aixinxi_tools
-    print(imginfo_f)
-    print(type(imginfo_f))
     imginfo = json.loads(imginfo_f)
-    print(imginfo)
-    print(type(imginfo))
     if imginfo['hash']:
         del_sm = sm_tools.delete(imginfo['hash'])
         if del_sm:
@@ -401,8 +407,8 @@ def imgDelete(imginfo_f):
             del_axx = aixinxi_tools.delete(axx_header,imginfo['key'])
             # 删除成功
             if del_axx:
-                print('删除成功！')
+                print('爱信息图床删除成功！')
             else:
-                print('删除失败！')
+                print('爱信息图床删除失败！')
         else:
             print('爱信息图床登陆失败')

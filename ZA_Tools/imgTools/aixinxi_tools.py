@@ -198,7 +198,7 @@ def fileNameadd(Anystr = fileNameIter(),fileType = '.jpg'):
     :param fileType: 字符串,文件格式（后缀,例如：.jpg,.png,.txt）
     :return: 字符串，拼接好的文件名
     """
-    return "{}{}{}".format("o_1csbn", Anystr, fileType)
+    return "{}{}{}".format("o_zzuliACGN", Anystr[0:20], fileType)
 
 # def main():
     # ok = login()
@@ -207,7 +207,7 @@ def fileNameadd(Anystr = fileNameIter(),fileType = '.jpg'):
     # else:
     #     print('No')
     # header_test = {'User-Agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)',
-    #            'cookie': 'PHPSESSID=uoe4a8tu5h0v42jpua6gp83pu7',
+    #            'cookie': 'PHPSESSID=jnpau1j446oqai4bgi9oj76eq3',
     #            'referer': 'https://tu.aixinxi.net/views/pages.php?id=explore',
     #            'upgrade-insecure-requests': '1'}
     # with open('1.jpg', 'rb') as f:
@@ -219,6 +219,7 @@ def fileNameadd(Anystr = fileNameIter(),fileType = '.jpg'):
     # delete(header_test,'44764c752081126b509b12091356f56c')
     # filesFind({'User-Agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)',
     # f = open('1.jpg', 'rb')
+    # print(f.read())
     # files = {'file':f}
     # updata(header_test,'o_1cq3oq991g0q1lt3121t04dada1.jpg',files)
     # f.close()
