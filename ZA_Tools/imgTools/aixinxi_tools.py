@@ -191,14 +191,16 @@ def loginOut(Header):
     # print(req.headers)
 
 # 文件名拼接
-def fileNameadd(Anystr = fileNameIter(),fileType = '.jpg'):
+# def fileNameadd(Anystr,fileType = '.jpg'):
+def fileNameadd(fileType = '.jpg'):
     """
 
     :param Anystr: 字符串
     :param fileType: 字符串,文件格式（后缀,例如：.jpg,.png,.txt）
     :return: 字符串，拼接好的文件名
     """
-    return "{}{}{}".format("o_zzuliACGN", Anystr[0:20], fileType)
+    Anystr = fileNameIter()
+    return "{}{}{}".format("o_zzuliACGN", Anystr, fileType)
 
 # def main():
     # ok = login()

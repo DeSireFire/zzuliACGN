@@ -1,4 +1,4 @@
-import random,time
+import random
 from zzuliACGN.config import aixinxi_login_dirt
 
 '''
@@ -28,7 +28,8 @@ aixinxi_data_save = {
 'ming':'o_1cqs8t6tg1s0h1sddovn50ika.mp4',
 }
 # 爱信息图床，加密用的文件名
-fileName_data = "{}{}".format(random.randint(0,9),int(time.time())).encode('utf8')
+# fileName_data = "{}{}".format(random.randint(0,9),int(time.time())).encode('utf8')
+fileName_data = "{}".format('zzuliacgn').encode('utf8')
 
 # sm.ms,上传data
 sm_data = {'smfile':'',}
