@@ -252,15 +252,27 @@ def loadingBlacklist(request):
             # "size": 10,
             # "pages": 0,
             # "current": 1,
-            'current': 0,
-            'pages': 0,
-            'size': 0,
-            'total': 0,
+            'current': 0,# 当前页面
+            'pages': 0,# 总页数
+            'size': 0,# 每页所含条目
+            'total': 0,# 总条目数
             "records": [
                 # {"uid": 100, "head": "/static/ZA_User/img/HeaderImg/head.jpg", "userName": "来自后端的响应","time": "2018-06-30 02:44:21"},
             ]
         },
     }
+    blacklist = list(ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id']).ZA_User_Blist)
+    if blacklist:
+
+        blackList_json = {
+            'data':{
+                'current': 1,# 当前页面
+                'pages': 1+len(blacklist)//10,# 总页数
+                'size': 10,# 每页所含条目
+                'total': len(blacklist),# 总条目数
+                "records": blacklist
+            },
+        }
     return JsonResponse(blackList_json)
 
 @loginCheck.logining
