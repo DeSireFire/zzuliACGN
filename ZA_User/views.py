@@ -202,16 +202,7 @@ def login_handler(request):
             # 登录成功保存session信息
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
-            agent = request.META.get('HTTP_USER_AGENT', None)
-            if 'default.jpg' not in old_users[0].UserHeaderImg():
-                UserHeaderImg = json.loads(old_users[0].UserHeaderImg())
-                print(UserHeaderImg)
-                if UserHeaderImg['aurl'] and 'Chrome' in agent:
-                    request.session['HeaderURL'] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
-                elif UserHeaderImg['surl'] and 'Chrome' not in agent:
-                    request.session['HeaderURL'] = UserHeaderImg['surl']
-                else:
-                    request.session['HeaderURL'] = '/static/ZA_User/img/HeaderImg/head.jpg'
+            request = UpdataHeaderURL(request,old_users[0].UserHeaderImg())
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
             print("session——user_name:%s"%request.session['zzuliacgn_user_name'])
@@ -229,9 +220,9 @@ def login_handler(request):
         print("登陆失败！用户名不存在")
         return JsonResponse(login_json)
 
-def headerURL(request,imgdata):
+def UpdataHeaderURL(request,imgdata):
     '''
-
+    更新session中HeaderURL字段中的值来达到头像图片同步的目的
     :param imgdata:字符串，直接从数据库获取字段内容
     :return:
     '''
@@ -367,6 +358,7 @@ def header_Update(request):
             # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
             user_info.ZA_User_HeaderImg = json.dumps(upRec)
             user_info.save()
+            UpdataHeaderURL(request,user_info.ZA_User_HeaderImg)
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)
@@ -378,7 +370,7 @@ def header_Update(request):
             # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
             user_info.ZA_User_HeaderImg = json.dumps(upRec)
             user_info.save()
-
+            UpdataHeaderURL(request, user_info.ZA_User_HeaderImg)
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)
