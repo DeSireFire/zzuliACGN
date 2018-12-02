@@ -164,7 +164,6 @@ def login_handler(request):
         "url":"", # 删除转向地址，防止以后直接登录造成的转向
         "zzuliacgn_user_name":None, # 用户名信息
         "zzuliacgn_u":None, # 用户名信息
-        "HeaderURL": '/static/ZA_User/img/HeaderImg/head.jpg',
 
         # max_age:-1表示为cookies的max-age的默认值是-1(即max-age和expires的有效期为session)
         "max_age":-1, # 是否使用cookies的max-age,设置cookies还剩多少秒苟活，
@@ -204,18 +203,14 @@ def login_handler(request):
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
             agent = request.META.get('HTTP_USER_AGENT', None)
-            print(old_users[0].UserHeaderImg())
             if 'default.jpg' not in old_users[0].UserHeaderImg():
                 UserHeaderImg = json.loads(old_users[0].UserHeaderImg())
                 print(UserHeaderImg)
                 if UserHeaderImg['aurl'] and 'Chrome' in agent:
-                    login_json["HeaderURL"] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
                     request.session['HeaderURL'] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
                 elif UserHeaderImg['surl'] and 'Chrome' not in agent:
-                    login_json["HeaderURL"] = UserHeaderImg['surl']
                     request.session['HeaderURL'] = UserHeaderImg['surl']
                 else:
-                    login_json["HeaderURL"] = '/static/ZA_User/img/HeaderImg/head.jpg'
                     request.session['HeaderURL'] = '/static/ZA_User/img/HeaderImg/head.jpg'
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
@@ -233,6 +228,24 @@ def login_handler(request):
         # 密码验证失败，返回json给js
         print("登陆失败！用户名不存在")
         return JsonResponse(login_json)
+
+def headerURL(request,imgdata):
+    '''
+
+    :param imgdata:字符串，直接从数据库获取字段内容
+    :return:
+    '''
+    agent = request.META.get('HTTP_USER_AGENT', None)
+    if 'default.jpg' not in imgdata:
+        UserHeaderImg = json.loads(imgdata)
+        print(UserHeaderImg)
+        if UserHeaderImg['aurl'] and 'Chrome' in agent:
+            request.session['HeaderURL'] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
+        elif UserHeaderImg['surl'] and 'Chrome' not in agent:
+            request.session['HeaderURL'] = UserHeaderImg['surl']
+        else:
+            request.session['HeaderURL'] = '/static/ZA_User/img/HeaderImg/head.jpg'
+    return request
 
 @loginCheck.logining
 def login_out(request):
@@ -365,6 +378,7 @@ def header_Update(request):
             # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
             user_info.ZA_User_HeaderImg = json.dumps(upRec)
             user_info.save()
+
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)

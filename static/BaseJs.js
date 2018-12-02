@@ -87,32 +87,9 @@ function main() {
         $("#bs-example-navbar-collapse-1").attr("class","navbar-collapse collapse");
     });
 
-    /*====================================
-    头像获取
-    ======================================*/
-    //获取cookie里的头像地址
-     $(document).ready(function(){
-        var test = getCookie("HeaderURL");
-        alert(test);
-    });
 
 
 }
 
-
-function getCookie(cookieName){
-        var cookieValue="";
-        if (document.cookie && document.cookie != '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                 var cookie = cookies[i];
-                 if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {
-                       cookieValue = cookie.substring(cookieName.length + 2, cookie.length);
-                       break;
-                 }
-             }
-        }
-        return cookieValue;
-    }
 
 main();

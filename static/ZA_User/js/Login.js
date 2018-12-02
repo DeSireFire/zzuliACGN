@@ -494,15 +494,12 @@ function login(){
                 if(data.login === "ok"){
                     // 后端验证通过ok
                     console.log("max_age:"+data.max_age);
-                    console.log("HeaderURL:"+data.max_age);
                     if(data.max_age == -1){
                         $.cookie("url",'',{ path: '/', max_age:-1 });
                         $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ path: '/', max_age:-1 });
-                        $.cookie("HeaderURL", data.HeaderURL ,{ path: '/', max_age:-1 });
                     } else {
                         $.cookie("url",'',{ expires: data.Expires, path: '/', max_age: data.max_age });
                         $.cookie("zzuliacgn_user_name", data.zzuliacgn_user_name ,{ expires: data.Expires, path: '/', max_age: data.max_age });
-                        $.cookie("HeaderURL", data.HeaderURL ,{ expires: data.Expires, path: '/', max_age: data.max_age });
                     }
                     window.location.href='/';
                 } else if(data.login === "no"){

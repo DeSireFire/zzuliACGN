@@ -71,7 +71,8 @@
                 <ul id="Logining" class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img src="/static/ZA_User/img/HeaderImg/default.jpg" class="img-responsive img-circle center-block nav-header" alt="@">
+{#                            <img src="/static/ZA_User/img/HeaderImg/default.jpg" class="img-responsive img-circle center-block nav-header" alt="@">#}
+                            <img src="{{request.session.HeaderURL|escape}}" class="img-responsive img-circle center-block nav-header" alt="@">
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">昵称：{{request.session.zzuliacgn_user_name|escape}}</a></li>
