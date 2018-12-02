@@ -164,12 +164,14 @@ def login_handler(request):
         "url":"", # 删除转向地址，防止以后直接登录造成的转向
         "zzuliacgn_user_name":None, # 用户名信息
         "zzuliacgn_u":None, # 用户名信息
+        "HeaderURL": '/static/ZA_User/img/HeaderImg/head.jpg',
 
         # max_age:-1表示为cookies的max-age的默认值是-1(即max-age和expires的有效期为session)
         "max_age":-1, # 是否使用cookies的max-age,设置cookies还剩多少秒苟活，
         # expires为0表示为cookies的expires的默认值是为session,否则留存天数，单位（天）(即max-age和expires的有效期为session)
         "Expires":0, # 是否使用cookies的expires,设置cookies过期时间点,预留
     }
+
     if len(old_users) == 1:
         # 获取到用户名
         # 验证密码
@@ -201,12 +203,27 @@ def login_handler(request):
             # 登录成功保存session信息
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
+            agent = request.META.get('HTTP_USER_AGENT', None)
+            print(old_users[0].UserHeaderImg())
+            if 'default.jpg' not in old_users[0].UserHeaderImg():
+                UserHeaderImg = json.loads(old_users[0].UserHeaderImg())
+                print(UserHeaderImg)
+                if UserHeaderImg['aurl'] and 'Chrome' in agent:
+                    login_json["HeaderURL"] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
+                    request.session['HeaderURL'] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
+                elif UserHeaderImg['surl'] and 'Chrome' not in agent:
+                    login_json["HeaderURL"] = UserHeaderImg['surl']
+                    request.session['HeaderURL'] = UserHeaderImg['surl']
+                else:
+                    login_json["HeaderURL"] = '/static/ZA_User/img/HeaderImg/head.jpg'
+                    request.session['HeaderURL'] = '/static/ZA_User/img/HeaderImg/head.jpg'
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
             print("session——user_name:%s"%request.session['zzuliacgn_user_name'])
             print("session——id:%s"%request.session.session_key)
             print("session——keys:%s"%request.session.keys())
             print("session——values:%s"%request.session.values())
+
             return JsonResponse(login_json)
         else:
             # 密码验证失败，返回json给js
@@ -233,12 +250,10 @@ def userCenter(request):
         从session获取user_info的id
     '''
     # from django.http import HttpResponse
-    # user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     context={
         'title':'用户中心',
-        # 'user':user_info,
-        # 'page_name': 1
     }
+    print(context)
     return render(request,'ZA_User/usercenter.html',context)
 
 @loginCheck.logining
@@ -297,7 +312,6 @@ def downloadperson(request):
             imgurl = UserHeaderImg['surl']
         else:
             imgurl = '/static/ZA_User/img/HeaderImg/head.jpg'
-    print(imgurl)
     userdata={
             'username': user_info.ZA_User_Name,
             'userid': "{}".format(user_info.UserID()),
