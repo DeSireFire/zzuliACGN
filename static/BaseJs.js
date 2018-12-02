@@ -87,8 +87,6 @@ function main() {
         $("#bs-example-navbar-collapse-1").attr("class","navbar-collapse collapse");
     });
 
-
-
 }
 
 
