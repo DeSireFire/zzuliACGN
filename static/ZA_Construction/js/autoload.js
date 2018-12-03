@@ -13,5 +13,6 @@ try {
     live2d_settings['waifuToolTop'] = '-60px' 
     live2d_settings['waifuTipsSize'] = '200x70';
     /* 在 initModel 前添加 */
+
     initModel('/static/ZA_Construction/js/waifu-tips.json');
 } catch(err) { console.log('[Error] JQuery is not defined.') }

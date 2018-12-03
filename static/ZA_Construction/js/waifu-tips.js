@@ -193,8 +193,10 @@
         } 
         // loadModel(modelId, modelTexturesId);
         //初始时加载的模型函数
-        loadlive2d('live2d', 'assets/katou/katou_01.model.json');
-    
+        // loadlive2d('live2d', 'assets/katou/katou_01.model.json');
+        // loadlive2d('live2d', '/static/ZA_live2D/aoba/model.json');
+        loadlive2d('live2d', '/static/ZA_live2D/rem/model.json');
+
     }
     //切换模型时会执行的函数
     // function loadModel(modelId, modelTexturesId) {
