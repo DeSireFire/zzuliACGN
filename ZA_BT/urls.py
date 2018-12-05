@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('',views.novelsIndex),
+    path('',views.BTIndex),
 ]
