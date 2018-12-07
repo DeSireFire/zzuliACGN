@@ -68,9 +68,9 @@ class ZA_UserInfo(models.Model):
     # 用户实名姓名
     ZA_User_IDcard = models.CharField('实名身份证', max_length=50, default='Unknow', )
     # 用户实名身份证号码
-    ZA_User_Blist = models.TextField('用户黑名单', max_length=50, default='[{}]', )
+    ZA_User_Blist = models.TextField('用户黑名单', default='[{}]', )
     # 用户黑名单
-    ZA_User_questions = models.TextField('用户密保问题', max_length=50, default="[]", )
+    ZA_User_questions = models.TextField('用户密保问题', default="[]", )
     # 用户密保问题
     ZA_User_level = models.TextField('用户等级', max_length=50, default='0', )
 
