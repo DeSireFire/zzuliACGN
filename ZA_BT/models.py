@@ -11,8 +11,8 @@ class Rtypes(models.Model):
 
 #资源信息
 class Items(models.Model):
-    rdName = models.CharField(max_length=50,unique=True)#资源名称
-    rdUpTime = models.CharField(max_length=30,unique=True)  # 资源发布时间
+    rdName = models.TextField(default='未知')#资源名称
+    rdUpTime = models.CharField(max_length=50,unique=True)  # 资源发布时间
     rdSize = models.CharField(max_length=30,default='-')#资源大小
     rdUpNum = models.CharField(max_length=50,default='-')#资源上传数
     rdDownloadNum = models.CharField(max_length=50,default='-')#资源下载数
