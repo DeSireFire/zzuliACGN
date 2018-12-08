@@ -124,47 +124,80 @@
                         </tr>
                     </thead>
                     <tbody class="container">
+                    {% for v in hamayarawa_list.object_list %}
                         <tr class="">
                             <td class="col-xs-2 col-sm-2">	2018-11-08 08:47</td>
                             <td class="col-xs-2 col-sm-1"><a href="?/category=1">动画</a></td>
-                            <td class="col-xs-5 col-sm-4"><a href="/view">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>
+                            <td class="col-xs-5 col-sm-4"><a href="/view/{{ v.id }}">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>
                             <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-2 col-sm-1">13.9 GiB</td>
                             <td class="col-xs-0 col-sm-1">1</td>
                             <td class="col-xs-0 col-sm-1">7</td>
                             <td class="col-xs-0 col-sm-1">0</td>
                         </tr>
-                        <tr class="">
-                            <td class="col-xs-2 col-sm-2">	2018-11-08 08:47</td>
-                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">动画</a></td>
-                            <td class="col-xs-5 col-sm-4"><a href="/view">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>
-                            <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
-                            <td class="col-xs-2 col-sm-1">13.9 GiB</td>
-                            <td class="col-xs-0 col-sm-1">1</td>
-                            <td class="col-xs-0 col-sm-1">7</td>
-                            <td class="col-xs-0 col-sm-1">0</td>
-                        </tr>
+                    {% endfor %}
+{#                        <tr class="">#}
+{#                            <td class="col-xs-2 col-sm-2">	2018-11-08 08:47</td>#}
+{#                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">动画</a></td>#}
+{#                            <td class="col-xs-5 col-sm-4"><a href="/view">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>#}
+{#                            <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>#}
+{#                            <td class="col-xs-2 col-sm-1">13.9 GiB</td>#}
+{#                            <td class="col-xs-0 col-sm-1">1</td>#}
+{#                            <td class="col-xs-0 col-sm-1">7</td>#}
+{#                            <td class="col-xs-0 col-sm-1">0</td>#}
+{#                        </tr>#}
                     </tbody>
                 </table>
                 <nav id="page" aria-label="Page navigation">
                     <ul class="pagination">
-                      <li>
-                        <a href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li class="active"><a href="/?p=1">1</a></li>
-                      <li><a href="/Resourcedownload/?p=2">2</a></li>
-                      <li><a href="/Resourcedownload/?p=3">3</a></li>
-                      <li><a href="/Resourcedownload/?p=4">4</a></li>
-                      <li><a href="/Resourcedownload/?p=5">5</a></li>
-                      <li>
-                        <a href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
+{#                        <li>#}
+{#                        {% if hamayarawa_list.has_previous %}#}
+{#                            <a href="#" aria-label="Previous">#}
+{#                                <span aria-hidden="true">&laquo;</span>#}
+{#                            </a>#}
+{#                        {% else %}#}
+{#                            <span class="hide"><i class="ion-chevron-left"></i></span>#}
+{#                        {% endif %}#}
+{#                        </li>#}
+{#                        {% for ka_ki_ku_ke_ko in hamayarawa_list.pages %}#}
+{#                            {% if ka_ki_ku_ke_ko %}#}
+{#                                {% ifequal page article_list.number %}#}
+{#                                    <li class="active">{{ ka_ki_ku_ke_ko }}</li>#}
+{#                                {% else %}#}
+{#                                    <li><a href="?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>#}
+{#                                {% endifequal %}#}
+{#                            {% else %}#}
+{#                                <li> ...</li>#}
+{#                            {% endif %}#}
+{#                        {% endfor %}#}
+{#                        <li>#}
+{#                        {% if hamayarawa_list.has_next %}#}
+{#                            <a href="?{{ hamayarawa_list.next_page_number.querystring }}" aria-label="Next">#}
+{#                                <span aria-hidden="true">&raquo;</span>#}
+{#                            </a>#}
+{#                        {% else %}#}
+{#                            <span class="hide"><i class="ion-chevron-right"></i></span>#}
+{#                        {% endif %}#}
+{#                        </li>#}
+                        {% if hamayarawa_list.has_previous %}
+                            <li><a href="/Resourcedownload/?{{ hamayarawa_list.previous_page_number.querystring }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        {% endif %}
+                        {% for ka_ki_ku_ke_ko in hamayarawa_list.pages %}
+                            {% if ka_ki_ku_ke_ko %}
+                                {% if ka_ki_ku_ke_ko == hamayarawa_list.number %}
+                                    <li class="active"><a href="/Resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
+                                {% else %}
+                                    <li><a href="/Resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><a href="#">...</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if hamayarawa_list.has_next %}
+                            <li><a href="/Resourcedownload/?{{ hamayarawa_list.next_page_number.querystring }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                        {% endif %}
                     </ul>
-                  </nav>
+                </nav>
             </div>
         </div>
     </div>

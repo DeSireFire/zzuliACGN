@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 class R_typeAdmin(admin.ModelAdmin):
-    list_display = ['id','R_title']
+    list_display = ['id','BTtitle']
 class R_infoAdmin(admin.ModelAdmin):
     '''
     用户查询在admin界面中的显示
@@ -33,5 +33,5 @@ class R_infoAdmin(admin.ModelAdmin):
     #     'wa_n_wo',
     # ]
 # # 在admin页面里面注册model中的类和admin.py中对应的类
-admin.site.register(R_type,R_typeAdmin)
-admin.site.register(R_info,R_infoAdmin)
+admin.site.register(Rtypes,R_typeAdmin)
+admin.site.register(Items,R_infoAdmin)

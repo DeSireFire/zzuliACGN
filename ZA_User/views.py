@@ -3,7 +3,7 @@ from .models import *
 # from django.http import HttpResponseRedirect,JsonResponse
 from django.http import HttpResponse,JsonResponse
 from hashlib import sha256
-from django.core.paginator import Paginator,Page
+# from django.core.paginator import Paginator,Page
 from . import loginCheck
 import re,base64,json
 # from django.views.decorators.csrf import csrf_exempt
