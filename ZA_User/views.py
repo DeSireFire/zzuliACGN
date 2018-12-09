@@ -257,7 +257,6 @@ def userCenter(request):
     context={
         'title':'用户中心',
     }
-    print(context)
     return render(request,'ZA_User/usercenter.html',context)
 
 @loginCheck.logining
@@ -299,7 +298,7 @@ def downloadperson(request):
     '''
         用户中心首页信息
         (尚未加入头像地址失效的检测)
-    '''''
+    '''
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     f1 = lambda x:1 if x else 0
     f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
@@ -444,3 +443,9 @@ def imgDelete(imginfo_f):
                 print('爱信息图床删除失败！')
         else:
             print('爱信息图床登陆失败')
+
+def userCenter_special(request):
+    context={
+        'title':'特殊函数测试',
+    }
+    return render(request,'ZA_User/usercenter.html',context)
