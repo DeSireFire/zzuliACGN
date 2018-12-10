@@ -1,11 +1,6 @@
 /* Home Style */
-li {
-    /*去掉列表头*/
-    list-style: none;
-}
-
 #tf-home {
-    background:url(../Images/Construction_period.png);
+    background:url(../Images/66474729_p0.jpg);
     /*background:url(img/1500x500.jpg);*/
     background-size:cover;
     background-position:center;
@@ -34,9 +29,15 @@ li {
 #tf-home p.lead {
     color:#e3e3e3;
 }
+/*居中内容块*/
+#body-container.container {
+    border: 1px solid #99CCFF;
+    background-color: rgba(153,204,255,0.1);
+}
 .content {
     position:relative;
-    padding:10% 0 0;
+    /*响应式标记，全改为20%*/
+    padding:6% 0 0;
 }
 .color {
     color:#fcac45;
@@ -71,22 +72,33 @@ a.fa.fa-angle-down:hover {
 
     }
 }
+@media (max-width: 970px){
+    .content {
+        padding: 5% 0 0;
+    }
+    .container{
+        background-color: #2b2e33;
 
-
-/*cp*/
-.box1{
-    border:rgba(153,204,255,0.5);
-    border-radius: 30px;
-    opacity: 0.99;
-    color: #99a2aa;
+    }
 }
-.box2{
-    border:rgba(153,204,255,0.5);
-    border-radius: 30px;
-    border-top: 4px #ccd0d7 dashed;
-    opacity: 0.99;
-    color: #99a2aa;
+@media (max-width: 640px){
+    .content {
+        padding:30% 0 0;
+    }
 }
-.space{
-    margin-top: 40px;
+@media (max-width: 960px){
+    .content {
+        padding:15% 0 0;
+    }
+}
+/*响应式标记，全改为15px*/
+/* .container{
+    padding-left: 0px;
+    padding-right: 0px;
+} */
+@media (max-width: 768px){
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }

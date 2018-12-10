@@ -3,9 +3,9 @@ from .models import *
 # from django.http import HttpResponseRedirect,JsonResponse
 from django.http import HttpResponse,JsonResponse
 from hashlib import sha256
-from django.core.paginator import Paginator,Page
+# from django.core.paginator import Paginator,Page
 from . import loginCheck
-import re,base64
+import re,base64,json
 # from django.views.decorators.csrf import csrf_exempt
 
 from django.utils.html import escape
@@ -116,7 +116,7 @@ def register_handle(request):
         print(New_ZA_User_Phone)
         print(Up_Password_Encipherment)
         print(NewUser)
-        # NewUser.save()
+        NewUser.save()
     return redirect('/user/login/')
 
 
@@ -170,6 +170,7 @@ def login_handler(request):
         # expires为0表示为cookies的expires的默认值是为session,否则留存天数，单位（天）(即max-age和expires的有效期为session)
         "Expires":0, # 是否使用cookies的expires,设置cookies过期时间点,预留
     }
+
     if len(old_users) == 1:
         # 获取到用户名
         # 验证密码
@@ -201,12 +202,14 @@ def login_handler(request):
             # 登录成功保存session信息
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
+            request = UpdataHeaderURL(request,old_users[0].UserHeaderImg())
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
             print("session——user_name:%s"%request.session['zzuliacgn_user_name'])
             print("session——id:%s"%request.session.session_key)
             print("session——keys:%s"%request.session.keys())
             print("session——values:%s"%request.session.values())
+
             return JsonResponse(login_json)
         else:
             # 密码验证失败，返回json给js
@@ -216,6 +219,24 @@ def login_handler(request):
         # 密码验证失败，返回json给js
         print("登陆失败！用户名不存在")
         return JsonResponse(login_json)
+
+def UpdataHeaderURL(request,imgdata):
+    '''
+    更新session中HeaderURL字段中的值来达到头像图片同步的目的
+    :param imgdata:字符串，直接从数据库获取字段内容
+    :return:
+    '''
+    agent = request.META.get('HTTP_USER_AGENT', None)
+    if 'default.jpg' not in imgdata:
+        UserHeaderImg = json.loads(imgdata)
+        print(UserHeaderImg)
+        if UserHeaderImg['aurl'] and 'Chrome' in agent:
+            request.session['HeaderURL'] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
+        elif UserHeaderImg['surl'] and 'Chrome' not in agent:
+            request.session['HeaderURL'] = UserHeaderImg['surl']
+        else:
+            request.session['HeaderURL'] = '/static/ZA_User/img/HeaderImg/head.jpg'
+    return request
 
 @loginCheck.logining
 def login_out(request):
@@ -233,11 +254,8 @@ def userCenter(request):
         从session获取user_info的id
     '''
     # from django.http import HttpResponse
-    # user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     context={
         'title':'用户中心',
-        # 'user':user_info,
-        # 'page_name': 1
     }
     return render(request,'ZA_User/usercenter.html',context)
 
@@ -252,47 +270,71 @@ def loadingBlacklist(request):
             # "size": 10,
             # "pages": 0,
             # "current": 1,
-            'current': 0,
-            'pages': 0,
-            'size': 0,
-            'total': 0,
+            'current': 0,# 当前页面
+            'pages': 0,# 总页数
+            'size': 0,# 每页所含条目
+            'total': 0,# 总条目数
             "records": [
                 # {"uid": 100, "head": "/static/ZA_User/img/HeaderImg/head.jpg", "userName": "来自后端的响应","time": "2018-06-30 02:44:21"},
             ]
         },
     }
+    blacklist = list(ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id']).ZA_User_Blist)
+    if blacklist:
+
+        blackList_json = {
+            'data':{
+                'current': 1,# 当前页面
+                'pages': 1+len(blacklist)//10,# 总页数
+                'size': 10,# 每页所含条目
+                'total': len(blacklist),# 总条目数
+                "records": blacklist
+            },
+        }
     return JsonResponse(blackList_json)
 
 @loginCheck.logining
 def downloadperson(request):
     '''
         用户中心首页信息
-        
-    '''''
+        (尚未加入头像地址失效的检测)
+    '''
+    user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
+    f1 = lambda x:1 if x else 0
+    f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
+    f3 = lambda x:1 if json.loads(x)!={} else 0 # 密保函数
+    agent = request.META.get('HTTP_USER_AGENT',None)
+    if 'default.jpg' in user_info.UserHeaderImg():
+        imgurl = user_info.UserHeaderImg()
+    else:
+        UserHeaderImg = json.loads(user_info.UserHeaderImg())
+        print(UserHeaderImg)
+        if UserHeaderImg['aurl'] and 'Chrome' in agent :
+            imgurl = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
+        elif UserHeaderImg['surl'] and 'Chrome' not in agent:
+            imgurl = UserHeaderImg['surl']
+        else:
+            imgurl = '/static/ZA_User/img/HeaderImg/head.jpg'
     userdata={
-            'username': '可爱的子昂同学',
-            'userid': '8080',
-            'usermotto': '个性签名',
-            'userheadimg': '/static/ZA_User/img/HeaderImg/head.jpg',
-            'emailif': 1,
-            'emailvalue': "exampl233e@email.com",
-            'phoneif': 1,
-            'phonevalue': 13517683169,
-            'passwordif': 1,
-            'passwordvalue': "已设置",
-            'questionif': 0,
-            'questionvalue': "未设置密保问题",
-            'certificationif': 1,
-            'certificationvalue': "已实名认证",
-            'birthday': '1999-02-10',
-            'sex': 2,
+            'username': user_info.ZA_User_Name,
+            'userid': "{}".format(user_info.UserID()),
+            'usermotto': "{}".format(user_info.ZA_User_motto),
+            'userheadimg': "{}".format(imgurl),
+            'emailif': f1(user_info.UserEmail()),# 是否设置邮箱
+            'emailvalue': "{}".format(user_info.UserEmail()),
+            'phoneif': f1(user_info.UserPhone()),# 是否设置手机号码
+            'phonevalue': "{}".format(user_info.UserPhone()),
+            'passwordif': f1(user_info.UserPassword()),# 是否设置密码
+            'questionif': f3(user_info.ZA_User_questions),# 未设置密保问题
+            'certificationif': f1(user_info.ZA_User_IDcard),# 已实名认证
+            'birthday': "{}".format(user_info.UserBirthday()),
+            'sex': int("{}".format(user_info.UserSex())),
             'sexselect': ['', '', ''],
-            'ip': '127.0.0.1',
-            'identity': '校外人士',
-            'truename': '',
-            'idcard': '41***************3',
+            'ip': "{}".format(user_info.UserFromIP()),
+            'identity': "{}".format(user_info.Useridentity()),
+            'truename': f2("{}".format(user_info.ZA_User_TrueName)),
+            'idcard': f2("{}".format(user_info.ZA_User_TrueName)),
         }
-
     return JsonResponse(userdata)
 
 @loginCheck.logining
@@ -304,31 +346,35 @@ def header_Update(request):
     headerImgBase64 = request.POST.get('userheadimg')
     '''
     data:image/jpeg;base64,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
-    
     '''
-    # imgdata = base64.b64decode(headerImgBase64[23:])
+    imgdata = base64.b64decode(headerImgBase64[23:])
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     # 删除旧头像
     # 判断是否使用的是原始头像
-    if 'default.jpg' in user_info.UserHeaderImg:
-        pass
-
-    # 上传新头像
-    # temp1 = sm_tools.update(imgdata)['data']
-    # temp2 = aixinxi_tools.update(imgdata)['data']
-    # if temp:
-    #     user_info.UserHeaderImg = imginfo
-    #     print(imginfo)
-    #     print(user_info.UserHeaderImg)
-    #     return HttpResponse(status=200)
-    # else:
-    #     return HttpResponse(status=404)
-
-    return HttpResponse(status=404)
-    # 本地存储
-    # file = open('1.jpg', 'wb')
-    # file.write(imgdata)
-    # file.close()
+    if 'default.jpg' in user_info.UserHeaderImg():
+        upRec = imgUpdate(imgdata)
+        if upRec:
+            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
+            user_info.ZA_User_HeaderImg = json.dumps(upRec)
+            user_info.save()
+            UpdataHeaderURL(request,user_info.ZA_User_HeaderImg)
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=404)
+    elif 'surl' in user_info.UserHeaderImg():
+        upRec = imgUpdate(imgdata)
+        if upRec:
+            imgDelete(user_info.UserHeaderImg())
+            print(json.dumps(upRec))
+            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
+            user_info.ZA_User_HeaderImg = json.dumps(upRec)
+            user_info.save()
+            UpdataHeaderURL(request, user_info.ZA_User_HeaderImg)
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=404)
+    else:
+        return HttpResponse(status=404)
 
 def imgUpdate(filesRB):
     """
@@ -348,7 +394,7 @@ def imgUpdate(filesRB):
     # 上传SM
     sm_temp = sm_tools.update(filesRB)['data']
     if sm_temp:
-        imginfo['aurl'] = sm_temp['url']
+        imginfo['surl'] = sm_temp['url']
         imginfo['hash'] = sm_temp['hash']
     # 上传爱信息
     axx_header = aixinxi_tools.login()
@@ -356,21 +402,50 @@ def imgUpdate(filesRB):
     if axx_header:
         # 上传
         filename = aixinxi_tools.fileNameadd()
-        aixinxi_temp = aixinxi_tools.updata(axx_header,filename,filesRB)
+        print('文件名预计为：%s'%filename)
+        aixinxi_temp = aixinxi_tools.updata(axx_header,filename,{'file':filesRB})
         # 提交成功
         if aixinxi_temp:
-            imginfo['surl'] = filename
+            imginfo['aurl'] = filename
             imginfo['key'] = aixinxi_temp[0]
     else:
-        print('No')
+        print('爱信息图床上传失败')
     # 退出状态
     aixinxi_tools.loginOut(axx_header)
+    if imginfo['aurl'] or imginfo['surl']:
+        return imginfo
+    else:
+        return None
 
-
-def imgDelete(surl):
+def imgDelete(imginfo_f):
     """
     图片删除主函数，用于删除图床上的图片
-    :param surl: 字符串，存储在数据库字段里的字典surl键的值
+    :param imginfo: 字符串，存储在数据库字段里的字典
     :return:
     """
-    pass
+    from ZA_Tools.imgTools import sm_tools, aixinxi_tools
+    imginfo = json.loads(imginfo_f)
+    if imginfo['hash']:
+        del_sm = sm_tools.delete(imginfo['hash'])
+        if del_sm:
+            print('sm图床删除成功！')
+        else:
+            print('sm图床删除失败！')
+    if imginfo['key']:
+        axx_header = aixinxi_tools.login()
+        if axx_header:
+            # 删除
+            del_axx = aixinxi_tools.delete(axx_header,imginfo['key'])
+            # 删除成功
+            if del_axx:
+                print('爱信息图床删除成功！')
+            else:
+                print('爱信息图床删除失败！')
+        else:
+            print('爱信息图床登陆失败')
+
+def userCenter_special(request):
+    context={
+        'title':'特殊函数测试',
+    }
+    return render(request,'ZA_User/usercenter.html',context)

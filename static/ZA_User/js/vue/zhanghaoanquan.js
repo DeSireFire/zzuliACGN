@@ -74,7 +74,7 @@ let zhanghaoanquan = Vue.component('account-safe',{
             this.userdatatemp[2].classname="fa fa-fw fa-check-circle"
         }
 
-        if(this.userdata.questuinif != 1){
+        if(this.userdata.questionif != 1){
             this.userdatatemp[3].value="未设置密保问题"
             this.userdatatemp[3].rt="设置"
             this.userdatatemp[3].classname="fa fa-fw fa-exclamation-circle"

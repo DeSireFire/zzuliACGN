@@ -17,9 +17,9 @@ aixinxi_data_delete = {
 # 爱信息图床，上传时的附加数据
 aixinxi_update_data = {
 'name':'o_test.jpg',
-'policy':'',
-'signature':'',
-'OSSAccessKeyId':'',
+'policy':'eyJleHBpcmF0aW9uIjoiMjAxOC0xMS0xMVQxNDozNzo1NFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MF0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIiXV19',
+'signature':'maH2ayNKySSl5nvbPdJvdm4/Gro=',
+'OSSAccessKeyId':'LTAIyUoGoXRUSdwm',
 'key':'o_test.jpg',
 'success_action_status':'200',
 }
@@ -28,7 +28,8 @@ aixinxi_data_save = {
 'ming':'o_1cqs8t6tg1s0h1sddovn50ika.mp4',
 }
 # 爱信息图床，加密用的文件名
-fileName_data = 'zzuliACGN'.encode("utf-8")
+# fileName_data = "{}{}".format(random.randint(0,9),int(time.time())).encode('utf8')
+fileName_data = "{}".format('zzuliacgn').encode('utf8')
 
 # sm.ms,上传data
 sm_data = {'smfile':'',}

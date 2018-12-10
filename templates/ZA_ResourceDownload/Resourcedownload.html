@@ -1,0 +1,179 @@
+{%extends 'Base_Body.html' %}
+{%block head_more%}
+    <link rel="stylesheet" href="/static/ZA_BT/CSS/main.css">
+    <link rel="stylesheet" href="/static/ZA_BT/CSS/ResourcedownloadBase.css">
+{%endblock head_more%}
+
+{%block Middle%}
+<div id="tf-home" class="text-center">
+    <div class="overlay">
+        <div class="content"><!--此处为内容块的总标题，根据需要删减修改-->
+            <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
+            <!--fa小图标使用方法百度font-awesome即可-->
+            <p class="lead">此处内容块副标题，根据自己的需要进行修改<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
+        </div>
+        <div id="body-container" class="container">
+            <!--在此处编辑你的HTML代码,详情了解Boostrap栅格系统-->
+            <div class="topbar">
+                    <p><a href="?category=0">全部</a></p>
+                    <p><a href="?category=1">动画</a></p>
+                    <p><a href="?category=2">漫画</a></p>
+                    <p><a href="?category=3">音乐</a></p>
+                    <p><a href="?category=4">日剧</a></p>
+                    <p><a href="?category=5">raw</a></p>
+                    <p><a href="?category=6">游戏</a></p>
+                    <p><a href="?category=7">特摄</a></p>
+                    <p><a href="?category=8">其他</a></p>
+                </div>
+            <div class="row">
+                <div>
+                    <div class="search-container visible-xs">
+                        <form class="navbar-form navbar-right form" action="https://baidu.com/" method="get">
+                            <input type="text" class="form-control" name="search" placeholder="Search..." value="">
+                            <select class="form-control" title="Category" name="category">
+                                <option value="0" title="全部">
+                                    全部
+                                </option>
+                                <option value="1" title="动画">
+                                    动画
+                                </option>
+                                <option value="2" title="漫画">
+                                    漫画
+                                </option>
+                                <option value="3" title="音乐">
+                                    音乐
+                                </option>
+                                <option value="4" title="日剧">
+                                    日剧
+                                </option>
+                                <option value="5" title="raw">
+                                    raw
+                                </option>
+                                <option value="6" title="游戏">
+                                    游戏
+                                </option>
+                                <option value="7" title="特摄">
+                                    特摄
+                                </option>
+                                <option value="8" title="其他">
+                                    其他
+                                </option>
+                            </select>
+
+                            <button class="btn btn-primary form-control" type="submit">
+                                <i class="fa fa-search fa-fw"></i> Search
+                            </button>
+                        </form>
+                    </div><!--/.search-container -->
+
+                    <form class="navbar-form navbar-middle form" action="https://baidu.com/" method="get">
+                        <div class="form-group input-group search-container hidden-xs">
+                            <div class="form-group">
+                                <select class="form-control" id="search-type" title="Category" name="category">
+                                    <option value="0" title="全部">
+                                        全部
+                                    </option>
+                                    <option value="1" title="动画">
+                                        动画
+                                    </option>
+                                    <option value="2" title="漫画">
+                                        漫画
+                                    </option>
+                                    <option value="3" title="音乐">
+                                        音乐
+                                    </option>
+                                    <option value="4" title="日剧">
+                                        日剧
+                                    </option>
+                                    <option value="5" title="raw">
+                                        raw
+                                    </option>
+                                    <option value="6" title="游戏">
+                                        游戏
+                                    </option>
+                                    <option value="7" title="特摄">
+                                        特摄
+                                    </option>
+                                    <option value="8" title="其他">
+                                        其他
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control search-bar" name="search" placeholder="Search..." value="">
+                                <div class="input-group-btn search-btn">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search fa-fw"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <table id="tablelist" class="table table-bordered table-condensed">
+                    <thead class="container">
+                        <tr class=" text-center">
+                            <th class="col-xs-2 col-sm-2">日期</th>
+                            <th class="col-xs-2 col-sm-1">动画</th>
+                            <th class="col-xs-5 col-sm-4">名称</th>
+                            <th class="col-xs-1 col-sm-1">链接</th>
+                            <th class="col-xs-2 col-sm-1">大小</th>
+                            <th class="col-xs-0 col-sm-1">上传</th>
+                            <th class="col-xs-0 col-sm-1">下载</th>
+                            <th class="col-xs-0 col-sm-1">完成</th>
+                        </tr>
+                    </thead>
+                    <tbody class="container">
+                    {% for v in hamayarawa_list.object_list %}
+                        <tr class="">
+                            <td class="col-xs-2 col-sm-2">	{{ v.rdUpTime }}</td>
+                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">{{ v.rdType }}</a></td>
+                            <td class="col-xs-5 col-sm-4"><a href="/view/{{ v.id }}">{{ v.rdName }}</a></td>
+                            <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
+                            <td class="col-xs-2 col-sm-1">{{v.rdSize}}</td>
+                            <td class="col-xs-0 col-sm-1">{{v.rdUpNum}}</td>
+                            <td class="col-xs-0 col-sm-1">{{v.rdDownloadNum}}</td>
+                            <td class="col-xs-0 col-sm-1">{{v.rdOK}}</td>
+                        </tr>
+                    {% endfor %}
+{#                        <tr class="">#}
+{#                            <td class="col-xs-2 col-sm-2">	2018-11-08 08:47</td>#}
+{#                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">动画</a></td>#}
+{#                            <td class="col-xs-5 col-sm-4"><a href="/view">[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</a></td>#}
+{#                            <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>#}
+{#                            <td class="col-xs-2 col-sm-1">13.9 GiB</td>#}
+{#                            <td class="col-xs-0 col-sm-1">1</td>#}
+{#                            <td class="col-xs-0 col-sm-1">7</td>#}
+{#                            <td class="col-xs-0 col-sm-1">0</td>#}
+{#                        </tr>#}
+                    </tbody>
+                </table>
+                <nav id="page" aria-label="Page navigation">
+                    <ul class="pagination">
+                        {% if hamayarawa_list.has_previous %}
+                            <li><a href="/Resourcedownload/?{{ hamayarawa_list.previous_page_number.querystring }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        {% endif %}
+                        {% for ka_ki_ku_ke_ko in hamayarawa_list.pages %}
+                            {% if ka_ki_ku_ke_ko %}
+                                {% if ka_ki_ku_ke_ko == hamayarawa_list.number %}
+                                    <li class="active"><a href="/Resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
+                                {% else %}
+                                    <li><a href="/Resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><a href="">...</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if hamayarawa_list.has_next %}
+                            <li><a href="/Resourcedownload/?{{ hamayarawa_list.next_page_number.querystring }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock Middle%}
+
+{%block End_Script_more%}
+{%endblock End_Script_more%}

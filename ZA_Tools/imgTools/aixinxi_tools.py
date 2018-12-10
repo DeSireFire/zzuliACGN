@@ -191,25 +191,27 @@ def loginOut(Header):
     # print(req.headers)
 
 # 文件名拼接
-def fileNameadd(Anystr = fileNameIter(),fileType = '.jpg'):
+# def fileNameadd(Anystr,fileType = '.jpg'):
+def fileNameadd(fileType = '.jpg'):
     """
 
     :param Anystr: 字符串
     :param fileType: 字符串,文件格式（后缀,例如：.jpg,.png,.txt）
     :return: 字符串，拼接好的文件名
     """
-    return "{}{}{}".format("o_1csbn", Anystr, fileType)
+    Anystr = fileNameIter()
+    return "{}{}{}".format("o_zzuliACGN", Anystr, fileType)
 
-def main():
+# def main():
     # ok = login()
     # if ok:
     #     print(ok)
     # else:
     #     print('No')
-    header_test = {'User-Agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)',
-               'cookie': 'PHPSESSID=t3jmdeom2p7s4f21q5ju9do6m0',
-               'referer': 'https://tu.aixinxi.net/views/pages.php?id=explore',
-               'upgrade-insecure-requests': '1'}
+    # header_test = {'User-Agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)',
+    #            'cookie': 'PHPSESSID=jnpau1j446oqai4bgi9oj76eq3',
+    #            'referer': 'https://tu.aixinxi.net/views/pages.php?id=explore',
+    #            'upgrade-insecure-requests': '1'}
     # with open('1.jpg', 'rb') as f:
     #     files = {'file': f}
     # a = logining(header=ok)
@@ -219,14 +221,16 @@ def main():
     # delete(header_test,'44764c752081126b509b12091356f56c')
     # filesFind({'User-Agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)',
     # f = open('1.jpg', 'rb')
+    # print(f.read())
     # files = {'file':f}
-    # updata(header_test,'o_1cq3oq991g0q1lt3121t04dada.jpg',files)
+    # updata(header_test,'o_1cq3oq991g0q1lt3121t04dada1.jpg',files)
     # f.close()
     # save(header_test,'o_1chq3v5e43um1bocaru1iqn7b8c.gif')
     # delete(header_test, '77d2e98552f54ead5b4f8380e09e5fb1')
-    # token_get(header_test)
+    # print(token_get(header_test))
     # loginOutloginOut('PHPSESSID=29botdjah0n9seekpdm2n9d0o5')
     # print(fileNameIter())
     # fileNameIter('233366688', '.jpg')
 if __name__ == '__main__':
-    main()
+    # main()
+    pass

@@ -1,7 +1,7 @@
 '''
     所有Tool会共同用到的函数
 '''
-import requests,json,sys,hashlib
+import requests,json,sys,uuid
 from ZA_Tools.imgTools.config import delproxyIP,TIMEOUT,fileName_data
 
 def proxy_list(url,testURL):
@@ -51,5 +51,6 @@ def fileSize(filesReadRB):
 
 # 文件名生成器
 def fileNameIter():
-    hash_md5 = hashlib.md5(fileName_data)
-    return hash_md5.hexdigest()
+    # hash_md5 = hashlib.md5(fileName_data)
+    hash_md5 = uuid.uuid1().hex
+    return hash_md5
