@@ -36,69 +36,8 @@ let zhanghaoanquan = Vue.component('account-safe',{
             }]
             }
         },
-    // created:function(){
-    // mounted:function(){
-    //     console.log(this.userdata)
-    //     this.userdatatemp[0].lt="绑定邮箱"
-    //     this.userdatatemp[1].lt="绑定手机"
-    //     this.userdatatemp[2].lt="设置密码"
-    //     this.userdatatemp[3].lt="密保问题"
-    //     this.userdatatemp[4].lt="实名认证"
-    //
-    //     if(this.userdata.emailif != 1){
-    //         this.userdatatemp[0].value="未绑定邮箱"
-    //         this.userdatatemp[0].rt="绑定邮箱"
-    //         this.userdatatemp[0].classname="fa fa-fw fa-exclamation-circle"
-    //     }else{
-    //         this.userdatatemp[0].value=this.userdata.emailvalue
-    //         this.userdatatemp[0].rt="更换邮箱"
-    //         this.userdatatemp[0].classname="fa fa-fw fa-check-circle"
-    //     }
-    //
-    //     if(this.userdata.phoneif != 1){
-    //         this.userdatatemp[1].value="未绑定手机"
-    //         this.userdatatemp[1].rt="绑定手机"
-    //         this.userdatatemp[1].classname="fa fa-fw fa-exclamation-circle"
-    //     }else{
-    //         this.userdatatemp[1].value=this.userdata.phonevalue
-    //         this.userdatatemp[1].rt="更换邮箱"
-    //         this.userdatatemp[1].classname="fa fa-fw fa-check-circle"
-    //     }
-    //
-    //     if(this.userdata.passwordif != 1){
-    //         this.userdatatemp[2].value="未设置密码"
-    //         this.userdatatemp[2].rt="设置密码"
-    //         this.userdatatemp[2].classname="fa fa-fw fa-exclamation-circle"
-    //     }else{
-    //         this.userdatatemp[2].value="已设置密码"
-    //         this.userdatatemp[2].rt="更换密码"
-    //         this.userdatatemp[2].classname="fa fa-fw fa-check-circle"
-    //     }
-    //
-    //     if(this.userdata.questionif != 1){
-    //         this.userdatatemp[3].value="未设置密保问题"
-    //         this.userdatatemp[3].rt="设置"
-    //         this.userdatatemp[3].classname="fa fa-fw fa-exclamation-circle"
-    //     }else{
-    //         this.userdatatemp[3].value="已设置密保问题"
-    //         this.userdatatemp[3].rt="更换"
-    //         this.userdatatemp[3].classname="fa fa-fw fa-check-circle"
-    //     }
-    //
-    //     if(this.userdata.certificationif != 1){
-    //         this.userdatatemp[4].value="未实名认证"
-    //         this.userdatatemp[4].rt="查看认证"
-    //         this.userdatatemp[4].classname="fa fa-fw fa-exclamation-circle"
-    //     }else{
-    //         this.userdatatemp[4].value="已实名认证"
-    //         this.userdatatemp[4].rt="未认证"
-    //         this.userdatatemp[4].classname="fa fa-fw fa-check-circle"
-    //     }
-    //     console.log(this.userdatatemp)
-    // }
-    mounted:function(){
-        setTimeout(()=>{
-            console.log(this.userdata)
+        methods:{
+            creatpage:function(){
                 this.userdatatemp[0].lt="绑定邮箱"
                 this.userdatatemp[1].lt="绑定手机"
                 this.userdatatemp[2].lt="设置密码"
@@ -154,8 +93,15 @@ let zhanghaoanquan = Vue.component('account-safe',{
                     this.userdatatemp[4].rt="未认证"
                     this.userdatatemp[4].classname="fa fa-fw fa-check-circle"
                 }
-                console.log(this.userdatatemp)
-        },20000)
-          }
+            }
+        },
+    mounted:function(){
+        this.creatpage()
+          },
+    watcch:{
+        userdata:function(val){
+            creatpage()
+        }
+    }
 
 })
