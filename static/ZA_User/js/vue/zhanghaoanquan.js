@@ -98,9 +98,9 @@ let zhanghaoanquan = Vue.component('account-safe',{
     mounted:function(){
         this.creatpage()
           },
-    watcch:{
+    watch:{
         userdata:function(val){
-            creatpage()
+            this.creatpage()
         }
     }
 
