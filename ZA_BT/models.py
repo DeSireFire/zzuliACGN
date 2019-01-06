@@ -12,13 +12,15 @@ class Rtypes(models.Model):
 #资源信息
 class Items(models.Model):
     rdName = models.TextField(default='未知')#资源名称
-    rdUpTime = models.CharField(max_length=50,unique=True)  # 资源发布时间
+    rdUpTime = models.DateTimeField(max_length=50,unique=True)  # 资源发布时间
     rdSize = models.CharField(max_length=30,default='-')#资源大小
     rdUpNum = models.CharField(max_length=50,default='-')#资源上传数
     rdDownloadNum = models.CharField(max_length=50,default='-')#资源下载数
     rdInfo = models.TextField(default='暂无')#资源介绍
     rdOK = models.CharField(max_length=50,default='-')#资源完成数
-    rdURLS = models.TextField(default='暂无')    #资源下载链接
+    rdMagnet = models.TextField(default='暂无')    #资源下载链接
+    rdMagnet2 = models.TextField(default='暂无')    #资源下载链接
+    rdTracker = models.TextField(default='暂无')    #资源下tracker服务器
     rdType = models.ForeignKey('Rtypes',on_delete=models.CASCADE)#资源种类
     rdView = models.TextField(default='')#资源详细页地址
     isdelete = models.BooleanField(default=False)#是否删除
