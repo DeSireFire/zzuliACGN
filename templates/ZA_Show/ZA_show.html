@@ -1590,7 +1590,12 @@
 <!-- 屏幕滚动效果 -->
 <script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script>
 <script type="text/javascript" src="/static/ZA_Show/js/main.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.6/jquery.lazyload.min.js"></script>
 <script>
+    $("img").lazyload({
+    threshold:200,
+    effect:"fadeIn"
+});
     $(function () {
         //第一次获取屏幕大小
         var _headerWidth = $(window).width();
