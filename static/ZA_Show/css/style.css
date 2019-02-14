@@ -41,7 +41,7 @@
 }
 /* Home Style */
 #tf-home {
-	background:url(../img/background/01.jpg);
+	/* background:url(../img/background/01.jpg); */
 	background-size:cover;
 	background-position:center;
 	background-attachment:fixed;
@@ -108,7 +108,7 @@ ul.about-list li span {
 }
 /* Team Section */
 #tf-team {
-	background:url(../img/background/03.jpg);
+	/* background:url(../img/background/03.jpg); */
 	background-size:cover;
 	background-position:center;
 	background-attachment:fixed;
@@ -248,7 +248,7 @@ img.img-circle.team-img {
 
 /* Clients Section */
 #tf-clients {
-	background:url(../img/background/04.jpg);
+	/* background:url(../img/background/04.jpg); */
 	background-size:cover;
 	background-position:center;
 	background-attachment:fixed;
@@ -405,7 +405,7 @@ ol.type li a.active {
 }
 /* Testimonials Section */
 #tf-testimonials {
-	background:url(../img/background/05.jpg);
+	/* background:url(../img/background/05.jpg); */
 	background-size:cover;
 	background-position:center;
 	background-attachment:fixed;
