@@ -26,7 +26,7 @@
 
 <!-- Home Page
 ==========================================-->
-<div id="tf-home" class="text-center" data-original="../img/background/01.jpg">
+<div id="tf-home" class="text-center" data-original="/static/ZA_Show/img/background/01.jpg">
     <div class="overlay">
         <div class="content">
             <h1>欢迎来到 郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
@@ -102,7 +102,7 @@
 
 <!-- Team Page
 ==========================================-->
-<div id="tf-team" class="text-center" style="display: none" data-original="../img/background/03.jpg">
+<div id="tf-team" class="text-center" style="display: none" data-original="/static/ZA_Show/img/background/03.jpg">
     <div class="overlay">
         <div class="container">
             <div class="section-title center">
@@ -1065,7 +1065,7 @@
 
 <!-- Clients Section
 ==========================================-->
-<div id="tf-clients" class="text-center" style="display: none" data-original="../img/background/04.jpg">
+<div id="tf-clients" class="text-center" style="display: none" data-original="/static/ZA_Show/img/background/04.jpg">
     <div class="overlay">
         <div class="container">
 
@@ -1509,7 +1509,7 @@
 
 <!-- Testimonials Section
 ==========================================-->
-<div id="tf-testimonials" class="text-center" style="display: none;" data-original="../img/background/05.jpg">
+<div id="tf-testimonials" class="text-center" style="display: none;" data-original="/static/ZA_Show/img/background/05.jpg">
     <div class="overlay">
         <div class="container">
             <div id="tf-services-title" class="section-title center" style="display: none;">
@@ -1588,7 +1588,7 @@
 {%block End_Script_more%}
 <script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.js"></script>
 <!-- 屏幕滚动效果 -->
-<script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script>
+{#<script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script>#}
 <script type="text/javascript" src="/static/ZA_Show/js/main.js"></script>
 <script>
 (function() {
@@ -1614,7 +1614,7 @@
 					}else if(i[0].tagName === 'DIV'){
 						i.css('background',"url(img/bmw_m1_hood.jpg)")
 					}
-                    i.attr('src', i.attr('data-original'));
+                    {#i.attr('src', i.attr('data-original'));#}
                     loadedIndex.unshift(index);
                 }
             });
