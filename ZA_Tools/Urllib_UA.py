@@ -29,10 +29,10 @@ my_html = my_responese.read()
 Deco_html = my_html.decode('iso-8859-1')
 UA_list = re.findall(r"<a href='/index\.php\?id=(.*?)'>(.*?)</a></li>", Deco_html)
 print('发现共%s条UA'%len(UA_list))
-with open(r'UA_list.txt', 'a') as f:
+with open(r'UA_list2.txt', 'a') as f:
     for line in UA_list:
         f.write(r"%s" %str(line[1]))
         f.write('\n')
-s = open(r'UA_list.txt','r').readline()
-print(s)
+# s = open(r'UA_list.txt','r').readline()
+# print(s)
 

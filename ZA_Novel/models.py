@@ -35,7 +35,7 @@ class type(models.Model):
     Type_title = models.CharField('类型名称',max_length=20) #小说的分类（玄幻 奇幻 武侠 仙侠...）
     isDelete = models.BooleanField('是否删除', default=False)   #是否删除,默认不删
     def __str__(self):
-        return self.ZA_Novel_Type_title
+        return self.Type_title
     class Meta:
         verbose_name = '小说所属分类'
         verbose_name_plural = '小说所属分类'

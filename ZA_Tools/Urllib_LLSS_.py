@@ -1,14 +1,14 @@
 import urllib.request,re
 
 my_headers = {
-    'Host':'www.llss.pw',
+    'Host':'www.liuli.in',
     'Referer':'http://www.llss.pw/wp/about.html',
     'Upgrade-Insecure-Requests':'1',
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
 }
 
 #爬取总页码
-my_request = urllib.request.Request('http://www.llss.pw/wp/anime.html',data=None,headers = my_headers)
+my_request = urllib.request.Request('https://www.liuli.in/wp/anime.html',data=None,headers = my_headers)
 my_responese = urllib.request.urlopen(my_request)
 my_html = my_responese.read().decode('utf-8')
 page_list = re.findall(r'<ul><li class="page_info">Page (.*?) of (.*?)</li><li class="active_page">', my_html)
@@ -18,7 +18,7 @@ print('一共查找数据%s页'%page_list)
 second_list = []
 # for i in range(1,int(page_list[0][1])):
 for i in range(25,30):
-    my_request = urllib.request.Request('http://www.llss.pw/wp/anime.html/page/%s'%i,data=None,headers = my_headers)
+    my_request = urllib.request.Request('https://www.liuli.in/wp/anime.html/page/%s'%i,data=None,headers = my_headers)
     my_responese = None
     try:
         my_responese = urllib.request.urlopen(my_request,timeout=60)

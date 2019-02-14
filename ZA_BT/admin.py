@@ -16,7 +16,9 @@ class R_infoAdmin(admin.ModelAdmin):
     'rdDownloadNum',
     'rdInfo',
     'rdOK',
-    'rdURLS',
+    'rdMagnet',
+    'rdMagnet2',
+    'rdTracker',
     'rdType',
     'isdelete',
     ]
