@@ -102,7 +102,7 @@
 
 <!-- Team Page
 ==========================================-->
-<div id="tf-team" class="text-center" style="display: none" data-original="../img/background/03.jpg">
+<div id="tf-team" class="text-center" data-original="../img/background/03.jpg">
     <div class="overlay">
         <div class="container">
             <div class="section-title center">
@@ -215,7 +215,7 @@
 
 <!-- Services Section
 ==========================================-->
-<div id="tf-services" class="text-center" style="display: none">
+<div id="tf-services" class="text-center">
     <div class="container">
         <div class="section-title center">
             <h2>郑轻动漫协会 <strong>八面玲珑</strong></h2>
@@ -404,7 +404,7 @@
                 <hr>
             </div>
         </div>
-        <div id="tf-services-OtakuDancing" style="display: none">
+        <div id="tf-services-OtakuDancing">
             <div class="space"></div>
             <div class="reviews-slider enable-owl-carousel">
                 <div class="slide-item">
@@ -550,7 +550,7 @@
                 <hr>
             </div>
         </div>
-        <div id="tf-services-K-onOtakus" style="display: none">
+        <div id="tf-services-K-onOtakus">
             <div class="space"></div>
             <div class="reviews-slider enable-owl-carousel">
                 <div class="slide-item">
@@ -710,7 +710,7 @@
                 <hr>
             </div>
         </div>
-        <div id="tf-services-WotaGeiClub" style="display: none">
+        <div id="tf-services-WotaGeiClub">
             <div class="space"></div>
             <div class="reviews-slider enable-owl-carousel">
                 <div class="slide-item">
@@ -907,7 +907,7 @@
                 <hr>
             </div>
         </div>
-        <div id="tf-services-TechOtakus" style="display: none;">
+        <div id="tf-services-TechOtakus">
             <div class="space"></div>
             <div class="reviews-slider enable-owl-carousel">
                 <div class="slide-item">
@@ -1065,7 +1065,7 @@
 
 <!-- Clients Section
 ==========================================-->
-<div id="tf-clients" class="text-center" style="display: none" data-original="../img/background/04.jpg">
+<div id="tf-clients" class="text-center" data-original="../img/background/04.jpg">
     <div class="overlay">
         <div class="container">
 
@@ -1127,7 +1127,7 @@
 
 <!-- Portfolio Section
 ==========================================-->
-<div id="tf-works" style="display: none">
+<div id="tf-works">
     <div class="container"> <!-- Container -->
         <div class="section-title text-center center">
             <h2>郑轻动漫协会 <strong>社团 活动</strong></h2>
@@ -1480,7 +1480,7 @@
                                 <div class="clearfix"></div>
                                 <i class="fa fa-plus"></i>
                             </div>
-                            <img data-original="../../static/ZA_Show/img/portfolio/Wota/wota.jpg" class="img-responsive"/>
+                            <img data-original="/static/ZA_Show/img/portfolio/Wota/wota.jpg" class="img-responsive"/>
                         </a>
                     </div>
                 </div>
@@ -1509,10 +1509,10 @@
 
 <!-- Testimonials Section
 ==========================================-->
-<div id="tf-testimonials" class="text-center" style="display: none;" data-original="../img/background/05.jpg">
+<div id="tf-testimonials" class="text-center" data-original="../img/background/05.jpg">
     <div class="overlay">
         <div class="container">
-            <div id="tf-services-title" class="section-title center" style="display: none;">
+            <div id="tf-services-title" class="section-title center">
                 <h2><strong>郑轻动漫协会</strong> 荣誉&成果</h2>
                 <div class="line">
                     <hr>
@@ -1560,7 +1560,7 @@
 
 <!-- Contact Section
 ==========================================-->
-<div id="tf-contact" class="text-center" style="display: none">
+<div id="tf-contact" class="text-center">
     <div class="container">
 
         <div class="row">
@@ -1588,44 +1588,10 @@
 {%block End_Script_more%}
 <script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.js"></script>
 <!-- 屏幕滚动效果 -->
-<script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script>
+<!-- 暂时去除 -->
+<!-- <script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script> -->
 <script type="text/javascript" src="/static/ZA_Show/js/main.js"></script>
 <script>
-(function() {
-    var $window = $(window);
-    // 获取包含data-src属性的img，并以jQuery对象存入数组:
-    var lazyImgs = $('img[data-original]')
-	var xxx=[]
-	$('img[data-original],div[data-original]').each(function(index,element){
-		xxx.push($(this))
-	})
-	console.log(xxx)
-    var onScroll = function() {
-        var wtop = $window.scrollTop();
-        if (xxx.length > 0) {
-            var wheight = $window.height();
-			console.log(wheight)
-            var loadedIndex = [];
-            $.each(xxx, function (index, i) {
-				console.log(i)
-                if (i.offset().top - wtop < wheight + 200) {
-					if(i[0].tagName === 'IMG'){
-						i.attr('src', i.attr('data-original'));
-					}else if(i[0].tagName === 'DIV'){
-						i.css('background',"url(img/bmw_m1_hood.jpg)")
-					}
-                    i.attr('src', i.attr('data-original'));
-                    loadedIndex.unshift(index);
-                }
-            });
-            $.each(loadedIndex, function (index) {
-                xxx.splice(index, 1);
-            });
-        }
-    };
-    $window.scroll(onScroll);
-    onScroll();
-})()
     $(function () {
         //第一次获取屏幕大小
         var _headerWidth = $(window).width();
@@ -1654,6 +1620,39 @@
 
         }
     });
+
+    (function() {
+    var $window = $(window);
+    var lazyImgs = $('img[data-original]')
+	var xxx=[]
+	$('img[data-original],div[data-original]').each(function(index,element){
+		xxx.push($(this))
+	})
+	console.log(xxx)
+    var onScroll = function() {
+        var wtop = $window.scrollTop();
+        if (xxx.length > 0) {
+            var wheight = $window.height();
+            var loadedIndex = [];
+            $.each(xxx, function (index, i) {
+                if (i.offset().top - wtop < wheight) {
+					if(i[0].tagName === 'IMG'){
+						i.attr('src', i.attr('data-original'));
+					}else if(i[0].tagName === 'DIV'){
+                        console.log(i)
+						i.css("background-image","url("+i.attr('data-original')+')')
+					}
+                    loadedIndex.unshift(index);
+                }
+            });
+            $.each(loadedIndex, function (i,index) {
+                xxx.splice(index, 1);
+            });
+        }
+    };
+    onScroll();
+    $(window).scroll(onScroll);
+})()
 </script>
 {%endblock End_Script_more%}
 
