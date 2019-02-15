@@ -1,6 +1,25 @@
-{%extends 'Base_Body.html' %}
-{%block head_more%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}} 郑州轻工大学 动漫协会！</title>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--为了确保适当的绘制和触屏缩放，需要在 <head> 之中添加 viewport 元数据标签。-->
+        <!--
+        在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
+        这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。
+        注意，这种方式我们并不推荐所有网站使用，还是要看你自己的情况而定！
+        -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap -->
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="/static/BaseCss.css" rel="stylesheet">
+        <link REL="SHORTCUT ICON" href="/static/favicon.ico"/>
     <!-- Slider
     ================================================== -->
     <link href="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css" rel="stylesheet" media="screen">
@@ -23,6 +42,92 @@
 {%endblock head_more%}
 
 {%block Middle%}
+<body>
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- 移动设备显示的导航部分 -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">郑轻大动漫协会</a>
+            </div>
+            <!-- 导航主体 -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">主站</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">漫协动态 <i class="fa fa-toggle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/bulding/">社团活动公告</a></li>
+                            <li><a href="/bulding/">漫协干部公示</a></li>
+                            <li><a href="/bulding/">动漫协会编年史</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/bulding/">动漫协会外宣展示</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/mikutap/">Mikutap</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">肥宅快乐源 <i class="fa fa-toggle-down"></i></a>
+                        <ul class="dropdown-menu nav-menu navbar-inverse">
+                            <li><a href="/bulding/">动画番剧--Animations</a></li>
+                            <li><a href="/bulding/">漫有引力--Comics</a></li>
+                            <li><a href="/bulding/">游戏中心--Games</a></li>
+                            <li><a href="/novel/">次元圣经--Novel&Fiction</a></li>
+                            <li><a href="/bulding/">资讯情报--Intelligence</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/Resourcedownload/">BT资源区</a></li>
+                            <li role="separator" class="divider"></li>
+                        </ul>
+                    </li>
+                    <li><a href="/bulding/">漫协BBS</a></li>
+                    <li><a href="/bulding/">画友涂墙</a></li>
+                    <li><a href="/bulding/">聊天室</a></li>
+                </ul>
+                <!--搜索框-->
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn">Link Start!</button>
+                </form>
+                <!--导航条右-->
+                {% if request.session.zzuliacgn_user_name|default:'' != '' %}
+                <!--已登录状态-->
+                <ul id="Logining" class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">昵称：{{request.session.zzuliacgn_user_name|escape}}</a></li>
+                            <li><a href="/user/usercenter/">个人中心</a></li>
+                            <li><a href="#">投稿管理</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/user/logout/">退出</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">消息</a></li>
+                    <li><a href="#">动态</a></li>
+                    <li><a href="#">收藏夹</a></li>
+                    <li><a href="#">历史</a></li>
+                </ul>
+                {% else %}
+                <!--未登录状态-->
+                <ul id="noLogin" class="nav navbar-nav navbar-right">
+                    <li><a href="/user/login/">用户登陆</a></li>
+                    <li><a href="/user/register/">用户注册</a></li>
+                </ul>
+            {% endif %}
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
 
 <!-- Home Page
 ==========================================-->
@@ -102,7 +207,6 @@
 
 <!-- Team Page
 ==========================================-->
-
 <div id="tf-team" class="text-center" data-original="/static/ZA_Show/img/background/03.jpg">
     <div class="overlay">
         <div class="container">
@@ -1583,17 +1687,39 @@
 
     </div>
 </div>
+<nav id="footer">
+    <div class="container">
+        <div class="pull-left fnav">
+            <p>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</p>
+            <p>若本站收集的节目无意侵犯了贵司版权，请给<a href="mailto:1025212779@qq.com">hillaryr15@163.com</a>邮箱地址来信，我们将在第一时间删除相应资源</p>
+            <p>Copyright &copy; 2018.郑州轻工业大学 动漫协会 All rights reserved.</p>
+        </div>
+        <div class="pull-right fnav">
+            <ul class="footer-social">
+                <li><a href="#"><i class="fa fa-warning"></i>社团官网施工中...</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+            <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+            <!-- <script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.js"></script> -->
+            <script type="text/javascript" src="/static/BaseJs.js"></script>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125963410-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-{%endblock Middle%}
-
-{%block End_Script_more%}
+              gtag('config', 'UA-125963410-1');
+            </script>
 <script src="https://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.js"></script>
 <!-- 屏幕滚动效果 -->
-<!-- 暂时去除 -->
 <!-- <script type="text/javascript" src="/static/ZA_Show/js/scroll.js"></script> -->
 <script type="text/javascript" src="/static/ZA_Show/js/main.js"></script>
 <script>
-(function() {
     $(function () {
         //第一次获取屏幕大小
         var _headerWidth = $(window).width();
@@ -1622,7 +1748,6 @@
 
         }
     });
-
     (function() {
     var $window = $(window);
     var lazyImgs = $('img[data-original]')
@@ -1656,6 +1781,7 @@
     $(window).scroll(onScroll);
 })()
 </script>
+</body>
 {%endblock End_Script_more%}
 
 
