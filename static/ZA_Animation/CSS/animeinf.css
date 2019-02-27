@@ -1,0 +1,53 @@
+#animeinf-container{
+    display:flex
+}
+#animeinf-img-container{
+    width:240px;
+}
+#animeinf-container h2{
+    line-height:normal;
+}
+#animeinf-right>ul>li>span{
+    padding-right:5px;
+}
+#animeinf-right{
+    margin-left:10px;
+}
+section>div>ul>li>span{
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: #FCAC45;
+    background-color: transparent;
+    cursor: pointer;
+}
+section>div>ul>li.active>span,section>div>ul>li>span:hover{
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+section>div>ul>li.active>span{
+    cursor: default;
+}
+.animeinf-panes>div{
+    display:none;
+    padding:10px 0;
+}
+.animeinf-panes>div.active{
+    display:flex;
+    flex-wrap: wrap;
+}
+.animeinf-panes>div>span{
+    border:1px solid white;
+    border-radius: 3px;
+    margin:0 10px;
+    padding:3px 5px;
+}
+.animeinf-panes>div>span:hover{
+    background:rgba(255,255,255,0.3)
+}

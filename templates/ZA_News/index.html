@@ -1,0 +1,53 @@
+{%extends 'Base_Body.html' %}
+{% load static %}
+{%block head_more%}
+<link href="{% static 'ZA_News/CSS/main.css' %}" rel="stylesheet">
+<link href="{% static 'ZA_News/CSS/templateBase.css' %}" rel="stylesheet">
+<link href="https://cdn.bootcss.com/element-ui/2.5.4/theme-chalk/index.css" rel="stylesheet">
+{%endblock head_more%}
+
+{%block Middle%}
+<div id="tf-home" class="text-center">
+    <div class="overlay">
+        <div class="content"><!--此处为内容块的总标题，根据需要删减修改-->
+            <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
+            <!--fa小图标使用方法百度font-awesome即可-->
+            <p class="lead">此处内容块副标题，根据自己的需要进行修改<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
+        </div>
+        <div id="body-container" class="text-left">
+            <!--在此处编辑你的HTML代码,详情了解Boostrap栅格系统-->
+            <div class="">
+                <!-- 左侧栏需要用js调整初始离顶部距离 -->
+                <aside class="tab-bar">
+                        <ul>
+                          <li><router-link to="/"><i class="fa fa-2x fa-gamepad"></i>推荐</router-link></li>
+                          <li><router-link to="/anime"><i>图标</i>动画</router-link></li>
+                          <li><i>图标</i><a href="#">游戏</a></li>
+                          <li><i>图标</i><a href="#">影视</a></li>
+                          <li><i>图标</i><a href="#">游戏</a></li>
+                          <li><i>图标</i><a href="#">科技</a></li>
+                        </ul>
+                    </aside>
+                <main class="page-content">
+                    <div>
+                    <router-view @loadpage="ajaxstart" :ifcreated="ifcreated" :pagedata="pagedatas"></router-view>
+                    <hot @loadpage="ajaxstart" :ifcreated="ifcreated" :pagedata="pagedatas"></hot>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock Middle%}
+
+{%block End_Script_more%}
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/vendor/vue.js' %}"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.5.4/index.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.5.4/locale/zh-CN.js"></script>
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/indexvue.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/anime.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/article.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/vendor/vue-router.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/hot.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ZA_News/JavaScript/main.js' %}"></script>
+{%endblock End_Script_more%}

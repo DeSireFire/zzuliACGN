@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>(此处改为你需要的页首名)</title>
+    <!--动漫协会官网基础样式文件,start-->
+    <!--OwlCarousel2-->
+    <link href="https://cdn.bootcss.com/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--BaseCSS-->
+    <link href="CSS/templateBase.css" rel="stylesheet">
+    <link href="CSS/main.css" rel="stylesheet">
+
+    <!--动漫协会官网基础样式文件,end-->
+    <!--*********************************************************************************************-->
+    <!--此处引入你的外部CSS文件，start ↓↓↓↓↓↓↓↓↓-->
+    <!--例如：<link href="CSS/xxx.css" rel="stylesheet">-->
+
+
+    <!--此处引入你的外部CSS文件，end   ↑↑↑↑↑↑↑↑↑-->
+    <!--*********************************************************************************************-->
+    <!--此处style标签输入你的CSS样式，start-->
+    <style>
+        #tf-home {
+            background:url(Images/8c007b5cly1fkayrbqu9sj216b0ovke1.jpg);
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+            color:#cfcfcf;
+        }
+        /*居中内容块*/
+        .content {
+            position:relative;
+            /*响应式标记，全改为20%*/
+            padding:6% 0 0;
+        }
+        @media (max-width: 640px){
+            .content {
+                padding:30% 0 0;
+            }
+        }
+        @media (max-width: 960px){
+            .content {
+                padding:15% 0 0;
+            }
+        }
+        .container{
+            /*响应式标记，全改为15px*/
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        @media (max-width: 768px){
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+    </style>
+    <!--此处引入你的外部CSS文件，end-->
+    <!--*********************************************************************************************-->
+
+
+</head>
+<body>
+<!-- Navigation 样式占位，用于大体预览网页效果，此处不用修改
+==========================================-->
+<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- 移动设备显示的导航部分 -->
+        <div class="navbar-header">
+            <h1>导航样式占位，用于大体预览网页效果，此处不用修改</h1>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+<!-- Home Page 在此处修改你的内容
+==========================================-->
+<div id="tf-home" class="text-center">
+    <div class="overlay">
+        <div class="content"><!--此处为内容块的总标题，根据需要删减修改-->
+            <h1>郑州轻工业大学<strong><span class="color">动漫协会</span></strong></h1>
+            <!--fa小图标使用方法百度font-awesome即可-->
+            <p class="lead">此处内容块副标题，根据自己的需要进行修改<i class="fa fa-exclamation-triangle fa-1x" aria-hidden="true"></i></p>
+        </div>
+        <div id="body-container" class="text-left">
+            <!--在此处编辑你的HTML代码,详情了解Boostrap栅格系统-->
+            <div class="">
+                <!-- 左侧栏需要用js调整初始离顶部距离 -->
+                <aside class="tab-bar">
+                        <ul>
+                          <li><router-link to="/"><i class="fa fa-2x fa-gamepad"></i>推荐</router-link></li>
+                          <li><router-link to="/anime"><i>图标</i>动画</router-link></li>
+                          <li><i>图标</i><a href="#">游戏</a></li>  
+                          <li><i>图标</i><a href="#">影视</a></li>  
+                          <li><i>图标</i><a href="#">游戏</a></li>  
+                          <li><i>图标</i><a href="#">科技</a></li>   
+                        </ul>
+                    </aside>
+                <main class="page-content">
+                    <div>
+                    <router-view @loadpage="ajaxstart" :ifcreated="ifcreated" :pagedata="pagedatas"></router-view>
+                    <hot @loadpage="ajaxstart" :ifcreated="ifcreated" :pagedata="pagedatas"></hot>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+<!-- Footer 样式占位，用于大体预览网页效果，此处不用修改
+==========================================-->
+<nav id="footer" style="height: 125px">
+    <h1>Footer 样式占位，用于大体预览网页效果，此处不用修改</h1>
+</nav>
+<!--==========================================-->
+<!--*********************************************************************************************-->
+
+<!--JS,start-->
+<!--==========================================-->
+<!--以下JS插件，可通过注释来选择。使用方法可百度-->
+<!--JQ-->
+<script type="text/javascript" src="JavaScript/vendor/1.12.4.jquery.min.js"></script>
+<!--Boostrap's JS-->
+<script type="text/javascript" src="JavaScript/vendor/3.3.7bootstrap.min.js"></script>
+<!--页面中的平滑滚动插件-->
+<script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<!--jQuery智能布局插件 Isotope -->
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+<!--JQ幻灯片插件-->
+<script type="text/javascript" src="JavaScript/vendor/2.3.4owl.carousel.min.js"></script>
+<!--动漫协会官网基础JS-->
+<script type="text/javascript" src="http://www.zzuliacgn.cf/static/BaseJs.js"></script>
+<!--*********************************************************************************************-->
+<!--此处追加你要增加的外部JS文件标签，start ↓↓↓↓↓↓↓↓↓-->
+<!--例如：<script type="text/javascript" src="JavaScript/xxx.js"></script>-->
+<script type="text/javascript" src="JavaScript/vendor/vue.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.5.4/index.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.5.4/locale/zh-CN.js"></script>
+<script type="text/javascript" src="JavaScript/indexvue.js"></script>
+<script type="text/javascript" src="JavaScript/anime.js"></script>
+<script type="text/javascript" src="JavaScript/article.js"></script>
+<script type="text/javascript" src="JavaScript/vendor/vue-router.js"></script>
+<script type="text/javascript" src="JavaScript/hot.js"></script>
+<script type="text/javascript" src="JavaScript/main.js"></script>
+<!--此处追加你要增加的外部JS文件地址，end   ↑↑↑↑↑↑↑↑↑-->
+<!--*********************************************************************************************-->
+<!--在以下script标签中追加你的js代码，start  ↓↓↓↓↓↓↓↓↓-->
+<script>
+
+</script>
+<!--在以下script标签中追加你的js代码，end    ↑↑↑↑↑↑↑↑↑-->
+<!--*********************************************************************************************-->
+<!--JS,end-->
+</body>
+</html>
