@@ -3,7 +3,7 @@
     $(window).on('scroll',function(){
         let wwidth = $(window).width()
         if(wwidth-1200>0){
-            $(".tab-bar").css({'left':`${(wwidth-1200)/2}px`})
+            $(".tab-bar").css({'left':`${(wwidth-1120)/2}px`})
         }else{
             $(".tab-bar").css({'left':`${-$(window).scrollLeft()}px`})
         }
@@ -11,7 +11,7 @@
     function leftresize(){
         let wwidth = $(window).width()
         if(wwidth-1200>0){
-            $(".tab-bar").css({'left':`${(wwidth-1200)/2}px`})
+            $(".tab-bar").css({'left':`${(wwidth-1120)/2}px`})
         }else{
             $(".tab-bar").css({'left':'0'})
         }
