@@ -29,5 +29,6 @@ class dmhyItem(scrapy.Item):
     rdMagnet = scrapy.Field()#资源下载链接
     rdMagnet2 = scrapy.Field()#资源下载链接
     rdTracker = scrapy.Field()#资源下tracker服务器
-    rdType =scrapy.Field()#资源种类
+    rdType_id =scrapy.Field()#资源种类
     rdView = scrapy.Field()#资源详细页地址
+    isdelete = scrapy.Field()#资源详细页地址

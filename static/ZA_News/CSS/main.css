@@ -1,0 +1,116 @@
+#body-container,#tf-home,#overly{
+    min-width:1200px;
+}
+.tab-bar{
+    position: fixed;
+    top:150px;
+    left:20px;
+}
+.tab-bar ul li{
+    padding:10px 0;
+}
+.tab-bar ul li i{
+padding-right:10px;
+}
+.page-content>div{
+    margin:0 auto;
+    width:1000px;
+    /* padding-left:100px; */
+    /*border:1px solid white;*/
+    display: flex;
+}
+.left-side{
+    width:682px;
+    /*border:1px solid red;*/
+    margin-right:30px;
+}
+.partition-name >h3{
+    padding:0px;
+    margin:0;
+}
+.partition-name{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.right-side{
+    width:260px;
+    border-radius:3px;
+    padding:5px;
+    background:rgba(255,255,255,0.2);
+    /*border:1px solid green;*/
+}
+#top-carousel h3{
+    position:absolute;
+    bottom:0px;
+    left:5px;
+}
+#top-carousel{
+    width:680px;
+    height:212px;
+    overflow: hidden;
+    border-radius:3px;
+}
+/* #top-carousel .carousel-inner .item{
+width:680px;
+} */
+#top-carousel img{
+    width:100%;
+}
+.right-side ul li{
+    display:flex;
+    justify-content: space-around;
+}
+.right-side ul li:hover{
+    background:rgba(255,255,255,0.2);
+}
+.right-side ul li{
+    width:250px;
+}
+.right-side ul li a{
+    width:180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display:block;
+}
+.article{
+    /*border:1px solid yellow;*/
+    border-radius:3px;
+    background:rgba(255,255,255,0.2);
+    margin-bottom:10px;
+    padding:5px;
+}
+.article:hover{
+    background:rgba(255,255,255,0.4);
+}
+.article a{
+    display:block;
+    display:flex;
+    justify-content: space-around;
+}
+.article-tittle{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.article>a>.article-left>p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.article-left{
+    width:550px;
+}
+.article-right{
+    width:120px;
+}
+.article-inf>span{
+    padding-right:5px;
+}
+.articles{
+    text-indent:2em;
+    padding:10px;
+}
+.articles h1{
+    text-align: center;
+}

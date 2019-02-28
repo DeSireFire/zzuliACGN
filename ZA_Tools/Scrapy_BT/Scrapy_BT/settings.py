@@ -90,3 +90,11 @@ HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # 修改编码为utf-8
 # FEED_EXPORT_ENCODING = 'utf-8'
+
+# 数据库信息
+#MYSQL配置
+MYSQL_HOST = '192.168.0.107' # 数据库地址
+MYSQL_DATABASE = '' # 数据库名
+MYSQL_USER = ''
+MYSQL_PASSWORD = ''
+MYSQL_PORT = 3306
