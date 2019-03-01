@@ -12,7 +12,7 @@ const newanime = Vue.component('newanime', {
 <section class="anime-con-con">
 <div class="anime-flex">
     <div class="anime-container" v-for="item in animedata.data">
-        <div class="anime-img-con" ><a :href="item.href"><img class="anime-img" :src=item.img></a></div>
+        <div class="anime-img-con" ><a :href="item.href"><img class="anime-img" v-lazy="item.img"></a></div>
         <div class="anime-title-con">
             <h4>{{item.title}}</h4>
             <span>更新至{{item.num}}话</span>

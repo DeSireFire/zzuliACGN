@@ -5,8 +5,12 @@ $("#top-carousel-carousel>div").toArray().forEach((element,index) => {
         $('#top-carousel').carousel(index)
     })
 });
-    Vue.use(VueLazyload)
-    console.log('vue')
+Vue.use(VueLazyload,{
+    // loading图片
+    // loading: 'dist/loading.gif',
+    // error: 'dist/error.png',
+    // attempt: 1
+})
 // Vue.use(VueLazyload)
 // var week = [0,0,0,0,0,0,0]
 // var date = new Date().getDay()
@@ -62,9 +66,4 @@ $("#top-carousel-carousel>div").toArray().forEach((element,index) => {
 //     rmxf:[{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'},{title:'revisions',num:'12',img:'Images/time.jpg'}],
 // }
 //
-
-
-
-
-
 })()
