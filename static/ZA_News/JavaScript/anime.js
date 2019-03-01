@@ -36,7 +36,8 @@ let anime = Vue.component('anime',{
         //修改a
         if(this.ifcreated.anime === 0){
             //修改
-            this.$emit('loadpage',{page:'anime',part:'article'})
+            this.$emit('loadpage',{page:'anime',part:'article',num:1})
+            
         }
     }
 })

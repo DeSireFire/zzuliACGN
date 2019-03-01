@@ -57,7 +57,7 @@ let index = Vue.component('index',{
         console.log(this.ifcreated.index)
         if(this.ifcreated.index === 0){
             this.$emit('loadpage',{page:'index',part:'indeximg'})
-            this.$emit('loadpage',{page:'index',part:'article'})
+            this.$emit('loadpage',{page:'index',part:'article',num:1})
         }
     }
 })
