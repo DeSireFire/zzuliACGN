@@ -10,16 +10,17 @@ class Rtypes(models.Model):
         return self.BTtitle
 
 #资源信息
+# unique唯一约束，适用于CharField，不适用TextField
 class Items(models.Model):
     rdName = models.TextField(default='未知')#资源名称
-    rdUpTime = models.DateTimeField(max_length=50,unique=True)  # 资源发布时间
+    rdUpTime = models.DateTimeField(max_length=50)  # 资源发布时间
     rdSize = models.CharField(max_length=30,default='-')#资源大小
     rdUpNum = models.CharField(max_length=50,default='-')#资源上传数
     rdDownloadNum = models.CharField(max_length=50,default='-')#资源下载数
     rdInfo = models.TextField(default='暂无')#资源介绍
     rdOK = models.CharField(max_length=50,default='-')#资源完成数
-    rdMagnet = models.TextField(default='暂无')    #资源下载链接
-    rdMagnet2 = models.TextField(default='暂无')    #资源下载链接
+    rdMagnet = models.CharField(default='暂无',max_length=255,unique=True,)    #资源下载链接
+    rdMagnet2 = models.CharField(default='暂无',max_length=255,unique=True,)    #资源下载链接
     rdTracker = models.TextField(default='暂无')    #资源下tracker服务器
     rdType = models.ForeignKey('Rtypes',on_delete=models.CASCADE)#资源种类
     rdView = models.TextField(default='')#资源详细页地址
