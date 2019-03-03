@@ -128,7 +128,7 @@
                     {% for v in hamayarawa_list.object_list %}
                         <tr class="">
                             <td class="col-xs-2 col-sm-2">	{{ v.rdUpTime }}</td>
-                            <td class="col-xs-2 col-sm-1"><a href="?/category=1">{{ v.rdType }}</a></td>
+                            <td class="col-xs-2 col-sm-1"><a href="?category=1">{{ v.rdType }}</a></td>
                             <td class="col-xs-5 col-sm-3"><a href="/view/{{ v.id }}">{{ v.rdName }}</a></td>
                             <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-2 col-sm-1">{{v.rdSize}}</td>
@@ -153,21 +153,21 @@
                 <nav id="page" aria-label="Page navigation">
                     <ul class="pagination">
                         {% if hamayarawa_list.has_previous %}
-                            <li><a href="/Resourcedownload/?{{ hamayarawa_list.previous_page_number.querystring }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                            <li><a href="/resourcedownload/?{{ hamayarawa_list.previous_page_number.querystring }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
                         {% endif %}
                         {% for ka_ki_ku_ke_ko in hamayarawa_list.pages %}
                             {% if ka_ki_ku_ke_ko %}
                                 {% if ka_ki_ku_ke_ko == hamayarawa_list.number %}
-                                    <li class="active"><a href="/Resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
+                                    <li class="active"><a href="/resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
                                 {% else %}
-                                    <li><a href="/Resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
+                                    <li><a href="/resourcedownload/?{{ ka_ki_ku_ke_ko.querystring }}">{{ ka_ki_ku_ke_ko }}</a></li>
                                 {% endif %}
                             {% else %}
                                 <li><a href="">...</a></li>
                             {% endif %}
                         {% endfor %}
                         {% if hamayarawa_list.has_next %}
-                            <li><a href="/Resourcedownload/?{{ hamayarawa_list.next_page_number.querystring }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                            <li><a href="/resourcedownload/?{{ hamayarawa_list.next_page_number.querystring }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
                         {% endif %}
                     </ul>
                 </nav>

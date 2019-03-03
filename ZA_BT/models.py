@@ -24,7 +24,7 @@ class Items(models.Model):
     rdTracker = models.TextField(default='暂无')    #资源下tracker服务器
     rdType = models.ForeignKey('Rtypes',on_delete=models.CASCADE)#资源种类
     rdView = models.TextField(default='')#资源详细页地址
-    rdUper = models.CharField(default='未知',max_length=50,unique=True,)#资源发布者
+    rdUper = models.CharField(default='未知',max_length=100)#资源发布者
     isdelete = models.BooleanField(default=False)#是否删除
     def __str__(self):
         return self.rdName
