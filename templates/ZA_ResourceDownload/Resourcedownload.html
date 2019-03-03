@@ -115,9 +115,10 @@
                         <tr class=" text-center">
                             <th class="col-xs-2 col-sm-2">日期</th>
                             <th class="col-xs-2 col-sm-1">动画</th>
-                            <th class="col-xs-5 col-sm-4">名称</th>
+                            <th class="col-xs-5 col-sm-3">名称</th>
                             <th class="col-xs-1 col-sm-1">链接</th>
                             <th class="col-xs-2 col-sm-1">大小</th>
+                            <th class="col-xs-1 col-sm-1">发布者</th>
                             <th class="col-xs-0 col-sm-1">上传</th>
                             <th class="col-xs-0 col-sm-1">下载</th>
                             <th class="col-xs-0 col-sm-1">完成</th>
@@ -128,9 +129,10 @@
                         <tr class="">
                             <td class="col-xs-2 col-sm-2">	{{ v.rdUpTime }}</td>
                             <td class="col-xs-2 col-sm-1"><a href="?/category=1">{{ v.rdType }}</a></td>
-                            <td class="col-xs-5 col-sm-4"><a href="/view/{{ v.id }}">{{ v.rdName }}</a></td>
+                            <td class="col-xs-5 col-sm-3"><a href="/view/{{ v.id }}">{{ v.rdName }}</a></td>
                             <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-2 col-sm-1">{{v.rdSize}}</td>
+                            <td class="col-xs-2 col-sm-1">{{v.rdUper}}</td>
                             <td class="col-xs-0 col-sm-1">{{v.rdUpNum}}</td>
                             <td class="col-xs-0 col-sm-1">{{v.rdDownloadNum}}</td>
                             <td class="col-xs-0 col-sm-1">{{v.rdOK}}</td>
