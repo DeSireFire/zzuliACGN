@@ -66,3 +66,65 @@ padding:30px;
 .topbar>p{
     margin:0px;
 }
+
+.popwindow{
+    position: fixed;
+    top:0;
+    right:0;
+    width:100%;
+    height:100vh;
+    z-index:10;
+    background: rgba(0,0,0,0.4);
+    /* display:none; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.popwindow p{
+    margin-bottom:6px;;
+}
+.popwindow.active{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.warn-cotainer{
+    width:300px;
+    background:rgb(255,255,255);
+    border-radius:5px;
+    border:0 solid black;
+    color:black;
+  }
+ .warn-top{
+    height:30px;
+    line-height:30px;
+    text-align: right;
+    background: rgb(64,158,255);
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+ .warn-top>span{
+    margin-right:5px;
+    cursor: pointer;
+}
+ .warn-top>span:hover{
+    cursor: pointer;
+    background:black;
+}
+
+.warn-bottom{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    padding:3px;
+}
+.warn-bottom>.btn.btn-default{
+    background: rgb(64,158,255);
+    color:white;
+    cursor: pointer;
+}
