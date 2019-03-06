@@ -1,4 +1,5 @@
 {%extends 'Base_Body.html' %}
+{% load static %}
 {%block head_more%}
     <link rel="stylesheet" href="/static/ZA_BT/CSS/main.css">
     <link rel="stylesheet" href="/static/ZA_BT/CSS/ResourcedownloadBase.css">
@@ -171,7 +172,7 @@
     <div class="popwindow">
         <div class="warn-cotainer">
             <div class="warn-top">
-                <span>X</span>
+{#                <span>X</span>#}
             </div>
             <div class="warn-bottom">
                 <p>本站只是一个网络交流平台，所有资源均不是由本站上传或发放,而是来源于网络。</p>    
@@ -188,5 +189,5 @@
 {%endblock Middle%}
 
 {%block End_Script_more%}
-<link rel="stylesheet" href="/static/ZA_BT/JavaScript/main.js">
+    <script type="text/javascript" src="{% static 'ZA_BT/JavaScript/main.js' %}"></script>
 {%endblock End_Script_more%}

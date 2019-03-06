@@ -20,10 +20,10 @@ class Items(models.Model):
     rdInfo = models.TextField(default='暂无')#资源介绍
     rdOK = models.CharField(max_length=50,default='-')#资源完成数
     rdMagnet = models.CharField(default='暂无',max_length=255,unique=True,)    #资源下载链接
-    rdMagnet2 = models.CharField(default='暂无',max_length=255,unique=True,)    #资源下载链接
+    rdMagnet2 = models.CharField(default='暂无',max_length=255)    #资源下载链接
     rdTracker = models.TextField(default='暂无')    #资源下tracker服务器
     rdType = models.ForeignKey('Rtypes',on_delete=models.CASCADE)#资源种类
-    rdView = models.TextField(default='')#资源详细页地址
+    rdView = models.CharField(default='',max_length=255,unique=True,)#资源详细页地址
     rdUper = models.CharField(default='未知',max_length=100)#资源发布者
     isdelete = models.BooleanField(default=False)#是否删除
     def __str__(self):
