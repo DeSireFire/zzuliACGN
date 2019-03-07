@@ -5,20 +5,6 @@
 {%endblock head_more%}
 
 {%block Middle%}
-<!-- Navigation 样式占位，用于大体预览网页效果，此处不用修改
-==========================================-->
-<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- 移动设备显示的导航部分 -->
-        <div class="navbar-header">
-            <h1>导航样式占位，用于大体预览网页效果，此处不用修改</h1>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-<!--==========================================-->
-<!--*********************************************************************************************-->
-<!-- Home Page 在此处修改你的内容
-==========================================-->
 <div id="tf-home">
     <div class="overlay">
         <div class="content text-center"><!--此处为内容块的总标题，根据需要删减修改-->
@@ -29,21 +15,24 @@
         <main id="body-container" class="container">
             <!--在此处编辑你的HTML代码,详情了解Boostrap栅格系统-->
             <div class="row">
-                <section class="container">
-                    <div class="section-white"><h2>[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts</h2></div>
+                <section>
+                    <div class="section-white"><h2>{{ itemData.rdName }}</h2></div>
+{#                    <div class="section-white"><h2>[USP RAWS] Sailor Moon Crystal - 07-11 </h2></div>#}
                     <div class="row">
-                        <p class="col-xs-12 col-sm-6">分类：<span>动画</span></p>
-                        <p class="col-xs-12 col-sm-6">发布时间：<span>2018-11-08 08:47</span></p>
-                        <p class="col-xs-12 col-sm-6">文件大小：<span>13.9 GiB</span></p>
-                        <p class="col-xs-12 col-sm-6">种子数：<span>1</span></p>
-                        <p class="col-xs-12 col-sm-6">完成：<span>0</span></p>
+                        <p class="col-xs-12 col-sm-6">分类：<span>{{ itemData.rdType }}</span></p>
+                        <p class="col-xs-12 col-sm-6">发布时间：<span>{{ itemData.rdUpTime }}</span></p>
+                        <p class="col-xs-12 col-sm-6">文件大小：<span>{{ itemData.rdSize }}</span></p>
+                        <p class="col-xs-12 col-sm-6">种子数：<span>{{ itemData.rdUpNum }}</span></p>
+                        <p class="col-xs-12 col-sm-6">完成：<span>{{ itemData.rdUpTime }}</span></p>
                     </div>
                     <div class="section-white">
                         <a href="#"><i class="fa fa-download">下载</i></a>
                     </div>
                 </section>
                 <section>
-                    <p>这是一条简介。</p>
+                    <div class="text-center">
+                        {{ itemData.rdInfo|safe }}
+                    </div>
                 </section>
                 <section>
                     <div class="section-white">文件列表</div>

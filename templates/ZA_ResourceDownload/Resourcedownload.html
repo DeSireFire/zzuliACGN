@@ -124,8 +124,8 @@
                         <tr class="">
                             <td class="col-xs-2 col-sm-2">	{{ v.rdUpTime }}</td>
                             <td class="col-xs-2 col-sm-1"><a href="?category=1">{{ v.rdType }}</a></td>
-                            <td class="col-xs-5 col-sm-3"><a href="/view/{{ v.id }}">{{ v.rdName }}</a></td>
-                            <td class="col-xs-1 col-sm-1"> <a href="#"><i class="fa fa-download"></i></a></td>
+                            <td class="col-xs-5 col-sm-3"><a href="/resourcedownload/itemInfo/{{ v.rdMagnet }}nyaYaNya{{ v.rdView }}">{{ v.rdName }}</a></td>
+                            <td class="col-xs-1 col-sm-1"> <a href="magnet:?xt=urn:btih:{{ v.rdMagnet }}&dn={{ v.rdName }}{{ v.rdTracker }}"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-2 col-sm-1">{{v.rdSize}}</td>
                             <td class="col-xs-2 col-sm-1">{{v.rdUper}}</td>
                             <td class="col-xs-0 col-sm-1">{{v.rdUpNum}}</td>

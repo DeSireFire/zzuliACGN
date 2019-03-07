@@ -22,6 +22,7 @@ class Items(models.Model):
     rdMagnet = models.CharField(default='暂无',max_length=255,unique=True,)    #资源下载链接
     rdMagnet2 = models.CharField(default='暂无',max_length=255)    #资源下载链接
     rdTracker = models.TextField(default='暂无')    #资源下tracker服务器
+    rdFileList = models.TextField(default='暂无')    #资源文件列表
     rdType = models.ForeignKey('Rtypes',on_delete=models.CASCADE)#资源种类
     rdView = models.CharField(default='',max_length=255,unique=True,)#资源详细页地址
     rdUper = models.CharField(default='未知',max_length=100)#资源发布者

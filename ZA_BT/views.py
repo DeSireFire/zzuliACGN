@@ -47,3 +47,15 @@ def BTIndex(request):
     }
     return render(request, 'ZA_ResourceDownload/Resourcedownload.html', ctx)
 
+# 资源具体信息页面
+def iteminfo(request,second_param):
+    print(second_param)
+    print(type(second_param))
+    print(second_param.split('nyaYaNya')[0])
+
+    itemData = Items.objects.get(rdMagnet=second_param.split('nyaYaNya')[0])
+    ctx = {
+        'title': '资源下载',
+        'itemData':itemData,
+    }
+    return render(request, 'ZA_ResourceDownload/itemView.html',ctx)
