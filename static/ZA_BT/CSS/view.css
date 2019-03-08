@@ -1,3 +1,10 @@
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
 section>.section-white>h2{
     font-size:20px;
     padding:0;
@@ -13,9 +20,8 @@ section.container{
 section>div{
     padding-left:10px;
     padding-right:10px;
-}
-section.container>div{
-padding:0 15px;
+    padding-top:5px;
+    padding-bottom:5px;
 }
 section{
     border-radius: 5px;
@@ -27,6 +33,7 @@ section{
     background:rgba(255,255,255,0.3);
     display:flex;
     align-items: center;
+    width:100%;
 }
 ul>li>span{
     font-weight:bold;
@@ -34,8 +41,52 @@ ul>li>span{
 #body-container{
     padding-left:30px;
     padding-right:30px;
+    padding-bottom:30px;
 }
-section img{
-    max-width:100%;
-    height:auto!important
+#body-container.container {
+    border: 1px solid #99CCFF;
+    background-color: rgba(153,204,255,0.1);
+}
+section>div>ul{
+    margin:0;
+}
+section#fileListContainer>div>ul>li>svg{
+    font-size:25px;
+}
+
+section#fileListContainer .fileList{
+    overflow-y: auto;
+    max-height:300px;
+    padding:0;
+}
+.fileList>ul>li{
+    padding:5px;
+    color:white;
+}
+.fileList>ul>li:nth-child(odd){
+    background: rgba(157,211,250,0.5)
+}
+.fileList>ul>li:nth-child(even){
+    background: rgba(31,111,181,0.5)
+}
+
+.fileList::-webkit-scrollbar  
+{  
+    width: 4px;  
+    height: 4px;  
+    background-color: #F5F5F5;  
+}  
+   
+.fileList::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 10px;  
+    background-color: #FFF;  
+}  
+  
+.fileList::-webkit-scrollbar-thumb  
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #AAA;  
 }
