@@ -1,4 +1,4 @@
-section.container>div>h2{
+section>.section-white>h2{
     font-size:20px;
     padding:0;
     margin:0;
@@ -9,6 +9,10 @@ section.container>div>h2{
 }
 section.container{
     padding:0;
+}
+section>div{
+    padding-left:10px;
+    padding-right:10px;
 }
 section.container>div{
 padding:0 15px;
@@ -30,4 +34,8 @@ ul>li>span{
 #body-container{
     padding-left:30px;
     padding-right:30px;
+}
+section img{
+    max-width:100%;
+    height:auto!important
 }
