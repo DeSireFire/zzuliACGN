@@ -28,12 +28,13 @@
                 {type:'全部',num:0},
                 {type:'动画',num:1,arr:[{name:'季度全集',num:11}]},
                 {type:'漫画',num:2,arr:[{name:'港台漫画',num:21},{name:'日本漫画',num:22}]},
-                {type:'音乐',num:3,arr:[{name:'动漫音乐',num:31},{name:'同人音乐',num:32},{name:'流行音乐',num:33}]},
-                {type:'日剧',num:4},
+                {type:'音乐',num:3,arr:[{name:'动漫音乐',num:31},{name:'同人音乐',num:32},{name:'流行音乐',num:33},{name:'流行音乐',num:34}]},
+                {type:'二带半',num:41,arr:[{name:'日剧',num:41},{name:'特摄',num:42}]},
                 {type:'raw',num:5},
                 {type:'游戏',num:6,arr:[{name:'电脑游戏',num:61},{name:'电视游戏',num:62},{name:'掌机游戏',num:63},{name:'网络游戏',num:64},{name:'游戏周边',num:65}]},
-                {type:'特摄',num:7},
-                {type:'其他',num:8},        
+                {type:'图像',num:7},
+                {type:'文学',num:8},
+                {type:'其他',num:9},
             ],
         }
         let temp=``
