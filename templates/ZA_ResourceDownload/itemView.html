@@ -34,12 +34,14 @@
                         {{ itemData.rdInfo|safe }}
                     </div>
                 </section>
-                <section>
+                <section id="fileListContainer">
                     <div class="section-white">文件列表</div>
+                    <div class="fileList">
 {#                    <ul>#}
 {#                        <li><i class="fa fa-file"></i>[USP RAWS] Sailor Moon Crystal - 07-11 (Mexican Spanish Dub) - 11 58A.M. XHCCT 7.1 2018-11-03.ts <span>(13.9 GiB)</span></li>#}
 {#                    </ul>#}
-                    {{ itemData.rdFileList|safe }}
+                        {{ itemData.rdFileList|safe }}
+                    </div>
                 </section>
             </div>
         </main>
