@@ -6,20 +6,45 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 # 网页渲染部分以及分页
 def BTIndex(request):
     try:
+
         # 跳转到第1页
-        sashisuseso = request.GET.get('page', 1)
+        get_page = int(request.GET.get('page', 1))
 
-        tachitsuteto = request.GET.get('category', 0)
-
+        get_category = int(request.GET.get('category', 0))
 
     except PageNotAnInteger:
         # 若发现无页码，跳转会第一页
-        sashisuseso = 1
-        tachitsuteto = 0
+        get_page = 1
+        get_category = 0
 
-    # 读取全部索引
-        print(tachitsuteto)
-    if tachitsuteto:
+    print(get_category)
+
+    # 如果类别为0（False），即为‘全部’，读取全部索引
+    if get_category != 0:
+        temp = Rtypes.objects.all()
+        print(temp)
+        print(type(temp))
+        Bt_type_name = {
+            1:[1,11],# 查询动漫，包含动漫、季度全集,下同
+            2:[2,21,22],
+            3:[3,31,32,33,34],
+            4:[4,41,42],
+            5:[5,],
+            6:[6,61,62,63,64,65,],
+            7:[7],
+            8:[8],
+            9:[9],
+        }
+        all_type_list = [11,21,22,31,32,33,34,41,42,61,62,63,64,65]
+        # 此处说明get_category有非0值，按类型表id查找
+        if get_category < 10:
+            aiueo_list = Items.objects.filter(rdType__in=Bt_type_name[get_category])
+        else:
+            if get_category in all_type_list:
+                aiueo_list = Items.objects.filter(rdType__in=get_category)
+            else:
+                aiueo_list = Items.objects.all().order_by("-rdUpTime").exclude(isdelete=1)
+
         # 查询动画
         # tempType = Rtypes.objects.get(BTtitle='动画')
 
@@ -28,18 +53,20 @@ def BTIndex(request):
         # tempType = Rtypes.objects.get(id=tachitsuteto)
 
         # get请求的参数可以直接传给数据库查询
-        aiueo_list = Items.objects.filter(rdType__in=tachitsuteto)
+        # aiueo_list = Items.objects.filter(rdType__in=get_category)
 
         # __in表示查询多个
         # aiueo_list = Items.objects.filter(rdType__in=[1,11])
 
     else:
-        aiueo_list = Items.objects.all()
-    print(type(aiueo_list))
-    # 默认首页为1，如果最后一页的数据少于5条，合并到上一页，request为必传
-    akasatana = Paginator(aiueo_list, per_page=10, orphans=5, request=request)
+        # '全部'类型时间倒序全查,排除删除项
+        aiueo_list = Items.objects.all().order_by("-rdUpTime").exclude(isdelete=1)
 
-    aiueo_list = akasatana.page(sashisuseso)
+    # 默认首页为1，如果最后一页的数据少于5条，合并到上一页，request为必传
+    # 每页80条
+    akasatana = Paginator(aiueo_list, per_page=80, orphans=5, request=request)
+
+    aiueo_list = akasatana.page(get_page)
     print(type(aiueo_list))
     ctx = {
         'title': '资源下载',
@@ -49,13 +76,15 @@ def BTIndex(request):
 
 # 资源具体信息页面
 def iteminfo(request,second_param):
-    print(second_param)
-    print(type(second_param))
-    print(second_param.split('nyaYaNya')[0])
-
-    itemData = Items.objects.get(rdMagnet=second_param.split('nyaYaNya')[0])
-    ctx = {
-        'title': '资源下载',
-        'itemData':itemData,
-    }
-    return render(request, 'ZA_ResourceDownload/itemView.html',ctx)
+    itemData = Items.objects.get(rdMagnet=second_param.split('nyaYaNya')[0]).exclude(isdelete=1)
+    if itemData:
+        ctx = {
+            'title': '资源下载',
+            'itemData':itemData,
+        }
+        return render(request, 'ZA_ResourceDownload/itemView.html',ctx)
+    else:
+        ctx = {
+            'title': '资源下载',
+        }
+        return render(request, 'ZA_Index/Construction_period.html')
