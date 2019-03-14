@@ -20,10 +20,9 @@ def BTIndex(request):
     print(get_category)
 
     # 如果类别为0（False），即为‘全部’，读取全部索引
+    #todo 此处建议查询优化，使用select_related。
     if get_category != 0:
         temp = Rtypes.objects.all()
-        print(temp)
-        print(type(temp))
         Bt_type_name = {
             1:[1,11],# 查询动漫，包含动漫、季度全集,下同
             2:[2,21,22],
@@ -38,10 +37,10 @@ def BTIndex(request):
         all_type_list = [11,21,22,31,32,33,34,41,42,61,62,63,64,65]
         # 此处说明get_category有非0值，按类型表id查找
         if get_category < 10:
-            aiueo_list = Items.objects.filter(rdType__in=Bt_type_name[get_category])
+            aiueo_list = Items.objects.filter(rdType__in=Bt_type_name[get_category]).order_by("-rdUpTime").exclude(isdelete=1)
         else:
             if get_category in all_type_list:
-                aiueo_list = Items.objects.filter(rdType__in=get_category)
+                aiueo_list = Items.objects.filter(rdType=get_category).order_by("-rdUpTime").exclude(isdelete=1)
             else:
                 aiueo_list = Items.objects.all().order_by("-rdUpTime").exclude(isdelete=1)
 
@@ -67,7 +66,6 @@ def BTIndex(request):
     akasatana = Paginator(aiueo_list, per_page=80, orphans=5, request=request)
 
     aiueo_list = akasatana.page(get_page)
-    print(type(aiueo_list))
     ctx = {
         'title': '资源下载',
         'hamayarawa_list': aiueo_list
@@ -75,12 +73,17 @@ def BTIndex(request):
     return render(request, 'ZA_ResourceDownload/Resourcedownload.html', ctx)
 
 # 资源具体信息页面
-def iteminfo(request,second_param):
-    itemData = Items.objects.get(rdMagnet=second_param.split('nyaYaNya')[0]).exclude(isdelete=1)
+def iteminfo(request,url_param):
+    # 用get方法查询的时候，查询不到内容的时候会抛出异常，同样查询结果多余1条的时候也会抛出异常
+    # 所以建议使用filter
+    itemData = Items.objects.filter(rdMagnet=url_param.split('nyaYaNya')[0])
+    print(itemData)
+    print(len(itemData))
+    print(type(itemData))
     if itemData:
         ctx = {
             'title': '资源下载',
-            'itemData':itemData,
+            'itemData':list(itemData)[0],
         }
         return render(request, 'ZA_ResourceDownload/itemView.html',ctx)
     else:
