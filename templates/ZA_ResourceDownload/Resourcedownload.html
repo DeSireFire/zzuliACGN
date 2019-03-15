@@ -23,8 +23,9 @@
             <div class="row">
                 <div>
                     <div class="search-container visible-xs">
-                        <form class="navbar-form navbar-right form" action="https://baidu.com/" method="get">
-                            <input type="text" class="form-control" name="search" placeholder="Search..." value="">
+                        <form class="navbar-form navbar-right form" action="/resourcedownload/search/" method="get">
+{#                            <input type="text" class="form-control" name="search" placeholder="Search..." value="">#}
+                            <input type="text" class="form-control" name="search" placeholder="{{ search_msg }}" value="">
                             <select class="form-control" title="Category" name="category">
                                 <option value="0" title="全部">
                                     全部
@@ -61,7 +62,7 @@
                         </form>
                     </div><!--/.search-container -->
 
-                    <form class="navbar-form navbar-middle form" action="https://baidu.com/" method="get">
+                    <form class="navbar-form navbar-middle form" action="/resourcedownload/search/" method="get">
                         <div class="form-group input-group search-container hidden-xs">
                             <div class="form-group">
                                 <select class="form-control" id="search-type" title="Category" name="category">
@@ -95,7 +96,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control search-bar" name="search" placeholder="Search..." value="">
+                                <input type="text" class="form-control search-bar" name="search" placeholder="{{ search_msg }}" value="">
+{#                                <input type="text" class="form-control search-bar" name="search" placeholder="Search..." value="">#}
                                 <div class="input-group-btn search-btn">
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fa fa-search fa-fw"></i>
@@ -105,6 +107,7 @@
                         </div>
                     </form>
                 </div>
+                {% if search_msg == 'Search...' %}
                 <table id="tablelist" class="table table-bordered table-condensed">
                     <thead class="container">
                         <tr class=" text-center">
@@ -122,9 +125,9 @@
                     <tbody class="container">
                     {% for v in hamayarawa_list.object_list %}
                         <tr class="">
-                            <td class="col-xs-2 col-sm-2">	{{ v.rdUpTime }}</td>
-                            <td class="col-xs-2 col-sm-2"><a href="?category=1">{{ v.rdType }}</a></td>
-                            <td class="col-xs-5 col-sm-2"><a href="/resourcedownload/itemInfo/{{ v.rdMagnet }}nyaYaNya{{ v.rdView }}">{{ v.rdName }}</a></td>
+                            <td class="col-xs-2 col-sm-2">{{ v.rdUpTime }}</td>
+                            <td class="col-xs-2 col-sm-1"><a href="?category={{ v.rdType.id }}">{{ v.rdType }}</a></td>
+                            <td class="col-xs-5 col-sm-"><a href="/resourcedownload/itemInfo/{{ v.rdMagnet }}nyaYaNya{{ v.rdView }}">{{ v.rdName }}</a></td>
                             <td class="col-xs-1 col-sm-1"> <a href="magnet:?xt=urn:btih:{{ v.rdMagnet }}&dn={{ v.rdName }}{{ v.rdTracker }}"><i class="fa fa-download"></i></a></td>
                             <td class="col-xs-1 col-sm-1">{{v.rdSize}}</td>
                             <td class="col-xs-1 col-sm-1">{{v.rdUper}}</td>
@@ -145,6 +148,10 @@
 {#                        </tr>#}
                     </tbody>
                 </table>
+                {% else %}
+                    <p>{{ search_msg }}..</p>
+                    <img class="biaoqingpp" src="http://ws1.sinaimg.cn/large/9150e4e5ly1fl8pmyeipbj20hs0hswg5.jpg" title="菜狗_菜狗表情" alt="菜狗_菜狗表情">
+                {% endif %}
                 <nav id="page" aria-label="Page navigation">
                     <ul class="pagination">
                         {% if hamayarawa_list.has_previous %}
