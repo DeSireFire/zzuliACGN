@@ -69,17 +69,27 @@ def updata(header,fileName,filesRead):
         header.update(update_header)
     else:
         header.update(update_header)
+
+    # 获取上传的地址
+    req_ossurl = requests.post(url=aixinxi_index_url, headers=header)
+    new_update_url = re.findall('upserver ="(.*?)";var', req_ossurl.text)[0]
+    print('获取上传地址:%s'%new_update_url)
+    if new_update_url:
+        update_url = new_update_url
+
     temp_data = token_get(header)
     if temp_data:
+        print(temp_data)
         aixinxi_update_data['policy'] =  temp_data['policy']
         aixinxi_update_data['signature'] =  temp_data['signature']
-        aixinxi_update_data['AccessKeyId'] =  temp_data['AccessKeyId']
+        aixinxi_update_data['OSSAccessKeyId'] =  temp_data['AccessKeyId']
         aixinxi_update_data['name'] =  fileName
         aixinxi_update_data['key'] =  fileName
     else:
         print("token获取失败")
         return False
     req = requests.post(url=aixinxi_update_url, headers=header, data=aixinxi_update_data, files=filesRead)
+    print(req)
     if req.status_code == 200:
         print('上传成功！')
         info = save(header,fileName)
@@ -95,6 +105,7 @@ def updata(header,fileName,filesRead):
         print(req.text)
         print(req.headers)
         return False
+
 
 # 保存文件
 def save(header,fileName):
