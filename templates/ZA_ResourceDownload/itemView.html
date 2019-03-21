@@ -1,6 +1,8 @@
 {%extends 'Base_Body.html' %}
+{% load static %}
 {%block head_more%}
     <link rel="stylesheet" href="/static/ZA_BT/CSS/view.css">
+    <link rel="stylesheet" href="/static/ZA_BT/CSS/main.css">
     <link rel="stylesheet" href="/static/ZA_BT/CSS/ResourcedownloadBase.css">
 {%endblock head_more%}
 
@@ -23,10 +25,11 @@
                         <p class="col-xs-12 col-sm-6">发布时间：<span>{{ itemData.rdUpTime }}</span></p>
                         <p class="col-xs-12 col-sm-6">文件大小：<span>{{ itemData.rdSize }}</span></p>
                         <p class="col-xs-12 col-sm-6">种子数：<span>{{ itemData.rdUpNum }}</span></p>
-                        <p class="col-xs-12 col-sm-6">完成：<span>{{ itemData.rdUpTime }}</span></p>
+                        <p class="col-xs-12 col-sm-6">下载数：<span>{{ itemData.rdDownloadNum }}</span></p>
+                        <p class="col-xs-12 col-sm-6">完成：<span>{{ itemData.rdOK }}</span></p>
                     </div>
                     <div class="section-white">
-                        <a href="#"><i class="fa fa-download">下载</i></a>
+{#                        <a href="#"><i class="fa fa-download">下载</i></a>#}
                     </div>
                 </section>
                 <section>
@@ -37,8 +40,8 @@
                 <section id="fileListContainer">
                     <div class="sectionWhite">BT下载</div>
                     <div class="downloadList">
-                        <p class="vipLink">會員專用連接:<span class="vipLinkHref"> [澄空&華盟&雪飄][刀劍神域 Alicization篇 / ソードアート・オンライン アリシゼーション][21][720P][繁體內嵌]</span></p>
-                        <p>Magnet連接: <a href="#">magnet:?xt=urn:btih:G7KWT3U32AXUS4ECPMEXIZJGNY4AFXWT</a></p>                            
+                        <p class="vipLink">會員專用連接:<span class="vipLinkHref">{{ itemData.rdName }}</span></p>
+                        <p>Magnet連接: <a href="#">magnet:?xt=urn:btih:G7KWT3U32AXUS4ECPMEXIZJGNY4AFXWT</a></p>
                         <p>外部搜索連接: <a href="#">從谷歌搜索資源種子</a></p>
                     </div>
                     <hr>

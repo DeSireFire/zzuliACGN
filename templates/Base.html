@@ -11,15 +11,26 @@
         这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。
         注意，这种方式我们并不推荐所有网站使用，还是要看你自己的情况而定！
         -->
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="author" content="">
+        <meta name="description" content="RaXian">
+        <meta name="keywords" content="RaXian">
+        <meta name="author" content="RaXian">
+        <meta name="google-site-verification" content="VEZFLlNhpkSxjY-N-C3AmLERwk9daO8xmIAS9eHDU2Q" />
         <!-- Bootstrap -->
         <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <link href="/static/BaseCss.css" rel="stylesheet">
         <link REL="SHORTCUT ICON" href="/static/favicon.ico"/>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125963410-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-125963410-1');
+        </script>
         {%block head%}{%endblock head%}
     </head>
     <body>
@@ -52,15 +63,7 @@
             <script type="text/javascript" src="https://cdn.bootcss.com/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
             <script type="text/javascript" src="https://cdn.bootcss.com/smoothscroll/1.4.6/SmoothScroll.js"></script>
             <script type="text/javascript" src="/static/BaseJs.js"></script>
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125963410-1"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
 
-              gtag('config', 'UA-125963410-1');
-            </script>
             {#末端JavaScript预留区，根据网页具体需求添加新JS#}
             {%block End_Script_more%}{%endblock End_Script_more%}
         {%endblock End_Script%}

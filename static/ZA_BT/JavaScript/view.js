@@ -1,10 +1,11 @@
 (function(){
-    $('#BTList>.downloadList>p.vipLink>span').one('click',getMagnet)
+    $('.vipLink>.vipLinkHref').one('click',getMagnet)
+    // $('#BTList>.downloadList>p.vipLink>.vipLinkHref').one('click',getMagnet)
     function getMagnet(e){
         let _temp = e.target
         $.ajax({
             type: "get",
-            url: "/loadingmagnet",
+            url: "/tools/loadingmagnet",
             data: 'temp', 
             processData: false,    //false
             cache: false,    //缓存
