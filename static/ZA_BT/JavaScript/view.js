@@ -6,16 +6,15 @@
         $.ajax({
             type: "get",
             url: "/tools/loadingmagnet",
-            data: 'temp', 
-            processData: false,    //false
+            data: {magnet:$('.generalLlink>a').text()}, 
             cache: false,    //缓存
             beforeSend:function(){
                 $(_temp).text('加载中，大约需要20秒...')
-                $(e).unbind('click',getMagnet)
+                $(e.target).off('click',getMagnet)
             },
             success: function(data){
                 // $(_temp).text(data.magnetInfo)
-                let xxx = `<a href="${data.magnetInfo}">${data.magnetInfo}</a>` 
+                let xxx = `<a href="${data.magnetInfo}">已获取，点击下载</a>` 
                 $(_temp).text('')
                 $(_temp).append(xxx)
                 // _temp.setAttribute('data-clipboard-text',data.magnetInfo)
@@ -33,7 +32,7 @@
             },
             error:function(){
                $(_temp).text('加载失败点击重试')
-               $(e).one('click',getMagnet)
+               $(e.target).one('click',getMagnet)
             //    let test=`<input class="test" value="yyext in this element.">`
             // $('#body-container').append(test)
             //    $(_temp).on('click',()=>{
