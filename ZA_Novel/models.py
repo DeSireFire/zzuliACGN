@@ -44,17 +44,16 @@ class type(models.Model):
 # 小說基本信息
 class novel_info(models.Model):
     novel_id = models.AutoField('书id',primary_key=True,unique=True,) # 小说Id
-    novel_name = models.CharField('书名',max_length=255,unique=True,default='',) # 小说名
-    n_writer = models.CharField('作者名',max_length=100,unique=True,default='未知',) # 作者名
-    n_illustrator = models.CharField('插画师名',max_length=100,unique=True,default='未知',) # 插画师名
-    n_library = models.CharField('文库名',max_length=100,unique=True,default='未知',)  # 文库名
-    n_intro = models.TextField('简介',default='',) # 小说简介
-    n_headerImage = models.URLField("小说封面URL", unique=True) # 小说封面
-    n_worksNum = models.CharField('小说字数',max_length=200,default='0',) # 小说字数
-    n_types = models.ForeignKey(type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
-    n_saveTime = models.DateField('小说收录时间',default=date.today,) # 小说收录时间
-    n_updateTime = models.DateField('小说更新时间',default=date.today,) # 小说更新时间
-    n_action = models.CharField('小说文章状态',default='连载中..',) # 小说更新时间
+    novelName = models.CharField('书名',max_length=255,unique=True,default='',) # 小说名
+    writer = models.CharField('作者名',max_length=100,unique=True,default='未知',) # 作者名
+    illustrator = models.CharField('插画师名',max_length=100,unique=True,default='未知',) # 插画师名
+    fromPress = models.CharField('文库名',max_length=100,unique=True,default='未知',)  # 文库名
+    intro = models.TextField('简介',default='',) # 小说简介
+    headerImage = models.URLField("小说封面URL", unique=True) # 小说封面
+    worksNum = models.CharField('小说字数',max_length=200,default='0',) # 小说字数
+    types = models.ForeignKey(type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
+    saveTime = models.DateField('小说收录时间',default=date.today,) # 小说收录时间
+    action = models.CharField('小说文章状态',max_length=200,default='连载中..',) # 小说更新状态
 
 
     class Meta:
@@ -64,8 +63,10 @@ class novel_info(models.Model):
 
 # 小說正文信息
 class novel_detail(models.Model):
-    n_name = models.ForeignKey('novel_info', verbose_name='章节所属小说', on_delete=models.CASCADE)
-    novel_title = models.CharField('小说册名',max_length=200,default='正文卷',) # 小说册名
+    name = models.ForeignKey('novel_info', verbose_name='章节所属小说', on_delete=models.CASCADE)
+    title = models.CharField('小说册名',max_length=200,default='正文卷',) # 小说册名
+    chapter = models.CharField('小说册名',max_length=200,default='正文卷',) # 小说章节名
+    updateTime = models.DateField('小说更新时间', default=date.today, )  # 章节更新时间
     '''
     思路记录：
     由于小说主体内容过大，所以不适合保存在后端服务器；
@@ -74,7 +75,8 @@ class novel_detail(models.Model):
     [[小说章节名1,保存地址1],[小说章节名2,保存地址2],[小说章节名3,保存地址3]..]
     小说章节数，则以该列表的下标+1的方式记录。
     '''
-    container = models.TextField('小说章节名+正文',default='',) # 小说正文
+    container = models.TextField('小说正文',default='',) # 小说正文
+
 
 
     class Meta:
