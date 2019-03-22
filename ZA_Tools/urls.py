@@ -3,5 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('',views.ZA_Show),
+    path('animeTrackerList/get/',views.animeTrackerListGet),
+    path('animeTrackerList/post/',views.animeTrackerListPost),
+    # path('',views.ZA_Show),
 ]
