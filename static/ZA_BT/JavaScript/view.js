@@ -4,9 +4,11 @@
     function getMagnet(e){
         let _temp = e.target
         $.ajax({
-            type: "get",
-            url: "/tools/loadingmagnet",
-            data: {magnet:$('.generalLlink>a').text()}, 
+            type: "post",
+            // type: "get",
+            url: "/tools/loadingmagnet/?magnet=",
+            headers:{'X-CSRFToken': getCookie('csrftoken')},
+            data: {magnetURL:$('.generalLlink>a').attr('href')},
             cache: false,    //缓存
             beforeSend:function(){
                 $(_temp).text('加载中，大约需要20秒...')
@@ -14,7 +16,7 @@
             },
             success: function(data){
                 // $(_temp).text(data.magnetInfo)
-                let xxx = `<a href="${data.magnetInfo}">已获取，点击下载</a>` 
+                let xxx = `<a href="${data.magnetURL}">已获取，点击下载</a>`
                 $(_temp).text('')
                 $(_temp).append(xxx)
                 // _temp.setAttribute('data-clipboard-text',data.magnetInfo)
@@ -46,6 +48,21 @@
             }
         })
     }
+
+    function getCookie(name) {
+    var cookieValue = null;
+     if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+        }
+    }
+    }
+    return cookieValue;
+}
 
     function changeIco(){
         $('.fileList>ul>li').each(function(index,e){

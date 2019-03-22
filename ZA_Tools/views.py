@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponseRedirect
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 # import urllib.request
 import chardet,re
 import requests as nya
@@ -66,47 +66,36 @@ def animeTrackerListGet(request):
         re_json['magnet'] = '磁性连接在哪呢？我可爱的宝贝～'
         return JsonResponse(re_json)
 
-# todo 待完成
-def animeTrackerListPost(request):
+
+def loadingmagnet(request):
     '''
-    优化磁性连接
+    用于zzuliacgn内部的优化工具
     :param request:
     :return:
     '''
-    getMagnet = request.GET.get('magneturl',)
-    listName = request.GET.get('trackers', 'animeTrackers_best')
-    dn_get = request.GET.get('dn')
-    URLS = {
-        'animeTrackers_best',
-        'animeTrackers_all',
-        'animeTrackers_bad',
-        'animeTrackers_all_udp',
-        'animeTrackers_all_http',
-        'animeTrackers_all_https',
-        'animeTrackers_all_ws',
-        'animeTrackers_best_ip',
-        'animeTrackers_all_ip',
+    magnetInfo = {
+        'status':'500',# 手动响应状码
+        'magnetURL':'',# 生成的磁性链接
+        'magnetInfo':'未知错误,，请重试...',# 错误信息说明
     }
-    re_json = {
-        'status': False,
-        'magnet':'',
-    }
+    getMagnet = request.POST.get('magnet')
     if getMagnet:
+        print(getMagnet)
         m = r'magnet:?[^"]+'
         if re.findall(m, getMagnet):
-
-            if listName not in URLS:
-                listName = 'animeTrackers_all'
             try:
-                MBresponse = nya.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/%s.txt'%listName)
-                re_json['magnet'] = r'%s&dn=%s%s'%(getMagnet,dn_get,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
-                re_json['status'] = True
-                return JsonResponse(re_json)
+                MBresponse = nya.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/animeTrackers_all.txt')
+                magnetInfo['magnetURL'] = r'%s%s'%(getMagnet,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
+                magnetInfo['status'] = str(MBresponse.status_code)
+                magnetInfo['magnetInfo'] = '获取成功，点击下载！'
+                return JsonResponse(magnetInfo)
             except:
-                return JsonResponse(re_json)
+                magnetInfo['status'] = '404'
+                magnetInfo['magnetInfo'] = '获取失败，请重试...'
+                return JsonResponse(magnetInfo)
         else:
-            re_json['magnet'] = '大兄弟，你这个磁链接接有点不对劲呐'
-            return JsonResponse(re_json)
+            magnetInfo['magnetInfo'] = '大兄弟，你这个磁链接接有点不对劲呐'
+            return JsonResponse(magnetInfo)
     else:
-        re_json['magnet'] = '磁性连接在哪呢？我可爱的宝贝～'
-        return JsonResponse(re_json)
+        magnetInfo['magnetInfo'] = '未接收到磁性链接，请重试...'
+        return JsonResponse(magnetInfo)
