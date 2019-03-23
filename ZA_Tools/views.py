@@ -74,7 +74,7 @@ def loadingmagnet(request):
     :return:
     '''
     magnetInfo = {
-        'status':'500',# 手动响应状码
+        'status':500,# 手动响应状码
         'magnet':'',# 生成的磁性链接
         'magnetInfo':'未知错误,，请重试...',# 错误信息说明
     }
@@ -85,11 +85,11 @@ def loadingmagnet(request):
             try:
                 MBresponse = nya.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/animeTrackers_all.txt')
                 magnetInfo['magnet'] = r'%s%s'%(getMagnet,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
-                magnetInfo['status'] = str(MBresponse.status_code)
+                magnetInfo['status'] = MBresponse.status_code
                 magnetInfo['magnetInfo'] = '获取成功，点击下载！'
                 return JsonResponse(magnetInfo)
             except:
-                magnetInfo['status'] = '404'
+                magnetInfo['status'] = 404
                 magnetInfo['magnetInfo'] = '获取失败，请重试...'
                 return JsonResponse(magnetInfo)
         else:

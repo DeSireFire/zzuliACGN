@@ -17,22 +17,14 @@
                 $(e.target).off('click',getMagnet)
             },
             success: function(data){
-                // $(_temp).text(data.magnetInfo)
-                let xxx = `<a href="${data.magnet}">已获取，点击下载</a>`
-                $(_temp).text('')
-                $(_temp).append(xxx)
-                // _temp.setAttribute('data-clipboard-text',data.magnetInfo)
-                // var clipboard = new ClipboardJS('.vipLinkHref', {
-                //     text: function(trigger) {
-                //         return trigger.getAttribute('data-clipboard-text');
-                //     }
-                // });
-            //     clipboard.on('success', function(e) {
-            //         alert('复制成功')
-            //     });
-            //     clipboard.on('error', function(e) {
-            //         alert('复制失败，请手动复制')
-            //     });
+                if(data.status==200){
+                 let xxx = `<a href="${data.magnet}">已获取，点击下载</a>`
+                                $(_temp).text('')
+                                $(_temp).append(xxx)
+                }else{
+                 $(_temp).text('加载失败点击重试')
+                               $(e.target).one('click',getMagnet)
+                }
             },
             error:function(){
                $(_temp).text('加载失败点击重试')
