@@ -79,7 +79,6 @@ def loadingmagnet(request):
         'magnetInfo':'未知错误,，请重试...',# 错误信息说明
     }
     getMagnet = request.POST.get('magnet')
-    print(getMagnet)
     if getMagnet:
         m = r'magnet:?[^"]+'
         if re.findall(m, getMagnet):
