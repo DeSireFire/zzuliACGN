@@ -6,9 +6,11 @@
         $.ajax({
             type: "post",
             // type: "get",
-            url: "/tools/loadingmagnet/?magnet=",
+            url: "/tools/loadingmagnet/",
             headers:{'X-CSRFToken': getCookie('csrftoken')},
-            data: {magnetURL:$('.generalLlink>a').attr('href')},
+            data: {
+                magnet:$('.generalLlink>a').attr('href'),
+            },
             cache: false,    //缓存
             beforeSend:function(){
                 $(_temp).text('加载中，大约需要20秒...')
@@ -16,7 +18,7 @@
             },
             success: function(data){
                 // $(_temp).text(data.magnetInfo)
-                let xxx = `<a href="${data.magnetURL}">已获取，点击下载</a>`
+                let xxx = `<a href="${data.magnet}">已获取，点击下载</a>`
                 $(_temp).text('')
                 $(_temp).append(xxx)
                 // _temp.setAttribute('data-clipboard-text',data.magnetInfo)

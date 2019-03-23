@@ -75,17 +75,17 @@ def loadingmagnet(request):
     '''
     magnetInfo = {
         'status':'500',# 手动响应状码
-        'magnetURL':'',# 生成的磁性链接
+        'magnet':'',# 生成的磁性链接
         'magnetInfo':'未知错误,，请重试...',# 错误信息说明
     }
     getMagnet = request.POST.get('magnet')
+    print(getMagnet)
     if getMagnet:
-        print(getMagnet)
         m = r'magnet:?[^"]+'
         if re.findall(m, getMagnet):
             try:
                 MBresponse = nya.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/animeTrackers_all.txt')
-                magnetInfo['magnetURL'] = r'%s%s'%(getMagnet,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
+                magnetInfo['magnet'] = r'%s%s'%(getMagnet,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
                 magnetInfo['status'] = str(MBresponse.status_code)
                 magnetInfo['magnetInfo'] = '获取成功，点击下载！'
                 return JsonResponse(magnetInfo)
