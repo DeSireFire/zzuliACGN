@@ -3,7 +3,7 @@ from django.http import JsonResponse,HttpResponse
 # import urllib.request
 import chardet,re
 import requests as nya
-# Create your views here.
+
 # 网站模块临时展示页
 
 # def testspider(temp):
