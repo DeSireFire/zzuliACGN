@@ -4,31 +4,27 @@
     function getMagnet(e){
         let _temp = e.target
         $.ajax({
-            type: "get",
-            url: "/tools/loadingmagnet",
-            data: {magnet:$('.generalLlink>a').text()}, 
+            type: "post",
+            // type: "get",
+            url: "/tools/loadingmagnet/",
+            headers:{'X-CSRFToken': getCookie('csrftoken')},
+            data: {
+                magnet:$('.generalLlink>a').attr('href'),
+            },
             cache: false,    //缓存
             beforeSend:function(){
                 $(_temp).text('加载中，大约需要20秒...')
                 $(e.target).off('click',getMagnet)
             },
             success: function(data){
-                // $(_temp).text(data.magnetInfo)
-                let xxx = `<a href="${data.magnetInfo}">已获取，点击下载</a>` 
-                $(_temp).text('')
-                $(_temp).append(xxx)
-                // _temp.setAttribute('data-clipboard-text',data.magnetInfo)
-                // var clipboard = new ClipboardJS('.vipLinkHref', {
-                //     text: function(trigger) {
-                //         return trigger.getAttribute('data-clipboard-text');
-                //     }
-                // });
-            //     clipboard.on('success', function(e) {
-            //         alert('复制成功')
-            //     });
-            //     clipboard.on('error', function(e) {
-            //         alert('复制失败，请手动复制')
-            //     });
+                if(data.status==200){
+                 let xxx = `<a href="${data.magnet}">已获取，点击下载</a>`
+                                $(_temp).text('')
+                                $(_temp).append(xxx)
+                }else{
+                 $(_temp).text('加载失败点击重试')
+                               $(e.target).one('click',getMagnet)
+                }
             },
             error:function(){
                $(_temp).text('加载失败点击重试')
@@ -46,6 +42,21 @@
             }
         })
     }
+
+    function getCookie(name) {
+    var cookieValue = null;
+     if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+        }
+    }
+    }
+    return cookieValue;
+}
 
     function changeIco(){
         $('.fileList>ul>li').each(function(index,e){

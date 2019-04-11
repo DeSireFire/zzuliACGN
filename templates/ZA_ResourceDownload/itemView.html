@@ -41,8 +41,9 @@
                     <div class="sectionWhite">BT下载</div>
                     <div class="downloadList">
                         <p class="vipLink">會員專用連接:<span class="vipLinkHref">{{ itemData.rdName }}</span></p>
-                        <p class="generalLlink">Magnet連接: <a href="#">magnet:?xt=urn:btih:G7KWT3U32AXUS4ECPMEXIZJGNY4AFXWT</a></p>
-                        <p>外部搜索連接: <a href="#">從谷歌搜索資源種子</a></p>
+                        <p class="generalLlink">Magnet連接: <a href="magnet:?xt=urn:btih:{{ itemData.rdMagnet }}&dn={{ itemData.rdName }}{{ itemData.rdTracker }}">magnet:?xt=urn:btih:{{ itemData.rdMagnet }}</a></p>
+                        <p class="generalLlink">Magnet連接Type2: <a href="magnet:?xt=urn:btih:{{ itemData.rdMagnet2 }}&dn={{ itemData.rdName }}"{{ itemData.rdTracker }}>magnet:?xt=urn:btih:{{ itemData.rdMagnet2 }}</a></p>
+                        <p>外部搜索連接: <a href="https://www.google.com/search?oe=utf-8&q={{ itemData.rdMagnet }}">從谷歌搜索資源種子</a></p>
                     </div>
                     <hr>
                     <div class="section-white">文件列表</div>

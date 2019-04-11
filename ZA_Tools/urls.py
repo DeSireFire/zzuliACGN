@@ -1,7 +1,9 @@
-from django.urls import path,include
+from django.urls import path
 from . import views
 
 
 urlpatterns = [
-    path('',views.ZA_Show),
+    path('animeTrackerList/get/',views.animeTrackerListGet),
+    path('loadingmagnet/',views.loadingmagnet),
+    # path('',views.ZA_Show),
 ]
