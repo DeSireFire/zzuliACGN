@@ -7,7 +7,7 @@ const hot = Vue.component('hot',{
                             <hr>
                             <ul>
                                 <li v-for="(item,index) in page.hot">
-                                    <a :href="item.href">{{item.title}}</a><span>{{item.date}}</span>
+                                <router-link :to="item.href">{{item.title}}</router-link><span>{{item.date}}</span>
                                 </li>
                             </ul>
                         </div>

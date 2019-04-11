@@ -17,14 +17,14 @@ let index = Vue.component('index',{
             <div class="partition-name"><h3>推荐文章</h3></div>
             <div class="article-content">
                 <section class="article" v-for="(item,index) in page.article">
-                <a :href="item.href">
+                <router-link :to="item.href">
                 <div class="article-left">
                     <h4 class="article-tittle">xxx</h4>
                     <p>{{item.abstract}}</p>
                     <div class="article-inf"><span>{{item.source}}</span><span>{{item.type}}</span><span>{{item.date}}</span></div>
                 </div>
                 <div class="article-right"><img :src="item.img" width="120" height="90"></div>
-                </a>
+                </router-link>
                 </section>               
             </div>
         </div>
