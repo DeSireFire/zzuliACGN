@@ -51,7 +51,7 @@ class info(models.Model):
     intro = models.TextField('简介',default='',) # 小说简介
     headerImage = models.URLField("小说封面URL") # 小说封面
     resWorksNum = models.IntegerField('小说字数',default='0',) # 小说字数
-    index = models.TextField('小说目录',default='0',) # 小说目录
+    index = models.TextField('小说目录',default='全本',) # 小说目录
     types = models.ForeignKey(type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
     action = models.CharField('小说文章状态',max_length=200,default='连载中..',) # 小说更新状态
     isdelete = models.BooleanField('是否删除', default=False)
