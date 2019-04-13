@@ -48,11 +48,6 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作品分类 <i class="fa fa-toggle-down"></i></a>
                                     <ul class="dropdown-menu novel-class">
-{#                                    todo 未完成！ #}
-                                        {% for v in novelTypes[:-1] %}
-                                        <li><a href="#">v</a><a href="#">novelTypes[novelTypes.index[v+1]]</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        {% endfor %}
 {#                                        <li><a href="#">玄幻</a><a href="#">奇幻</a></li>#}
 {#                                        <!--<li><a href="#">奇幻</a></li>-->#}
 {#                                        <li role="separator" class="divider"></li>#}
@@ -67,7 +62,10 @@
 {#                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>#}
 {#                                        <li role="separator" class="divider"></li>#}
 {#                                        <li><a href="#">女生</a><a href="#">二次元</a></li>#}
-
+                                        {% for v in novelTypes %}
+                                        {{ v|safe }}
+                                        <li role="separator" class="divider"></li>
+                                        {% endfor %}
                                     </ul>
                                 </li>
                                 <li><a href="#">全部作品</a></li>
