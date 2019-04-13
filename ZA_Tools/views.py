@@ -98,3 +98,4 @@ def loadingmagnet(request):
     else:
         magnetInfo['magnetInfo'] = '未接收到磁性链接，请重试...'
         return JsonResponse(magnetInfo)
+
