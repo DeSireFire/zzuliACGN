@@ -62,7 +62,7 @@
 {#                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>#}
 {#                                        <li role="separator" class="divider"></li>#}
 {#                                        <li><a href="#">女生</a><a href="#">二次元</a></li>#}
-                                        {% for v in novelTypes %}
+                                        {% for v in novelTypes_html %}
                                         {{ v|safe }}
                                         <li role="separator" class="divider"></li>
                                         {% endfor %}
@@ -537,12 +537,13 @@
             <div class="space"></div>
             <div class="clearfix"></div>
             <!--小说版块主体*N-->
+            {% for v in novelTypes %}
             <div class="novel-container row">
                 <div class="block-left col-md-6 col-sm-7 col-xs-12 text-center">
                     <div class="block-title">
                         <a href="#" class="title-link">
                             <div class="icon-title"></div>
-                            <h2 class="title">热门文库本</h2>
+                            <h2 class="title">热门『{{ v }}』小说</h2>
                         </a>
                         <a href="/info/#/faq?to=rank" target="_blank" class="link-faq"><i class="fa fa-question-circle fa-2x"></i></a>
                         <a href="/c/14" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
@@ -696,7 +697,7 @@
                 <div class="block-right col-md-3 col-sm-5 col-xs-12 text-left">
                     <div class="js-block-rank rank-wrap">
                         <div class="block-title block-title-rank">
-                            <h2 class="title">文库本<span class="s-t">战力榜</span>
+                            <h2 class="title">{{ v }}<span class="s-t">战力榜</span>
                             </h2>
                             <!--a.more(href="/rank/", target="_blank") 更多-->
                             <!--    i.fa.fa-angle-right.fa-fw-->
@@ -713,6 +714,7 @@
             </div>
             <div class="space"></div>
             <div class="clearfix"></div>
+            {% endfor %}
             <!--小说版块最近更新-->
             <div class="novel-update row">
                 <div class="block-left col-md-9 visible-lg-block visible-md-block visible-sm-block text-left">
