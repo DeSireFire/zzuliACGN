@@ -15,14 +15,8 @@ data_delete = {
 'key':'44764c752081126b509b12091356f56c',
 }
 # 上传时的附加数据
-update_data = {
-'name':'o_test.jpg',
-'policy':'eyJleHBpcmF0aW9uIjoiMjAxOC0xMS0xMVQxNDozNzo1NFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MF0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIiXV19',
-'signature':'1UEnB6y1T4boNZzqPtEp5NkXOM0=',
-'OSSAccessKeyId':'LTAIyUoGoXRUSdwm',
-'key':'o_test.jpg',
-'success_action_status':'200',
-}
+from zzuliACGN.config import update_data
+
 # 保存操作所需附加信息
 data_save = {
 'ming':'o_1cqs8t6tg1s0h1sddovn50ika.mp4',
