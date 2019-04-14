@@ -1,6 +1,6 @@
 import requests,re,json,hashlib
 # from Spyder.aixinxi.aixinxi_config import *
-from aixinxi_config import *
+from ZA_Tools.axx.config import *
 
 
 # 登陆aixinxi
@@ -12,7 +12,7 @@ def login():
     header = get_header()
     choose = True
     while choose:
-        req = requests.post(url=login_url, headers=get_header(), data=login_dirt)
+        req = requests.post(url=login_url, headers=get_header(), data=aixinxi_login_dirt)
         header.update({'cookie':req.headers['Set-Cookie'][:36],})
         choose = logining(header)
         if choose:
