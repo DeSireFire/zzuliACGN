@@ -241,6 +241,22 @@ def urlText(url):
     return req.text
 
 
+# 获取指定url的图片bytes
+def urlImg(url):
+    '''
+    本来是只打算左爱信息图床的文本查看的，但是想象什么区别，
+    干脆弄成啥文本都能看算了
+    注意：只能查看文本文件，图片不行！！！
+    :param url: 需要请求的网络连接
+    :return:字符串，文本
+    '''
+    req = requests.get(url=url)
+    choose = req.status_code
+    while choose!=200:
+        req = requests.post(url=url)
+        choose = req.status_code
+    return req.content
+
 def main():
 
     # 登陆爱信息图床并返回有关头部信息

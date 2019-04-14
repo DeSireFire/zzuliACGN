@@ -1,1 +1,1 @@
-{'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre', 'cookie': 'PHPSESSID=mng47t70cbken4c3ec18tjr9n0'}
+{'User-Agent': 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; QQDownload 732; .NET4.0C; .NET4.0E)', 'cookie': 'PHPSESSID=5arlbn3c5np8uageqk709bkcl5'}

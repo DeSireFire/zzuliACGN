@@ -4,7 +4,6 @@ from ZA_Tools.axx.handler import *
 f = open('cookie.txt', 'r', encoding='utf-8')
 oldCookie = eval(f.read())
 f.close()
-print(oldCookie)
 if not logining(oldCookie):
     print('cookie已经失效，重新获取cookie！')
     default_h = login()
@@ -13,6 +12,7 @@ if not logining(oldCookie):
 else:
     print('cookie有效')
     default_h = oldCookie
+
 
 
 def strUper(tempStr,header=default_h,logout = False,fileName = fileNameIter()):
@@ -59,6 +59,24 @@ def textUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
         if logout:
             loginOutloginOut(header['cookie'])
 
+def imgUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
+    '''
+    传入文本的网络地址，上传爱信息图床工具
+    :param url: 需要上传的文本超链接
+    :param headrs: 头部，包含默认值
+    :param logout: 布尔值，是否在完成操作后退出登陆状态
+    :param fileName: 字符串，不含有文件后缀
+    :return:
+    '''
+    try:
+        files = {'file': urlImg(url)}
+        return updata(header, 'o_%s.jpg' % fileName, files)
+    except Exception as e:
+        print(e)
+    finally:
+        if logout:
+            loginOutloginOut(header['cookie'])
+
 def textContrast(tempStr1,header=default_h,logout = False):
     '''
     查询字符串与图床上的文本是否一致..
@@ -88,7 +106,8 @@ if __name__ == '__main__':
     # f.close()
     tempStr = '从前有座山，山里有座庙，庙里有个和尚,在吃肉松饼！'
     try:
-        a = strUper(tempStr,default_h,fileName='999piaj60617nu4399n0777')
+        imgUrlUper('http://img.wkcdn.com/image/0/2/2s.jpg',default_h,fileName='999piaj60617nu4399n0777wkcdn')
+        # a = strUper(tempStr,default_h,fileName='999piaj60617nu4399n0777wkcdn')
         print(a)
         # textContrast(tempStr,header=default_h,logout = False)
     except Exception as e:

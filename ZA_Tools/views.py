@@ -4,6 +4,7 @@ from django.http import JsonResponse,HttpResponse
 import chardet,re
 import requests as nya
 
+
 # 网站模块临时展示页
 
 # def testspider(temp):
@@ -99,3 +100,4 @@ def loadingmagnet(request):
         magnetInfo['magnetInfo'] = '未接收到磁性链接，请重试...'
         return JsonResponse(magnetInfo)
 
+def
