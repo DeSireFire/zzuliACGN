@@ -1,13 +1,18 @@
-from axx import *
-# 默认cookie头部
-default_h = {
-    'User-Agent': 'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52',
-    'cookie': 'PHPSESSID=ns4e93j1oppq5qkn51dl5dko62',
-    'referer': 'https://tu.aixinxi.net/views/pages.php?id=explore',
-    'upgrade-insecure-requests': '1'
-}
-if not logining(default_h):
+from ZA_Tools.axx.handler import *
+
+# cookie检查&保存
+f = open('cookie.txt', 'r', encoding='utf-8')
+oldCookie = eval(f.read())
+f.close()
+print(oldCookie)
+if not logining(oldCookie):
+    print('cookie已经失效，重新获取cookie！')
     default_h = login()
+    with open('cookie.txt', 'w+', encoding='utf-8') as cookieJson:
+        cookieJson.write(str(default_h))
+else:
+    print('cookie有效')
+    default_h = oldCookie
 
 
 def strUper(tempStr,header=default_h,logout = False,fileName = fileNameIter()):
@@ -83,7 +88,7 @@ if __name__ == '__main__':
     # f.close()
     tempStr = '从前有座山，山里有座庙，庙里有个和尚,在吃肉松饼！'
     try:
-        a = strUper(tempStr,default_h,fileName='d9285d6239ctestnv1233')
+        a = strUper(tempStr,default_h,fileName='999piaj60617nu4399n0777')
         print(a)
         # textContrast(tempStr,header=default_h,logout = False)
     except Exception as e:
@@ -92,4 +97,5 @@ if __name__ == '__main__':
     finally:
         pass
         loginOutloginOut(default_h['cookie'])
+
 
