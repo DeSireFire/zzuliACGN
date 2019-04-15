@@ -52,7 +52,8 @@ def textUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
     try:
         tempStr = urlText(url)
         files = {'file': bytes(tempStr, encoding="utf8")}
-        return updata(header, 'o_%s.txt' % fileName, files)
+        return updata(header, 'o_%s.jpg' % fileName, files)
+
     except Exception as e:
         print(e)
     finally:
@@ -70,7 +71,7 @@ def imgUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
     '''
     try:
         files = {'file': urlImg(url)}
-        return updata(header, 'o_%s.jpg' % fileName, files)
+        return updata(header, 'o_%s.%s' % (fileName, url.split('.')[-1]), files)
     except Exception as e:
         print(e)
     finally:
@@ -106,9 +107,9 @@ if __name__ == '__main__':
     # f.close()
     tempStr = '从前有座山，山里有座庙，庙里有个和尚,在吃肉松饼！'
     try:
-        imgUrlUper('http://img.wkcdn.com/image/0/2/2s.jpg',default_h,fileName='999piaj60617nu4399n0777wkcdn')
+        imgUrlUper('http://img.wkcdn.com/image/0/2/2s.jpg',default_h,fileName='999piaj6061723232778812')
         # a = strUper(tempStr,default_h,fileName='999piaj60617nu4399n0777wkcdn')
-        print(a)
+        # print(a)
         # textContrast(tempStr,header=default_h,logout = False)
     except Exception as e:
         pass
