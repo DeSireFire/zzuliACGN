@@ -117,10 +117,12 @@ def imgUrlSave(request):
     }
     # 倒入axx图床图片上传函数
     from ZA_Tools.axx.mainer import imgUrlUper
-    # if request.method == 'POST':
+    # 导入sm图窗上传函数
+    from ZA_Tools.sm.mainer import smUpdate
     imgUrl = request.GET.get('imgUrl')
     if imgUrl:
-        axxupdate = imgUrlUper(imgUrl,fileName=imgUrl.split('/')[-1])
+        axxTemp = imgUrlUper(imgUrl,fileName=imgUrl.split('/')[-1])
+        smTemp = smUpdate(imgUrl,fileName=imgUrl.split('/')[-1])
         if axxupdate:
             imgInfo = {**imgInfo,**axxupdate}
 
