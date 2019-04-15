@@ -100,4 +100,29 @@ def loadingmagnet(request):
         magnetInfo['magnetInfo'] = '未接收到磁性链接，请重试...'
         return JsonResponse(magnetInfo)
 
-def
+def imgUrlSave(request):
+    '''
+    通过图片URL保存
+    :param imgUrl: 字符串，客户端通过get请求传的图片URL
+    :return:
+    '''
+    imgInfo = {
+        'imgName':None,
+        'axxUrl':None,
+        'smUrl':None,
+        'axxKey':None,
+        'smhash':None,
+        'imgfrom':None,
+        'status':'No',
+    }
+    # 倒入axx图床图片上传函数
+    from ZA_Tools.axx.mainer import imgUrlUper
+    # if request.method == 'POST':
+    imgUrl = request.GET.get('imgUrl')
+    if imgUrl:
+        axxupdate = imgUrlUper(imgUrl,fileName=imgUrl.split('/')[-1])
+        if axxupdate:
+            imgInfo = {**imgInfo,**axxupdate}
+
+    else:
+        return JsonResponse(imgInfo)
