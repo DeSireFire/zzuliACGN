@@ -122,9 +122,9 @@ def imgUrlSave(request):
     imgUrl = request.GET.get('imgUrl')
     if imgUrl:
         axxTemp = imgUrlUper(imgUrl,fileName=imgUrl.split('/')[-1])
-        smTemp = smUpdate(imgUrl,fileName=imgUrl.split('/')[-1])
-        if axxupdate:
-            imgInfo = {**imgInfo,**axxupdate}
+        smTemp = smUpdate(imgUrl)
+        if axxTemp:
+            imgInfo = {**imgInfo,**axxTemp}
 
     else:
         return JsonResponse(imgInfo)

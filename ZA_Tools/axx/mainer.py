@@ -60,17 +60,24 @@ def textUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
         if logout:
             loginOutloginOut(header['cookie'])
 
-def imgUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
+def imgUrlUper(url = None,fileRB = None,header=default_h,logout = False,fileName = fileNameIter()):
     '''
     传入文本的网络地址，上传爱信息图床工具
     :param url: 需要上传的文本超链接
+    :param fileRB: 需要上传的图片的bytes数据
     :param headrs: 头部，包含默认值
     :param logout: 布尔值，是否在完成操作后退出登陆状态
     :param fileName: 字符串，不含有文件后缀
     :return:
     '''
     try:
-        files = {'file': urlImg(url)}
+        # 如果URL不为None,则使用自带的requests方法来或获得图片数据
+        if url:
+            files = {'file': urlImg(url)}
+        elif fileRB:
+            files = {'file': fileRB}
+        else:
+            return False
         tempList = updata(header, 'o_%s.%s' % (fileName, url.split('.')[-1]), files)
         res = {}
         # 整理返回信息
