@@ -1,7 +1,8 @@
 from ZA_Tools.axx.handler import *
-
+from zzuliACGN.settings import BASE_DIR
+import os.path
 # cookie检查&保存
-f = open('cookie.txt', 'r', encoding='utf-8')
+f = open(os.path.join(BASE_DIR,'ZA_Tools/axx/cookie.txt'), 'r', encoding='utf-8')
 oldCookie = eval(f.read())
 f.close()
 if not logining(oldCookie):
@@ -84,6 +85,7 @@ def axxImgUrlUper(url = None,fileRB = None,header=default_h,logout = False,fileN
         if tempList:
             res = {
                 'imgName':'o_%s' % (fileName),
+                'axxUrl':'http://t1.dt8.co/o_%s' % (fileName),
                 'axxKey':tempList[0],
             }
         return res
