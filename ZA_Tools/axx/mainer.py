@@ -122,7 +122,7 @@ if __name__ == '__main__':
     # f.close()
     tempStr = '从前有座山，山里有座庙，庙里有个和尚,在吃肉松饼！'
     try:
-        imgUrlUper('https://img2.gelbooru.com//images/02/c1/02c1bac3ea99d3ad94839a03ab74b340.jpg',default_h)
+        axxImgUrlUper('https://img2.gelbooru.com//images/02/c1/02c1bac3ea99d3ad94839a03ab74b340.jpg',default_h)
         # a = strUper(tempStr,default_h,fileName='999piaj60617nu4399n0777wkcdn')
         # print(a)
         # textContrast(tempStr,header=default_h,logout = False)

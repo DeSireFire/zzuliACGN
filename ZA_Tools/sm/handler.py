@@ -17,7 +17,7 @@ def urlImg(url):
     return req.content
 
 # 上传文件
-def smUpdate(filesReadRB):
+def smUpdate(filesReadRB,fileName):
     """
     上传文件,运行结果：
     sm.ms OK!
@@ -29,6 +29,7 @@ def smUpdate(filesReadRB):
     try:
         if fileSize(filesReadRB):
             files = {'smfile': filesReadRB, }
+            files = {'smfile':(fileName,filesReadRB)}
             req = requests.post(url=sm_update_url, headers=sm_update_header, files=files)
             if req.json()['code'] == 'success':
                 print('sm.ms OK!')

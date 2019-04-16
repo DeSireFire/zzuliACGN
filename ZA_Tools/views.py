@@ -126,12 +126,18 @@ def imgUrlSave(request):
         imgBytes = urlImg(imgUrl)
         # 生成的图片名字
         fileName = '{Fname}.{Fformat}'.format(Fname = fileNameIter(imgUrl.split('/')[-1].split('.')[0]),Fformat = fileNameIter(imgUrl.split('/')[-1].split('.')[1]))
-        axxTemp = axxImgUrlUper(fileRB = imgBytes,fileName= fileName)
-        smTemp = smImgUrlUper(fileRB = imgBytes,fileName = fileName)
-        if axxTemp:
-            imgInfo.update(axxTemp)
+        # 由于sm图床会自动命名文件名所以优先允许
+        smTemp = smImgUrlUper(fileRB=imgBytes, fileName=fileName)
         if smTemp:
             imgInfo.update(smTemp)
-
+            fileName = imgInfo['imgName']
+        axxTemp = axxImgUrlUper(fileRB = imgBytes,fileName= fileName)
+        if axxTemp:
+            imgInfo.update(axxTemp)
+        if imgInfo['axxKey'] or imgInfo['smhash']:
+            imgInfo['status'] = True
+            return JsonResponse(imgInfo)
+        else:
+            return JsonResponse(imgInfo)
     else:
         return JsonResponse(imgInfo)
