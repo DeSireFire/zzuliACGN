@@ -113,18 +113,25 @@ def imgUrlSave(request):
         'axxKey':None,
         'smhash':None,
         'imgfrom':None,
-        'status':'No',
+        'status':False,
     }
-    # 倒入axx图床图片上传函数
-    from ZA_Tools.axx.mainer import imgUrlUper
+    # 倒入axx图床图片上传函数,以及图片请求函数,文件命名函数
+    from ZA_Tools.axx.mainer import axxImgUrlUper,urlImg,fileNameIter
     # 导入sm图窗上传函数
-    from ZA_Tools.sm.mainer import smUpdate
+    from ZA_Tools.sm.mainer import smImgUrlUper
     imgUrl = request.GET.get('imgUrl')
+
     if imgUrl:
-        axxTemp = imgUrlUper(imgUrl,fileName=imgUrl.split('/')[-1])
-        smTemp = smUpdate(imgUrl)
+        # 图片bytes数据
+        imgBytes = urlImg(imgUrl)
+        # 生成的图片名字
+        fileName = '{Fname}.{Fformat}'.format(Fname = fileNameIter(imgUrl.split('/')[-1].split('.')[0]),Fformat = fileNameIter(imgUrl.split('/')[-1].split('.')[1]))
+        axxTemp = axxImgUrlUper(fileRB = imgBytes,fileName= fileName)
+        smTemp = smImgUrlUper(fileRB = imgBytes,fileName = fileName)
         if axxTemp:
-            imgInfo = {**imgInfo,**axxTemp}
+            imgInfo.update(axxTemp)
+        if smTemp:
+            imgInfo.update(smTemp)
 
     else:
         return JsonResponse(imgInfo)

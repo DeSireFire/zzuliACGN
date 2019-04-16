@@ -60,7 +60,7 @@ def textUrlUper(url,header=default_h,logout = False,fileName = fileNameIter()):
         if logout:
             loginOutloginOut(header['cookie'])
 
-def imgUrlUper(url = None,fileRB = None,header=default_h,logout = False,fileName = fileNameIter()):
+def axxImgUrlUper(url = None,fileRB = None,header=default_h,logout = False,fileName = fileNameIter()):
     '''
     传入文本的网络地址，上传爱信息图床工具
     :param url: 需要上传的文本超链接
@@ -78,12 +78,12 @@ def imgUrlUper(url = None,fileRB = None,header=default_h,logout = False,fileName
             files = {'file': fileRB}
         else:
             return False
-        tempList = updata(header, 'o_%s.%s' % (fileName, url.split('.')[-1]), files)
+        tempList = updata(header, 'o_%s' % (fileName), files)
         res = {}
         # 整理返回信息
         if tempList:
             res = {
-                'imgName':'o_%s.%s' % (fileName, url.split('.')[-1]),
+                'imgName':'o_%s' % (fileName),
                 'axxKey':tempList[0],
             }
         return res

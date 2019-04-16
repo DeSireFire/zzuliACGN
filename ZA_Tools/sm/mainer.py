@@ -1,6 +1,6 @@
 from ZA_Tools.sm.handler import *
 
-def imgUrlUper(url = None,fileRB = None,fileName = fileNameIter()):
+def smImgUrlUper(url = None,fileRB = None,fileName = fileNameIter()):
     '''
     传入文本的网络地址，上传爱信息图床工具
     :param url: 需要上传的文本超链接
@@ -19,7 +19,7 @@ def imgUrlUper(url = None,fileRB = None,fileName = fileNameIter()):
         # 整理返回信息
         if tempList:
             res = {
-                'imgName':'o_%s.%s' % (fileName, url.split('.')[-1]),
+                'imgName':'o_%s' % (fileName),
                 'axxKey':tempList[0],
             }
         return res
