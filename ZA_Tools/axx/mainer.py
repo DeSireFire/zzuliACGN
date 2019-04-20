@@ -8,12 +8,11 @@ f.close()
 if not logining(oldCookie):
     print('cookie已经失效，重新获取cookie！')
     default_h = login()
-    with open('cookie.txt', 'w+', encoding='utf-8') as cookieJson:
+    with open(os.path.join(BASE_DIR,'ZA_Tools/axx/cookie.txt'), 'w+', encoding='utf-8') as cookieJson:
         cookieJson.write(str(default_h))
 else:
     print('cookie有效')
     default_h = oldCookie
-
 
 
 def strUper(tempStr,header=default_h,logout = False,fileName = fileNameIter()):

@@ -120,7 +120,7 @@ def imgUrlSave(request):
     # 导入sm图窗上传函数
     from ZA_Tools.sm.mainer import smImgUrlUper
     imgUrl = request.GET.get('imgUrl')
-
+    # TODO 短时间内如果发送两次请求，会保存两次
     if imgUrl:
         # 图片bytes数据
         imgBytes = urlImg(imgUrl)
@@ -134,7 +134,7 @@ def imgUrlSave(request):
             imgInfo.update(smTemp)
             fileName = imgInfo['imgName']
 
-        axxTemp = axxImgUrlUper(fileRB = imgBytes,fileName= fileName)
+        axxTemp = axxImgUrlUper(fileRB = imgBytes,fileName = fileName)
         if axxTemp:
             imgInfo.update(axxTemp)
         if imgInfo['axxKey'] or imgInfo['smhash']:
