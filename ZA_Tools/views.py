@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponseRedirect
 from django.http import JsonResponse,HttpResponse
 # import urllib.request
 import chardet,re
-import requests as nya
+import requests
 
 
 # 网站模块临时展示页
@@ -12,7 +12,7 @@ import requests as nya
 #     return response
 
 # def ZA_Show(request):
-#     response = nya.get('http://t1.aixinxi.net/o_1d67ri9e81odjqhr17bbs8s184la.txt')
+#     response = requests.get('http://t1.aixinxi.net/o_1d67ri9e81odjqhr17bbs8s184la.txt')
 #     response.encoding = chardet.detect(response.content)['encoding']
 #     if response.encoding == "GB2312":
 #         response.encoding = "GBK"
@@ -54,7 +54,7 @@ def animeTrackerListGet(request):
             if listName not in URLS:
                 listName = 'animeTrackers_all'
             try:
-                MBresponse = nya.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/%s.txt'%listName)
+                MBresponse = requests.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/%s.txt'%listName)
                 re_json['magnet'] = r'%s&dn=%s%s'%(getMagnet,dn_get,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
                 re_json['status'] = True
                 return JsonResponse(re_json)
@@ -84,7 +84,7 @@ def loadingmagnet(request):
         m = r'magnet:?[^"]+'
         if re.findall(m, getMagnet):
             try:
-                MBresponse = nya.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/animeTrackers_all.txt')
+                MBresponse = requests.get('https://raw.githubusercontent.com/DeSireFire/animeTrackerList/master/animeTrackers_all.txt')
                 magnetInfo['magnet'] = r'%s%s'%(getMagnet,''.join(list(map(lambda x: '&tr='+x,MBresponse.text.split()))))
                 magnetInfo['status'] = MBresponse.status_code
                 magnetInfo['magnetInfo'] = '获取成功，点击下载！'
@@ -144,3 +144,70 @@ def imgUrlSave(request):
             return JsonResponse(imgInfo)
     else:
         return JsonResponse(imgInfo)
+
+def imgUrlUpate(request):
+    '''
+    图片上传工具函数
+    :param request:
+    :return:
+    '''
+    pass
+
+
+
+'''
+    所有Tool会共同用到的函数
+'''
+import requests,json,sys,uuid
+from ZA_Tools.imgTools.config import delproxyIP,TIMEOUT,fileName_data
+
+def proxy_list(url,testURL):
+    """
+    获取并检测代理池返回的IP
+    :param url: 获取IP的代理池地址
+    :param testURL: 检测网址
+    :return: 一个能用的ip组成的proxies字典
+    """
+    count = 0 # 获取的IP数
+    try:
+        r = requests.get(url)
+        count = len(json.loads(r.text))
+        while count != 0:
+            r = requests.get(url)
+            ip_ports = json.loads(r.text)
+            count = len(ip_ports)
+            for i in range(0,4):
+                ip = ip_ports[i][0]
+                port = ip_ports[i][1]
+                proxies = {
+                    'http': 'http://%s:%s' % (ip, port),
+                    'https': 'https://%s:%s' % (ip, port)
+                }
+                r = requests.get(testURL, proxies=proxies,timeout=TIMEOUT)
+                if (not r.ok) or len(r.content) < 500:
+                    r = requests.get(delproxyIP%(ip,port))
+                else:
+                    return proxies
+
+    except Exception as e:
+        # print(e)
+        return None
+
+# 判断文件大小
+def fileSize(filesReadRB):
+    """
+    判断文件大小
+    :param filesReadRB:byte,以rb方式读取的文件
+    :return:布尔值
+    """
+    size = sys.getsizeof(filesReadRB)/float(1024)
+    if size < 5120:
+        return True
+    else:
+        return False
+
+# 文件名生成器
+def fileNameIter():
+    # hash_md5 = hashlib.md5(fileName_data)
+    hash_md5 = uuid.uuid1().hex
+    return hash_md5

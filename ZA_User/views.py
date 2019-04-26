@@ -351,17 +351,8 @@ def header_Update(request):
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     # 删除旧头像
     # 判断是否使用的是原始头像
-    if 'default.jpg' in user_info.UserHeaderImg():
-        upRec = imgUpdate(imgdata)
-        if upRec:
-            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
-            user_info.ZA_User_HeaderImg = json.dumps(upRec)
-            user_info.save()
-            UpdataHeaderURL(request,user_info.ZA_User_HeaderImg)
-            return HttpResponse(status=200)
-        else:
-            return HttpResponse(status=404)
-    elif 'surl' in user_info.UserHeaderImg():
+    if user_info.UserHeaderImg():   # 若不为空
+        from ZA_Tools.models import Gallerys
         upRec = imgUpdate(imgdata)
         if upRec:
             imgDelete(user_info.UserHeaderImg())
@@ -373,8 +364,16 @@ def header_Update(request):
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)
-    else:
-        return HttpResponse(status=404)
+    else:   # 为空
+        upRec = imgUpdate(imgdata)
+        if upRec:
+            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
+            user_info.ZA_User_HeaderImg = json.dumps(upRec)
+            user_info.save()
+            UpdataHeaderURL(request,user_info.ZA_User_HeaderImg)
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=404)
 
 def imgUpdate(filesRB):
     """
@@ -384,35 +383,19 @@ def imgUpdate(filesRB):
     # :param filename: 文件格式
     :return: 字典
     """
-    from ZA_Tools.imgTools import sm_tools, aixinxi_tools
+    # from ZA_Tools.imgTools import sm_tools, aixinxi_tools
+    from ZA_Tools.sm.handler import smUpdate
     imginfo = {
-        'aurl':'',
         'hash':'',
         'surl':'',
-        'key':'',
     }
     # 上传SM
-    sm_temp = sm_tools.update(filesRB)['data']
+    sm_temp = smUpdate(filesRB)['data']
     if sm_temp:
         imginfo['surl'] = sm_temp['url']
         imginfo['hash'] = sm_temp['hash']
-    # 上传爱信息
-    axx_header = aixinxi_tools.login()
-    # 登陆状态检测
-    if axx_header:
-        # 上传
-        filename = aixinxi_tools.fileNameadd()
-        print('文件名预计为：%s'%filename)
-        aixinxi_temp = aixinxi_tools.updata(axx_header,filename,{'file':filesRB})
-        # 提交成功
-        if aixinxi_temp:
-            imginfo['aurl'] = filename
-            imginfo['key'] = aixinxi_temp[0]
-    else:
-        print('爱信息图床上传失败')
-    # 退出状态
-    aixinxi_tools.loginOut(axx_header)
-    if imginfo['aurl'] or imginfo['surl']:
+
+    if imginfo['surl']:
         return imginfo
     else:
         return None
