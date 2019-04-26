@@ -165,7 +165,34 @@ def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = Non
     if smTemp:  # 上传是否成功
         imgInfo.update(smTemp)  # 更新字典
         if imgMd5:  # md5如果不为空则为更新
-            pass
+            imgInfo['imgMd5'] = imgMd5
+            oldImg = Gallerys.objects.filter(type=imgMd5)
+            if oldImg:
+                oldImg.update(
+                    imgMd5=imgInfo['imgMd5'],
+                    imgName=imgInfo['imgName'],
+                    url=imgInfo['url'],
+                    origin=imgInfo['origin'],
+                    hash=imgInfo['hash'],
+                    bedName=imgInfo['bedName'],
+                    imgfrom=imgInfo['imgfrom'],
+                )
+                oldImg.save()
+                return imgInfo['imgMd5']
+            else:   # 未找到则按新图处理
+                # 生成图片身份md5
+                imgInfo['imgMd5'] = genearteMD5(imgInfo['imgName'])
+                # 创建新的图片对象
+                newImg = Gallerys()
+                newImg.imgMd5 = imgInfo['imgMd5']
+                newImg.imgName = imgInfo['imgName']
+                newImg.url = imgInfo['url']
+                newImg.origin = imgInfo['origin']
+                newImg.hash = imgInfo['hash']
+                newImg.bedName = imgInfo['bedName']
+                newImg.imgfrom = imgInfo['imgfrom']
+                newImg.save()
+                return imgInfo['imgMd5']
         else:   # 为空则直接存
             # 生成图片身份md5
             imgInfo['imgMd5'] = genearteMD5(imgInfo['imgName'])
@@ -179,7 +206,7 @@ def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = Non
             newImg.bedName = imgInfo['bedName']
             newImg.imgfrom = imgInfo['imgfrom']
             newImg.save()
-
+            return imgInfo['imgMd5']
     else:
         return None
 
