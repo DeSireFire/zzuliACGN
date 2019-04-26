@@ -145,7 +145,7 @@ def imgUrlSave(request):
     else:
         return JsonResponse(imgInfo)
 
-def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = None):
+def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',imgMd5 = None):
     '''
     图片更新上传工具函数,只用sm.ms
     :param fileRB:图片文件bytes数据
@@ -154,20 +154,23 @@ def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = Non
     imgInfo = {
         'imgName':None,
         'url':None,
-        'origin':'',
+        'origin':origin,
         'hash':None,
         'imgMd5':imgMd5,
         'bedName':bedName,
         'imgfrom':imgfrom,
     }
-    from ZA_Tools.sm.mainer import smImgUrlUper
+    from ZA_Tools.sm.mainer import smImgUrlUper,smDelete
     smTemp = smImgUrlUper(fileRB=fileRB, fileName=fileName)
     if smTemp:  # 上传是否成功
         imgInfo.update(smTemp)  # 更新字典
         if imgMd5:  # md5如果不为空则为更新
             imgInfo['imgMd5'] = imgMd5
             oldImg = Gallerys.objects.filter(type=imgMd5)
+            if not origin:  # 如果没有原址则与图床URL相同
+                imgInfo['origin'] = imgInfo['url']
             if oldImg:
+                smDelete(oldImg.hash)
                 oldImg.update(
                     imgMd5=imgInfo['imgMd5'],
                     imgName=imgInfo['imgName'],
@@ -178,8 +181,7 @@ def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = Non
                     imgfrom=imgInfo['imgfrom'],
                 )
                 oldImg.save()
-                return imgInfo['imgMd5']
-            else:   # 未找到则按新图处理
+            else:   # 未找到则按新图处理，或许有更好的方案
                 # 生成图片身份md5
                 imgInfo['imgMd5'] = genearteMD5(imgInfo['imgName'])
                 # 创建新的图片对象
@@ -192,7 +194,6 @@ def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = Non
                 newImg.bedName = imgInfo['bedName']
                 newImg.imgfrom = imgInfo['imgfrom']
                 newImg.save()
-                return imgInfo['imgMd5']
         else:   # 为空则直接存
             # 生成图片身份md5
             imgInfo['imgMd5'] = genearteMD5(imgInfo['imgName'])
@@ -206,9 +207,7 @@ def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = Non
             newImg.bedName = imgInfo['bedName']
             newImg.imgfrom = imgInfo['imgfrom']
             newImg.save()
-            return imgInfo['imgMd5']
-    else:
-        return None
+    return imgInfo
 
 
 '''

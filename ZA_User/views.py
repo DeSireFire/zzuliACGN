@@ -352,15 +352,10 @@ def header_Update(request):
     # 删除旧头像
     # 判断是否使用的是原始头像
     if user_info.UserHeaderImg():   # 若不为空
-        from ZA_Tools.models import Gallerys
-        upRec = imgUpdate(imgdata)
-        if upRec:
-            imgDelete(user_info.UserHeaderImg())
-            print(json.dumps(upRec))
-            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
-            user_info.ZA_User_HeaderImg = json.dumps(upRec)
-            user_info.save()
-            UpdataHeaderURL(request, user_info.ZA_User_HeaderImg)
+        from ZA_Tools.views import imgBytesUpdate
+        upRec = imgBytesUpdate('userHeader.jpg',imgdata,'','sm','user',user_info.UserHeaderImg())
+        if upRec['url']:
+            UpdataHeaderURL(request, upRec['url'])
             return HttpResponse(status=200)
         else:
             return HttpResponse(status=404)
