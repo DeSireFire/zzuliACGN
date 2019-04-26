@@ -3,7 +3,7 @@ from django.http import JsonResponse,HttpResponse
 # import urllib.request
 import chardet,re
 import requests
-
+from .models import *
 
 # 网站模块临时展示页
 
@@ -145,20 +145,49 @@ def imgUrlSave(request):
     else:
         return JsonResponse(imgInfo)
 
-def imgUrlUpate(request):
+def imgBytesUpdate(fileName,fileRB,bedName = 'sm',imgfrom = 'tools',imgMd5 = None):
     '''
-    图片上传工具函数
-    :param request:
+    图片更新上传工具函数,只用sm.ms
+    :param fileRB:图片文件bytes数据
     :return:
     '''
-    pass
+    imgInfo = {
+        'imgName':None,
+        'url':None,
+        'origin':'',
+        'hash':None,
+        'imgMd5':imgMd5,
+        'bedName':bedName,
+        'imgfrom':imgfrom,
+    }
+    from ZA_Tools.sm.mainer import smImgUrlUper
+    smTemp = smImgUrlUper(fileRB=fileRB, fileName=fileName)
+    if smTemp:  # 上传是否成功
+        imgInfo.update(smTemp)  # 更新字典
+        if imgMd5:  # md5如果不为空则为更新
+            pass
+        else:   # 为空则直接存
+            # 生成图片身份md5
+            imgInfo['imgMd5'] = genearteMD5(imgInfo['imgName'])
+            # 创建新的图片对象
+            newImg = Gallerys()
+            newImg.imgMd5 = imgInfo['imgMd5']
+            newImg.imgName = imgInfo['imgName']
+            newImg.url = imgInfo['url']
+            newImg.origin = imgInfo['origin']
+            newImg.hash = imgInfo['hash']
+            newImg.bedName = imgInfo['bedName']
+            newImg.imgfrom = imgInfo['imgfrom']
+            newImg.save()
 
+    else:
+        return None
 
 
 '''
     所有Tool会共同用到的函数
 '''
-import requests,json,sys,uuid
+import json,sys,hashlib
 from ZA_Tools.imgTools.config import delproxyIP,TIMEOUT,fileName_data
 
 def proxy_list(url,testURL):
@@ -206,8 +235,13 @@ def fileSize(filesReadRB):
     else:
         return False
 
-# 文件名生成器
-def fileNameIter():
-    # hash_md5 = hashlib.md5(fileName_data)
-    hash_md5 = uuid.uuid1().hex
-    return hash_md5
+# 生成MD5
+def genearteMD5(tempStr):
+    # 创建md5对象
+    hl = hashlib.md5()
+
+    # Tips
+    # 此处必须声明encode
+    # 否则报错为：hl.update(str)    Unicode-objects must be encoded before hashing
+    hl.update(tempStr.encode(encoding='utf-8'))
+    return hl.hexdigest()
