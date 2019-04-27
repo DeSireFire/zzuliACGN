@@ -107,18 +107,17 @@ def imgUrlSave(request):
     :return:
     '''
     imgInfo = {
-        'imgName':None,
-        'axxUrl':None,
-        'smUrl':None,
-        'axxKey':None,
-        'smhash':None,
+        'imgName': None,
+        'url': None,
+        'origin': None,
+        'hash': None,
+        'imgMd5': None,
+        'bedName': None,
         'imgfrom':None,
         'status':False,
     }
-    # 倒入axx图床图片上传函数,以及图片请求函数,文件命名函数
-    from ZA_Tools.axx.mainer import axxImgUrlUper,urlImg,fileNameIter
     # 导入sm图窗上传函数
-    from ZA_Tools.sm.mainer import smImgUrlUper
+    from ZA_Tools.sm.mainer import smImgUrlUper,urlImg
     imgUrl = request.GET.get('imgUrl')
     # TODO 短时间内如果发送两次请求，会保存两次
     if imgUrl:
@@ -127,17 +126,13 @@ def imgUrlSave(request):
         # 生成的图片名字
         fileName = '{Fname}.{Fformat}'.format(Fname = fileNameIter(imgUrl.split('/')[-1].split('.')[0]),Fformat = imgUrl.split('/')[-1].split('.')[1])
 
-
         # 由于sm图床会自动命名文件名所以优先上传
         smTemp = smImgUrlUper(fileRB=imgBytes, fileName=fileName)
         if smTemp:
             imgInfo.update(smTemp)
             fileName = imgInfo['imgName']
 
-        axxTemp = axxImgUrlUper(fileRB = imgBytes,fileName = fileName)
-        if axxTemp:
-            imgInfo.update(axxTemp)
-        if imgInfo['axxKey'] or imgInfo['smhash']:
+        if imgInfo['smhash']:
             imgInfo['status'] = True
             return JsonResponse(imgInfo)
         else:
@@ -214,7 +209,6 @@ def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',
     所有Tool会共同用到的函数
 '''
 import json,sys,hashlib
-from ZA_Tools.imgTools.config import delproxyIP,TIMEOUT,fileName_data
 
 def proxy_list(url,testURL):
     """
@@ -223,6 +217,8 @@ def proxy_list(url,testURL):
     :param testURL: 检测网址
     :return: 一个能用的ip组成的proxies字典
     """
+    TIMEOUT = 10
+    delproxyIP = ''
     count = 0 # 获取的IP数
     try:
         r = requests.get(url)
@@ -271,3 +267,10 @@ def genearteMD5(tempStr):
     # 否则报错为：hl.update(str)    Unicode-objects must be encoded before hashing
     hl.update(tempStr.encode(encoding='utf-8'))
     return hl.hexdigest()
+
+# 文件名生成器
+def fileNameIter(name):
+    import time
+    temp = '%s%s'%(str(int(time.time())),name)
+    hash_md5 = hashlib.md5(temp.encode("utf-8"))
+    return hash_md5.hexdigest()
