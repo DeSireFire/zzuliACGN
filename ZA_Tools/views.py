@@ -166,7 +166,7 @@ def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',
         imgInfo.update(smTemp)  # 更新字典
         if imgMd5:  # md5如果不为空则为更新
             imgInfo['imgMd5'] = imgMd5
-            oldImg = Gallerys.objects.filter(type=imgMd5)
+            oldImg = Gallerys.objects.get(imgMd5=imgMd5)
             if not origin:  # 如果没有原址则与图床URL相同
                 imgInfo['origin'] = imgInfo['url']
             if oldImg:

@@ -202,7 +202,8 @@ def login_handler(request):
             # 登录成功保存session信息
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
-            request = UpdataHeaderURL(request,old_users[0].UserHeaderImg())
+            from ZA_Tools.models import Gallerys
+            request = UpdataHeaderURL(request,Gallerys.objects.get(imgMd5=old_users[0].UserHeaderImg()).url())
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
             print("session——user_name:%s"%request.session['zzuliacgn_user_name'])
@@ -227,13 +228,10 @@ def UpdataHeaderURL(request,imgdata):
     :return:
     '''
     agent = request.META.get('HTTP_USER_AGENT', None)
-    if 'default.jpg' not in imgdata:
-        UserHeaderImg = json.loads(imgdata)
-        print(UserHeaderImg)
-        if UserHeaderImg['aurl'] and 'Chrome' in agent:
-            request.session['HeaderURL'] = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
-        elif UserHeaderImg['surl'] and 'Chrome' not in agent:
-            request.session['HeaderURL'] = UserHeaderImg['surl']
+    if imgdata['url']:
+        # if UserHeaderImg['aurl'] and 'Chrome' in agent:
+        if imgdata['url']:
+            request.session['HeaderURL'] = imgdata['url']
         else:
             request.session['HeaderURL'] = '/static/ZA_User/img/HeaderImg/head.jpg'
     return request
@@ -351,76 +349,14 @@ def header_Update(request):
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     # 删除旧头像
     # 判断是否使用的是原始头像
-    if user_info.UserHeaderImg():   # 若不为空
-        from ZA_Tools.views import imgBytesUpdate
-        upRec = imgBytesUpdate('userHeader.jpg',imgdata,'','sm','user',user_info.UserHeaderImg())
-        if upRec['url']:
-            UpdataHeaderURL(request, upRec['url'])
-            return HttpResponse(status=200)
-        else:
-            return HttpResponse(status=404)
-    else:   # 为空
-        upRec = imgUpdate(imgdata)
-        if upRec:
-            # ZA_UserInfo.objects.filter(ZA_User_ID=request.session['user_id']).update(ZA_User_HeaderImg=json.dumps(upRec))
-            user_info.ZA_User_HeaderImg = json.dumps(upRec)
-            user_info.save()
-            UpdataHeaderURL(request,user_info.ZA_User_HeaderImg)
-            return HttpResponse(status=200)
-        else:
-            return HttpResponse(status=404)
-
-def imgUpdate(filesRB):
-    """
-    图片上传主函数，用于往图床上传图片
-    :param filesRB: 已经读取的文件byte码
-    # :param filename: 文件名
-    # :param filename: 文件格式
-    :return: 字典
-    """
-    # from ZA_Tools.imgTools import sm_tools, aixinxi_tools
-    from ZA_Tools.sm.handler import smUpdate
-    imginfo = {
-        'hash':'',
-        'surl':'',
-    }
-    # 上传SM
-    sm_temp = smUpdate(filesRB)['data']
-    if sm_temp:
-        imginfo['surl'] = sm_temp['url']
-        imginfo['hash'] = sm_temp['hash']
-
-    if imginfo['surl']:
-        return imginfo
+    from ZA_Tools.views import imgBytesUpdate
+    upRec = imgBytesUpdate('userHeader.jpg',imgdata,'','sm','user',user_info.UserHeaderImg())
+    if upRec['url']:
+        UpdataHeaderURL(request, upRec['url'])
+        return HttpResponse(status=200)
     else:
-        return None
+        return HttpResponse(status=404)
 
-def imgDelete(imginfo_f):
-    """
-    图片删除主函数，用于删除图床上的图片
-    :param imginfo: 字符串，存储在数据库字段里的字典
-    :return:
-    """
-    from ZA_Tools.imgTools import sm_tools, aixinxi_tools
-    imginfo = json.loads(imginfo_f)
-    if imginfo['hash']:
-        del_sm = sm_tools.delete(imginfo['hash'])
-        if del_sm:
-            print('sm图床删除成功！')
-        else:
-            print('sm图床删除失败！')
-    if imginfo['key']:
-        axx_header = aixinxi_tools.login()
-        if axx_header:
-            # 删除
-            del_axx = aixinxi_tools.delete(axx_header,imginfo['key'])
-            # 删除成功
-            if del_axx:
-                print('爱信息图床删除成功！')
-            else:
-                print('爱信息图床删除失败！')
-        else:
-            print('爱信息图床登陆失败')
 
 def userCenter_special(request):
     context={
