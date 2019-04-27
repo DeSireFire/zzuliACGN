@@ -202,7 +202,10 @@ def login_handler(request):
             request.session['user_id']=old_users[0].ZA_User_ID
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
             from ZA_Tools.models import Gallerys
-            request = UpdataHeaderURL(request,Gallerys.objects.get(imgMd5=old_users[0].UserHeaderImg()).url())
+            # old_users[0].UserHeaderImg()).url()加.url()可快速将字符串转url
+            # request = UpdataHeaderURL(request,Gallerys.objects.get(imgMd5=old_users[0].UserHeaderImg()).url())
+            print(old_users[0].UserHeaderImg())
+            print(old_users[0].UserHeaderImg())
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
             print("session——user_name:%s"%request.session['zzuliacgn_user_name'])

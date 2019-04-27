@@ -599,20 +599,35 @@ function checkBox() {
     }
 }
 
+// using jQuery
 function getCookie(name) {
     var cookieValue = null;
-     if (document.cookie && document.cookie != '') {
+    if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = jQuery.trim(cookies[i]);
-        if (cookie.substring(0, name.length + 1) == (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
         }
-    }
     }
     return cookieValue;
 }
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // 这些HTTP方法不要求CSRF包含
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
 
 // 前端认证汇总
 function register() {
@@ -634,10 +649,21 @@ function register() {
     if (_user === true && _pwd === true && _pwd2 === true && _email === true && _checkBox === true && _callback === true && _phone === true ){
     // if (_user === true && _pwd === true && _pwd2 === true && _email === true && _checkBox === true && _phone === true ){
         var _usernameVal = $("#inputUserId").val();
-    //     var _usernameVal = $("#inputPassword1").val();
-        $.post(url, {
-            'user_name':_usernameVal,
-            'key2':val2
+        var _EmailVal = $("#inputEmail1").val();
+        var _phoneVal = $("#inputphone1").val();
+        var _passwordVal = $("#inputPassword1").val();
+        var _pwdConfirmVal = $("#inputPassword2").val();
+        $.ajax({
+            url: "/user/RegHandle/",
+            method: "post",
+            data:{
+                'user_name':_usernameVal,
+                'Email':_EmailVal,
+                'phone':_phoneVal,
+                'password':_passwordVal,
+                'pwdConfirm':_pwdConfirmVal,
+            },
+
         });
         return true;
     } else {
