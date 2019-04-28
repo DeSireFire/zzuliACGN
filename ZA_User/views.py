@@ -203,9 +203,12 @@ def login_handler(request):
             request.session['zzuliacgn_user_name'] = old_users[0].ZA_User_Name
             from ZA_Tools.models import Gallerys
             # old_users[0].UserHeaderImg()).url()加.url()可快速将字符串转url
-            # request = UpdataHeaderURL(request,Gallerys.objects.get(imgMd5=old_users[0].UserHeaderImg()).url())
-            print(old_users[0].UserHeaderImg())
-            print(old_users[0].UserHeaderImg())
+            if Gallerys.objects.filter(imgMd5=old_users[0].UserHeaderImg()):
+                request = UpdataHeaderURL(request, Gallerys.objects.filter(imgMd5=old_users[0].UserHeaderImg()))
+            else:
+                request = UpdataHeaderURL(request, {'url':'https://i.loli.net/2019/05/24/5ce7e4d063ceb38092.jpg'})
+            # print(Gallerys.objects.filter(imgMd5=old_users[0].UserHeaderImg()))
+            # request = UpdataHeaderURL(request, Gallerys.objects.filter(imgMd5=old_users[0].UserHeaderImg()))
             print("session信息保存成功！")
             print("session——user_id:%s"%request.session['user_id'])
             print("session——user_name:%s"%request.session['zzuliacgn_user_name'])
@@ -299,6 +302,7 @@ def downloadperson(request):
         用户中心首页信息
         (尚未加入头像地址失效的检测)
     '''
+    # todo 报错 = 修改
     user_info = ZA_UserInfo.objects.get(ZA_User_ID=request.session['user_id'])
     f1 = lambda x:1 if x else 0
     f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
@@ -312,7 +316,7 @@ def downloadperson(request):
         if UserHeaderImg['aurl'] and 'Chrome' in agent :
             imgurl = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
         elif UserHeaderImg['surl'] and 'Chrome' not in agent:
-            imgurl = UserHeaderImg['surl']
+            imgurl = UserHeaderImg['url']
         else:
             imgurl = '/static/ZA_User/img/HeaderImg/head.jpg'
     userdata={
@@ -353,8 +357,9 @@ def header_Update(request):
     # 判断是否使用的是原始头像
     from ZA_Tools.views import imgBytesUpdate
     upRec = imgBytesUpdate('userHeader.jpg',imgdata,'','sm','user',user_info.UserHeaderImg())
+    print(upRec)
     if upRec['url']:
-        UpdataHeaderURL(request, upRec['url'])
+        UpdataHeaderURL(request, upRec)
         return HttpResponse(status=200)
     else:
         return HttpResponse(status=404)
