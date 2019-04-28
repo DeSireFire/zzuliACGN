@@ -602,13 +602,13 @@ function checkBox() {
 
 // 前端认证汇总
 function register() {
-    var _user = _user;
+    // var _user = _user;
     var _pwd = pwd();
     var _pwd2 = pwdConfirm();
-    var _email = _email;
+    // var _email = _email;
     var _checkBox = checkBox();
-    var _callback = VC_res;
-    var _phone = _phone;
+    // var _callback = VC_res;
+    // var _phone = _phone;
     alert("user:"+_user);
     alert("pwd:"+_pwd);
     alert("pwd2:"+_pwd2);

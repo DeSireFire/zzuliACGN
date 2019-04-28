@@ -49,7 +49,6 @@ def register_ajax(request):
         context = {'title': '用户注册'}
         return render(request, 'ZA_User/register.html', context)
 
-    print(theNum)
     return JsonResponse(theNum)
 
 
