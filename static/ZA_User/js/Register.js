@@ -599,6 +599,20 @@ function checkBox() {
     }
 }
 
+function getCookie(name) {
+    var cookieValue = null;
+     if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+        }
+    }
+    }
+    return cookieValue;
+}
 
 // 前端认证汇总
 function register() {
@@ -619,12 +633,12 @@ function register() {
     //judge
     if (_user === true && _pwd === true && _pwd2 === true && _email === true && _checkBox === true && _callback === true && _phone === true ){
     // if (_user === true && _pwd === true && _pwd2 === true && _email === true && _checkBox === true && _phone === true ){
-    //     var _usernameVal = $("#inputUserId").val();
+        var _usernameVal = $("#inputUserId").val();
     //     var _usernameVal = $("#inputPassword1").val();
-    //     $.post(url, {
-    //         'user_name':_usernameVal,
-    //         'key2':val2
-    //     });
+        $.post(url, {
+            'user_name':_usernameVal,
+            'key2':val2
+        });
         return true;
     } else {
         var tip = $(".btn-register").easytip();
