@@ -308,17 +308,15 @@ def downloadperson(request):
     f2 = lambda x:1 if x!='Unknow' else 0 # 实名认证函数
     f3 = lambda x:1 if json.loads(x)!={} else 0 # 密保函数
     agent = request.META.get('HTTP_USER_AGENT',None)
-    if 'default.jpg' in user_info.UserHeaderImg():
-        imgurl = user_info.UserHeaderImg()
+    from ZA_Tools.models import Gallerys
+    temp = Gallerys.objects.filter(imgMd5=user_info.UserHeaderImg())
+    if temp:
+        # imgurl = temp.url()
+        imgurl = temp[0].url
+        print(imgurl)
     else:
-        UserHeaderImg = json.loads(user_info.UserHeaderImg())
-        print(UserHeaderImg)
-        if UserHeaderImg['aurl'] and 'Chrome' in agent :
-            imgurl = 'http://t1.aixinxi.net/{}-w.jpg'.format(UserHeaderImg['aurl'])
-        elif UserHeaderImg['surl'] and 'Chrome' not in agent:
-            imgurl = UserHeaderImg['url']
-        else:
-            imgurl = '/static/ZA_User/img/HeaderImg/head.jpg'
+        imgurl = 'https://i.loli.net/2019/05/24/5ce7e4d063ceb38092.jpg'
+        # imgurl = '/static/ZA_User/img/HeaderImg/head.jpg'
     userdata={
             'username': user_info.ZA_User_Name,
             'userid': "{}".format(user_info.UserID()),
@@ -356,10 +354,11 @@ def header_Update(request):
     # 删除旧头像
     # 判断是否使用的是原始头像
     from ZA_Tools.views import imgBytesUpdate
-    upRec = imgBytesUpdate('userHeader.jpg',imgdata,'','sm','user',user_info.UserHeaderImg())
-    print(upRec)
+    upRec = imgBytesUpdate('userHeader.jpg',imgdata,'','sm','user',user_info.ZA_User_HeaderImg)
     if upRec['url']:
         UpdataHeaderURL(request, upRec)
+        user_info.ZA_User_HeaderImg = upRec['imgMd5']
+        user_info.save()
         return HttpResponse(status=200)
     else:
         return HttpResponse(status=404)

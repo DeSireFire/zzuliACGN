@@ -157,6 +157,7 @@ def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',
     }
     from ZA_Tools.sm.mainer import smImgUrlUper,smDelete
     smTemp = smImgUrlUper(fileRB=fileRB, fileName=fileName)
+    # todo 待get_or_create 优化
     if smTemp:  # 上传是否成功
         imgInfo.update(smTemp)  # 更新字典
         if imgMd5:  # md5如果不为空则为更新
@@ -166,15 +167,22 @@ def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',
                 imgInfo['origin'] = imgInfo['url']
             if oldImg:
                 smDelete(oldImg.hash)
-                oldImg.update(
-                    imgMd5=imgInfo['imgMd5'],
-                    imgName=imgInfo['imgName'],
-                    url=imgInfo['url'],
-                    origin=imgInfo['origin'],
-                    hash=imgInfo['hash'],
-                    bedName=imgInfo['bedName'],
-                    imgfrom=imgInfo['imgfrom'],
-                )
+                # oldImg[0].update(
+                #     imgMd5=imgInfo['imgMd5'],
+                #     imgName=imgInfo['imgName'],
+                #     url=imgInfo['url'],
+                #     origin=imgInfo['origin'],
+                #     hash=imgInfo['hash'],
+                #     bedName=imgInfo['bedName'],
+                #     imgfrom=imgInfo['imgfrom'],
+                # )
+                oldImg.imgMd5 = imgInfo['imgMd5']
+                oldImg.imgName = imgInfo['imgName']
+                oldImg.url = imgInfo['url']
+                oldImg.origin = imgInfo['origin']
+                oldImg.hash = imgInfo['hash']
+                oldImg.bedName = imgInfo['bedName']
+                oldImg.imgfrom = imgInfo['imgfrom']
                 oldImg.save()
             else:   # 未找到则按新图处理，或许有更好的方案
                 # 生成图片身份md5
