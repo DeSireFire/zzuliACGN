@@ -162,28 +162,20 @@ def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',
         imgInfo.update(smTemp)  # 更新字典
         if imgMd5:  # md5如果不为空则为更新
             imgInfo['imgMd5'] = imgMd5
-            oldImg = Gallerys.objects.get(imgMd5=imgMd5)
+            oldImg = Gallerys.objects.filter(imgMd5=imgMd5)
             if not origin:  # 如果没有原址则与图床URL相同
                 imgInfo['origin'] = imgInfo['url']
             if oldImg:
-                smDelete(oldImg.hash)
-                # oldImg[0].update(
-                #     imgMd5=imgInfo['imgMd5'],
-                #     imgName=imgInfo['imgName'],
-                #     url=imgInfo['url'],
-                #     origin=imgInfo['origin'],
-                #     hash=imgInfo['hash'],
-                #     bedName=imgInfo['bedName'],
-                #     imgfrom=imgInfo['imgfrom'],
-                # )
-                oldImg.imgMd5 = imgInfo['imgMd5']
-                oldImg.imgName = imgInfo['imgName']
-                oldImg.url = imgInfo['url']
-                oldImg.origin = imgInfo['origin']
-                oldImg.hash = imgInfo['hash']
-                oldImg.bedName = imgInfo['bedName']
-                oldImg.imgfrom = imgInfo['imgfrom']
-                oldImg.save()
+                smDelete(oldImg[0].hash)
+                oldImg.update(
+                    imgMd5=imgInfo['imgMd5'],
+                    imgName=imgInfo['imgName'],
+                    url=imgInfo['url'],
+                    origin=imgInfo['origin'],
+                    hash=imgInfo['hash'],
+                    bedName=imgInfo['bedName'],
+                    imgfrom=imgInfo['imgfrom'],
+                  )
             else:   # 未找到则按新图处理，或许有更好的方案
                 # 生成图片身份md5
                 imgInfo['imgMd5'] = genearteMD5(imgInfo['imgName'])
