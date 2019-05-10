@@ -157,7 +157,6 @@ def imgBytesUpdate(fileName,fileRB,origin = '',bedName = 'sm',imgfrom = 'tools',
     }
     from ZA_Tools.sm.mainer import smImgUrlUper,smDelete
     smTemp = smImgUrlUper(fileRB=fileRB, fileName=fileName)
-    # todo 待get_or_create 优化
     if smTemp:  # 上传是否成功
         imgInfo.update(smTemp)  # 更新字典
         if imgMd5:  # md5如果不为空则为更新
