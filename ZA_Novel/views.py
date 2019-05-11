@@ -15,3 +15,12 @@ def novelsIndex(request):
     if not context['novelTypes_html']:
         context['novelTypes_html'] = ['<li><a href="#">暂无</a></li>']
     return render(request,'ZA_Novel/ZA_Novel.html',context)
+
+
+def bookInfo(request,bid):
+    context = {
+        'title': '次元圣经',
+        'novelTypes_html':[],
+        'novelTypes':[],
+    }
+    return render(request, 'ZA_Novel/ZA_BookInfo.html', context)
