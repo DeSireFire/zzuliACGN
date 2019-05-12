@@ -13,9 +13,9 @@ class newsType(models.Model):
 # 宅新闻
 class news(models.Model):
     news_title = models.CharField('标题', default='', max_length=255, unique=True)
-    news_category = models.CharField('类别',max_length=255)
+    news_category = models.ForeignKey('newsType',on_delete=models.CASCADE)
     news_tags = models.URLField('标签',default='')
     news_writer = models.URLField('作者',default='')
     news_origin = models.CharField('来源',default='',max_length=255)
     news_upTime = models.CharField('发布时间',default='',max_length=255)
-    news_content = models.CharField('所属应用',max_length=255,default='图库')# 按照django应用名来划分，例如：user（代表头像）、new(代表咨询图片)、Gallery(代表图库)、novel(代表小说封面或者插图)
+    news_content = models.CharField('正文',max_length=255,default='图库')# 按照django应用名来划分，例如：user（代表头像）、new(代表咨询图片)、Gallery(代表图库)、novel(代表小说封面或者插图)
