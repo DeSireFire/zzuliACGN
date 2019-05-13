@@ -1,8 +1,14 @@
 from django.shortcuts import render
+from django.http import JsonResponse,HttpResponse
 from .models import *
 # Create your views here.
 # 网页渲染部分
 def novelsIndex(request):
+    '''
+    响应小说页首页
+    :param request:
+    :return:
+    '''
     context = {
         'title': '次元圣经',
         'novelTypes_html':[],
@@ -24,3 +30,20 @@ def bookInfo(request,bid):
         'novelTypes':[],
     }
     return render(request, 'ZA_Novel/ZA_BookInfo.html', context)
+
+def category(request):
+    '''
+    首页各分类小说列表
+    :param request:
+    :return:
+    '''
+    context = {
+        'title': '次元圣经',
+        'List':[],
+        'Ranking':[],
+    }
+    temp_category = request.GET.get('category')
+    categoryAll = info.objects.select_related().all().order_by("novel_id").exclude(isdelete=1).filter(types__Type_title=temp_category)[:5]
+    context['List'] = list(categoryAll.values('novel_id','novelName','writer','resWorksNum','headerImage','types','action','fromPress','illustrator'))
+    # context['Ranking'] = categoryAll.query
+    return JsonResponse(context)
