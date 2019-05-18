@@ -24,7 +24,6 @@ def novelsIndex(request):
 
 
 def bookInfo(request,bid):
-    import json
     context = {
         'title': '次元圣经',
         'book':{},
@@ -33,7 +32,7 @@ def bookInfo(request,bid):
     book = info.objects.select_related().all().order_by("novel_id").exclude(isdelete=1).filter(novel_id = bid)
     context['book'] = list(book.values())[0]
     context['index'] = list(book.values())[0]['contents']
-
+    # todo 字段中目录contents中存储的数据格式存在问题，甚至是爬虫本身也存在问题
     return render(request, 'ZA_Novel/ZA_BookInfo.html', context)
 
 def category(request):

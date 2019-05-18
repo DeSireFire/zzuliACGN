@@ -57,6 +57,6 @@ def type_news(request):
     else:
         newsList = news.objects.select_related().all.order_by("-news_upTime").exclude(isdelete=1).filter(news_category=typeList.index(typeName)+1)
 
-    dataLen = newsList.count()
-    if int(idStart)-1 <= dataLen:
-        newsInfo = serializers("json",newsList[int(idStart):int(idStart)+20])
+    # dataLen = newsList.count()
+    # if int(idStart)-1 <= dataLen:
+    #     newsInfo = serializers("json",newsList[int(idStart):int(idStart)+20])
