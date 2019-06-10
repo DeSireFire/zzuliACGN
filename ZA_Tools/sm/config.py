@@ -1,82 +1,8 @@
 import random
-from zzuliACGN.config import aixinxi_login_dirt
-
-'''
-    附加信息设置
-'''
-# 爱信息图床，登陆用户名和密码
-aixinxi_login = aixinxi_login_dirt
-# 爱信息图床，退出登陆所需参数
-aixinxi_loginOut_dirt = {
-    "action":"logout",
-}
-# 爱信息图床，删除所需data
-aixinxi_data_delete = {
-'key':'44764c752081126b509b12091356f56c',
-}
-# 爱信息图床，上传时的附加数据
-aixinxi_update_data = {
-'name':'o_test.jpg',
-'policy':'eyJleHBpcmF0aW9uIjoiMjAxOC0xMS0xMVQxNDozNzo1NFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MF0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIiXV19',
-'signature':'maH2ayNKySSl5nvbPdJvdm4/Gro=',
-'OSSAccessKeyId':'LTAIyUoGoXRUSdwm',
-'key':'o_test.jpg',
-'success_action_status':'200',
-}
-# 爱信息图床，保存操作所需附加信息
-aixinxi_data_save = {
-'ming':'o_1cqs8t6tg1s0h1sddovn50ika.mp4',
-}
-# 爱信息图床，加密用的文件名
-# fileName_data = "{}{}".format(random.randint(0,9),int(time.time())).encode('utf8')
-fileName_data = "{}".format('zzuliacgn').encode('utf8')
-
-# sm.ms,上传data
-sm_data = {'smfile':'',}
-
-
-
-'''
-    网页地址设置
-'''
-# 爱信息图床，网站首页
-aixinxi_index_url = "https://tu.aixinxi.net/index.php"
-# 爱信息图床，登陆地址
-aixinxi_login_url = "https://tu.aixinxi.net/includes/userAction.php"
-# 爱信息图床，退出登录的连接地址
-aixinxi_loginOut_url = 'https://tu.aixinxi.net//includes/userAction.php?action=logout'
-# 爱信息图床，上传文件地址
-aixinxi_update_url = 'https://tu-t1.oss-cn-hangzhou.aliyuncs.com/'
-# 爱信息图床，保存信息地址
-aixinxi_save_url = 'https://tu.aixinxi.net/includes/save.php'
-# 爱信息图床，删除文件地址
-aixinxi_delete_url = 'https://tu.aixinxi.net/includes/delete_file.php'
-# 爱信息图床，token地址
-aixinxi_token_url = 'https://tu.aixinxi.net/includes/token.php'
-
 # sm.ms，上传地址
 sm_update_url = 'https://sm.ms/api/upload'
 # sm.ms,删除地质
 sm_delete_url = 'https://sm.ms/delete/%s'
-
-
-
-
-'''
-    代理设置
-'''
-# 本地代理池地址
-PROXYURL = "http://193.112.52.146:8000/?types=0&count=10&country=国内"
-# 用于测试IP可用的地址
-testURL = "http://tu.aixinxi.net/"
-# 删除无用IP
-delproxyIP = 'http://http://193.112.52.146/delete?ip=%s&port=%s'
-# 代理检测时长
-TIMEOUT = 3
-
-
-
-
 
 
 '''
@@ -119,45 +45,7 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11",
     "Mozilla/5.0 (X11; U; Linux x86_64; zh-CN; rv:1.9.2.10) Gecko/20100922 Ubuntu/10.10 (maverick) Firefox/3.6.10"
 ]
-def get_header():
-    return {
-        'User-Agent': random.choice(USER_AGENTS),
-    }
 
-
-
-
-
-'''
-    请求头设置
-'''
-# 爱信息图床，上传用时需要添加的请求头信息
-update_header = {
-'Origin':'https://tu.aixinxi.net',
-'Referer':'https://tu.aixinxi.net/index.php',
-}
-# 爱信息图床，退出操作的头信息
-loginOut_Header = {
-    'cookie':'PHPSESSID=gb9b12bgkn4a8gv1mf2ur50ud3',
-    'referer':'https://tu.aixinxi.net/index.php',
-    'upgrade-insecure-requests':'1',
-    'user-agent':random.choice(USER_AGENTS),
-}
-# 爱信息图床，删除操作的头信息
-delete_header = {
-'origin':'https://tu.aixinxi.net',
-'referer':'https://tu.aixinxi.net/views/else.php?key=',
-}
-# 爱信息图床，保存时用请求头部
-save_header = {
-'origin':'https://tu.aixinxi.net',
-'referer':'https://tu.aixinxi.net/index.php',
-}
-# 爱信息图床，token用请求头部
-token_header = {
-    'cache - control':'max-age=0',
-    'referer':aixinxi_index_url,
-}
 
 # sm.ms，上传
 sm_update_header = {

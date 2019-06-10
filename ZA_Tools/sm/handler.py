@@ -1,9 +1,24 @@
 import requests,re,json
-from ZA_Tools.imgTools.config import *
-from ZA_Tools.imgTools.publicHandlers import *
+from ZA_Tools.sm.config import *
+from ZA_Tools.views import fileSize
+
+
+# 获取指定url的图片bytes
+def urlImg(url):
+    '''
+    本来是只打算左sm图床的文本查看的，但是想象什么区别，
+    :param url: 需要请求的网络连接
+    :return:bytes
+    '''
+    req = requests.get(url=url)
+    choose = req.status_code
+    while choose!=200:
+        req = requests.post(url=url)
+        choose = req.status_code
+    return req.content
 
 # 上传文件
-def update(filesReadRB):
+def smUpdate(filesReadRB,fileName):
     """
     上传文件,运行结果：
     sm.ms OK!
@@ -14,8 +29,9 @@ def update(filesReadRB):
     """
     try:
         if fileSize(filesReadRB):
-            files = {'smfile': filesReadRB, }
-            req = requests.post(url=sm_update_url, headers=sm_update_header, files=files, proxies=proxy_list(PROXYURL,testURL))
+            # files = {'smfile': filesReadRB, }
+            files = {'smfile':(fileName,filesReadRB)}
+            req = requests.post(url=sm_update_url, headers=sm_update_header, files=files)
             if req.json()['code'] == 'success':
                 print('sm.ms OK!')
                 print(req.json())
@@ -32,7 +48,7 @@ def update(filesReadRB):
         return None
 
 # 删除文件
-def delete(hash):
+def smDelete(hash):
     """
     ['File delete success.']
     :param hash: 字符串，sm存图时用的hash
@@ -56,6 +72,6 @@ def delete(hash):
 
 if __name__ == '__main__':
     files = open('1.jpg','rb')
-    reqtext = update(files)
+    reqtext = smUpdate(files,'fuck.jpg')
     files.close()
-    delete(reqtext['data']['hash'])
+    smDelete(reqtext['data']['hash'])

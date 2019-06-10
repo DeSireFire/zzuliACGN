@@ -31,7 +31,7 @@ from datetime import date
 # Create your models here.
 
 # 小说分类信息
-class type(models.Model):
+class Ntype(models.Model):
     Type_title = models.CharField('类型名称',max_length=20,unique=True) #小说的分类（玄幻 奇幻 武侠 仙侠...）
     isdelete = models.BooleanField('是否删除', default=False)   #是否删除,默认不删
     def __str__(self):
@@ -50,8 +50,9 @@ class info(models.Model):
     fromPress = models.CharField('文库名',max_length=100,default='未知',)  # 文库名
     intro = models.TextField('简介',default='',) # 小说简介
     headerImage = models.URLField("小说封面URL") # 小说封面
-    resWorksNum = models.CharField('小说字数',max_length=200,default='0',) # 小说字数
-    types = models.ForeignKey(type, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
+    resWorksNum = models.IntegerField('小说字数',default='0',) # 小说字数
+    contents = models.TextField('小说目录',default='全本',) # 小说目录
+    types = models.ForeignKey(Ntype, verbose_name='小说所属分类', on_delete=models.CASCADE) #小说所属类型
     action = models.CharField('小说文章状态',max_length=200,default='连载中..',) # 小说更新状态
     isdelete = models.BooleanField('是否删除', default=False)
 
@@ -67,7 +68,7 @@ class detail(models.Model):
     title = models.CharField('册名',max_length=255,default='正文卷') # 小说册名
     chapter = models.CharField('章节名',max_length=255,default='正文卷') # 小说章节名
     fullName = models.CharField('章节全称',max_length=255,unique=True) # 小说章节名
-    worksNum = models.CharField('章节字数',max_length=255)  # 章节更新时间
+    worksNum = models.IntegerField('章节字数')  # 章节更新时间
     updateTime = models.DateField('章节更新时间', max_length=50)  # 章节更新时间
     chapterImgurls = models.TextField('章节插画',default='暂无')  # 章节插画
     container = models.TextField(default='',) # 小说正文

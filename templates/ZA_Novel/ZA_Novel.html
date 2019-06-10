@@ -48,20 +48,24 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作品分类 <i class="fa fa-toggle-down"></i></a>
                                     <ul class="dropdown-menu novel-class">
-                                        <li><a href="#">玄幻</a><a href="#">奇幻</a></li>
-                                        <!--<li><a href="#">奇幻</a></li>-->
+{#                                        <li><a href="#">玄幻</a><a href="#">奇幻</a></li>#}
+{#                                        <!--<li><a href="#">奇幻</a></li>-->#}
+{#                                        <li role="separator" class="divider"></li>#}
+{#                                        <li><a href="#">武侠</a><a href="#">仙侠</a></li>#}
+{#                                        <li role="separator" class="divider"></li>#}
+{#                                        <li><a href="#">都市</a><a href="#">现实</a></li>#}
+{#                                        <li role="separator" class="divider"></li>#}
+{#                                        <li><a href="#">军事</a><a href="#">历史</a></li>#}
+{#                                        <li role="separator" class="divider"></li>#}
+{#                                        <li><a href="#">游戏</a><a href="#">体育</a></li>#}
+{#                                        <li role="separator" class="divider"></li>#}
+{#                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>#}
+{#                                        <li role="separator" class="divider"></li>#}
+{#                                        <li><a href="#">女生</a><a href="#">二次元</a></li>#}
+                                        {% for v in novelTypes_html %}
+                                        {{ v|safe }}
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#">武侠</a><a href="#">仙侠</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">都市</a><a href="#">现实</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">军事</a><a href="#">历史</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">游戏</a><a href="#">体育</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">科幻</a><a href="#">灵异</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">女生</a><a href="#">二次元</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </li>
                                 <li><a href="#">全部作品</a></li>
@@ -100,445 +104,438 @@
                 <div class="col-md-12 rgba-blue">
                     <div class="col-md-3 col-sm-4 notice-list-first text-center">
                         <div class="line-border"></div>
-                        <h3>第六届SF原创轻小说征文大赛正式开始！</h3>
+                        <h3>郑州轻工业大学动漫协会 小说文库启动！</h3>
                         <div class="line-border"></div>
                     </div>
                     <div class="col-md-3 col-sm-4 notice-list text-left">
                         <ul>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-4 notice-list text-left hidden-xs">
-                        <ul>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-4 notice-list text-left hidden-xs hidden-sm">
                         <ul>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
-                            <li class="color-type_0"><a href="#" target="_blank">沉默的糕点新书上线</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
+                            <li class="color-type_0"><a href="#" target="_blank">轻小说文库上线测试，这是一个全新的日本轻小说网站，本站只收录各类日本轻小说与ACG小说，无须注册即可随意阅读与下载所有小说，注册会员后更可拥有书架功能！</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="clearfix"></div>
             <!--小说版块排行榜-->
-            <div class="novel-sort row visible-md-block visible-lg-block">
-                <div class="rank-list col-md-3 col-sm-6">
-                    <h3 class="rank-list-title">
-                        SF轻小说·人气榜
-                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
-                    </h3>
-                    <div class="line-border"></div>
-                    <div class="book-list">
-                        <ul>
-                            <li class="book-list-one">
-                                <div class="book-wrap">
-                                    <div class="book-info text-left col-sm-8">
-                                        <h3>NO.1</h3>
-                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
-                                        <p class="digital">14167 月票</p>
-                                        <p class="author">
-                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
-                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
-                                        </p>
-                                    </div>
-                                    <div class="book-cover col-sm-4">
-                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num2">2</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num3">3</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num4">4</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num5">5</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num6">6</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num7">7</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num8">8</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num9">9</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num10">10</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="rank-list col-md-3 col-sm-6">
-                    <h3 class="rank-list-title">
-                        SF轻小说·人气榜
-                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
-                    </h3>
-                    <div class="line-border"></div>
-                    <div class="book-list">
-                        <ul>
-                            <li class="book-list-one">
-                                <div class="book-wrap">
-                                    <div class="book-info text-left col-sm-8">
-                                        <h3>NO.1</h3>
-                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
-                                        <p class="digital">14167 月票</p>
-                                        <p class="author">
-                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
-                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
-                                        </p>
-                                    </div>
-                                    <div class="book-cover col-sm-4">
-                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num2">2</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num3">3</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num4">4</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num5">5</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num6">6</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num7">7</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num8">8</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num9">9</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num10">10</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="rank-list col-md-3 col-sm-6">
-                    <h3 class="rank-list-title">
-                        SF轻小说·人气榜
-                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
-                    </h3>
-                    <div class="line-border"></div>
-                    <div class="book-list">
-                        <ul>
-                            <li class="book-list-one">
-                                <div class="book-wrap">
-                                    <div class="book-info text-left col-sm-8">
-                                        <h3>NO.1</h3>
-                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
-                                        <p class="digital">14167 月票</p>
-                                        <p class="author">
-                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
-                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
-                                        </p>
-                                    </div>
-                                    <div class="book-cover col-sm-4">
-                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num2">2</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num3">3</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num4">4</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num5">5</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num6">6</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num7">7</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num8">8</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num9">9</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num10">10</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="rank-list col-md-3 col-sm-6">
-                    <h3 class="rank-list-title">
-                        SF轻小说·人气榜
-                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>
-                    </h3>
-                    <div class="line-border"></div>
-                    <div class="book-list">
-                        <ul>
-                            <li class="book-list-one">
-                                <div class="book-wrap">
-                                    <div class="book-info text-left col-sm-8">
-                                        <h3>NO.1</h3>
-                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>
-                                        <p class="digital">14167 月票</p>
-                                        <p class="author">
-                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>
-                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>
-                                        </p>
-                                    </div>
-                                    <div class="book-cover col-sm-4">
-                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num2">2</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num3">3</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num4">4</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num5">5</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num6">6</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num7">7</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num8">8</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num9">9</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                            <li class="book-list-other">
-                                <div class="num-box">
-                                    <span class="num10">10</span>
-                                </div>
-                                <div class="name-box">
-                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <a href="#" class="text-center">展开更多 >>></a>
-            </div>
-            <div class="space"></div>
-            <div class="clearfix"></div>
+{#            <div class="novel-sort row visible-md-block visible-lg-block">#}
+{#                <div class="rank-list col-md-3 col-sm-6">#}
+{#                    <h3 class="rank-list-title">#}
+{#                        SF轻小说·人气榜#}
+{#                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>#}
+{#                    </h3>#}
+{#                    <div class="line-border"></div>#}
+{#                    <div class="book-list">#}
+{#                        <ul>#}
+{#                            <li class="book-list-one">#}
+{#                                <div class="book-wrap">#}
+{#                                    <div class="book-info text-left col-sm-8">#}
+{#                                        <h3>NO.1</h3>#}
+{#                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>#}
+{#                                        <p class="digital">14167 月票</p>#}
+{#                                        <p class="author">#}
+{#                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>#}
+{#                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>#}
+{#                                        </p>#}
+{#                                    </div>#}
+{#                                    <div class="book-cover col-sm-4">#}
+{#                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num2">2</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num3">3</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num4">4</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num5">5</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num6">6</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num7">7</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num8">8</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num9">9</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num10">10</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="rank-list col-md-3 col-sm-6">#}
+{#                    <h3 class="rank-list-title">#}
+{#                        SF轻小说·人气榜#}
+{#                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>#}
+{#                    </h3>#}
+{#                    <div class="line-border"></div>#}
+{#                    <div class="book-list">#}
+{#                        <ul>#}
+{#                            <li class="book-list-one">#}
+{#                                <div class="book-wrap">#}
+{#                                    <div class="book-info text-left col-sm-8">#}
+{#                                        <h3>NO.1</h3>#}
+{#                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>#}
+{#                                        <p class="digital">14167 月票</p>#}
+{#                                        <p class="author">#}
+{#                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>#}
+{#                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>#}
+{#                                        </p>#}
+{#                                    </div>#}
+{#                                    <div class="book-cover col-sm-4">#}
+{#                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num2">2</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num3">3</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num4">4</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num5">5</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num6">6</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num7">7</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num8">8</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num9">9</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num10">10</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="rank-list col-md-3 col-sm-6">#}
+{#                    <h3 class="rank-list-title">#}
+{#                        SF轻小说·人气榜#}
+{#                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>#}
+{#                    </h3>#}
+{#                    <div class="line-border"></div>#}
+{#                    <div class="book-list">#}
+{#                        <ul>#}
+{#                            <li class="book-list-one">#}
+{#                                <div class="book-wrap">#}
+{#                                    <div class="book-info text-left col-sm-8">#}
+{#                                        <h3>NO.1</h3>#}
+{#                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>#}
+{#                                        <p class="digital">14167 月票</p>#}
+{#                                        <p class="author">#}
+{#                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>#}
+{#                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>#}
+{#                                        </p>#}
+{#                                    </div>#}
+{#                                    <div class="book-cover col-sm-4">#}
+{#                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num2">2</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num3">3</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num4">4</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num5">5</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num6">6</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num7">7</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num8">8</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num9">9</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num10">10</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="rank-list col-md-3 col-sm-6">#}
+{#                    <h3 class="rank-list-title">#}
+{#                        SF轻小说·人气榜#}
+{#                        <a class="more" href="#" target="_blank">更多<i class="fa fa-chevron-circle-right fa-lg"></i></a>#}
+{#                    </h3>#}
+{#                    <div class="line-border"></div>#}
+{#                    <div class="book-list">#}
+{#                        <ul>#}
+{#                            <li class="book-list-one">#}
+{#                                <div class="book-wrap">#}
+{#                                    <div class="book-info text-left col-sm-8">#}
+{#                                        <h3>NO.1</h3>#}
+{#                                        <h4><a href="#">全职武神全职武神全职武神</a></h4>#}
+{#                                        <p class="digital">14167 月票</p>#}
+{#                                        <p class="author">#}
+{#                                            <a href="#" class="type"><i class="fa fa-tag fa-lg"></i>魔幻</a>#}
+{#                                            <a href="#" class="writer"><i class="fa fa-user fa-lg"></i>健胃消食片</a>#}
+{#                                        </p>#}
+{#                                    </div>#}
+{#                                    <div class="book-cover col-sm-4">#}
+{#                                        <a class="link" href="//book.qidian.com/info/1011816096" target="_blank"><img src="https://bookcover.yuewen.com/qdbimg/349573/1011816096/90" alt="全职武神"></a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num2">2</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num3">3</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num4">4</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num5">5</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num6">6</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num7">7</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num8">8</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num9">9</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="book-list-other">#}
+{#                                <div class="num-box">#}
+{#                                    <span class="num10">10</span>#}
+{#                                </div>#}
+{#                                <div class="name-box">#}
+{#                                    <a class="name" href="https://book.qidian.com/info/1011705052" target="_blank">我真是个富二代</a><i class="total">8992</i>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <a href="#" class="text-center">展开更多 >>></a>#}
+{#            </div>#}
+{#            <div class="space"></div>#}
+{#            <div class="clearfix"></div>#}
             <!--小说版块主体*N-->
+            {% for v in novelTypes %}
             <div class="novel-container row">
                 <div class="block-left col-md-6 col-sm-7 col-xs-12 text-center">
                     <div class="block-title">
                         <a href="#" class="title-link">
                             <div class="icon-title"></div>
-                            <h2 class="title">热门文库本</h2>
+                            <h2 class="title">热门『{{ v }}』小说</h2>
                         </a>
                         <a href="/info/#/faq?to=rank" target="_blank" class="link-faq"><i class="fa fa-question-circle fa-2x"></i></a>
                         <a href="/c/14" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
@@ -692,7 +689,7 @@
                 <div class="block-right col-md-3 col-sm-5 col-xs-12 text-left">
                     <div class="js-block-rank rank-wrap">
                         <div class="block-title block-title-rank">
-                            <h2 class="title">文库本<span class="s-t">战力榜</span>
+                            <h2 class="title">{{ v }}<span class="s-t">战力榜</span>
                             </h2>
                             <!--a.more(href="/rank/", target="_blank") 更多-->
                             <!--    i.fa.fa-angle-right.fa-fw-->
@@ -709,6 +706,7 @@
             </div>
             <div class="space"></div>
             <div class="clearfix"></div>
+            {% endfor %}
             <!--小说版块最近更新-->
             <div class="novel-update row">
                 <div class="block-left col-md-9 visible-lg-block visible-md-block visible-sm-block text-left">
