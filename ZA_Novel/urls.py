@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('',views.novelsIndex),
-    re_path(r'itemInfo/(.*?).html$', views.bookInfo),
+    path('ajaxCategory/', views.category),
+    re_path(r'book/(.*?).html$', views.bookInfo),
 ]
