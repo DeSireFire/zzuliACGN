@@ -35,6 +35,14 @@ def bookInfo(request,bid):
     # todo 字段中目录contents中存储的数据格式存在问题，甚至是爬虫本身也存在问题
     return render(request, 'ZA_Novel/ZA_BookInfo.html', context)
 
+def categoryIndex(request):
+    '''
+    首页分类获取
+    :param request:
+    :return:
+    '''
+    pass
+
 def category(request):
     '''
     首页各分类小说列表

@@ -522,7 +522,7 @@
 {#            <div class="clearfix"></div>#}
             <!--小说版块主体*N-->
             {% for v in novelTypes %}
-            <div class="novel-container row">
+            <div class="novel-container row" id="hot-novel">
                 <div class="block-left col-md-6 col-sm-7 col-xs-12 text-center">
                     <div class="block-title">
                         <a href="#" class="title-link">
@@ -532,33 +532,35 @@
                         <a href="#" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
                     </div>
                     <div class="block-bottom">
-                        <ul class="book-list">
-                            <li>
-                                <a href="#" target="_blank" class="thumb">
-                                    <span class="recom"></span>
-                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">
-                                    <div class="label-count">
-                                        <span class="fontstype">1223456 字</span>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-info-a">
-                                            <p><span class="d">我的姐姐有中二病</span></p>
-                                            <p><span class="book-info-title">类别：</span><span class="d">轻小说</span></p>
+                        <hot-lists :temp1='temp1'></hot-lists>
+
+{#                        <ul class="book-list">#}
+{#                            <li>#}
+{#                                <a href="#" target="_blank" class="thumb">#}
+{#                                    <span class="recom"></span>#}
+{#                                    <img alt="轻小说：我的姐姐有中二病" class="cover" src="http://rs.sfacg.com/web/novel/images/NovelCover/Big/2018/09/d36532df-2c23-4f5c-bebf-81fe948730fa.jpg">#}
+{#                                    <div class="label-count">#}
+{#                                        <span class="fontstype">1223456 字</span>#}
+{#                                    </div>#}
+{#                                    <div class="book-info">#}
+{#                                        <div class="book-info-a">#}
+{#                                            <p><span class="d">我的姐姐有中二病</span></p>#}
+{#                                            <p><span class="book-info-title">类别：</span><span class="d">轻小说</span></p>#}
 {#                                            <img data-sizes="36px" class="avatar" sizes="36px" src="//new-image.iqing.com/avatar/280482/0d239d34-ddfc-4c3a-9489-f7917cc47006.jpg?x-oss-process=image/resize,w_36,h_36/format,webp"><span class="name">HJ文库</span>#}
-                                        </div>
-                                        <div class="book-info-b">
-                                            <p><span class="book-info-title">状态：</span><span class="d">连载中..</span></p>
-                                            <p><span class="book-info-title">作者：</span><span class="d">嘎嘎</span></p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">
-                                    <i class="icon icon-pay"></i>
-                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>
-                                </a>
-                            </li>
+{#                                        </div>#}
+{#                                        <div class="book-info-b">#}
+{#                                            <p><span class="book-info-title">状态：</span><span class="d">连载中..</span></p>#}
+{#                                            <p><span class="book-info-title">作者：</span><span class="d">嘎嘎</span></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </a>#}
+{#                                <a href="https://www.iqing.com/book/34961" target="_blank" class="title">#}
+{#                                    <i class="icon icon-pay"></i>#}
+{#                                    <h3 class="hasicon has-icon">我的姐姐有中二病</h3>#}
+{#                                </a>#}
+{#                            </li>#}
                             {# 迭代....#}
-                        </ul>
+{#                        </ul>#}
                     </div>
                 </div>
                 <div class="block-center col-md-3 visible-md-block visible-lg-block text-left">
@@ -887,6 +889,8 @@
 {%block End_Script_more%}
 <!--JQ幻灯片插件-->
 <script type="text/javascript" src="https://cdn.bootcss.com/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script src="/static/ZA_Novel/js/books.js"></script>
 <script>
 
 $(document).ready(function(){
