@@ -522,7 +522,10 @@
 {#            <div class="clearfix"></div>#}
             <!--小说版块主体*N-->
             {% for v in novelTypes %}
-            <div class="novel-container row" id="hot-novel">
+            <main id="hot-novel">
+                <novel-section-container :sections=sections></novel-section-container>
+            </main>
+            <!-- <div class="novel-container row" id="hot-novel">
                 <div class="block-left col-md-6 col-sm-7 col-xs-12 text-center">
                     <div class="block-title">
                         <a href="#" class="title-link">
@@ -532,7 +535,7 @@
                         <a href="#" class="more">更多<i class="fa fa-angle-right fa-fw"></i></a>
                     </div>
                     <div class="block-bottom">
-                        <hot-lists :temp1='temp1'></hot-lists>
+                        <hot-lists :temp1='temp1'></hot-lists> -->
 
 {#                        <ul class="book-list">#}
 {#                            <li>#}
@@ -561,8 +564,8 @@
 {#                            </li>#}
                             {# 迭代....#}
 {#                        </ul>#}
-                    </div>
-                </div>
+                    <!-- </div> -->
+                <!-- </div>
                 <div class="block-center col-md-3 visible-md-block visible-lg-block text-left">
                     <div class="js-block-rank rank-wrap">
                         <div class="block-title block-title-rank">
@@ -576,10 +579,10 @@
                     <div class="js-block-rank rank-wrap">
                         <div class="block-title block-title-rank">
                             <h2 class="title">{{ v }}<span class="s-t">战力榜</span>
-                            </h2>
+                            </h2> -->
                             <!--a.more(href="/rank/", target="_blank") 更多-->
                             <!--    i.fa.fa-angle-right.fa-fw-->
-                            <div class="js-rank-tab block-title-rank"><a class="tab active js-tab-14-0">日榜</a><a class="tab js-tab-14-1">周榜</a><a class="tab js-tab-14-2">月榜</a>
+                            <!-- <div class="js-rank-tab block-title-rank"><a class="tab active js-tab-14-0">日榜</a><a class="tab js-tab-14-1">周榜</a><a class="tab js-tab-14-2">月榜</a>
                             </div>
                         </div>
                         <div class="line-border"></div>
@@ -589,7 +592,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="space"></div>
             <div class="clearfix"></div>
             {% endfor %}
@@ -890,6 +893,8 @@
 <!--JQ幻灯片插件-->
 <script type="text/javascript" src="https://cdn.bootcss.com/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-lazyload/1.2.6/vue-lazyload.js"></script>
 <script src="/static/ZA_Novel/js/books.js"></script>
 <script>
 
