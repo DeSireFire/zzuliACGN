@@ -6,5 +6,6 @@ urlpatterns = [
     path('',views.novelsIndex),
     path('ajaxCategoryIndex/', views.categoryIndex),
     path('ajaxCategory/', views.category),
+    path('booksList/', views.booksList),
     re_path(r'book/(.*?).html$', views.bookInfo),
 ]

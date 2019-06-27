@@ -372,14 +372,14 @@ methods:{
         }
         //获取每个分类的内容
         for(let i = 0;i<this.sections.length;i++){
-            axios.get('/user', {//获取有多少分类的路径
+            axios.get('booksList/', {//获取有多少分类的路径
                 params: {
                   type: this.sections[i].name//参数为之前传来的的name
                 }
               })
               .then(function (response) {
                 console.log(response);
-                _temp.ajaxsuccess(data,i)
+                _temp.ajaxsuccess(response.data,i)
               })
               .catch(function (error) {//失败时执行，现在调试用
                 console.log(error);
@@ -435,14 +435,14 @@ let app = new Vue({
         getSection:function(){
             let _temp = this
             //获取有多少分类的函数
-            axios.get('/user', {//获取有多少分类的路径
-                params: { //get的参数，选填以?type=xxx附在url上
-                  type: 'xxx'
-                }
+            axios.get('ajaxCategoryIndex/', {//获取有多少分类的路径
+                // params: { //get的参数，选填以?type=xxx附在url上
+                //   type: 'xxx'
+                // }
               })
               .then(function (response) {//成功时执行
                 console.log(response);
-                _temp.ajaxsuccess(response)
+                _temp.ajaxsuccess(response.data.typeList)
               })
               .catch(function (error) {//调试用
                 console.log(error);
